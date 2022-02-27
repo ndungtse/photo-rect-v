@@ -10,7 +10,7 @@ const Login = () =>{
         showPassword: false,
       });
       
-      const handleClickShowPassword = () => {
+      const handleShowPassword = () => {
         setValues({ ...values, showPassword: !values.showPassword });
       };
       
@@ -45,7 +45,7 @@ const Login = () =>{
                 </div>
                 
                 <div className="label">
-                    <input  onClick={handleClickShowPassword}
+                    <input  onClick={handleShowPassword}
               onMouseDown={handleMouseDownPassword} type="checkbox"/>
                     <label>Show password</label>
                 </div>

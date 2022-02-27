@@ -6,6 +6,27 @@ import './mess.css';
 function Messprev() {
   const [inputMessage, setMessage] = useState("");
   const [message, setSend] = useState([]);
+
+  useEffect(() => {
+    getSavedMessage();
+  }, []);
+
+  useEffect(() => {
+    saveMessage();
+  }, [message, setSend]);
+
+  const saveMessage = () => { 
+    (localStorage.setItem("message", JSON.stringify(message))); 
+      
+  }
+  const getSavedMessage = () => {
+    if (localStorage.getItem("message") === null){
+      localStorage.setItem("message", JSON.stringify([]));
+    }else{
+      let localMessage = JSON.parse(localStorage.getItem("message"));
+      setSend(localMessage);
+    }
+  }
   return (
     <div className="mess-prev">
         <div className="prev-content">

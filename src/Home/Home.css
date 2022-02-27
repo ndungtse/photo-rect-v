@@ -266,16 +266,16 @@ body{
 .post input[type="file"]{
     display: none;
 }
-.post input{
+.post input, .post textarea{
     height: 30px;
     font-size: 1.05rem;
     padding: 7px 11px;
     border: 1px solid gray;
     outline: none;
-    border-radius: 25px;
+    border-radius: 5px;
     width: 200px;
 }
-.post input:focus{
+.post input:focus, .post textarea:focus{
     box-shadow: 0 0 5px rgba(81, 203, 238, 1);
  /*  padding: 3px 0px 3px 3px;
   margin: 5px 1px 3px 0px; */

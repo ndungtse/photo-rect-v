@@ -1,12 +1,11 @@
 import Mess from './mess';
 import './mess.css';
 
-function Chatflow({message, setSend}) {
-  // console.log(message);
+function Chatflow({message}) {
+
   return (
     <div className="chat-flow">
     <div className="speakers send">
-      
       {message.map((toSend)=>(
       <Mess messagetext={toSend.messagetext}/>
           ))}

@@ -1,7 +1,7 @@
 import React from 'react';
 import './mess.css';
 
-function Chatinput ({setMessage, message, setSend, inputMessage, setStatus}) {
+function Chatinput ({setMessage, message, setSend, inputMessage}) {
  
     const  MessageHandler = (e)=> {
         console.log(e.target.value);
@@ -10,13 +10,13 @@ function Chatinput ({setMessage, message, setSend, inputMessage, setStatus}) {
       }
       const submitMessage = (e) => {
         if (inputMessage==="") {
-          alert("Please enter a message")
+          // alert("Please enter a message")
         }else {
           e.preventDefault();
         setSend([ 
             ...message, {messagetext: inputMessage, id: Math.random()*1000},
         ]);
-        setMessage("");
+        // setMessage("");
         }
 
     } 

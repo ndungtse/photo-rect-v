@@ -9,7 +9,7 @@ function Mainconts() {
         <input type="file" id="file" accept="image/png,jpg" /><label htmlFor="file">
           <i title='add photos' className='bx bx-image'>
           </i></label>
-        <input type="textarea" placeholder='Say something' />
+        <textarea type="textarea" placeholder='Say something' />
         <button>Post</button>
       </div>
       <div className="time">
