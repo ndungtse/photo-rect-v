@@ -99,3 +99,12 @@ form{
 .label input{
   transform: scale(1.2);
 }
+.alt1{
+  margin-top: 10px;
+}
+.alt1 a{
+  text-decoration: none;
+}
+.alt1 a:hover{
+  color: rgb(23, 27, 255);
+}
