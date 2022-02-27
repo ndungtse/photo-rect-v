@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&family=Open+Sans&family=Poppins:wght@300&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;/* 
+     font-family: 'Open Sans', sans-serif; */
+}
+:root {
+  --primary-color: #2E2C38;
+  --blue-color: #2E4B9C;
+  --black-color: #000;
+  --dim-black-color:#5F6476;
+  --icon-color: #5F6476;
+  --icon-hover: #fff;
+  --ligth-color: #fff;
+  --dim-light: #edf1f8;
+}
+.dark-theme{
+  --primary-color: #2c2c2c;
+  --blue-color: #2E4B9C;
+  --black-color: #fff;
+  --dim-black-color:#edf1f8;
+  --ligth-color: #000;
+  --dim-light: #131313;
+}
+body{
+  background: var(--primary-color);
+}
+.main-container{
+  display: flex;
+  background-color: var(--primary-color);
+  top: 0;
+}

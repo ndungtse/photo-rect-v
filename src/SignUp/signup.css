@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&family=Open+Sans&family=Poppins:wght@300&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;/* 
+     font-family: 'Open Sans', sans-serif; */
+}
+
+h1{
+  font-size: 1.2em;
+}
+img{
+  width: 100%;
+}
+form{
+  width: 500px;
+  border-radius: 20px;
+  background-color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+.labels{
+  width: 400px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.labels input{
+  width: 300px;
+  height: 35px;
+  padding: 0 10px;
+  border: 0.7px solid rgb(112, 112, 112);
+  border-radius: 3px;
+  text-align: center;
+  font-size: 1.1em;
+  outline: none;
+}
+.labels label{
+  font-size: 1.1em;
+}
+.labels input:focus{
+  box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+ /*  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px; */
+  border: 1px solid rgba(81, 203, 238, 1);
+}
+
+.button{
+  margin-top: 30px;
+  width: 100px;
+}
+.button div input{
+  width: 100%;
+  height: 30px;
+  border-radius: 4px;
+  border: none;
+  color: #fff;
+  font-size: 1.2em;
+  outline: none;
+  background: #4a2ff7e8;
+  transition: all 0.3s;
+  /* background: linear-gradient(90deg, rgba(70,5,222,1) 43%, rgba(5,162,222,1) 79%, rgba(0,95,255,1) 100%); */
+}
+.button div input:hover{
+  cursor: pointer;
+  background: #2403fde8;
+  transform: scale(1.1);
+}
+.alt{
+  display: flex;
+  margin-top: 10px;
+  align-items: center;
+  justify-content: space-between;
+  width: 240px;
+}
+.alt a{
+  text-decoration: none;
+}
+.alt a:hover{
+  color: rgb(23, 27, 255);
+}
+.label{
+  display: flex;
+  margin-top: 10px;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+}
+.label label{
+  margin-left: 10px;
+}
+.label input{
+  transform: scale(1.2);
+}
