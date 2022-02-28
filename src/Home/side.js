@@ -21,6 +21,8 @@ function Side() {
               <div className="bell">
                 <Link to="login"><a href="login.html"><i title="Log out" className="bx bx-bell icon"></i></a></Link>
               </div>
+              <div>
+              </div>
             </div>
               <div className="results">
                 <p>No results found fjherfb refbhje</p>
