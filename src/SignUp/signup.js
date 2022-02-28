@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Form, Body, Main, Logo, sayHi, sayBye} from './signupcss';
+import {Form, Body, Main, Logo,} from './signupcss';
 import  './signup.css';
 
 const Signup = () => {
@@ -61,7 +61,7 @@ const Signup = () => {
 
                 <div class="button">
 
-                    <div><input onClick={sayHi} type="submit" value="Sign Up"/></div>
+                    <div><input type="submit" value="Sign Up"/></div>
                 </div>
 
                 <div class="alt">

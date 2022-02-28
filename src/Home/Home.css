@@ -243,7 +243,7 @@ body{
 .react-cont input{
     display: none;
 }
-.react-cont div{
+.react-cont label{
     text-decoration: none;
     cursor: pointer;
 }
