@@ -20,7 +20,7 @@ function Nav() {
                   className="bx bx-message-rounded-dots icon"></i></div></Link>
             </li>
             <li className="navlinks">
-              <div title="Profile" className="links"><i className="bx bx-user icon"></i></div>
+             <Link to='accounts'><div title="Profile" className="links"><i className="bx bx-user icon"></i></div></Link>
             </li>
             <li className="navlinks">
               <div title="Saved" className="links"><i className="bx bx-bookmark icon"></i></div>
