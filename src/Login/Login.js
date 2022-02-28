@@ -9,24 +9,26 @@ const Login = () =>{
         password: "",
         showPassword: false,
       });
-      
       const handleShowPassword = () => {
         setValues({ ...values, showPassword: !values.showPassword });
       };
       
       
-      const handleMouseDownPassword = (event) => {
-        event.preventDefault();
+      const handleMouseDownPassword = (e) => {
+        e.preDefault();
       };
       
-      const handlePasswordChange = (prop) => (event) => {
-        setValues({ ...values, [prop]: event.target.value });
+      const handlePasswordChange = (prop) => (e) => {
+        setValues({ ...values, [prop]: e.target.value });
+        console.log(e.target.value);
       };
+   
+      
   return (
       <>
       <Body>
         <Main>
-            <Form>
+            <Form className='shadow-lg'>
                 <Logo><img src={require("./../Home/Images/logo.png")} alt="logo" /></Logo>
                 <h1>Log into Photo Corner</h1>
                 <div className="labels">
@@ -54,7 +56,7 @@ const Login = () =>{
                     <div><input type="submit" value="Login"/></div>
                 </div>
 
-                <div className="alt1">
+                <div className="alt1 ">
                     <a href="./">Forgot your password?</a>
                 </div>
                 <div className="alt">

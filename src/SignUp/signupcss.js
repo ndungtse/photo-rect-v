@@ -29,3 +29,9 @@ export const
  Logo = styled.div`
 width: 80px;
 `
+export const sayHi = () => {
+    console.log('Hello')
+}
+export const sayBye = () => {
+    console.log('Bye')
+} 

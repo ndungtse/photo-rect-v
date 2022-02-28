@@ -5,6 +5,7 @@ import Follow from './follow';
 import Saved from './saved';
 import Activity from './activity';
 
+
 function Side() {
   return ( 
       <div className='side'>

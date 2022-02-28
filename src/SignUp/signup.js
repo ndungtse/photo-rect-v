@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import {Form, Body, Main, Logo} from './signupcss'
-import  './signup.css'
+import {Form, Body, Main, Logo, sayHi, sayBye} from './signupcss';
+import  './signup.css';
 
 const Signup = () => {
     const [values, setValues] = useState({
@@ -27,12 +27,8 @@ const Signup = () => {
                 <Logo><img src={require("./../Home/Images/logo.png")} alt="logo" /></Logo>
                 <h1>Sign Up to Photo Corner</h1>
                 <div class="labels">
-                    <label>First Name</label>
+                    <label>Full Name</label>
                     <input oninput="getfname(event)" type="text" placeholder="First Name"required />
-                </div>
-                <div class="labels">
-                    <label>Last Name</label>
-                    <input oninput="getlname(event)" type="text" placeholder="Last Name" required />
                 </div>
                 <div class="labels">
                     <label>Username</label>
@@ -65,7 +61,7 @@ const Signup = () => {
 
                 <div class="button">
 
-                    <div><input type="submit" value="Sign Up"/></div>
+                    <div><input onClick={sayHi} type="submit" value="Sign Up"/></div>
                 </div>
 
                 <div class="alt">

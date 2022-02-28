@@ -1,7 +1,15 @@
 // import styled from 'styled-components';
+import React, { useState, useEffect } from 'react';
+
 import './Home.css';
 
 function Mainconts() {
+  const [likeCount, setLikeCount] = useState(0);
+  const [calculatedlikeCount, setCalculatedLikeCount] = useState(0)
+
+   useEffect(()=> {
+    setCalculatedLikeCount(()=> likeCount +1);
+   }, [likeCount]);
   return ( 
     <div className="main-contents ">
       <div className="post">
@@ -41,8 +49,9 @@ function Mainconts() {
             </div>
             <div className="react">
               <div className="react-cont">
-                <div id="love"><i className='bx bxs-heart'></i></div>
-                <div><span id="react-spa">129</span></div>
+                <input type="checkbox"  id="like"/>
+                <label for="like" id="love" onClick={()=> setLikeCount((c)=> c+1)}><i className='bx bxs-heart'></i></label>
+                <div><span id="react-spa">{calculatedlikeCount}</span></div>
               </div>
               <div className="react-cont">
                 <div id="comment"><i className='bx bxs-comment-dots'></i></div>
@@ -57,12 +66,13 @@ function Mainconts() {
           </div>
           <div className="cont-desc">
             <div className="cont-post">
-              <img src={require("./Images/subs/Bitmap.png")} alt="" />
+              <img  src={require("./Images/subs/Bitmap.png")} alt="" />
               <span id="postname">Chloe</span>
             </div>
             <div className="react">
               <div className="react-cont">
-                <div id="love"><i className='bx bxs-heart'></i></div>
+                <input type="checkbox"  id="like"/>
+                <label for="like" id="love"><i className='bx bxs-heart'></i></label>
                 <div><span id="react-spa">129</span></div>
               </div>
               <div className="react-cont">
@@ -83,7 +93,8 @@ function Mainconts() {
             </div>
             <div className="react">
               <div className="react-cont">
-                <div id="love"><i className='bx bxs-heart'></i></div>
+                <input type="checkbox"  id="like"/>
+                <label for="like" id="love"><i className='bx bxs-heart'></i></label>
                 <div><span id="react-spa">129</span></div>
               </div>
               <div className="react-cont">
@@ -104,7 +115,8 @@ function Mainconts() {
             </div>
             <div className="react">
               <div className="react-cont">
-                <div id="love"><i className='bx bxs-heart'></i></div>
+                <input type="checkbox"  id="like"/>
+                <label for="like" id="love"><i className='bx bxs-heart'></i></label>
                 <div><span id="react-spa">129</span></div>
               </div>
               <div className="react-cont">

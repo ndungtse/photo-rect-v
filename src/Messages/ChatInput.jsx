@@ -4,7 +4,6 @@ import './mess.css';
 function Chatinput ({setMessage, message, setSend, inputMessage}) {
  
     const  MessageHandler = (e)=> {
-        console.log(e.target.value);
         setMessage(e.target.value);
 
       }

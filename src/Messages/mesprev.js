@@ -12,13 +12,14 @@ function Messprev() {
   }, []);
 
   useEffect(() => {
+    const saveMessage = () => { 
+      (localStorage.setItem("message", JSON.stringify(message))); 
+      
+    }
     saveMessage();
   }, [message, setSend]);
 
-  const saveMessage = () => { 
-    (localStorage.setItem("message", JSON.stringify(message))); 
-      
-  }
+  
   const getSavedMessage = () => {
     if (localStorage.getItem("message") === null){
       localStorage.setItem("message", JSON.stringify([]));

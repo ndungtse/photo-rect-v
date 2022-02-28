@@ -240,11 +240,14 @@ body{
     align-items: center;
     justify-content: center;
 }
+.react-cont input{
+    display: none;
+}
 .react-cont div{
     text-decoration: none;
     cursor: pointer;
 }
-.react-cont div i{
+.react-cont label i{
     font-size: 1.7em;
 }
 .react-cont .bxs-heart{
