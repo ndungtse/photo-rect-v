@@ -1,8 +1,10 @@
 // import styled from 'styled-components';
 import React, { useState /*, useEffect*/ } from 'react';
+// import { Form } from 'react-bootstrap';
 
 import './Home.css';
-import getCaption from './posts/post';
+import postUtils from './posts/post';
+
 
 function Mainconts() {
   const [count, setCount] = useState(0);
@@ -21,14 +23,14 @@ function Mainconts() {
   return (
     <div className="main-contents ">
       <div className="post">
-        <Form>
+        <form onLoad={postUtils.onLoad} onSubmit={postUtils.onSubmit}>
           <label>Post something</label>
           <input type="file" id="file" accept="image/png,jpg" /><label htmlFor="file">
             <i title='add photos' className='bx bx-image'>
             </i></label>
           <textarea type="textarea" placeholder='Say something' />
-          <input type={submit} onSubmit={getCaption} value={"Post"}/>
-        </Form>
+          <input type={"submit"} onSubmit={postUtils.getCaption} value={"Post"}/>
+        </form>
       </div>
 
       <div className="time">
