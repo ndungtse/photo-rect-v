@@ -31,8 +31,8 @@ const onsubmit = e=>{
         console.log(data)
         localStorage.userName = userName
         localStorage.fullName = fullName
+        window.location.replace('http://localhost:3030')
     })
-    .then(window.location.replace('http://localhost:3030'))
     
 }
 const Utils = {
