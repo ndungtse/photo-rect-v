@@ -42,6 +42,7 @@
     border: none;
     z-index: 3;
     border-radius: 20px;
+    transition: all 1s;
 }
 .input-search input{
     width: 170px;
@@ -70,11 +71,12 @@
 .bx-bell{
     color: var(--black-color);
 }
-.bell:last-child{
+#bell{
     background-color: var(--blue-color);
 }
 .bx-log-out{
     color: var(--icon-hover);
+    font-size: 24px;
     transform: rotate(90deg);
 }
 
@@ -254,7 +256,7 @@
     z-index: 2;
     width: 300px;
 }
-.input-search:focus-within ~ .results{
+.input-search input:focus-within ~ .results{
     z-index: 1;
     display: flex;
     flex-direction: column;

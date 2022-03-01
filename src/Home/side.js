@@ -18,8 +18,8 @@ function Side() {
               <div className="bell" id="log">
                 <i title="See notifications" className="bx bx-bell icon"></i>
               </div>
-              <div className="bell">
-                <Link to="login"><a href="login.html"><i title="Log out" className="bx bx-bell icon"></i></a></Link>
+              <div className="bell" id="bell">
+                <Link to="login"><a href="login.html"><i title="Log out" className="bx bx-log-out"></i></a></Link>
               </div>
               <div>
               </div>
