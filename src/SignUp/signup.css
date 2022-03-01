@@ -42,6 +42,12 @@ form{
   font-size: 1.1em;
   outline: none;
 }
+input[type=submit]{
+  color: white;
+background-color: #2403fde8;
+border-radius: 5px;
+
+}
 .labels label{
   font-size: 1.1em;
 }
