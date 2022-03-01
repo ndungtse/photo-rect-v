@@ -1,6 +1,5 @@
 import { Link} from "react-router-dom";
 import styled from 'styled-components';
-import React, { useState } from 'react';
 import './Home.css';
 import './side.css';
 import Follow from './follow';
@@ -8,12 +7,8 @@ import Saved from './saved';
 import Activity from './activity';
 
 
-function Side() {
-  const [isVisible, setVisible] = useState(false)
-    //  isVisible='none';
-    const handleShowRe = () => {
-      setVisible(!isVisible);
-    }
+function Side({isVisible, handleShowRe, setVisible}) {
+  
 
    const ReStyle = styled.div`
    display: ${({isVisible}) => (isVisible ? 'flex' : 'none')};
