@@ -41,7 +41,7 @@ const Signup = () => {
                 </div>
                 <div class="labels">
                     <label>Password</label>
-                    <input onInput={Utils.etpswd} type={values.showPassword ? "text" : "password"}
+                    <input onInput={Utils.getpswd} type={values.showPassword ? "text" : "password"}
                     onChange={handlePasswordChange("password")}
                     value={values.password}  placeholder="Choose your password" required/>
                 </div>

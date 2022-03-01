@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import './Home.css';
 import logo from './Images/logo.png';
-import noLoading from './../utility';
+// import noLoading from './../utility';
 
 function Nav() {
   
