@@ -7,7 +7,7 @@ import  './../SignUp/signup.css'
 const Login = () =>{
     const [values, setValues] = useState({
         password: "",
-        showPassword: false,
+       showPassword: false,
       });
       const handleShowPassword = () => {
         setValues({ ...values, showPassword: !values.showPassword });
@@ -51,9 +51,8 @@ const Login = () =>{
               onMouseDown={handleMouseDownPassword} type="checkbox"/>
                     <label>Show password</label>
                 </div>
-                <div className="button">
-
-                    <div><input type="submit" value="Login"/></div>
+                <div class="button">
+                  <input type='submit' value='Login'  />
                 </div>
 
                 <div className="alt1 ">

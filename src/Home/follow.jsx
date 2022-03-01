@@ -1,9 +1,9 @@
 import './side.css';
 import './Home.css';
 
-function Follow() {
+function Follow({handleShowRe}) {
   return ( 
-    <div className="follow">
+    <div  className="follow">
       <div className="p-follow">
         <div className="p-left"><span>People to follow</span></div>
         <div className="p-right"><div>See all</div></div>
@@ -17,7 +17,7 @@ function Follow() {
                <p>@mohamedsalisu</p></div>
              </div>
            </div>
-           <div className="follow-btn"><div>Follow</div></div>
+           <div className="follow-btn"><div onClick={handleShowRe}>Follow</div></div>
          </div>
        </div>
     </div>

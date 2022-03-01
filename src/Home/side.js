@@ -1,4 +1,6 @@
 import { Link} from "react-router-dom";
+import styled from 'styled-components';
+import React, { useState } from 'react';
 import './Home.css';
 import './side.css';
 import Follow from './follow';
@@ -7,16 +9,27 @@ import Activity from './activity';
 
 
 function Side() {
+  const [isVisible, setVisible] = useState(false)
+    //  isVisible='none';
+    const handleShowRe = () => {
+      setVisible(!isVisible);
+    }
+
+   const ReStyle = styled.div`
+   display: ${({isVisible}) => (isVisible ? 'flex' : 'none')};
+   flex-direction: column;
+  `
+
   return ( 
       <div className='side'>
           <div className="side-view">
             <div className="topside">
               <div className="input-search">
-                <input type="text" placeholder="Search" />
+                <input onClick={handleShowRe} type="text" placeholder="Search" />
                 <i className="bx bx-search icon"></i>
               </div>
               <div className="bell" id="log">
-                <i title="See notifications" className="bx bx-bell icon"></i>
+                <i onClick={handleShowRe} title="See notifications" className="bx bx-bell icon"></i>
               </div>
               <div className="bell" id="bell">
                 <Link to="login"><a href="login.html"><i title="Log out" className="bx bx-log-out"></i></a></Link>
@@ -24,13 +37,13 @@ function Side() {
               <div>
               </div>
             </div>
-              <div className="results">
+              <ReStyle isVisible={isVisible} setVisible={setVisible} className="results">
                 <p>No results found fjherfb refbhje</p>
                 <p>No results found fjherfb refbhje</p>
                 <p>No results found fjherfb refbhje</p>
                 <p>No results found fjherfb refbhje</p>
-              </div>
-            <Follow />
+              </ReStyle>
+            <Follow onClick ={handleShowRe}/>
              <Saved />
            <Activity />
           </div>

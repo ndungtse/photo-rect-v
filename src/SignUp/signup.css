@@ -44,9 +44,22 @@ form{
 }
 input[type=submit]{
   color: white;
-background-color: #2403fde8;
-border-radius: 5px;
+  display: flex;
+  font-size: 1.2em;
+  text-align: center;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+ background-color: #2403fde8;
+  border-radius: 5px;
+  padding: 3px 7px;
+  transition: all 0.3s;
 
+}
+input[type=submit]:hover{
+  cursor: pointer;
+  background: #2403fde8;
+  transform: scale(1.1);
 }
 .labels label{
   font-size: 1.1em;
@@ -59,8 +72,11 @@ border-radius: 5px;
 }
 
 .button{
-  margin-top: 30px;
-  width: 100px;
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .button div input{
   width: 100%;

@@ -29,3 +29,4 @@ export const
  Logo = styled.div`
 width: 80px;
 `
+
