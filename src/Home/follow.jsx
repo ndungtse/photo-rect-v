@@ -13,8 +13,8 @@ function Follow() {
            <div className="img">
              <div className="img-f"><div><img src={require("./Images/another/Bitmap.png")} alt="" /></div></div>
              <div className="img-des">
-               <div><p>Mohamed Salisu</p>
-               <p>@mohamedsalisu</p></div>
+               <div><p>{localStorage.fullName}</p>
+               <p>{localStorage.userName}</p></div>
              </div>
            </div>
            <div className="follow-btn"><div>Follow</div></div>
