@@ -15,15 +15,21 @@ function Side() {
                 <input type="text" placeholder="Search" />
                 <i className="bx bx-search icon"></i>
               </div>
-              <div className="bell">
+              <div className="bell" id="log">
                 <i title="See notifications" className="bx bx-bell icon"></i>
               </div>
-              <div className="bell">
-                <Link to="login"><a href="login.html"><i title="Log out" className="bx bx-log-out icon"></i></a></Link>
+              <div className="bell" id="bell">
+                <Link to="login"><a href="login.html"><i title="Log out" className="bx bx-log-out"></i></a></Link>
               </div>
               <div>
               </div>
             </div>
+              <div className="results">
+                <p>No results found fjherfb refbhje</p>
+                <p>No results found fjherfb refbhje</p>
+                <p>No results found fjherfb refbhje</p>
+                <p>No results found fjherfb refbhje</p>
+              </div>
             <Follow />
              <Saved />
            <Activity />

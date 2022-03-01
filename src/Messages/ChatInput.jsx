@@ -15,10 +15,17 @@ function Chatinput ({setMessage, message, setSend, inputMessage}) {
         setSend([ 
             ...message, {messagetext: inputMessage, id: Math.random()*1000},
         ]);
-        // setMessage("");
+        setMessage("");
         }
+      }
+        const handleKeypress = e => {
+          //it triggers by pressing the enter key
+        if (e.keyCode === 13) {
+          submitMessage();
+        }
+      };
 
-    } 
+     
    /*  const triggerEnter = (e) => {
       if (e.keyCode === 13) {
         e.preventDefault();
@@ -35,13 +42,13 @@ function Chatinput ({setMessage, message, setSend, inputMessage}) {
         <div><i title="add a gif" className="bx bxs-file-gif bl"></i></div>
       </div>
       <div className="input-m">
-        <input value={inputMessage} onChange={MessageHandler} id= "text" type="text" placeholder="Aa" autoComplete="off"
+        <input value={inputMessage} onChange={MessageHandler} onKeyPress={handleKeypress} id= "text" type="text" placeholder="Aa" autoComplete="off"
           />
         <div><i className="bx bxs-smile"></i></div>
       </div>
       <div className="send-li">
         <div><i className="fas fa-thumbs-up"></i></div>
-        <button onClick={submitMessage} id="send" href="index.html">send
+        <button onClick={submitMessage} onKeyPress={handleKeypress} id="send" href="index.html">send
             <i title="send" className='bx bxs-send'></i></button>
       </div>
   </div>

@@ -9,12 +9,12 @@
    
  
   ::-webkit-scrollbar-thumb {
-    background: rgb(75, 75, 214); 
+    background: rgb(98, 98, 99); 
     border-radius: 10px;
   }
   
   ::-webkit-scrollbar-thumb:hover {
-    background: rgb(83, 83, 211); 
+    background: rgb(67, 67, 68); 
   }
 .message{
     position: fixed;
@@ -94,7 +94,7 @@
 }
 .search-mess input{
     margin-left: 10px;
-    width: 200px;
+    width: 180px;
     border: none;
     color: var(--black-color);
     outline: none;

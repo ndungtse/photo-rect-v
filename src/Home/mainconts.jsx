@@ -4,12 +4,19 @@ import React, { useState, useEffect } from 'react';
 import './Home.css';
 
 function Mainconts() {
-  const [likeCount, setLikeCount] = useState(0);
-  const [calculatedlikeCount, setCalculatedLikeCount] = useState(0)
+  const[count , setCount]=useState(0);
 
-   useEffect(()=> {
-    setCalculatedLikeCount(()=> likeCount +1);
-   }, [likeCount]);
+   /*  useEffect(()=>{
+      handleIncrease();
+    },[]) */
+    const handleIncrease=()=>{
+       
+    }
+    // setCount(count+1)
+    const increase = () => {
+      setCount(count+1)
+    
+    }
   return ( 
     <div className="main-contents ">
       <div className="post">
@@ -50,8 +57,8 @@ function Mainconts() {
             <div className="react">
               <div className="react-cont">
                 <input type="checkbox"  id="like"/>
-                <label for="like" id="love" onClick={()=> setLikeCount((c)=> c+1)}><i className='bx bxs-heart'></i></label>
-                <div><span id="react-spa">{calculatedlikeCount}</span></div>
+                <label for="like" id="love" onClick={handleIncrease? increase:count +0}><i className='bx bxs-heart'></i></label>
+                <div><span id="react-spa">{count}</span></div>
               </div>
               <div className="react-cont">
                 <div id="comment"><i className='bx bxs-comment-dots'></i></div>
@@ -72,8 +79,8 @@ function Mainconts() {
             <div className="react">
               <div className="react-cont">
                 <input type="checkbox"  id="like"/>
-                <label for="like" id="love"><i className='bx bxs-heart'></i></label>
-                <div><span id="react-spa">129</span></div>
+                <label for="like" id="love" onClick={handleIncrease? increase:count +0}><i className='bx bxs-heart'></i></label>
+                <div><span id="react-spa">{count}</span></div>
               </div>
               <div className="react-cont">
                 <div id="comment"><i className='bx bxs-comment-dots'></i></div>
@@ -94,8 +101,8 @@ function Mainconts() {
             <div className="react">
               <div className="react-cont">
                 <input type="checkbox"  id="like"/>
-                <label for="like" id="love"><i className='bx bxs-heart'></i></label>
-                <div><span id="react-spa">129</span></div>
+                <label for="like" id="love" onClick={handleIncrease? increase:!increase}><i className='bx bxs-heart'></i></label>
+                <div><span id="react-spa">{count}</span></div>
               </div>
               <div className="react-cont">
                 <div id="comment"><i className='bx bxs-comment-dots'></i></div>
@@ -116,8 +123,8 @@ function Mainconts() {
             <div className="react">
               <div className="react-cont">
                 <input type="checkbox"  id="like"/>
-                <label for="like" id="love"><i className='bx bxs-heart'></i></label>
-                <div><span id="react-spa">129</span></div>
+                <label for="like" id="love" onClick={handleIncrease? increase:count +0}><i className='bx bxs-heart'></i></label>
+                <div><span id="react-spa">{count}</span></div>
               </div>
               <div className="react-cont">
                 <div id="comment"><i className='bx bxs-comment-dots'></i></div>

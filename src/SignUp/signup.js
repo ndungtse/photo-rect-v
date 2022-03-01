@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Form, Body, Main, Logo} from './signupcss';
+import {Form, Body, Main, Logo,} from './signupcss';
 import  './signup.css';
 import Utils from '../utils/index'
 
