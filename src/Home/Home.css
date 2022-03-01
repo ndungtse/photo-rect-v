@@ -323,6 +323,7 @@ body{
     border-radius: 4px;
     margin-left: 10px;
     display: flex;
+    color: white;
     background-color: #2E4B9C;
     align-items: center;
     justify-content: center;
