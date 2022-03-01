@@ -32,7 +32,7 @@ function Side({isVisible, handleShowRe, setVisible}) {
               <div>
               </div>
             </div>
-              <ReStyle isVisible={isVisible} setVisible={setVisible} className="results">
+              <ReStyle isVisible={isVisible} setVisible={setVisible} onClick={handleShowRe} className="results">
                 <p>No results found fjherfb refbhje</p>
                 <p>No results found fjherfb refbhje</p>
                 <p>No results found fjherfb refbhje</p>
