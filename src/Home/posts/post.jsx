@@ -19,26 +19,30 @@ const onSubmit = (e) => {
         body: JSON.stringify({ userName, caption })
     })
         .then(res => res.json())
-        .then(data => console.log(data))
+        .then(data => console.log([`${data.userName}`, `Created ${data.created}`, data.caption].join('\n'))
+        )
 }
+// function arrangeNewPost(data) {
+//         console.log([`${data.userName}`,`Created ${data.created}`, data.caption].join('\n'))
+// }
 const showPosts = () => {
     fetch('http://localhost:8080/post/allPosts', {
         method: "GET",
         // mode:"no-cors",
         headers: { 'Content-Type': 'application/json' }
     }).then(res => res.json())
-        .then(data1 => /*ReactDOM.render(ArrangePosts(data1),document.getElementById('root'))*/ console.log(arrangePosts(data1)))
+        .then(data1 => console.log(arrangePosts(data1)))
 }
 function arrangePosts(data1) {
-    let header1, header2, caption, text
+    let holder = []
+    let header1, header2, caption
     for (var i = 0; i < data1.length; i++) {
-        header1 = `${data1[i].userName}`
-        header2 = `Created ${data1[i].created} <br>`
-        caption = data1[i].caption + `<br>`
-        text = [header1, header2, caption].join('\n')
-
+        header1 = `${data1[i].userName}` + "\n"
+        header2 = `Created ${data1[i].created}` + "\n"
+        caption = data1[i].caption + "\n"
+        holder.push(header1, header2, caption)
     }
-    return text
+    return holder.join('\n')
     // document.querySelector('.contents').innerHTML = arrangeAllTweetsOutput(data)
 
 }

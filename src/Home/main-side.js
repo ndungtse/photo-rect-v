@@ -9,10 +9,12 @@ function Mainside() {
     const handleShowRe = () => {
       setVisible(!isVisible);
     }
+    
   return (
     <div className="main-side">
       <Main />
-      <Side isVisible={isVisible}
+      <Side
+      isVisible={isVisible}
       setVisible={setVisible}
       handleShowRe={handleShowRe}/>
     </div>  

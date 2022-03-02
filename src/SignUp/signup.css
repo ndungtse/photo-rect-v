@@ -14,16 +14,7 @@ h1{
 img{
   width: 100%;
 }
-form{
-  width: 500px;
-  border-radius: 20px;
-  background-color: #fff;
-  padding: 10px 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 
-}
 .labels{
   width: 400px;
   margin-top: 10px;
@@ -42,7 +33,7 @@ form{
   font-size: 1.1em;
   outline: none;
 }
-input[type=submit]{
+.button input[type=submit]{
   color: white;
   display: flex;
   font-size: 1.2em;

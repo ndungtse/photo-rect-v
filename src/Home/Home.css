@@ -269,7 +269,7 @@ body{
 .post input[type="file"]{
     display: none;
 }
-.post input, .post textarea{
+ .post textarea{
     height: 30px;
     font-size: 1.05rem;
     padding: 7px 11px;
@@ -312,4 +312,19 @@ body{
     margin-left: 10%;
 }
 }
-/* 920px restotal */
+/* //form */
+.post form{
+    display: flex;
+    align-items: center;
+}
+.post form input[type="submit"]{
+    /* width: 40px; */
+    padding: 3px;
+    border-radius: 4px;
+    margin-left: 10px;
+    display: flex;
+    color: white;
+    background-color: #2E4B9C;
+    align-items: center;
+    justify-content: center;
+}
