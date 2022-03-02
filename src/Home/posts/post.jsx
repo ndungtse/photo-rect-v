@@ -1,5 +1,5 @@
-import { render } from "sass"
-
+import { useState } from "react"
+import ReactDOM from 'react-dom';
 let caption, userName
 const getCaption = (e) => {
     caption = e.target.value
@@ -25,21 +25,28 @@ const showPosts = () => {
     fetch('http://localhost:8080/post/allPosts', {
         method: "GET",
         // mode:"no-cors",
-        headers: { 'Content-Type': 'application/json' }
+        headers: { 'Content-Type':'application/json' }
     }).then(res => res.json())
-        .then(data1 => render(data1,document.getElementById('root')))
+        .then(data1 => ReactDOM.render(ArrangePosts(data1),document.getElementById('root')))
 }
-function arrangePosts(data1) {
+function ArrangePosts(data1) {
     let holder = []
     let header1, header2, caption
     for (var i = 0; i < data1.length; i++) {
-        header1 = data1[i].userName + `<br>`
-        header2 = data1[i].created + `<br>` + `<hr>`
+        header1 = `User: ${data1[i].userName} <br>`
+        header2 = `Posted on: ${data1[i].created} <br>`
         caption = data1[i].caption + `<br>`
-        let post = header1 + header2 + caption
-        holder.push(post)
+        let text = [header1, header2,caption].join(' ')
+        holder.push(text)
+        // for (i = 0; i < data.length; i++) {
+            
+    
+        // }
+
+        // holder.push(post)
     }
     return holder
+    // document.querySelector('.contents').innerHTML = arrangeAllTweetsOutput(data)
 
 }
 const postUtils = {
