@@ -32,7 +32,7 @@ function Mainconts() {
         </form>
       </div>
       <div onLoad={postUtils.onLoad} className="contents">
-      <input onClick={postUtils.showPosts} value={'See posts'}></input>
+        <input onLoadStart={postUtils.showPosts} onClick={postUtils.showPosts} value={'See posts'}></input>
       </div>
     </div>
   );
