@@ -17,7 +17,9 @@
     "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.0",
     "sass": "^1.49.9",
+    "source-map-url": "^0.4.1",
     "styled-components": "^5.3.3",
+    "util": "^0.12.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
