@@ -20,7 +20,7 @@ const onload = e =>{
 }
 const onsubmit = e=>{
     e.preventDefault()
-    fetch("http://localhost:8080/user/registerUser",{
+    fetch("http://localhost:3000/user/registerUser",{
         method:"POST",
         headers:{'Content-Type':'application/json'},
         body:JSON.stringify({
