@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import './Home.css';
+import 'boxicons';
 import logo from './Images/logo.png';
 // import noLoading from './../utility';
 
@@ -14,14 +15,14 @@ function Nav() {
           <ul className="nav-container container">
             <li className="navlinks">
               <Link to='/'><div title="Home" className="links active"><i
-                  className="bx bxs-home icon"></i></div></Link>
+                  className="bx bx-home icon"></i></div></Link>
             </li>
             <li className="navlinks">
               <Link to='/messages'><div title="Message" className="links"><i
                   className="bx bx-message-rounded-dots icon"></i></div></Link>
             </li>
             <li className="navlinks">
-             <Link to='/account'><div title="Profile" className="links"><i className="bx bx-user icon"></i></div></Link>
+             <Link to='/profile'><div title="Profile" className="links"><i className="bx bx-user icon"></i></div></Link>
             </li>
             <li className="navlinks">
               <div title="Saved" className="links"><i className="bx bx-bookmark icon"></i></div>

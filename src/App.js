@@ -2,10 +2,10 @@ import React from 'react';
 import './App.css';
 import Home from './Home';
 import Messages from './Messages';
+import Profile from './Profile';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Signup from './SignUp/signup';
 import Login from './Login/Login';
-import HomePage from './account-page/account';
 
 
 function App() {
@@ -18,7 +18,7 @@ function App() {
          <Route path="/messages" element={<Messages />} />
          <Route path="/signup" element={<Signup />} />
          <Route path="/login" element={<Login />} />
-         <Route path='/account' element={<HomePage/>}/>
+         <Route path='/profile' element={<Profile/>}/>
          </Routes>
        </div>
     </BrowserRouter>
