@@ -12,28 +12,28 @@ const onSubmit = (e) => {
     userName = localStorage.getItem("userName")
     // return console.log(JSON.stringify({userName,caption}) )
     // userName = localStorage.getItem("userName")
-    fetch('http://localhost:3000/post/newPost', {
+    fetch('http://localhost:5000/post/newPost', {
         method: "POST",
         // mode:"no-cors",
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ userName, caption })
     })
         .then(res => res.json())
-        .then(data => console.log(data) /*console.log([`${data.userName}`, `Created ${data.created}`, data.caption].join('\n'))*/)
+        .then(data => console.log(arrangePosts(data)) /*console.log([`${data.userName}`, `Created ${data.created}`, data.caption].join('\n'))*/)
 }
 // function arrangeNewPost(data) {
 //         console.log([`${data.userName}`,`Created ${data.created}`, data.caption].join('\n'))
 // }
 const showPosts = () => {
-    fetch('http://localhost:3000/post/allPosts', {
+    fetch('http://localhost:5000/post/allPosts', {
         method: "GET",
         // mode:"no-cors",
         headers: { 'Content-Type': 'application/json' }
     }).then(res => res.json())
-        .then(data1 => console.log(data1)/*exports.data = data1*/)
+        .then(data1 => message = data1, console.log(message)/*exports.data = data1*/)
 }
+let holder = []
 function arrangePosts(data1) {
-    let holder = []
     let header1, header2, caption
     for (var i = 0; i < data1.length; i++) {
         header1 = `${data1[i].userName}` + "\n"
@@ -45,6 +45,6 @@ function arrangePosts(data1) {
     // document.querySelector('.contents').innerHTML = arrangeAllTweetsOutput(data)
 }
 const postUtils = {
-    onLoad, getCaption, onSubmit, showPosts
+    onLoad, getCaption, onSubmit, showPosts,message
 }
 export default postUtils;

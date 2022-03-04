@@ -7,7 +7,7 @@ const getpswd = e => {
 }
 const onloginsubmit = e => {
     e.preventDefault()
-    fetch("http://localhost:3000/user/confirmUser", {
+    fetch("http://localhost:5000/user/confirmUser", {
         method: "POST",
         mode:'no-cors',
         headers: { 'Content-Type': 'application/json' },
