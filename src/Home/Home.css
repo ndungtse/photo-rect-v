@@ -116,6 +116,7 @@ body{
     border-bottom: 1px solid hsla(0, 0%, 77%, 0.781);
 }
 .story-cont{
+    white-space: nowrap;
     display: flex;
     flex-direction: column;
     align-items: center;

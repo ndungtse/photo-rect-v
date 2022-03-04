@@ -13,8 +13,6 @@ const getpswd = e =>{
     password = e.target.value
 }
 
-
-
 const onload = e =>{
     e.preventDefault()
 }

@@ -1,6 +1,6 @@
 // import { useState } from "react"
 // import ReactDOM from 'react-dom';
-let caption, userName
+let caption, userName, message
 const getCaption = (e) => {
     caption = e.target.value
 }
@@ -12,26 +12,25 @@ const onSubmit = (e) => {
     userName = localStorage.getItem("userName")
     // return console.log(JSON.stringify({userName,caption}) )
     // userName = localStorage.getItem("userName")
-    fetch('http://localhost:8080/post/newPost', {
+    fetch('http://localhost:3000/post/newPost', {
         method: "POST",
         // mode:"no-cors",
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ userName, caption })
     })
         .then(res => res.json())
-        .then(data => console.log([`${data.userName}`, `Created ${data.created}`, data.caption].join('\n'))
-        )
+        .then(data => console.log(data) /*console.log([`${data.userName}`, `Created ${data.created}`, data.caption].join('\n'))*/)
 }
 // function arrangeNewPost(data) {
 //         console.log([`${data.userName}`,`Created ${data.created}`, data.caption].join('\n'))
 // }
 const showPosts = () => {
-    fetch('http://localhost:8080/post/allPosts', {
+    fetch('http://localhost:3000/post/allPosts', {
         method: "GET",
         // mode:"no-cors",
         headers: { 'Content-Type': 'application/json' }
     }).then(res => res.json())
-        .then(data1 => console.log(arrangePosts(data1)))
+        .then(data1 => console.log(data1)/*exports.data = data1*/)
 }
 function arrangePosts(data1) {
     let holder = []
@@ -44,7 +43,6 @@ function arrangePosts(data1) {
     }
     return holder.join('\n')
     // document.querySelector('.contents').innerHTML = arrangeAllTweetsOutput(data)
-
 }
 const postUtils = {
     onLoad, getCaption, onSubmit, showPosts

@@ -34,6 +34,9 @@ function Mainconts() {
       <div onLoad={postUtils.onLoad} className="contents">
         <input onLoadStart={postUtils.showPosts} onClick={postUtils.showPosts} value={'See posts'}></input>
       </div>
+      <div className="contents">
+      
+      </div>
     </div>
   );
 }
