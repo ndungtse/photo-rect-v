@@ -14,7 +14,7 @@ function Nav() {
           </div>
           <ul className="nav-container container">
             <li className="navlinks">
-              <Link to='/'><div title="Home" className="links active"><i
+              <Link to='/home'><div title="Home" className="links active"><i
                   className="bx bx-home icon"></i></div></Link>
             </li>
             <li className="navlinks">

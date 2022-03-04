@@ -13,7 +13,7 @@ function Chatinput ({setMessage, message, setSend, inputMessage}) {
         }else {
           e.preventDefault();
         setSend([ 
-            ...message, {messagetext: inputMessage, id: Math.random()*1000},
+            ...message, {messagetext: inputMessage, id: Math.ceil(Math.random()*1000)},
         ]);
         setMessage("");
         }
@@ -21,17 +21,12 @@ function Chatinput ({setMessage, message, setSend, inputMessage}) {
         const handleKeypress = e => {
           //it triggers by pressing the enter key
         if (e.keyCode === 13) {
-          submitMessage();
+          this.btn.click();;
         }
       };
+      
 
-     
-   /*  const triggerEnter = (e) => {
-      if (e.keyCode === 13) {
-        e.preventDefault();
-      }
-    } */
-
+    
   return (
     <div className="chat-inputs">
       <div className="inputs-icon">
@@ -48,7 +43,9 @@ function Chatinput ({setMessage, message, setSend, inputMessage}) {
       </div>
       <div className="send-li">
         <div><i className="fas fa-thumbs-up"></i></div>
-        <button onClick={submitMessage} onKeyPress={handleKeypress} id="send" href="index.html">send
+        <button onClick={submitMessage}
+         id="send" href="index.html"
+         type=''>send
             <i title="send" className='bx bxs-send'></i></button>
       </div>
   </div>

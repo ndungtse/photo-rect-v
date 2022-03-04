@@ -2,12 +2,16 @@ import React, {useState} from 'react';
 import {Form, Body, Main, Logo,} from './signupcss';
 import  './signup.css';
 import Utils from '../utils/index'
+import CircularProgress from '@mui/material/CircularProgress/index';
+import Box from '@mui/material/Box';
 
 const Signup = () => {
+
     const [values, setValues] = useState({
         password: "",
         showPassword: false,
       });
+
       const handleClickShowPassword = () => {
         setValues({ ...values, showPassword: !values.showPassword });
       };
@@ -27,19 +31,19 @@ const Signup = () => {
             <Form onLoad={Utils.onload} onSubmit={Utils.onsubmit}>
                 <Logo><img src={require("./../Home/Images/logo.png")} alt="logo" /></Logo>
                 <h1>Sign Up to Photo Corner</h1>
-                <div class="labels">
+                <div className="labels">
                     <label>Full Name</label>
                     <input onInput={Utils.getfullname} type="text" placeholder="First Name"required />
                 </div>
-                <div class="labels">
+                <div className="labels">
                     <label>Username</label>
                     <input onInput={Utils.getuname} type="text" placeholder="Enter your username" required />
                 </div>
-                <div class="labels">
+                <div className="labels">
                     <label>Email</label>
                     <input onInput={Utils.getemail} type="email" placeholder="Enter your email" required/>
                 </div>
-                <div class="labels">
+                <div className="labels">
                     <label>Password</label>
                     <input onInput={Utils.getpswd} type={values.showPassword ? "text" : "password"}
                     onChange={handlePasswordChange("password")}
@@ -50,16 +54,18 @@ const Signup = () => {
               onMouseDown={handleMouseDownPassword} type="checkbox"/>
                     <label>Show password</label>
                 </div>
-                <div class="label">
+                <div className="label">
                     <input type="checkbox" required/>
                     <label>I agree with terms and conditions</label>
                 </div>
 
-                <div class="button">
+                <div className="button">
                   <input type='submit' value='Submit'  />
+                <Box sx={{ display: 'flex'}}>
+                <CircularProgress />
+                </Box>
                 </div>
-
-                <div class="alt">
+                <div className="alt">
                     <p>Already have an account?</p>
                     <a href="./login">Log in</a>
                 </div>

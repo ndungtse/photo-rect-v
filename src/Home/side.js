@@ -7,21 +7,23 @@ import Saved from './saved';
 import Activity from './activity';
 
 
-function Side({isVisible, handleShowRe, setVisible}) {
+function Side({isVisible, handleShowRe, setVisible,
+           isToggled, setToggled} ) {
   
 
    const ReStyle = styled.div`
-  display: ${({isVisible}) => (isVisible ? 'flex' : 'none')};
+   display: ${({isVisible}) => (isVisible ? 'flex' : 'none')};
    flex-direction: column;
    align-items: center;
   `
 
   return ( 
-      <div className='side'>
+      <Test isToggled={isToggled} setToggled={setToggled}
+      className={`side `}>
           <div className="side-view">
             <div className="topside">
               <div onClick={handleShowRe} className="input-search" >
-                <input onClick={handleShowRe} type="text" placeholder="Search" />
+                <input onClick={handleShowRe} type="text" placeholder="Search" disabled/>
                 <i className="bx bx-search icon"></i>
               </div>
               <div className="bell" id="log">
@@ -50,8 +52,20 @@ function Side({isVisible, handleShowRe, setVisible}) {
              <Saved />
            <Activity />
           </div>
-      </div>
+      </Test>
   );
 }
 
 export default Side;
+
+const Test = styled.div`
+@media screen and (max-width: 900px){
+        position: fixed;
+        height: 100vh;
+        // right: -1000px;
+        right: ${({isToggled})=> (isToggled ? '0' :'-2000px')};
+        width: 100%;
+        background-color: rgba(12, 12, 12, 0.516);
+        z-index: 56;
+}
+`

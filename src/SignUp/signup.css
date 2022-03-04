@@ -121,3 +121,7 @@ input[type=submit]:hover{
 .alt1 a:hover{
   color: rgb(23, 27, 255);
 }
+
+.css-1idz92c-MuiCircularProgress-svg{
+  transform: scale(0.5);
+}
