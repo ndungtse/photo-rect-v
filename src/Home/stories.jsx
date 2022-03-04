@@ -1,9 +1,6 @@
-/* import { Link } from 'react-router-dom'; */
 import './Home.css';
-
-
 function Stories() {
-  return ( 
+  return (
       <div className='stories'>
           <div className="story-cont ">
               <div ><img src={require('./Images/Oval.png')} alt=''/></div>
@@ -11,7 +8,7 @@ function Stories() {
             </div>
             <div className="story-cont">
               <div ><img src={require("./Images/Bitmap-2.png")} alt=''/></div>
-              <div ><span>Chiemeka</span></div>
+              <div ><span>Banjo</span></div>
             </div>
             <div className="story-cont">
               <div ><img src={require("./Images/Bitmap-3.png")} alt=''/></div>
@@ -44,5 +41,4 @@ function Stories() {
       </div>
   );
 }
-
 export default Stories;

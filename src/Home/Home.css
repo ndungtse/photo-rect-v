@@ -106,19 +106,18 @@ body{
 } */
 .stories{
     width:100%;
-    /* border-radius: 60px 0px 0px 0px; */
     background-color: var(--ligth-color);
     background-size: 100%;
-    display: flex;/* 
-    align-items: center; */
+    display: flex;
+    flex-direction: row;
     justify-content: flex-start;
     width: 100%;
     z-index: 2;
-    border-bottom: 1px solid rgba(196, 196, 196, 0.781);/* 
-   background-color: var(--light)fff; */
+    border-bottom: 1px solid hsla(0, 0%, 77%, 0.781);
 }
 .story-cont{
-    display: flex;/* */
+    white-space: nowrap;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -142,7 +141,7 @@ body{
     background-color: var(--ligth-color);
     width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     z-index: 0;
     justify-content: center;

@@ -11,16 +11,16 @@ function Saved() {
       </div>
       <div className="savedcont">
         <div className="contcont">
-          <img src={require("./Images/other/Bitmap-5.png")} alt="" />
+          <img src={require("./Images/other/Bitmap-4.png")} alt="" />
         </div>
         <div className="contcont">
           <img src={require("./Images/other/Bitmap-5.png")} alt="" />
         </div>
         <div className="contcont">
-          <img src={require("./Images/other/Bitmap-5.png")} alt="" />
+          <img src={require("./Images/other/Bitmap-6.png")} alt="" />
         </div>
         <div className="contcont">
-          <img src={require("./Images/other/Bitmap-5.png")} alt="" />
+          <img src={require("./Images/other/Bitmap-3.png")} alt="" />
         </div>
       </div>
   </div>

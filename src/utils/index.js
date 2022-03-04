@@ -13,14 +13,12 @@ const getpswd = e =>{
     password = e.target.value
 }
 
-
-
 const onload = e =>{
     e.preventDefault()
 }
 const onsubmit = e=>{
     e.preventDefault()
-    fetch("http://localhost:8080/user/registerUser",{
+    fetch("http://localhost:5000/user/registerUser",{
         method:"POST",
         headers:{'Content-Type':'application/json'},
         body:JSON.stringify({
