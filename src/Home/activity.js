@@ -6,7 +6,7 @@ function Activity() {
   return (
     <div className="activity">
       <div className="l-activity">
-        <p>Last activity</p>
+        <p>People to follow</p>
         <p><div>See all</div></p>
       </div>
       <div className="act-cont">

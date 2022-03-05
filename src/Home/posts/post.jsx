@@ -19,7 +19,7 @@ const onSubmit = (e) => {
         body: JSON.stringify({ userName, caption })
     })
         .then(res => res.json())
-        .then(data => console.log(arrangePosts(data)) /*console.log([`${data.userName}`, `Created ${data.created}`, data.caption].join('\n'))*/)
+        .then(data => console.log(data)/*console.log([`${data.userName}`, `Created ${data.created}`, data.caption].join('\n'))*/)
 }
 // function arrangeNewPost(data) {
 //         console.log([`${data.userName}`,`Created ${data.created}`, data.caption].join('\n'))
@@ -32,18 +32,18 @@ const showPosts = () => {
     }).then(res => res.json())
         .then(data1 => message = data1, console.log(message)/*exports.data = data1*/)
 }
-let holder = []
-function arrangePosts(data1) {
-    let header1, header2, caption
-    for (var i = 0; i < data1.length; i++) {
-        header1 = `${data1[i].userName}` + "\n"
-        header2 = `Created ${data1[i].created}` + "\n"
-        caption = data1[i].caption + "\n"
-        holder.push(header1, header2, caption)
-    }
-    return holder.join('\n')
+// let holder = []
+// function arrangePosts(data1) {
+//     let header1, header2, caption
+//     for (var i = 0; i < data1.length; i++) {
+//         header1 = `${data1[i].userName}` + "\n"
+//         header2 = `Created ${data1[i].created}` + "\n"
+//         caption = data1[i].caption + "\n"
+//         holder.push(header1, header2, caption)
+//     }
+//     return holder.join('\n')
     // document.querySelector('.contents').innerHTML = arrangeAllTweetsOutput(data)
-}
+// }
 const postUtils = {
     onLoad, getCaption, onSubmit, showPosts,message
 }

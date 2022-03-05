@@ -1,12 +1,11 @@
 import './side.css';
 import './Home.css';
+import { Link } from 'react-router-dom';
 
 function Follow({handleShowRe}) {
   return ( 
     <div  className="follow">
       <div className="p-follow">
-        <div className="p-left"><span>People to follow</span></div>
-        <div className="p-right"><div>See all</div></div>
       </div>
        <div className="follow-cont">
          <div className="follow-line">
@@ -17,7 +16,7 @@ function Follow({handleShowRe}) {
                <p>{localStorage.userName}</p></div>
              </div>
            </div>
-           <div className="follow-btn"><div onClick={handleShowRe}>Follow</div></div>
+           <Link to='/profile'> <div className="follow-btn"><div onClick={handleShowRe}>View profile</div></div></Link>
          </div>
        </div>
     </div>
