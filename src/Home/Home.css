@@ -298,7 +298,7 @@ body{
     cursor: pointer;
 }
 @media screen and (max-width: 1300px) {
-.story-cont:nth-child(7), .story-cont:nth-child(6){
+.story-cont:nth-child(8), .story-cont:nth-child(7){
     display: none;
 }
 .cont-img img{
@@ -309,6 +309,11 @@ body{
 }
 .react{
     margin-left: 10%;
+}
+}
+@media screen and (max-width: 680px) {
+.story-cont:last-child(5), .story-cont:nth-child(4){
+    display: none;
 }
 }
 /* //form */

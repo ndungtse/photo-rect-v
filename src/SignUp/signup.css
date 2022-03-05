@@ -126,3 +126,6 @@ input[type=submit]:hover{
 .css-1idz92c-MuiCircularProgress-svg{
   transform: scale(0.5);
 }
+.active{
+  opacity: 0;
+}
