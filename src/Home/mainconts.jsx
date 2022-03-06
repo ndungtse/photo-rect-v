@@ -47,9 +47,9 @@ function Mainconts() {
           <input type={"submit"} value={"Post"} />
         </form>
       </div>
-      <div onLoad={postUtils.onLoad} className="contents">
+      {/* <div onLoad={postUtils.onLoad} className="contents">
         <input onLoadStart={postUtils.showPosts} onClick={postUtils.showPosts} value={'See posts'}></input>
-      </div>
+      </div> */}
       <div className="contents">
         {
           posts.map((item) =>

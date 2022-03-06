@@ -141,12 +141,10 @@ body{
     background-color: var(--ligth-color);
     width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     z-index: 0;
-    justify-content: center;
-    min-height: 500px;
-    height: 100%;
+    justify-content: space-around;
 }
 .time{
     width: 100%;
@@ -188,13 +186,16 @@ body{
     margin: 40px;
 } */
 .contents{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 6%;/* 
-    height: 1500px; */
-    min-height: auto;
-    align-items: center;
+    display: flex;
+    /* grid-template-columns: 1fr 1fr;
+    grid-gap: 6%;/*  */
+    flex-flow: column wrap;
+    align-items: left;
     justify-content: center;
+    width: 80%;
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 10px;
 }
 .cont-cont{
     display: flex;
@@ -264,6 +265,7 @@ body{
 }
 .post label{
     color: var(--black-color);
+    white-space: nowrap;
 }
 .post input[type="file"]{
     display: none;
