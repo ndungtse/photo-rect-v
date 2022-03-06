@@ -1,5 +1,5 @@
 // import styled from 'styled-components';
-// import React, { useState /*, useEffect*/ } from 'react';
+import React, { useState, useEffect } from 'react';
 // import { Form } from 'react-bootstrap';
 
 import './Home.css';
@@ -7,14 +7,30 @@ import postUtils from './posts/post';
 
 
 function Mainconts() {
-  // const [count, setCount] = useState(0);
+  const [posts, setPosts] = useState([]);
 
-  /*  useEffect(()=>{
-     handleIncrease();
-   },[]) */
-  // const handleIncrease = () => {
+  // setPosts(postUtils.showPosts())
 
-  // }
+
+  useEffect(() => {
+    if (!posts.length) {
+      getPosts()
+    }
+  }, [posts])
+
+  const getPosts = async () => {
+    let res = await postUtils.showPosts()
+    if (res.length) {
+      setPosts(res)
+    }
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    postUtils.onSubmit(()=>{
+      getPosts()
+    })
+  }
   // // setCount(count+1)
   // const increase = () => {
   //   setCount(count + 1)
@@ -22,7 +38,7 @@ function Mainconts() {
   return (
     <div className="main-contents ">
       <div className="post">
-        <form onLoad={postUtils.onLoad} onSubmit={postUtils.onSubmit}>
+        <form onLoad={postUtils.onLoad} onSubmit={handleSubmit}>
           <label>Post something</label>
           <input type="file" id="file" accept="image/png,jpg" /><label htmlFor="file">
             <i title='add photos' className='bx bx-image'>
@@ -35,7 +51,12 @@ function Mainconts() {
         <input onLoadStart={postUtils.showPosts} onClick={postUtils.showPosts} value={'See posts'}></input>
       </div>
       <div className="contents">
-      
+        {
+          posts.map((item) =>
+            <div key={item._id}>
+              <div>{item.caption}</div>
+            </div>)
+        }
       </div>
     </div>
   );
