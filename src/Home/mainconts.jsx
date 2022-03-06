@@ -54,7 +54,10 @@ function Mainconts() {
         {
           posts.map((item) =>
             <div key={item._id}>
-              <div>{item.caption}</div>
+              <div className='created'>{item.created}</div>
+              <div className='userName'>{item.userName}</div>
+              <div className='caption'>{item.caption}</div>
+              <hr></hr>
             </div>)
         }
       </div>

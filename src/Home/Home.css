@@ -146,6 +146,9 @@ body{
     z-index: 0;
     justify-content: space-around;
 }
+.created{
+    color: blue;
+}
 .time{
     width: 100%;
     margin-top: 20px;
