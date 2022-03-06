@@ -28,13 +28,13 @@ body{
 }
 .navlogo{
     z-index: 2;
+    
     align-items: center;
     justify-content: center;
 }
 
 .navlogo img {
-    margin-left: 20px;
-    margin-top: 40px;
+    margin: 30px auto;
     width: 40px;
     z-index: 2;
     cursor: pointer;
@@ -49,7 +49,7 @@ body{
     position: fixed; 
     align-items: center;
     justify-content: center;
-    width: 76px;
+    width: 5%;
     top: 0;
     background-color: var(--primary-color);
     z-index: 0;
@@ -317,10 +317,11 @@ body{
 }
 }
 @media screen and (max-width: 680px) {
-.story-cont:last-child(5), .story-cont:nth-child(4){
+.story-cont:nth-child(5), .story-cont:nth-child(4){
     display: none;
 }
 }
+
 /* //form */
 .post form{
     display: flex;

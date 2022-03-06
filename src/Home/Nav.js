@@ -25,7 +25,7 @@ function Nav() {
              <Link to='/profile'><div title="Profile" className="links"><i className="bx bx-user icon"></i></div></Link>
             </li>
             <li className="navlinks">
-              <div title="Saved" className="links"><i className="bx bx-bookmark icon"></i></div>
+              <div title="Clubs" className="links"><i className="bx bxs-group icon"></i></div>
             </li>
             <li className="navlinks">
               <span></span>
