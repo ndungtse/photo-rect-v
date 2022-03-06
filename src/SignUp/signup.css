@@ -50,7 +50,6 @@ img{
 input[type=submit]:hover{
   cursor: pointer;
   background: #2403fde8;
-  transform: scale(1.1);
 }
 .labels label{
   font-size: 1.1em;

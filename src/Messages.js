@@ -5,7 +5,8 @@ import './Messages/mess.css';
 
 function Messages() {
   return (
-    <>
+    <div className="m-mes">
+
     <Nav />
     <div className="message">
         <div className="simple-m">
@@ -28,7 +29,7 @@ function Messages() {
         </div>
         <Messprev />
     </div>
-    </>
+    </div>
   );
 }
 

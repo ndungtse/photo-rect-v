@@ -16,30 +16,42 @@
   ::-webkit-scrollbar-thumb:hover {
     background: rgb(67, 67, 68); 
   }
-.message{
-    position: fixed;
+  .m-mes{
+
+  }
+.m-mes{
+   /*  position: fixed;
     top: 0;
-    right: 0;
+    right: 0; */
     display: flex;
-    flex-direction: row;
+    /* flex-direction: row; */
+    position: relative;
+    right: 0;
+    height: 100vh;
     z-index: 11;
-    width: 95%;
+    width: 100%;
     background-color: var(--ligth-color);
     border-radius: 59px 0px 0px 0px ;
     align-items: flex-start;
     justify-content: flex-start;
 }
+ .message{
+    overflow: hidden;
+     display: flex;
+     width: 95%;
+     height: 100vh;
+ }
 .simple-m{
     border-radius: 59px 0px 0px 0px ;
-    width: 350px;
+    width: 30%;
     background-color: var(--ligth-color);
     display: flex;
-    height: 800px;
+    height: 100vh;
     flex-direction: column;
 }
 .simple-view{
     margin-top: 30px;
-    width: 300px;
+    width: 100%;
     display: flex;
     flex-direction: column;
 }
@@ -95,6 +107,7 @@
 .search-mess input{
     margin-left: 10px;
     width: 180px;
+    min-width: 100px;
     border: none;
     color: var(--black-color);
     outline: none;
@@ -135,7 +148,7 @@
     margin: auto 10px;
 }
 .mess-prev{
-    width: 1161.5px;
+    width:70%;
     right: 0;
     height: 864px;
     background-color: var(--ligth-color);
@@ -232,6 +245,11 @@
 .speaker2-info{
     display: none;
 }
+.messform{
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
 .chat-inputs{
     width: 100%;
     height:68px;
@@ -254,7 +272,7 @@
     cursor: pointer;
 }
 .input-m{
-    width: 900px;
+    width: 70%;
     height: 40px;
     display: flex;
     align-items: center;
@@ -262,7 +280,9 @@
     border-radius: 30px;
 }
 .input-m input{
-    width: 850px;
+    /* width: 850px; */
+    width: 100%;
+    min-width: 250;
     margin-left:10px;
     outline: none;
     border: none;
