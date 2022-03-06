@@ -19,7 +19,7 @@ function Mainside() {
     <div className="main-side">
       <Main />
       <div onClick={toggle} className='toggle'>
-        <i className={`${({isToggled})=> (isToggled ? 'bx bx-chevron-left' :'bx bx-chevron-right')}`}></i></div>
+        <i className={`bx bx-chevron-left`}></i></div>
       <Side
       isToggled={isToggled}
       

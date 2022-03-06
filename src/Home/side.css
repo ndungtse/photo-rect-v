@@ -8,7 +8,7 @@
     top: 0;
 }
 .toggle{
-    position: absolute;
+    position: fixed;
     display: none;
 }
 .side-view{
@@ -258,7 +258,7 @@
         transform: translateX(-5px);
     }
     .navlogo img{
-        width: 40%;
+        width: 70%;
     }
 }
 
@@ -310,7 +310,7 @@
         width: 100%;
     }
     .navbar{
-        width: 10%;
+        width: 8%;
     }
     .main-side{
         width: 90%;
