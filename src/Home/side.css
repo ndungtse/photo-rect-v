@@ -311,6 +311,11 @@
     }
     .navbar{
         width: 8%;
+        z-index: 99;
+    }
+    .nav-contents{
+        left: 0;
+        width: 7%;
     }
     .main-side{
         width: 90%;

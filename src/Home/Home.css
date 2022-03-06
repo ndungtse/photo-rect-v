@@ -50,6 +50,7 @@ body{
     align-items: center;
     justify-content: center;
     width: 5%;
+    height: 100vh;
     top: 0;
     background-color: var(--primary-color);
     z-index: 0;

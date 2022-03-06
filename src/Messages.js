@@ -20,9 +20,11 @@ function Messages() {
               </div>
               
             </div>
-            <div className="search-mess">
+            <div className="px-4">
+            <div className="search-mess pr-3">
                 <i className="bx bx-search icon"></i>
                 <input type="text" placeholder="Search messages" />
+             </div>
              </div>
             <Messflow />
           </div>

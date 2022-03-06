@@ -29,7 +29,7 @@ function Chatinput ({setMessage, message, setSend, inputMessage}) {
     
   return (
     <div className="chat-inputs md:container md:mx-auto">
-      <form action="" className="messform">
+      <form action="" className="messform pr-4">
       <div className="inputs-icon">
         <div title="show more options"><i className="bx bxs-plus-circle bl"></i></div>
         
@@ -41,7 +41,7 @@ function Chatinput ({setMessage, message, setSend, inputMessage}) {
       <div className="input-m container ">
         <input value={inputMessage} onChange={MessageHandler} onKeyPress={handleKeypress} id= "text" type="text" placeholder="Aa" autoComplete="off"
           />
-        <div><i className="bx bxs-smile"></i></div>
+        <div><i className="bx bxs-smile pt-1"></i></div>
       </div>
       <div className="send-li">
         <div><i className="fas fa-thumbs-up"></i></div>
