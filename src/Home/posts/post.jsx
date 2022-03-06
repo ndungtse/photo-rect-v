@@ -7,8 +7,8 @@ const getCaption = (e) => {
 const onLoad = (e) => {
     e.preventDefault()
 }
-const onSubmit = (e) => {
-    e.preventDefault()
+const onSubmit = (callback) => {
+    
     userName = localStorage.getItem("userName")
     // return console.log(JSON.stringify({userName,caption}) )
     // userName = localStorage.getItem("userName")
@@ -19,18 +19,20 @@ const onSubmit = (e) => {
         body: JSON.stringify({ userName, caption })
     })
         .then(res => res.json())
-        .then(data => console.log(data)/*console.log([`${data.userName}`, `Created ${data.created}`, data.caption].join('\n'))*/)
+        .then(data => {console.log(data);callback()}/*console.log([`${data.userName}`, `Created ${data.created}`, data.caption].join('\n'))*/)
 }
 // function arrangeNewPost(data) {
 //         console.log([`${data.userName}`,`Created ${data.created}`, data.caption].join('\n'))
 // }
-const showPosts = () => {
-    fetch('http://localhost:5000/post/allPosts', {
+const showPosts = async () => {
+   const res = await fetch('http://localhost:5000/post/allPosts', {
         method: "GET",
         // mode:"no-cors",
         headers: { 'Content-Type': 'application/json' }
-    }).then(res => res.json())
-        .then(data1 => message = data1, console.log(message)/*exports.data = data1*/)
+    })
+    const posts = await res.json()
+    console.log(res,posts)
+    return posts
 }
 // let holder = []
 // function arrangePosts(data1) {
