@@ -1,9 +1,18 @@
-// import styled from 'styled-components';
+import Heart from 'react-animated-heart';
 import React, { useState, useEffect } from 'react';
-// import { Form } from 'react-bootstrap';
-
 import './Home.css';
 import postUtils from './posts/post';
+
+
+ function HeartRenderer() {
+  const [isClick, setClick] = useState(false);
+  return (
+    <div className="App">
+      <Heart isClick={isClick} onClick={() => setClick(!isClick)} />
+    </div>
+  );
+}
+
 
 
 function Mainconts() {
@@ -27,7 +36,7 @@ function Mainconts() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    postUtils.onSubmit(()=>{
+    postUtils.onSubmit(() => {
       getPosts()
     })
   }
@@ -53,11 +62,12 @@ function Mainconts() {
       <div className="contents">
         {
           posts.map((item) =>
-            <div key={item._id}>
+            <div id='post' key={item._id}>
               <div className='created'>{item.created}</div>
               <div className='userName'>{item.userName}</div>
-              <div className='caption'>{item.caption}</div>
+              <div className='caption'>{item.caption}</div>{HeartRenderer}
               <hr></hr>
+              {/* <div><input type="checkbox" id="heart"><label for="heart" id="heart-label">&#9829</label></input></div> */}<div><input type="checkbox" id="heart"/><label htmlFor="heart" id='heart-label' ></label></div>
             </div>)
         }
       </div>

@@ -6,6 +6,8 @@ import styled from 'styled-components';
 
 
 function Home() {
+    let fullName = localStorage.getItem("fullName")
+    let userName = localStorage.getItem("userName")
   return (
       <Prof className='Profile  w-[100%] flex h-screen bg-slate-200'>
           <Nav className='' />
@@ -18,8 +20,8 @@ function Home() {
                       <img className='w-[150px] rounded-full' src={require("./Home/Images/subs/mount.jpg")} alt="Bitmap"/></div> 
                     </div>
                     <div className="w-[100%] flex flex-col items-center justify-center">
-                        <p className="text-xl mt-7 mx-auto"> CaRiMount </p>
-                        <p className="text-xl mx-auto opacity-[0.7]">@carimount19</p>
+                        <p className="text-xl mt-7 mx-auto">{fullName}</p>
+                        <p className="text-xl mx-auto opacity-[0.7]">@{userName}</p>
                     </div> 
                 </Avatar>
                 <div className="flex px-[6%] justify-between items-center">
