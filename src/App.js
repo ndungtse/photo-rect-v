@@ -16,7 +16,7 @@ function App() {
   const [check, setCheck] = useState("")
   const [check1, setCheck1] = useState("")
 
-  useEffect(()=>{
+ /*  useEffect(()=>{
     const savedCheck = window.localStorage.getItem('check')
     const savedCheck1 = window.localStorage.getItem('check1')
     if(savedCheck){
@@ -30,8 +30,8 @@ function App() {
       upRef1.setAttribute("checked", check1)
       window.localStorage.removeItem('check')
     }
-  },[check, setCheck, check1, setCheck1])
-  useEffect(()=>{
+  },[check, setCheck, check1, setCheck1]) */
+  /* useEffect(()=>{
       const savedCheck = window.localStorage.getItem('check')
       // const savedCheck1 = window.localStorage.getItem('check1')
       let upRef1 = radioRef1.current
@@ -39,7 +39,7 @@ function App() {
       if(!savedCheck){
       upRef1.setAttribute("checked", check1)
       }
-  },[check1, setCheck1])
+  },[check1, setCheck1]) */
    useEffect(() => {
     const localTheme = window.localStorage.getItem('dark');
 

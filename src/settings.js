@@ -2,11 +2,8 @@ import React from 'react';
 import './settings/settings.css';
 import Nav from './Home/Nav'
 
-const Settings = ({toggleLight,toggleDark, radioRef, radioRef1 ,tryThis}) => {
-  /* const [check, setCheck] = useState("")
-
-  const chec = "checked";
-   */
+const Settings = ({toggleLight,toggleDark, radioRef, radioRef1}) => {
+ 
   return (
     <div className='settings w-full flex'>
       <Nav />
@@ -20,7 +17,7 @@ const Settings = ({toggleLight,toggleDark, radioRef, radioRef1 ,tryThis}) => {
                 <p>Theme:</p>
                 <div className='flex items-center pl-7'>
                   <div className='flex items-center pl-7'>
-                    <input onClick={tryThis} onInput={toggleDark} type='radio' name='radio' ref={radioRef} /><label>Dark</label>
+                    <input onInput={toggleDark} type='radio' name='radio' ref={radioRef} /><label>Dark</label>
                   </div>
                   <div className='flex items-center pl-7'>
                     <input onClick={toggleLight} type='radio' name='radio' ref={radioRef1} /><label>Light</label>
