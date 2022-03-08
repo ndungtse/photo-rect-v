@@ -18,6 +18,7 @@ const onload = e => {
 }
 const onsubmit = e => {
     e.preventDefault()
+    // return console.log("Hi")
     fetch("http://localhost:5000/user/registerUser", {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
@@ -26,20 +27,23 @@ const onsubmit = e => {
         })
     }).then(res => res.json())
         .then(data => {
+            console.log("sdasdasd")
             if (data.message === "User with that username already exists") {
                 window.alert("User with that username already exists. If you already have an account then login")
             }
             else if (data.message === "User with that email already exists") {
                 window.alert("User with that email already exists. If you already have an account then login")
             }
-            else {
+            else if (data.message === "Account created") {
                 console.log(data)
                 localStorage.userName = userName
                 localStorage.fullName = fullName
                 window.location.replace('http://localhost:3030')
             }
+            else {
+                window.alert("Error in creating new account for you please")
+            }
         })
-
 }
 const Utils = {
     getemail,

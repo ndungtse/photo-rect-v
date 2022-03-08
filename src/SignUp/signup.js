@@ -3,17 +3,9 @@ import {Form, Body, Main, Logo,} from './signupcss';
 import  './signup.css';
 import styled from 'styled-components'
 import Utils from '../utils/index'
-import CircularProgress from '@mui/material/CircularProgress/index';
-import Box from '@mui/material/Box';
 
 const Signup = () => {
-    // const [show, setShow] = useState(false);
-    const [isActive, setIsActive] = useState("active");
 
-    const showCircle = () => {
-      setIsActive(!isActive);
-    }
-    setInterval(showCircle, 20000);
     const [values, setValues] = useState({
         password: "",
         showPassword: false,
@@ -36,7 +28,7 @@ const Signup = () => {
       <Body>
         <Main>
             <Form onLoad={Utils.onload} onSubmit={Utils.onsubmit}>
-                <Logo><img src={require("./../Home/Images/logo.png")} alt="logo" /></Logo>
+                <Logo><img src={require("../Home/Images/logo.png")} alt="logo" /></Logo>
                 <h1>Sign Up to Photo Corner</h1>
                 <div className="labels">
                     <label>Full Name</label>
@@ -67,13 +59,7 @@ const Signup = () => {
                 </div>
 
                 <div className="button">
-                  <input type='submit' value='Submit' onClick={showCircle}  />
-                <BoxDiv className={`box ${isActive}`}
-                 isActive={isActive} setIsActive={setIsActive}>
-                <Box sx={{ display: 'flex'}}>
-                <CircularProgress />
-                </Box>
-                </BoxDiv>
+                  <input type='submit' value='Submit' onSubmit={Utils.onsubmit} />
                 </div>
                 <div className="alt">
                     <p>Already have an account?</p>
