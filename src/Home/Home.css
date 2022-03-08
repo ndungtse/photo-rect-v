@@ -1,23 +1,4 @@
 
-:root {
-    --primary-color: #2E2C38;
-    --blue-color: #2E4B9C;
-    --black-color: #000;
-    --dim-black-color:#5F6476;
-    ;
-    --icon-color: #5F6476;
-    --icon-hover: #fff;
-    --ligth-color: #fff;
-    --dim-light: #edf1f8;
-}
-.dark-theme{
-    --primary-color: #2c2c2c;
-    --blue-color: #2E4B9C;
-    --black-color: #fff;
-    --dim-black-color:#edf1f8;
-    --ligth-color: #000;
-    --dim-light: #131313;
-}
 body{
     background: var(--primary-color);
 }
@@ -44,6 +25,7 @@ body{
     flex-direction: column;
     align-items: center;
     width: 5%;
+    height: 100vh;
 }
 .nav-contents{
     position: fixed; 

@@ -17,3 +17,7 @@
   ::-webkit-scrollbar-thumb:hover {
     background: rgb(114, 114, 116); 
   }
+  .proright{
+    background-color: var(--ligth-color);
+    color: var(--black-color);
+  }

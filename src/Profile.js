@@ -7,7 +7,7 @@ import styled from 'styled-components';
 
 function Home() {
   return (
-      <Prof className='Profile  w-[100%] flex h-screen bg-slate-200'>
+      <Prof className='Profile  w-[100%] flex h-screen'>
           <Nav className='' />
           <Main className="profile flex w-[95%] rounded-tl-lg h-screen bg-white-100">
               <Me className="me w-[35%] flex-col h-screen items-center bg-white shadow-md rounded-xl">
@@ -72,11 +72,14 @@ function Home() {
 export default Home;
 //styles
 const Prof = styled.div`
-
+background-color: var(--primary-color);
 `
 const Main = styled.div`
+background-color: var(--primary-color);
 `
 const Me = styled.div`
+background-color: var(--ligth-color);
+color: var(--black-color);
 `
 const Avatar = styled.div`
 `

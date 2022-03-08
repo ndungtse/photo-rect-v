@@ -22,7 +22,7 @@
   --blue-color: #2e4b9c;
   --black-color: #fff;
   --dim-black-color: #edf1f8;
-  --ligth-color: #000;
+  --ligth-color: rgb(24, 23, 23);
   --dim-light: #131313;
 }
 body {
