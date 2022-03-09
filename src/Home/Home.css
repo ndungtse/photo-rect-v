@@ -74,6 +74,34 @@ body{
     height: 1000px;
     background-color: var(--ligth-color);
 }
+/* hr{
+   height: 2px;
+   background-color: var(--primary-color);
+   display: flex;
+   align-items: center;
+   border-radius: 10px;
+} */
+/* hides the checkbox */
+#heart {
+    display: none;
+  }
+  /* changes the color when selected */
+  #heart:checked ~ #heart-label {
+    color: red;
+  }
+  #heart:unchecked{
+      color: blue;
+  }
+  /* for styling purpose only */
+  #heart-label {
+    font-size: 50px;
+  }
+#post{
+    border: 1px solid var(--primary-color);
+    margin: 10px;
+    border-radius: 5px;
+    padding: 10px;
+}
 .main{
     display: flex;
     flex-direction: column;
