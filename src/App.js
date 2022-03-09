@@ -14,13 +14,13 @@ function App() {
   const [toggleIco, setToggleIco] = useState("bx bx-toggle-left");
 
    useEffect(() => {
-    const localTheme = window.localStorage.getItem('dark');
+    const localTheme = window.localStorage.getItem('mode');
     const themeIco = window.localStorage.getItem('toggleIco')
 
     if (localTheme) {
       setDark(localTheme);
     } else {
-      window.localStorage.setItem('dark', 'light');
+      window.localStorage.setItem('mode', 'light');
     }
     if (themeIco==='bx bx-toggle-right'){
       setToggleIco(themeIco);
@@ -32,12 +32,12 @@ function App() {
       if (toggleIco==="bx bx-toggle-right") {
         setToggleIco("bx bx-toggle-left");
         setDark("");
-        window.localStorage.setItem('dark', '')
+        window.localStorage.setItem('mode', '')
         window.localStorage.setItem('toggleIco', 'bx bx-toggle-left')
       }else{
       setToggleIco("bx bx-toggle-right");
       setDark("dark-theme");
-      window.localStorage.setItem('dark', 'dark-theme')
+      window.localStorage.setItem('mode', 'dark-theme')
       window.localStorage.setItem('toggleIco', 'bx bx-toggle-right')
     }
     }

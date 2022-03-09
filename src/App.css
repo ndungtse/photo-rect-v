@@ -12,8 +12,8 @@
   --blue-color: #2e4b9c;
   --black-color: #000;
   --dim-black-color: #5f6476;
-  --icon-color: #5f6476;
-  --icon-hover: #fff;
+  --icon-color: #2e4b9c;
+  --icon-hover: rgb(26, 13, 13);
   --ligth-color: #edf1f8;
   --dim-light: #e7eefa;
 }

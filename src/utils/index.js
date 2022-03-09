@@ -21,6 +21,7 @@ const onsubmit = e => {
     // return console.log("Hi")
     fetch("http://photocorner33.herokuapp.com/user/registerUser", {
         method: "POST",
+        // mode: "no-cors",
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
             fullName, userName, email, password

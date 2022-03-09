@@ -15,14 +15,14 @@ function Nav() {
           <ul className="nav-container container">
             <li className="navlinks">
               <Link to='/'><div title="Home" className="links"><i
-                  className="bx bx-home icon"></i></div></Link>
+                  className="bx bxs-home icon"></i></div></Link>
             </li>
             <li className="navlinks">
               <Link to='/messages'><div title="Message" className="links"><i
-                  className="bx bx-message-rounded-dots icon"></i></div></Link>
+                  className="bx bxs-message-rounded-dots icon"></i></div></Link>
             </li>
             <li className="navlinks">
-             <Link to='/profile'><div title="Profile" className="links"><i className="bx bx-user icon"></i></div></Link>
+             <Link to='/profile'><div title="Profile" className="links"><i className="bx bxs-user icon"></i></div></Link>
             </li>
             <li className="navlinks">
               <div title="Clubs" className="links"><i className="bx bxs-group icon"></i></div>
