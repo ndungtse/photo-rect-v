@@ -6,7 +6,7 @@ import SGroup from './groups';
 
 function Account() {
     return (
-        <div  className="w-[65%] h-screen flex flex-col bg-white overflow-x-hidden rounded-lg ml-[0.5%]">
+        <div  className="proright w-[65%] h-screen flex flex-col overflow-x-hidden rounded-lg ml-[0.5%]">
             <div className="flex flex-col">
                 <h1 className="pl-3 pt-2">Recent Posts</h1>
                 <div className="imgscroll grid-flow-col grid auto-cols-[25%] gap-x-[2%] overflow-x-auto p-3">

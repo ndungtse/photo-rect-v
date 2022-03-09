@@ -31,7 +31,7 @@ function Nav() {
               <span></span>
             </li>
             <li className="navlinks">
-              <div id="flex" title="Settings" className="links"><i className="bx bx-cog icon"></i></div>
+              <Link to='/settings'><div id="flex" title="Settings" className="links"><i className="bx bx-cog icon"></i></div></Link>
             </li>
           </ul>
         </div>
