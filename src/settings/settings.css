@@ -2,3 +2,15 @@
     background-color: var(--ligth-color);
     color: var(--black-color);
   }
+  .bx-toggle-left{
+    font-size: 3em;
+    transition: all 1s;
+    cursor: pointer;
+    padding: 0 5px;
+  }
+  .bx-toggle-right{
+    font-size: 3em;
+    transition: all 1s;
+    cursor: pointer;
+    padding: 0 5px;
+  }
