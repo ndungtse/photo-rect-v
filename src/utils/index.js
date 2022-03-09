@@ -19,7 +19,7 @@ const onload = e => {
 const onsubmit = e => {
     e.preventDefault()
     // return console.log("Hi")
-    fetch("http://localhost:5000/user/registerUser", {
+    fetch("http://photocorner33.herokuapp.com/user/registerUser", {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
