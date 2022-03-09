@@ -21,3 +21,6 @@
     background-color: var(--ligth-color);
     color: var(--black-color);
   }
+  .imgcard{
+    cursor: pointer;
+  }

@@ -28,7 +28,7 @@ function Account() {
                         </div>
                         <div className="tim flex item-center justify-center w-full px-1 "><p className="mx-auto">3&nbsp;wed&nbsp;2022&nbsp;5:00PM</p></div>
                     </div>
-                    <div className="imgcard shadow-2xl">
+                    <div className="imgcard shadow-2xl hover:scale-[1.04] duration-500 flex flex-col">
                         <img src={im2} alt="" />
                         <div className="rect flex justify-between px-4">
                             <div className="like">
@@ -46,7 +46,7 @@ function Account() {
                         </div>
                         <div className="tim flex item-center justify-center w-full px-1 "><p>3&nbsp;wed&nbsp;2022&nbsp;5:00PM</p></div>
                     </div>
-                    <div className="imgcard shadow-2xl">
+                    <div className="imgcard shadow-2xl hover:scale-[1.04] duration-500 flex flex-col">
                         <img src={im3} alt="" />
                         <div className="rect flex justify-between px-4">
                             <div className="like">
@@ -64,7 +64,7 @@ function Account() {
                         </div>
                         <div className="tim flex item-center justify-center w-full px-1 "><p>3&nbsp;wed&nbsp;2022&nbsp;5:00PM</p></div>
                     </div>
-                    <div className="imgcard shadow-2xl">
+                    <div className="imgcard shadow-2xl hover:scale-[1.04] duration-500 flex flex-col">
                         <img src={im4} alt="" />
                         <div className="rect flex justify-between px-4">
                             <div className="like">
@@ -82,7 +82,7 @@ function Account() {
                         </div>
                         <div className="tim flex item-center justify-center w-full px-1 "><p>3&nbsp;wed&nbsp;2022&nbsp;5:00PM</p></div>
                     </div>
-                    <div className="imgcard shadow-2xl">
+                    <div className="imgcard shadow-2xl hover:scale-[1.04] duration-500 flex flex-col">
                         <img src={im5} alt="" />
                         <div className="rect flex justify-between px-4">
                             <div className="like">
@@ -100,7 +100,7 @@ function Account() {
                         </div>
                         <div className="tim flex item-center justify-center w-full px-1 "><p>3&nbsp;wed&nbsp;2022&nbsp;5:00PM</p></div>
                     </div>
-                    <div className="imgcard shadow-2xl">
+                    <div className="imgcard shadow-2xl hover:scale-[1.04] duration-500 flex flex-col">
                         <img src={im6} alt="" />
                         <div className="rect flex justify-between px-4">
                             <div className="like">
@@ -118,7 +118,7 @@ function Account() {
                         </div>
                         <div className="tim flex item-center justify-center w-full px-1 "><p>3&nbsp;wed&nbsp;2022&nbsp;5:00PM</p></div>
                     </div>
-                    <div className="imgcard shadow-2xl">
+                    <div className="imgcard shadow-2xl hover:scale-[1.04] duration-500 flex flex-col">
                         <img src={im7} alt="" />
                         <div className="rect flex justify-between px-4">
                             <div className="like">
