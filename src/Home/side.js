@@ -41,7 +41,7 @@ function Side({isVisible, handleShowRe, setVisible,
                <div className="input-search1">
                 <input type="text" placeholder="Search" />
                 <i className="bx bx-search icon"></i>
-                <i onClick={handleShowRe} className='bx bx-window-close' id="close"></i>
+                <i onClick={handleShowRe} className='bx bx-x' id="close"></i>
                 </div>
                 <div onClick={handleShowRe}>
                 <p>No results found fjherfb refbhje</p>

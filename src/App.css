@@ -16,6 +16,7 @@
   --icon-hover: rgb(26, 13, 13);
   --ligth-color: #edf1f8;
   --dim-light: #e7eefa;
+  --warning: rgb(133, 18, 179);
 }
 .dark-theme {
   --primary-color: #08021d;
@@ -32,4 +33,11 @@ body {
   display: flex;
   background-color: var(--primary-color);
   top: 0;
+}
+.bx-x{
+  font-size: 1.5em;
+  transition: all 0.3s;
+}
+.bx-x:hover{
+  color: var(--warning);
 }
