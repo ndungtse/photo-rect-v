@@ -15,7 +15,7 @@ const onSubmit = (callback) => {
         body: JSON.stringify({ userName, caption })
     })
         .then(res => res.json())
-        .then(data => {console.log(data);callback()}/*console.log([`${data.userName}`, `Created ${data.created}`, data.caption].join('\n'))*/)
+        .then(data => {console.log(data);callback()})
 }
 
 const showPosts = async () => {
@@ -24,7 +24,7 @@ const showPosts = async () => {
         headers: { 'Content-Type': 'application/json' }
     })
     const posts = await res.json()
-    console.log(res,posts)
+    // console.log(res,posts)
     return posts
 }
 
