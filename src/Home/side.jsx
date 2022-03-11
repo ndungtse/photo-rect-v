@@ -64,11 +64,14 @@ function Side({ isVisible, handleShowRe, setVisible,
               <i className="bx bx-search icon"></i>
               <i onClick={handleShowRe} class='bx bx-window-close' id="close"></i>
             </div>
-            <div onClick={handleShowRe}>
-              <p>No results found fjherfb refbhje</p>
-              <p>No results found fjherfb refbhje</p>
-              <p>No results found fjherfb refbhje</p>
-              <p>No results found fjherfb refbhje</p>
+            <div className="searchContents" onClick={handleShowRe}>
+              {
+                searchResults.map((item)=>
+                <div id="search-reult" key={item._id}>
+                  <div className="full"></div>
+                </div>
+                )
+              }
             </div>
           </form>
         </ReStyle>
