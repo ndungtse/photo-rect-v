@@ -19,7 +19,7 @@ const onload = e => {
 const onsubmit = e => {
     e.preventDefault()
     // return console.log("Hi")
-    fetch("http://photocorner33.herokuapp.com/user/registerUser", {
+    fetch("https://photocorner33.herokuapp.com/user/registerUser", {
         method: "POST",
         // mode: "no-cors",
         headers: { 'Content-Type': 'application/json' },
@@ -37,8 +37,8 @@ const onsubmit = e => {
             }
             else if (data.message === "Account created") {
                 console.log(data)
-                localStorage.userName = userName
-                localStorage.fullName = fullName
+                localStorage.setItem("userName",userName)
+                localStorage.setItem("fullName",fullName)
                 window.location.replace('http://localhost:3030')
             }
             else {

@@ -298,13 +298,16 @@ body{
     display: none;
 }
  .b-area{
-     display: none;
+    display: none;
     width: 100%;
     font-size: 1.05rem;
     padding: 7px 11px;
     border: 1px solid gray;
     outline: none;
     border-radius: 5px;
+}
+.none{
+    display: none;
 }
  .area{
     height: 130px;
@@ -328,9 +331,8 @@ body{
     transform: translateY(2px);
     cursor: pointer;
 }
-.img-file{
-    display: none;
-}
+
+
 .post button{
     border: none;
     background-color: #2E4B9C;
@@ -364,10 +366,14 @@ body{
     display: flex;
     align-items: center;
 }
-.post form input[type="submit"]{
+.postsub{
     display: flex;
     color: white;
     background-color: #2E4B9C;
     align-items: center;
     justify-content: center;
+    transition: all 0.5s;
+}
+.img-file{
+    display: none;
 }

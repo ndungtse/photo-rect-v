@@ -294,7 +294,6 @@
 }
 #close{
     position: absolute;
-    font-size: 1.1em;
     top: 10%;
     cursor: pointer;
     right: 90%;
