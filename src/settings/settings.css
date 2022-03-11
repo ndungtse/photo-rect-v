@@ -14,3 +14,12 @@
     cursor: pointer;
     padding: 0 5px;
   }
+.delform{
+  background-color: var(--ligth-color);
+}
+.delete{
+  display: none;
+}
+.del{
+  display: flex;
+}

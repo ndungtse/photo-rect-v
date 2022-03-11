@@ -1,16 +1,41 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './settings/settings.css';
 import Nav from './Home/Nav';
 import Sleft from './settings/sleft'
 
 const Settings = ({toggleDark,toggleIco}) => {
+  const [showDel, setShowDel] = useState("delete");
+
+  const showDeletion = () => {
+    setShowDel("del");
+  }
+  const hideDeletion = () => {
+    setShowDel("delete");
+  }
  
   return (
     <div className='settings w-full flex'>
       <Nav />
-      <div className="delete ">
-          <form action="">
-            
+      <div className={`${showDel} bg-black/70 flex 
+      items-center w-full absolute h-screen justify-center`}>
+          <form action="" className="delform py-5 ">
+          <h1 className="text-center">Confirm deletion of your account</h1>
+          <p className="text-center">This action cannot be undone.</p>
+            <div className="labels">
+              <label>Email</label>
+              <input type="email" placeholder="Enter your email" required />
+            </div>
+            <div className="labels">
+              <label>Password</label>
+              <input placeholder="Enter your password" required />
+            </div>
+            <div className="labels">
+            <input className="bg-red-300 hover:bg-red-400 dele duration-300 cursor-pointer" type="submit"  value="Delete" />
+            </div>
+            <div className="labels">
+            <input onClick={hideDeletion}
+             type="button" className='cursor-pointer hover:bg-slate-400 duration-300 '  value="Cancel" />
+            </div>
           </form>
       </div>
       <div className='w-[95%]'>
@@ -32,7 +57,8 @@ const Settings = ({toggleDark,toggleIco}) => {
               <li>Account Settings: </li>
                 <div className='p-cont pt-2 flex items-center'>
                   <p className=''>Account delete:</p>
-                  <button className='flex items-center px-1 rounded-[5px] ml-7 bg-red-400'>Delete Account
+                  <button onClick={showDeletion}
+                   className='flex items-center px-1 rounded-[5px] ml-7 bg-red-400'>Delete Account
                   </button>
                 </div>
             </div>

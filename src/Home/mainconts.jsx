@@ -1,11 +1,13 @@
 import Heart from 'react-animated-heart';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './Home.css';
 import postUtils from './posts/post';
 
 
  function HeartRenderer() {
   const [isClick, setClick] = useState(false);
+  
+
   return (
     <div className="App">
       <Heart isClick={isClick} onClick={() => setClick(!isClick)} />

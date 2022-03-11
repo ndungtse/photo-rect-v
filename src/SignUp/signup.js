@@ -58,7 +58,7 @@ const Signup = () => {
                 </div>
 
                 <div className="button">
-                  <input type='submit' value='Submit' onSubmit={Utils.onsubmit} />
+                  <input className='signsub' type='submit' value='Submit' onSubmit={Utils.onsubmit} />
                 </div>
                 <div className="alt">
                     <p>Already have an account?</p>
