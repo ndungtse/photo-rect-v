@@ -4,7 +4,7 @@ import './Home.css';
 import postUtils from './posts/post';
 
 
- function HeartRenderer() {
+function HeartRenderer() {
   const [isClick, setClick] = useState(false);
   return (
     <div className="App">
@@ -49,11 +49,11 @@ function Mainconts() {
           <input type="file" id="file" accept="image/png,jpg" />
           <textarea className='bg-slate-300 text-black b-area' type="textarea" onInput={postUtils.getCaption} placeholder='Say something' />
           <div className='p-input w-full justify-end'>
-          <label htmlFor="file" className='pfile'>
-            <i title='add photos' className='bx bx-image pt-4 mr-8 img-file '>
-            </i></label>
-            <input  placeholder='Start a post' type="text" disabled className='cursor-pointer h-[40px] mt-3 mr-3 rounded-4 ml-2'></input>
-          <input type={"submit"} value={"Post"} className='px-7 mt-3 py-2 rounded-4'/>
+            <label htmlFor="file" className='pfile'>
+              <i title='add photos' className='bx bx-image pt-4 mr-8 img-file '>
+              </i></label>
+            <input placeholder='Start a post' type="text" disabled className='cursor-pointer h-[40px] mt-3 mr-3 rounded-4 ml-2'></input>
+            <input type={"submit"} value={"Post"} className='px-7 mt-3 py-2 rounded-4' />
           </div>
         </form>
       </div>
@@ -65,7 +65,6 @@ function Mainconts() {
               <div className='userName'>{item.userName}</div>
               <div className='caption'>{item.caption}</div>{HeartRenderer}
               <hr></hr>
-              {/* <div><input type="checkbox" id="heart"><label for="heart" id="heart-label">&#9829</label></input></div> */}<div><input type="checkbox" id="heart"/><label htmlFor="heart" id='heart-label' ></label></div>
             </div>)
         }
       </div>
