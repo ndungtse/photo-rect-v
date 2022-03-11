@@ -28,7 +28,7 @@ const onsubmit = e => {
         })
     }).then(res => res.json())
         .then(data => {
-            console.log("sdasdasd")
+            // console.log("sdasdasd")
             if (data.message === "User with that username already exists") {
                 window.alert("User with that username already exists. If you already have an account then login")
             }
@@ -36,9 +36,11 @@ const onsubmit = e => {
                 window.alert("User with that email already exists. If you already have an account then login")
             }
             else if (data.message === "Account created") {
-                console.log(data)
+                // console.log(data)
                 localStorage.setItem("userName",userName)
                 localStorage.setItem("fullName",fullName)
+                localStorage.userName = userName
+                localStorage.fullName = fullName
                 window.location.replace('https://photo-rect-v.vercel.app/')
             }
             else {
