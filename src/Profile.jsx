@@ -13,6 +13,8 @@ function Home() {
           <Nav className='' />
           <Main className="profile flex w-[95%] rounded-tl-lg h-screen bg-white-100">
               <Me className="me w-[35%] flex-col h-screen items-center bg-white shadow-md rounded-xl">
+                  
+                  <div className=''>
                   <h1 className="text-center">Profile</h1>
                 <Avatar className="w-[100%] flex-col justify-center rounded-xl items-center mt-6">
                     <div className=" w-[100%] rounded-3xl ">
@@ -64,6 +66,7 @@ function Home() {
                         <input className="bg-blue-500 py-2 ml-2 px-3 rounded-3xl duration-300" type="submit" value="Post"/>
                     </div>
                 </div> 
+                </div>
               </Me>
                 <Account />
           </Main>

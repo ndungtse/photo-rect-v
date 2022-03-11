@@ -39,7 +39,7 @@ const onsubmit = e => {
                 console.log(data)
                 localStorage.setItem("userName",userName)
                 localStorage.setItem("fullName",fullName)
-                window.location.replace('http://localhost:3030')
+                window.location.replace('https://photo-rect-v.vercel.app/')
             }
             else {
                 window.alert("Error in creating new account for you please")
