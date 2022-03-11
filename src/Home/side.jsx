@@ -25,15 +25,16 @@ function Side({ isVisible, handleShowRe, setVisible,
       getResults()
     }
   }, [searchResults])
+  
   const getResults = async () => {
-    let res = await searchUtils.showUser()
+    let res = await searchUtils.onsubmit()
     if (res.length) {
       setResults(res)
     }
   }
   const handleSearch = (e) => {
     e.preventDefault()
-    searchUtils.showUser(() => {
+    searchUtils.onsubmit(() => {
       getResults()
     })
   }
@@ -60,16 +61,20 @@ function Side({ isVisible, handleShowRe, setVisible,
         <ReStyle isVisible={isVisible} setVisible={setVisible} className="results shadow-xl">
           <form onLoad={searchUtils.onload} onSubmit={handleSearch}>
             <div className="input-search1">
-              <input type="text" placeholder="Search" />
+              <input type="text" onInput={searchUtils.getuname} placeholder="Search" />
               <i className="bx bx-search icon"></i>
               <i onClick={handleShowRe} class='bx bx-window-close' id="close"></i>
             </div>
             <div className="searchContents" onClick={handleShowRe}>
               {
-                searchResults.map((item)=>
-                <div id="search-reult" key={item._id}>
-                  <div className="full"></div>
-                </div>
+                searchResults.map((item) =>
+                  <div id="search-result" key={item._id}>
+                    <div className="img"><img src="/Images/Bitmap-1.png" alt="profile picture" /></div>
+                    <div className="descriptions">
+                      <div className="fullName">{item.fullName}</div>
+                      <div className="userName">{item.userName}</div>
+                    </div>
+                  </div>
                 )
               }
             </div>

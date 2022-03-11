@@ -5,18 +5,25 @@ const getuname = e => {
 const onload = e => {
     e.preventDefault()
 }
-const showUser = e => {
-    e.preventDefault()
-    // return console.log("Hi")
-    fetch("http://photocorner33.herokuapp.com/user/getUser"+userName, {
+const onsubmit = async (callback) => {
+    let urlPath = "http://photocorner33.herokuapp.com/user/getUser/" + userName
+    const res = fetch(urlPath, {
         method: "GET",
         headers: { 'Content-Type': 'application/json' },
-    }).then(res => res.json())
-        .then(data => console.log(data))
+    })
+    // const user = await res.json()
+    const user = await (await res).json()
+    if (user == []) {
+        console.log({ message: "No user found with that username" })
+    }
+    else {
+        console.log(user)
+    }
+    return user
 }
 const searchUtils = {
     getuname,
     onload,
-    showUser
+    onsubmit
 }
 export default searchUtils
