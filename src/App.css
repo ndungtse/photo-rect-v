@@ -8,22 +8,22 @@
 
 }
 :root {
-  --primary-color: #2e2c38;
+  --primary-color: #e7eefa;
   --blue-color: #2e4b9c;
   --black-color: #000;
   --dim-black-color: #5f6476;
-  --icon-color: #5f6476;
-  --icon-hover: #fff;
-  --ligth-color: #fff;
-  --dim-light: #edf1f8;
+  --icon-color: #2e4b9c;
+  --icon-hover: rgb(26, 13, 13);
+  --ligth-color: #edf1f8;
+  --dim-light: #e7eefa;
 }
 .dark-theme {
-  --primary-color: #2c2c2c;
+  --primary-color: #1d1027;
   --blue-color: #2e4b9c;
   --black-color: #fff;
   --dim-black-color: #edf1f8;
-  --ligth-color: rgb(5, 4, 4);
-  --dim-light: #131313;
+  --ligth-color: #100a27;
+  --dim-light: #1d1027;
 }
 body {
   background: var(--primary-color);
