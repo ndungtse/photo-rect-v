@@ -18,12 +18,12 @@
   --dim-light: #e7eefa;
 }
 .dark-theme {
-  --primary-color: #1d1027;
+  --primary-color: #08021d;
   --blue-color: #2e4b9c;
   --black-color: #fff;
   --dim-black-color: #edf1f8;
-  --ligth-color: #100a27;
-  --dim-light: #1d1027;
+  --ligth-color: #0a0520;
+  --dim-light: #08021d;
 }
 body {
   background: var(--primary-color);

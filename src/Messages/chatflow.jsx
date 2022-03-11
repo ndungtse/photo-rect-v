@@ -7,7 +7,8 @@ function Chatflow({message}) {
     <div className="chat-flow">
     <div className="speakers send">
       {message.map((toSend)=>(
-      <Mess messagetext={toSend.messagetext}/>
+      <Mess
+      messagetext={toSend.messagetext}/>
           ))}
     </div>
     

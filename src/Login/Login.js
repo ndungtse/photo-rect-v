@@ -48,7 +48,7 @@ const Login = () => {
                 onMouseDown={handleMouseDownPassword} type="checkbox" />
               <label>Show password</label>
             </div>
-            <div class="button">
+            <div className="button">
               <input type='submit' value='Login' />
             </div>
 

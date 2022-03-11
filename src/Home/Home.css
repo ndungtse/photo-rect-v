@@ -155,6 +155,7 @@ body{
     flex-direction: column;
     align-items: center;
     z-index: 0;
+    color: var(--black-color);
     justify-content: space-around;
 }
 .created{
@@ -196,13 +197,9 @@ body{
     color:var(--blue-color);
     cursor: pointer;
 }
-/* .t-link{
-    margin: 40px;
-} */
+
 .contents{
     display: flex;
-    /* grid-template-columns: 1fr 1fr;
-    grid-gap: 6%;/*  */
     flex-flow: column wrap;
     align-items: left;
     justify-content: center;
@@ -272,10 +269,26 @@ body{
 }
 .post{
     display: flex;
-    width: 400px;
+    flex-direction: column;
+    width: 100%;;
     align-items: center;
     margin-top: 20px;
     justify-content: space-between;
+}
+.form1{
+    display: flex;
+    align-items: center;
+}
+.form2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    padding: 10px 20px;
+    background-color: var(--dim-light);
+}
+.p-input{
+    display: flex;
 }
 .post label{
     color: var(--black-color);
@@ -284,14 +297,24 @@ body{
 .post input[type="file"]{
     display: none;
 }
- .post textarea{
-    height: 30px;
+ .b-area{
+     display: none;
+    width: 100%;
     font-size: 1.05rem;
     padding: 7px 11px;
     border: 1px solid gray;
     outline: none;
     border-radius: 5px;
-    width: 200px;
+}
+ .area{
+    height: 130px;
+    width: 100%;
+    font-size: 1.05rem;
+    padding: 7px 11px;
+    border: 1px solid gray;
+    outline: none;
+    border-radius: 5px;
+    /* width: 200px; */
 }
 .post input:focus, .post textarea:focus{
     box-shadow: 0 0 5px rgba(81, 203, 238, 1);
@@ -304,6 +327,9 @@ body{
     color: rgb(47, 40, 150);
     transform: translateY(2px);
     cursor: pointer;
+}
+.img-file{
+    display: none;
 }
 .post button{
     border: none;
@@ -339,10 +365,6 @@ body{
     align-items: center;
 }
 .post form input[type="submit"]{
-    /* width: 40px; */
-    padding: 3px;
-    border-radius: 4px;
-    margin-left: 10px;
     display: flex;
     color: white;
     background-color: #2E4B9C;

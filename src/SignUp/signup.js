@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import {Form, Body, Main, Logo,} from './signupcss';
 import  './signup.css';
-import styled from 'styled-components'
 import Utils from '../utils/index'
 
 const Signup = () => {
@@ -73,6 +72,3 @@ const Signup = () => {
 }
 
 export default Signup;
-const BoxDiv = styled.div`
-// opacity: ${({show})=>(show?'1':'0')};
-`

@@ -34,7 +34,7 @@ const Settings = ({toggleDark,toggleIco}) => {
           </div>
           <Sleft />
         </div>
-        <p className='text-center pt-2'>©️ 2022 Phot Corner. All rights reserved</p>
+        <p className='text-center pt-2'>©️ 2022 Photo Corner. All rights reserved</p>
       </div>
     </div>
   )

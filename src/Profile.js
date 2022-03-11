@@ -39,7 +39,7 @@ function Home() {
                     </div>
                 </div>
                 <div className='flex flex-col items-center mt-2'>
-                    <div className='flex items-center'><i class="fas fa-map-marker-alt mr-2"></i><p>Kigali, Rwanda</p></div>
+                    <div className='flex items-center'><i className="fas fa-map-marker-alt mr-2"></i><p>Kigali, Rwanda</p></div>
                     <div className='flex items-center'><i className="fas fa-graduation-cap mr-2"></i><p>Student at RCA</p></div>
                     <div className='flex px-2 text-center flex-col items-center'><p className='mx-auto'>Programing is 
                         all about thinking and solving problems and making people lazy</p></div>
