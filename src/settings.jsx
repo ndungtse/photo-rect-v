@@ -8,6 +8,11 @@ const Settings = ({toggleDark,toggleIco}) => {
   return (
     <div className='settings w-full flex'>
       <Nav />
+      <div className="delete ">
+          <form action="">
+            
+          </form>
+      </div>
       <div className='w-[95%]'>
         <h1 className='text-center'>Settings</h1>
         <div className='flex'>
