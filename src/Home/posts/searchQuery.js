@@ -13,7 +13,7 @@ const onsubmit = async (callback) => {
     })
     // const user = await res.json()
     const user = await (await res).json()
-    if (user == []) {
+    if (user === []) {
         console.log({ message: "No user found with that username" })
     }
     else {
