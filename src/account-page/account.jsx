@@ -18,7 +18,7 @@ function Account() {
                                 <span>22</span>
                             </div>
                             <div className="">
-                                <i class='bx bxs-comment' ></i>
+                                <i className='bx bxs-comment' ></i>
                                 <span>12</span>
                             </div>
                             <div className="share">
@@ -36,7 +36,7 @@ function Account() {
                                 <span>22</span>
                             </div>
                             <div className="">
-                                <i class='bx bxs-comment' ></i>
+                                <i className='bx bxs-comment' ></i>
                                 <span>12</span>
                             </div>
                             <div className="share">
@@ -54,7 +54,7 @@ function Account() {
                                 <span>22</span>
                             </div>
                             <div className="">
-                                <i class='bx bxs-comment' ></i>
+                                <i className='bx bxs-comment' ></i>
                                 <span>12</span>
                             </div>
                             <div className="share">
@@ -72,7 +72,7 @@ function Account() {
                                 <span>22</span>
                             </div>
                             <div className="">
-                                <i class='bx bxs-comment' ></i>
+                                <i className='bx bxs-comment' ></i>
                                 <span>12</span>
                             </div>
                             <div className="share">
@@ -90,7 +90,7 @@ function Account() {
                                 <span>22</span>
                             </div>
                             <div className="">
-                                <i class='bx bxs-comment' ></i>
+                                <i className='bx bxs-comment' ></i>
                                 <span>12</span>
                             </div>
                             <div className="share">
@@ -108,7 +108,7 @@ function Account() {
                                 <span>22</span>
                             </div>
                             <div className="">
-                                <i class='bx bxs-comment' ></i>
+                                <i className='bx bxs-comment' ></i>
                                 <span>12</span>
                             </div>
                             <div className="share">
@@ -126,7 +126,7 @@ function Account() {
                                 <span>22</span>
                             </div>
                             <div className="">
-                                <i class='bx bxs-comment' ></i>
+                                <i className='bx bxs-comment' ></i>
                                 <span>12</span>
                             </div>
                             <div className="share">

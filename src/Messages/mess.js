@@ -1,7 +1,7 @@
 
 import './mess.css';
 
-function Mess({messagetext}) {
+function Mess({messagetext, inputMessage}) {
   return (
       <div className="speaker1 sender">
         <div className="speaker1-cont">

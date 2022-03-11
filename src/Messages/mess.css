@@ -293,6 +293,7 @@
 .bxs-smile {
   font-size: 1.5em;
   margin-right: 6px;
+  color: var(--black-color);
 }
 .fa-thumbs-up {
   font-size: 1.1em;

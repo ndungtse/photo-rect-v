@@ -40,25 +40,23 @@ function Mainconts() {
       getPosts()
     })
   }
-  // // setCount(count+1)
-  // const increase = () => {
-  //   setCount(count + 1)
-  // }
   return (
     <div className="main-contents ">
       <div className="post">
-        <form onLoad={postUtils.onLoad} onSubmit={handleSubmit}>
+
+        <form onLoad={postUtils.onLoad} onSubmit={handleSubmit} className='form1'>
           <label>Post something</label>
-          <input type="file" id="file" accept="image/png,jpg" /><label htmlFor="file">
-            <i title='add photos' className='bx bx-image'>
+          <input type="file" id="file" accept="image/png,jpg" />
+          <textarea className='bg-slate-300 text-black b-area' type="textarea" onInput={postUtils.getCaption} placeholder='Say something' />
+          <div className='p-input w-full justify-end'>
+          <label htmlFor="file" className='pfile'>
+            <i title='add photos' className='bx bx-image pt-4 mr-8 img-file '>
             </i></label>
-          <textarea type="textarea" onInput={postUtils.getCaption} placeholder='Say something' />
-          <input type={"submit"} value={"Post"} />
+            <input  placeholder='Start a post' type="text" disabled className='cursor-pointer h-[40px] mt-3 mr-3 rounded-4 ml-2'></input>
+          <input type={"submit"} value={"Post"} className='px-7 mt-3 py-2 rounded-4'/>
+          </div>
         </form>
       </div>
-      {/* <div onLoad={postUtils.onLoad} className="contents">
-        <input onLoadStart={postUtils.showPosts} onClick={postUtils.showPosts} value={'See posts'}></input>
-      </div> */}
       <div className="contents">
         {
           posts.map((item) =>

@@ -13,17 +13,11 @@ function Chatinput ({setMessage, message, setSend, inputMessage}) {
         }else {
           e.preventDefault();
         setSend([ 
-            ...message, {messagetext: inputMessage, id: Math.ceil(Math.random()*1000)},
+            ...message, {messagetext: inputMessage, id: Math.random().toString(36).substr(2, 9)},
         ]);
         setMessage("");
         }
       }
-        const handleKeypress = e => {
-          //it triggers by pressing the enter key
-        if (e.keyCode === 13) {
-          this.btn.click();;
-        }
-      };
       
 
     
@@ -33,13 +27,13 @@ function Chatinput ({setMessage, message, setSend, inputMessage}) {
       <div className="inputs-icon">
         <div title="show more options"><i className="bx bxs-plus-circle bl"></i></div>
         
-        <label htmlFor="file-input"><i title="attach file" className="bx bxs-file-plus bl" onClick="sendPhoto()"></i></label>
+        <label htmlFor="file-input"><i title="attach file" className="bx bxs-file-plus bl"></i></label>
         <input type="file" id="file-input" accept="image/png, image/jpg" />
         <div><i title="send a sticker" className="bx bxs-sticker bl"></i></div>
         <div><i title="add a gif" className="bx bxs-file-gif bl"></i></div>
       </div>
       <div className="input-m container ">
-        <input value={inputMessage} onChange={MessageHandler} onKeyPress={handleKeypress} id= "text" type="text" placeholder="Aa" autoComplete="off"
+        <input value={inputMessage} onChange={MessageHandler} id= "text" type="text" placeholder="Aa" autoComplete="off"
           />
         <div><i className="bx bxs-smile pt-1"></i></div>
       </div>
