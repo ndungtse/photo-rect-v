@@ -37,8 +37,8 @@ const onsubmit = e => {
             }
             else if (data.message === "Account created") {
                 console.log(data)
-                localStorage.userName = userName
-                localStorage.fullName = fullName
+                localStorage.setItem("userName",userName)
+                localStorage.setItem("fullName",fullName)
                 window.location.replace('http://localhost:3030')
             }
             else {
