@@ -15,7 +15,7 @@ const onSubmit = (callback) => {
         body: JSON.stringify({ userName, caption })
     })
         .then(res => res.json())
-        .then(data => {console.log(data);callback()})
+        .then(data => {console.log({message:"All data retrieved"});callback()})
 }
 
 const showPosts = async () => {
@@ -24,7 +24,7 @@ const showPosts = async () => {
         headers: { 'Content-Type': 'application/json' }
     })
     const posts = await res.json()
-    // console.log(res,posts)
+    console.log(res)
     return posts
 }
 
