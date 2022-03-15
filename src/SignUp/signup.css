@@ -32,7 +32,7 @@ img{
   cursor: pointer;
   align-items: center;
   justify-content: center;
- /* background-color: #2403fde8; */
+ background-color: #2403fde8;
   border-radius: 5px;
   padding: 3px 7px;
   transition: all 0.3s;
