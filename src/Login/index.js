@@ -9,7 +9,7 @@ const onloginsubmit = e => {
     e.preventDefault()
     fetch("http://photocorner33.herokuapp.com/user/confirmUser", {
         method: "POST",
-        mode: 'no-cors',
+        // mode: 'no-cors',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
             email, password
