@@ -66,6 +66,9 @@ body{
     font-size: 1.5em;
     transition: 0.3s;
 }
+.activate{
+    color: var(--icon-hover);
+}
 .main-side{
     top: 0;
     width: 95%;

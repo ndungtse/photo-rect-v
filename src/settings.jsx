@@ -40,11 +40,11 @@ const Settings = ({toggleDark,toggleIco}) => {
       </div>
       <div className='w-[95%]'>
         <h1 className='text-center'>Settings</h1>
-        <div className='flex'>
+        <div className='flex set-cont'>
           <div className='s-left flex flex-col w-[50%]'>
             <div className='pl-1'>
               <li>Prefferences: </li>
-              <div className='p-cont flex items-center'>
+              <div className='p-cont flex items-center set-view px-4'>
                 <p>Dark mode:</p>
                 <div className='flex items-center pl-7'>
                   <div className='flex items-center pl-7'>
@@ -53,9 +53,9 @@ const Settings = ({toggleDark,toggleIco}) => {
                 </div>
               </div>
             </div>
-            <div className='pl-1'>
+            <div className='pl-1 set-view'>
               <li>Account Settings: </li>
-                <div className='p-cont pt-2 flex items-center'>
+                <div className='p-cont pt-2 flex items-center px-4 set-view'>
                   <p className=''>Account delete:</p>
                   <button onClick={showDeletion}
                    className='flex items-center px-1 rounded-[5px] ml-7 bg-red-400'>Delete Account

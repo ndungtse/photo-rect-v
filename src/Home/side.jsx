@@ -64,13 +64,13 @@ function Side({ isVisible, handleShowRe, setVisible,
             <div className="input-search1">
               <input type="text" onInput={searchUtils.getuname} placeholder="Search" />
               <i className="bx bx-search icon"></i>
-              <i onClick={handleShowRe} class='bx bx-window-close' id="close"></i>
+              <i onClick={handleShowRe} class='bx bx-x' id="close"></i>
             </div>
             <div className="searchContents" onClick={handleShowRe}>
               {
                 searchResults.map((item) =>
                   <div id="search-result" key={item._id}>
-                    <div className="img"><img src="/Images/Bitmap-1.png" alt="profile picture" /></div>
+                    <div className="img"><img src={require("./Images/Bitmap-1.png")} alt="" /></div>
                     <div className="descriptions">
                       <div className="fullName">{item.fullName}</div>
                       <div className="userName">{item.userName}</div>

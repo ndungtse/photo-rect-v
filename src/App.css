@@ -21,7 +21,7 @@
 .dark-theme {
   --primary-color: #08021d;
   --blue-color: #2e4b9c;
-  --black-color: #fff;
+  --black-color: rgb(211, 208, 208);
   --dim-black-color: #edf1f8;
   --ligth-color: #0a0520;
   --dim-light: #08021d;
