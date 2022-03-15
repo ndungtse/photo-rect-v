@@ -32,6 +32,7 @@ function Side({ isVisible, handleShowRe, setVisible,
       setResults(res)
     }
   }
+  
   const handleSearch = (e) => {
     e.preventDefault()
     searchUtils.onsubmit(() => {
