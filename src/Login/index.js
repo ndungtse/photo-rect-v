@@ -15,21 +15,7 @@ const onloginsubmit = e => {
             email, password
         })
     }).then(res => res.json())
-        .then(data => {
-            console.log(data)
-            if (data.response === "Email correct and passwords do not match") {
-                window.alert("Password is incorrect")
-            }
-            else if (data.response === "Email incorrect") {
-                window.alert("You wrote a wrong email my friend")
-            }
-            else {
-                console.log(data)
-                localStorage.userName = data.userName
-                localStorage.fullName = data.fullName
-                window.location.replace('http://photo-rect-v.vercel.app')
-            }
-        })
+        .then(data => console.log(data))
 
 }
 const loginUtils = {
