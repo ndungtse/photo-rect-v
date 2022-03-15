@@ -16,6 +16,7 @@ const onloginsubmit = e => {
         })
     }).then(res => res.json())
         .then(data => {
+            console.log(data)
             if (data.response === "Email correct and passwords do not match") {
                 window.alert("Password is incorrect")
             }
