@@ -16,19 +16,18 @@ const onloginsubmit = e => {
         })
     }).then(res => res.json())
         .then(data => {
-            if (data.message === "Email incorrect but passwords do not match") {
-                window.alert("HHHHHH,😂😂😂😂😂😂Dude,both email and passwords are wrong")
+            if (data.response === "Email correct and passwords do not match") {
+                window.alert("Password is incorrect")
             }
-            else if (data.message === "Email incorrect but passwords match") {
+            else if (data.response === "Email incorrect") {
                 window.alert("You wrote a wrong email my friend")
             }
-            else if (data.message === "Email correct but passwords match") {
-                window.alert("You wrote a wrong email my friend")
+            else {
+                console.log(data)
+                localStorage.userName = data.userName
+                localStorage.fullName = data.fullName
+                window.location.replace('http://photo-rect-v.vercel.app')
             }
-            console.log(data)
-            localStorage.userName = data.userName
-            localStorage.fullName = data.fullName
-            window.location.replace('http://localhost:3030')
         })
 
 }
