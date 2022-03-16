@@ -4,7 +4,7 @@ import Follow from './follow'
 import Acts from './acts'
 import SGroup from './groups';
 
-function Account() {
+function Account({isFollowed, setIsFollowed, users}) {
     return (
         <div  className="proright w-[65%] h-screen flex flex-col overflow-x-hidden rounded-lg ml-[0.5%]">
             <div className="flex flex-col">
@@ -139,7 +139,8 @@ function Account() {
                 </div>
                 
             </div>
-            <Follow />
+            <Follow isFollowed={isFollowed} users={users}
+                    setIsFollowed={setIsFollowed}/>
             <Acts />
             <SGroup />
         </div>
