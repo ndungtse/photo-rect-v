@@ -1,11 +1,18 @@
+import React, {useState/* , useEffect */} from 'react';
 import Nav from './Home/Nav';
 import './App.css';
 import './account-page/account.css'
 import Account from './account-page/account'
 import styled from 'styled-components';
+import People from './utility'
 
 
 function Home() {
+    const {users} = People;
+    // const [followers, setFollowers] = useState(0);
+    const [isFollowed, setIsFollowed] = useState(false);
+   
+   
     let fullName = localStorage.getItem("fullName")
     let userName = localStorage.getItem("userName")
   return (
@@ -68,7 +75,9 @@ function Home() {
                 </div> 
                 </div>
               </Me>
-                <Account />
+                <Account isFollowed={isFollowed} users={users}
+                    setIsFollowed={setIsFollowed}
+                  /*   HandleFollow={HandleFollow} *//>
           </Main>
       </Prof>
   );

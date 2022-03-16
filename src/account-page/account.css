@@ -24,3 +24,10 @@
   .imgcard{
     cursor: pointer;
   }
+  .following{
+    background-color: white;
+    color: black;
+  }
+  .following:hover{
+    background-color: rgb(213, 217, 247);
+  }
