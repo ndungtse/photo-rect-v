@@ -42,7 +42,6 @@ const Login = () => {
                 onChange={handlePasswordChange("password")}
                 value={values.password} placeholder="Enter your password" required />
             </div>
-
             <div className="label">
               <input onClick={handleShowPassword}
                 onMouseDown={handleMouseDownPassword} type="checkbox" />
