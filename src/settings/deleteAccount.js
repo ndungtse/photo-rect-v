@@ -12,7 +12,6 @@ const onload = e => {
 }
 const onsubmit = e => {
     e.preventDefault()
-    // return console.log("Hi")
     fetch("http://photocorner33.herokuapp.com/user/deleteUser", {
         method: "POST",
         // mode: "no-cors",
