@@ -18,7 +18,6 @@ const onload = e => {
 }
 const onsubmit = e => {
     e.preventDefault()
-    // return console.log("Hi")
     fetch("https://photocorner33.herokuapp.com/user/registerUser", {
         method: "POST",
         // mode: "no-cors",

@@ -1,8 +1,11 @@
+let userName,password
 const getuname = e => {
     userName = e.target.value
+    console.log(userName)
 }
 const getpswd = e => {
     password = e.target.value
+    console.log(password)
 }
 const onload = e => {
     e.preventDefault()
@@ -10,7 +13,7 @@ const onload = e => {
 const onsubmit = e => {
     e.preventDefault()
     // return console.log("Hi")
-    fetch("http://photocorner33.herokuapp.com/user/registerUser", {
+    fetch("http://photocorner33.herokuapp.com/user/deleteUser", {
         method: "POST",
         // mode: "no-cors",
         headers: { 'Content-Type': 'application/json' },
@@ -24,7 +27,7 @@ const onsubmit = e => {
                 console.log(data)
                 localStorage.removeItem("userName")
                 localStorage.removeItem("fullName")
-                window.location.replace('http://localhost:3030/signup')
+                window.location.replace('http://photo-rect-v.vercel.app/signup')
             }
             else {
                 window.alert("⚠️⚠️⚠️Either your username or password is incorrect try again!!⚠️⚠️⚠️")
