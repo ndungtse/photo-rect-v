@@ -8,7 +8,7 @@ const getpswd = e => {
 const onloginsubmit = e => {
     e.preventDefault()
         // console.log(email,password)
-    fetch("http://photocorner.herokuapp.com/user/confirmUser", {
+    fetch("http://photocorner33.herokuapp.com/user/confirmUser", {
         method: "POST",
         // mode: 'no-cors',
         headers: { 'Content-Type': 'application/json' },
@@ -19,16 +19,16 @@ const onloginsubmit = e => {
     }).then(res => res.json())
         .then(data => {
             console.log(data.message)
-            if(data.message == "Email correct and passwords match"){
+            if(data.message === "Email correct and passwords match"){
                 console.log(data.user.fullName)
                 localStorage.fullName = data.user.fullName
                 localStorage.userName = data.user.userName
-                window.location.replace('https://photo-rect-v.vercel.app.com')
+                window.location.replace('https://photo-rect-v.vercel.app')
             }
-            else if(data.message == "Email incorrect"){
+            else if(data.message === "Email incorrect"){
                 window.alert("Email incorrect")
             }
-            else if(data.message == "Email correct and passwords do not match"){
+            else if(data.message === "Email correct and passwords do not match"){
                 window.alert("Password is incorrect")
             }
         })
