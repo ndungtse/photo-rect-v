@@ -17,6 +17,7 @@
   --ligth-color: #edf1f8;
   --dim-light: #e7eefa;
   --warning: rgb(133, 18, 179);
+  --other: rgb(24, 20, 20);
 }
 .dark-theme {
   --primary-color: #08021d;

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import './settings/settings.css';
 import Nav from './Home/Nav';
-import Sleft from './settings/sleft'
+import Sleft from './settings/sleft';
 
 const Settings = ({toggleDark,toggleIco}) => {
   const [showDel, setShowDel] = useState("delete");

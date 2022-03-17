@@ -27,7 +27,7 @@ const Login = () => {
 
   return (
     <>
-      <Body>
+      <Body className='bg-slate-500'>
         <Main>
           <Form className='shadow-lg' onLoad={Utils.onload} onSubmit={loginUtils.onloginsubmit}>
             <Logo><img src={require("./../Home/Images/logo.png")} alt="logo" /></Logo>
