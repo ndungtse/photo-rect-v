@@ -17,8 +17,8 @@ img{
 .labels input{
   width: 300px;
   height: 35px;
-  padding: 0 10px;
-  border: 0.7px solid rgb(112, 112, 112);
+  /* padding: 0 10px; */
+  /* border: 0.7px solid rgb(112, 112, 112); */
   border-radius: 3px;
   text-align: center;
   font-size: 1.1em;
@@ -45,12 +45,10 @@ img{
 .labels label{
   font-size: 1.1em;
 }
-.labels input:focus{
+/* .labels input:focus{
   box-shadow: 0 0 5px rgba(81, 203, 238, 1);
- /*  padding: 3px 0px 3px 3px;
-  margin: 5px 1px 3px 0px; */
   border: 1px solid rgba(81, 203, 238, 1);
-}
+} */
 
 .button{
   margin-top: 20px;
@@ -118,4 +116,41 @@ img{
 }
 .active{
   opacity: 0;
+}
+
+.loback{
+  /* background: repeating-radial-gradient(circle at left bottom, #b6b397 20px, #4b5add 20px) */
+  background: radial-gradient(
+  circle at bottom left,
+  #0c13816e 20%,
+  #4b026f 20%,
+  #0e0349cc 90%
+);
+}
+.forform{
+  background: rgba(5, 7, 15, 0.363);
+}
+.inmaterial label{
+  color: #fff;
+}
+.inmaterial label span{
+  display: none;
+  width: 0;
+  margin: 0;
+  padding: 0;
+}
+.inmaterial{
+  width: 70%;
+  border-bottom: solid 1px #fff;
+}
+.inmaterial div input{
+  color: #fff;
+  height: 15px;
+}
+.inmaterial div{
+  /* border-bottom: solid 1px #fff; */
+  color:#fff;
+}
+.MuiInput-underline{
+  border-bottom: 1px solid #fff;
 }
