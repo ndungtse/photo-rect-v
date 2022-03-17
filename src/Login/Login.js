@@ -1,4 +1,5 @@
 
+import TextField from '@mui/material/TextField';
 import React, { useState } from 'react';
 import { Form, Body, Main, Logo } from './../SignUp/signupcss'
 import './../SignUp/signup.css'
@@ -27,20 +28,21 @@ const Login = () => {
 
   return (
     <>
-      <Body className='bg-slate-500'>
+      <Body className='loback'>
         <Main>
-          <Form className='shadow-lg' onLoad={Utils.onload} onSubmit={loginUtils.onloginsubmit}>
+          <Form className='shadow-lg forform' onLoad={Utils.onload} onSubmit={loginUtils.onloginsubmit}>
             <Logo><img src={require("./../Home/Images/logo.png")} alt="logo" /></Logo>
             <h1>Log into Photo Corner</h1>
             <div className="labels">
-              <label>Email</label>
-              <input onInput={loginUtils.getemail} type="email" placeholder="Enter your email" required />
+              <TextField className="inmaterial" label="Email"
+          id="standard-password-input" variant="filled" onInput={loginUtils.getemail} type="email" placeholder="Enter your email" required />
             </div>
             <div className="labels">
-              <label>Password</label>
-              <input onInput={loginUtils.getpswd} type={values.showPassword ? "text" : "password"}
+              <TextField className="inmaterial" placeholder="Enter your passowrd"
+          id="standard-password-input" variant="filled"
+          label="Password" onInput={loginUtils.getpswd} type={values.showPassword ? "text" : "password"}
                 onChange={handlePasswordChange("password")}
-                value={values.password} placeholder="Enter your password" required />
+                value={values.password} required />
             </div>
             <div className="label">
               <input onClick={handleShowPassword}

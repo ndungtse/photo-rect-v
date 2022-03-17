@@ -3,8 +3,8 @@ import styled from 'styled-components';
 export const Form = styled.form`
 width: 500px;
 border-radius: 20px;
-background-color: var(--ligth-color);
-color: var(--black-color);
+// background-color: var(--ligth-color);
+color: #fff;
 padding: 10px 20px;
 display: flex;
 flex-direction: column;
