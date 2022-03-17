@@ -4,7 +4,9 @@ import Follow from './follow'
 import Acts from './acts'
 import SGroup from './groups';
 
-function Account({isFollowed, setIsFollowed, users}) {
+function Account(props) {
+    const {isUsers, setIsUsers} =props;
+  
     return (
         <div  className="proright w-[65%] h-screen flex flex-col overflow-x-hidden rounded-lg ml-[0.5%]">
             <div className="flex flex-col">
@@ -139,8 +141,8 @@ function Account({isFollowed, setIsFollowed, users}) {
                 </div>
                 
             </div>
-            <Follow isFollowed={isFollowed} users={users}
-                    setIsFollowed={setIsFollowed}/>
+            <Follow isUsers={isUsers} 
+                    setIsUsers={setIsUsers}/>
             <Acts />
             <SGroup />
         </div>

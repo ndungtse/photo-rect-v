@@ -4,13 +4,12 @@ import './App.css';
 import './account-page/account.css'
 import Account from './account-page/account'
 import styled from 'styled-components';
-import People from './utility'
+import users from './utility'
 
 
 function Home() {
-    const {users} = People;
     // const [followers, setFollowers] = useState(0);
-    const [isFollowed, setIsFollowed] = useState(false);
+    const [isUsers, setIsUsers] = useState(users);
    
    
     let fullName = localStorage.getItem("fullName")
@@ -75,9 +74,8 @@ function Home() {
                 </div> 
                 </div>
               </Me>
-                <Account isFollowed={isFollowed} users={users}
-                    setIsFollowed={setIsFollowed}
-                  /*   HandleFollow={HandleFollow} *//>
+                <Account isUsers={isUsers}
+                    setIsUsers={setIsUsers}/>
           </Main>
       </Prof>
   );
