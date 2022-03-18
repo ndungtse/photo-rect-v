@@ -1,5 +1,7 @@
-let userName = document.querySelector("#username").value
-let password
+let password, userName
+setTimeout(() => {
+    userName = document.querySelector("#username").value
+}, 10000);
 const getpswd = e => {
     password = e.target.value
 }
@@ -22,6 +24,7 @@ const onsubmit = e => {
                 console.log(data)
                 localStorage.clear()
                 window.location.replace('http://photo-rect-v.vercel.app/signup')
+                window.alert("Account deleted successfully")
             }
             else if (data.message === "ACCOUNT NOT DELETED") {
                 window.alert("⚠️⚠️⚠️Password is incorrect try again!!⚠️⚠️⚠️")

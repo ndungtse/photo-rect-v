@@ -25,7 +25,7 @@ const onloginsubmit = e => {
                 localStorage.userName = data.user.userName
                 window.location.replace('https://photo-rect-v.vercel.app')
             }
-            else if(data.message === "Email incorrect"){
+            else if(data.message === "Email incorrect "){
                 window.alert("Email incorrect")
             }
             else if(data.message === "Email correct and passwords do not match"){
