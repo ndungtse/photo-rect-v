@@ -7,7 +7,7 @@ import Settings from './settings';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Signup from './SignUp/signup';
 import Login from './Login/Login';
-import UpdateAccount from './account-page/updateAccount';
+import updateAccountForm from './account-page/updateAccountForm';
 
 
 function App() {
@@ -52,7 +52,7 @@ function App() {
          <Route path="/signup" element={<Signup />} />
          <Route path="/login" element={<Login />} />
          <Route path='/profile' element={<Profile/>}/>
-         <Route path='/profile/updateaccount' element={<UpdateAccount/>}/>
+         <Route path='/profile/updateAccountForm' element={<updateAccountForm/>}/>
          <Route path='/settings' element={<Settings
              toggleDark={toggleDark}
              toggleIco={toggleIco}

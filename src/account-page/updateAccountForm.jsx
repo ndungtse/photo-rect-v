@@ -3,9 +3,9 @@ import './account.css';
 import Nav from "../Home/Nav";
 import {Link} from 'react-router-dom';
 import TextField from "@mui/material/TextField";
-import updateUtils from "./updateAccount";
+import updateUtils from "./updateAccountForm";
 
-const UpdateAccount = () => {
+const updateAccountForm = () => {
   return (
     <div className="flex update-account w-full absolute h-full">
         <Nav />
@@ -52,4 +52,4 @@ const UpdateAccount = () => {
   );
 };
 
-export default UpdateAccount;
+export default updateAccountForm;
