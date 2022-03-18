@@ -29,7 +29,7 @@ const Settings = ({toggleDark,toggleIco}) => {
             </div>
             <div className="labels">
               <label>Password</label>
-              <input onInput={deleteUtils.getpswd} placeholder="Enter your password" required />
+              <input id='password' placeholder="Enter your password" required />
             </div>
             <div className="labels">
             <input className="bg-red-300 hover:bg-red-400 dele duration-300 cursor-pointer" type="submit"  value="Delete" />
