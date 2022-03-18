@@ -149,7 +149,6 @@ img{
   height: 15px;
 }
 .inmaterial div{
-  /* border-bottom: solid 1px #fff; */
   color:#fff;
 }
 .MuiInput-underline input{
@@ -159,7 +158,10 @@ img{
   border-bottom: 2px solid var(--black-color);
   z-index: 0;
 }
-
+.inlog input::placeholder,
+.insign input::placeholder{
+  font-size: 0.8em;
+}
 .inlog{
   margin-top: 20px!important;
 }
