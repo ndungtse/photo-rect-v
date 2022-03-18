@@ -10,7 +10,7 @@ const UpdateAccount = () => {
         <Nav />
       <div className="flex flex-col items-center w-[95%]">
         <h1>Update your account</h1>
-        <form action="" className="flex flex-col items-center h-[90vh] py-[20%] w-full">
+        <form action="" className="flex flex-col items-center h-[90vh] py-[10%] w-full">
           <div className="flex items-center w-[50%] justify-between mt-4">
             <label htmlFor="" className="">
               Email
