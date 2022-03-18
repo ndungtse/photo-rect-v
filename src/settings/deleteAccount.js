@@ -10,7 +10,7 @@ const onload = e => {
 }
 const onsubmit = e => {
     e.preventDefault()
-    fetch("http://localhost:5000/user/deleteUser", {
+    fetch("http://photocorner33.herokuapp.com/user/deleteUser", {
         method: "POST",
         // mode: "no-cors",
         headers: { 'Content-Type': 'application/json' },
