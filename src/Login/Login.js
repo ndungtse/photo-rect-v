@@ -5,9 +5,12 @@ import { Form, Body, Main, Logo } from './../SignUp/signupcss'
 import './../SignUp/signup.css'
 import Utils from '../utils';
 import loginUtils from '.';
+import Checkbox from '@mui/material/Checkbox';
 
 
 const Login = () => {
+  const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+
   const [values, setValues] = useState({
     password: "",
     showPassword: false,
@@ -23,6 +26,7 @@ const Login = () => {
 
   const handlePasswordChange = (prop) => (e) => {
     setValues({ ...values, [prop]: e.target.value });
+    console.log(e.target.value)
   };
 
 
@@ -34,18 +38,18 @@ const Login = () => {
             <Logo><img src={require("./../Home/Images/logo.png")} alt="logo" /></Logo>
             <h1>Log into Photo Corner</h1>
             <div className="labels">
-              <TextField className="inmaterial" label="Email"
-          id="standard-password-input" variant="filled" onInput={loginUtils.getemail} type="email" placeholder="Enter your email" required />
+              <TextField className="inmaterial inlog" label="Email"
+          id="standard-password-input" variant="filled" onInput={loginUtils.getemail} type="email" placeholder="Enter your email" autocomplete="off" required/>
             </div>
             <div className="labels">
-              <TextField className="inmaterial" placeholder="Enter your passowrd"
+              <TextField className="inmaterial inlog" placeholder="Enter your passowrd"
           id="standard-password-input" variant="filled"
           label="Password" onInput={loginUtils.getpswd} type={values.showPassword ? "text" : "password"}
                 onChange={handlePasswordChange("password")}
                 value={values.password} required />
             </div>
             <div className="label">
-              <input onClick={handleShowPassword}
+            <Checkbox {...label} onClick={handleShowPassword}
                 onMouseDown={handleMouseDownPassword} type="checkbox" />
               <label>Show password</label>
             </div>

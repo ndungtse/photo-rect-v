@@ -42,3 +42,7 @@ body {
 .bx-x:hover{
   color: var(--warning);
 }
+.area-up{
+  border: 1px solid rgb(12, 12, 12);
+  size-adjust: none;
+}

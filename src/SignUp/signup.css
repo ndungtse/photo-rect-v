@@ -3,7 +3,7 @@ h1{
   font-size: 1.2em;
 }
 img{
-  width: 100%;
+  width: 80%;
 }
 
 .labels{
@@ -17,8 +17,6 @@ img{
 .labels input{
   width: 300px;
   height: 35px;
-  /* padding: 0 10px; */
-  /* border: 0.7px solid rgb(112, 112, 112); */
   border-radius: 3px;
   text-align: center;
   font-size: 1.1em;
@@ -32,7 +30,7 @@ img{
   cursor: pointer;
   align-items: center;
   justify-content: center;
- background-color: #2403fde8;
+ background-color: #190692e8;
   border-radius: 5px;
   padding: 3px 7px;
   transition: all 0.3s;
@@ -82,7 +80,8 @@ img{
   width: 240px;
   white-space: nowrap;
 }
-.alt a{
+.alt a{ 
+  transition: all 0.3s;
   text-decoration: none;
 }
 .alt a:hover{
@@ -102,9 +101,11 @@ img{
   transform: scale(1.2);
 }
 .alt1{
+  transition: all 0.3s;
   margin-top: 10px;
 }
 .alt1 a{
+  transition: all 0.3s;
   text-decoration: none;
 }
 .alt1 a:hover{
@@ -151,6 +152,17 @@ img{
   /* border-bottom: solid 1px #fff; */
   color:#fff;
 }
-.MuiInput-underline{
-  border-bottom: 1px solid #fff;
+.MuiInput-underline input{
+  border-bottom: 2px solid var(--black-color)
+}
+.MuiInput-underline input{
+  border-bottom: 2px solid var(--black-color);
+  z-index: 0;
+}
+
+.inlog{
+  margin-top: 20px!important;
+}
+.insign{
+  margin-top: 15px!important;
 }
