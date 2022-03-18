@@ -22,10 +22,10 @@ const Settings = ({toggleDark,toggleIco}) => {
           <form className="delform py-5 " onLoad={deleteUtils.onload} onSubmit={deleteUtils.onsubmit}>
           <h1 className="text-center">Confirm deletion of your account</h1>
           <p className="text-center">This action cannot be undone.</p>
-          <p className="text-center">Type <strong>{localStorage.getItem("userName")}</strong> in the username field.</p>
+          <p className="text-center">Type <strong>YOUR PASSWORD</strong> in the password field.</p>
             <div className="labels">
               <label>Username</label>
-              <input onInput={deleteUtils.getuname} id='username' type="text" />
+              <input disabled value={localStorage.userName} id='username' type="text" />
             </div>
             <div className="labels">
               <label>Password</label>
