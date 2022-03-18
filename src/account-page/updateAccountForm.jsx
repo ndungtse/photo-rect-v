@@ -3,9 +3,9 @@ import './account.css';
 import Nav from "../Home/Nav";
 import {Link} from 'react-router-dom';
 import TextField from "@mui/material/TextField";
-import updateUtils from "./updateAccountForm";
+import updateUtils from "./updateAccount";
 
-const updateAccountForm = () => {
+const UpdateAccount = () => {
   return (
     <div className="flex update-account w-full absolute h-full">
         <Nav />
@@ -23,8 +23,7 @@ const updateAccountForm = () => {
           </div>
           <div className="flex items-center  w-[50%] justify-between mt-4">
             <label className="uplog">Full Name</label>
-            <TextField value={"fsadfa"} className=" w-[70%] uplog" variant="standard"
-              label="Username"
+            <TextField label="Full Name" variant="standard" type="text" className=" w-[70%] uplog" accept="true"
             />
           </div>
           <div className="flex items-center  w-[50%] justify-between mt-4">
@@ -52,4 +51,4 @@ const updateAccountForm = () => {
   );
 };
 
-export default updateAccountForm;
+export default UpdateAccount;

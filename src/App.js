@@ -52,7 +52,7 @@ function App() {
          <Route path="/signup" element={<Signup />} />
          <Route path="/login" element={<Login />} />
          <Route path='/profile' element={<Profile/>}/>
-         <Route path='/profile/updateAccountForm' element={<updateAccountForm/>}/>
+         <Route path='/profile/updateaccount' element={<UpdateAccount />}/>
          <Route path='/settings' element={<Settings
              toggleDark={toggleDark}
              toggleIco={toggleIco}

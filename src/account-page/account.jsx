@@ -5,7 +5,7 @@ import Acts from './acts'
 import SGroup from './groups';
 
 function Account(props) {
-    const {isUsers, setIsUsers, images} =props;
+    const {isUsers, setIsUsers, followCount,followDecrement,  images} =props;
 
     const Timeline = (props) => {
         const {image} = props;
@@ -43,8 +43,8 @@ function Account(props) {
                 </div>
                 
             </div>
-            <Follow isUsers={isUsers} 
-                    setIsUsers={setIsUsers}/>
+            <Follow isUsers={isUsers} followCount={followCount} 
+                    setIsUsers={setIsUsers} followDecrement={followDecrement}/>
             <Acts />
             <SGroup />
         </div>

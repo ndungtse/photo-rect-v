@@ -9,9 +9,17 @@ import {Link} from 'react-router-dom';
 
 
 function Home() {
-    // const [followers, setFollowers] = useState(0);
+    const [followers, setFollowers] = useState(0);
     const [isUsers, setIsUsers] = useState(users);
    
+    const followCount = () => {
+        setFollowers((prevCount) =>  prevCount + 1
+        )
+    }
+    const followDecrement = () => {
+        setFollowers((prevCount) =>  prevCount - 1
+        )
+    }
    
     let fullName = localStorage.getItem("fullName")
     let userName = localStorage.getItem("userName")
@@ -35,11 +43,11 @@ function Home() {
                 </Avatar>
                 <div className="flex px-[6%] justify-between items-center">
                     <div className='flex flex-col items-center'>
-                        <p>1M</p>
+                        <p>10M</p>
                         <p>Followers</p>
                     </div>
                     <div className='flex flex-col items-center'>
-                        <p>1K</p>
+                        <p>{followers}</p>
                         <p>Following</p>
                     </div>
                     <div className='flex flex-col items-center'>
@@ -75,9 +83,9 @@ function Home() {
                 </div> 
                 </div>
               </Me>
-                <Account images={images}
-                isUsers={isUsers}
-                    setIsUsers={setIsUsers}/>
+                <Account images={images} followers={followers} setFollowers={setFollowers}
+                isUsers={isUsers}  followCount={followCount}
+                    setIsUsers={setIsUsers} followDecrement={followDecrement}/>
           </Main>
       </Prof>
   );
