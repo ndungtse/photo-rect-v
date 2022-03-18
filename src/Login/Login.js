@@ -42,7 +42,7 @@ const Login = () => {
           id="standard-password-input" variant="filled" onInput={loginUtils.getemail} type="email" placeholder="Enter your email" autocomplete="off" required/>
             </div>
             <div className="labels">
-              <TextField className="inmaterial inlog" placeholder="Enter your passowrd"
+              <TextField className="inmaterial inlog" placeholder="Enter your passoward"
           id="standard-password-input" variant="filled"
           label="Password" onInput={loginUtils.getpswd} type={values.showPassword ? "text" : "password"}
                 onChange={handlePasswordChange("password")}
