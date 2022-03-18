@@ -18,7 +18,7 @@ const onload = e => {
 }
 const onSubmit = e => {
     e.preventDefault()
-    fetch('https://photocorner33.herokuapp.com', {
+    fetch('https://localhost:5000/user/updateUser', {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -30,7 +30,7 @@ const onSubmit = e => {
             if(data.message === "USER UPDATED"){
                 window.alert("ACCOUNT UPDATED SUCCESSFULLY")
             }
-            else if(data.message == "No user found"){
+            else if(data.message === "No user found"){
                 window.alert("SORRY NO USER FOUND")
             }
             else{
@@ -38,3 +38,12 @@ const onSubmit = e => {
             }
         })
 }
+const updateUtils = {
+    onSubmit,
+    onload,
+    getEmail,
+    getFullName,
+    getUserName,
+    getPassword
+}
+export default updateUtils
