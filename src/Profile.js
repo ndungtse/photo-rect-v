@@ -4,7 +4,7 @@ import './App.css';
 import './account-page/account.css'
 import Account from './account-page/account'
 import styled from 'styled-components';
-import users from './utility';
+import users, {images} from './utility';
 import {Link} from 'react-router-dom';
 
 
@@ -75,7 +75,8 @@ function Home() {
                 </div> 
                 </div>
               </Me>
-                <Account isUsers={isUsers}
+                <Account images={images}
+                isUsers={isUsers}
                     setIsUsers={setIsUsers}/>
           </Main>
       </Prof>

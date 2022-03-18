@@ -17,17 +17,6 @@ const Follow = ({isUsers, setIsUsers}) => {
         return card
       }))
     }
-/*     const saveFollowers = () => {
-      localStorage.setItem("followstatus", user.followed)
-    }
-    const getLocalFollowers = () => {
-      if (localStorage.getItem("followstatus") === null) {
-          localStorage.setItem("followstatus", user.followed=false);
-      }else{
-        let localfollow = localStorage.getItem("followstatus");
-        setIsUsers(localfollow);
-      }
-  } */
     const test = () =>{
       if (user.followed) {
         return 'following'

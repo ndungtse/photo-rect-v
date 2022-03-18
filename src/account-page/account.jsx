@@ -5,139 +5,40 @@ import Acts from './acts'
 import SGroup from './groups';
 
 function Account(props) {
-    const {isUsers, setIsUsers} =props;
+    const {isUsers, setIsUsers, images} =props;
+
+    const Timeline = () => {
+        return (
+            <div className="imgcard shadow-2xl hover:scale-[1.04] duration-500 flex flex-col">
+                <img src={im1} alt="" />
+                <div className="rect flex justify-between px-4">
+                    <div className="like">
+                        <i className='bx bxs-heart'></i>
+                        <span>22</span>
+                    </div>
+                    <div className="">
+                        <i className='bx bxs-comment' ></i>
+                        <span>12</span>
+                    </div>
+                    <div className="share">
+                        <i className='bx bxs-share'></i>
+                        <span>54</span>
+                    </div>
+                </div>
+                <div className="tim flex item-center justify-center w-full px-1 "><p className="mx-auto">3&nbsp;wed&nbsp;2022&nbsp;5:00PM</p></div>
+            </div>
+        )
+    }
   
     return (
         <div  className="proright w-[65%] h-screen flex flex-col overflow-x-hidden rounded-lg ml-[0.5%]">
             <div className="flex flex-col">
                 <h1 className="pl-3 pt-2">Recent Posts</h1>
                 <div className="imgscroll grid-flow-col grid auto-cols-[25%] gap-x-[2%] overflow-x-auto p-3">
-                    <div className="imgcard shadow-2xl hover:scale-[1.04] duration-500 flex flex-col">
-                        <img src={im1} alt="" />
-                        <div className="rect flex justify-between px-4">
-                            <div className="like">
-                                <i className='bx bxs-heart'></i>
-                                <span>22</span>
-                            </div>
-                            <div className="">
-                                <i className='bx bxs-comment' ></i>
-                                <span>12</span>
-                            </div>
-                            <div className="share">
-                                <i className='bx bxs-share'></i>
-                                <span>54</span>
-                            </div>
-                        </div>
-                        <div className="tim flex item-center justify-center w-full px-1 "><p className="mx-auto">3&nbsp;wed&nbsp;2022&nbsp;5:00PM</p></div>
-                    </div>
-                    <div className="imgcard shadow-2xl hover:scale-[1.04] duration-500 flex flex-col">
-                        <img src={im2} alt="" />
-                        <div className="rect flex justify-between px-4">
-                            <div className="like">
-                                <i className='bx bxs-heart'></i>
-                                <span>22</span>
-                            </div>
-                            <div className="">
-                                <i className='bx bxs-comment' ></i>
-                                <span>12</span>
-                            </div>
-                            <div className="share">
-                                <i className='bx bxs-share'></i>
-                                <span>54</span>
-                            </div>
-                        </div>
-                        <div className="tim flex item-center justify-center w-full px-1 "><p>3&nbsp;wed&nbsp;2022&nbsp;5:00PM</p></div>
-                    </div>
-                    <div className="imgcard shadow-2xl hover:scale-[1.04] duration-500 flex flex-col">
-                        <img src={im3} alt="" />
-                        <div className="rect flex justify-between px-4">
-                            <div className="like">
-                                <i className='bx bxs-heart'></i>
-                                <span>22</span>
-                            </div>
-                            <div className="">
-                                <i className='bx bxs-comment' ></i>
-                                <span>12</span>
-                            </div>
-                            <div className="share">
-                                <i className='bx bxs-share'></i>
-                                <span>54</span>
-                            </div>
-                        </div>
-                        <div className="tim flex item-center justify-center w-full px-1 "><p>3&nbsp;wed&nbsp;2022&nbsp;5:00PM</p></div>
-                    </div>
-                    <div className="imgcard shadow-2xl hover:scale-[1.04] duration-500 flex flex-col">
-                        <img src={im4} alt="" />
-                        <div className="rect flex justify-between px-4">
-                            <div className="like">
-                                <i className='bx bxs-heart'></i>
-                                <span>22</span>
-                            </div>
-                            <div className="">
-                                <i className='bx bxs-comment' ></i>
-                                <span>12</span>
-                            </div>
-                            <div className="share">
-                                <i className='bx bxs-share'></i>
-                                <span>54</span>
-                            </div>
-                        </div>
-                        <div className="tim flex item-center justify-center w-full px-1 "><p>3&nbsp;wed&nbsp;2022&nbsp;5:00PM</p></div>
-                    </div>
-                    <div className="imgcard shadow-2xl hover:scale-[1.04] duration-500 flex flex-col">
-                        <img src={im5} alt="" />
-                        <div className="rect flex justify-between px-4">
-                            <div className="like">
-                                <i className='bx bxs-heart'></i>
-                                <span>22</span>
-                            </div>
-                            <div className="">
-                                <i className='bx bxs-comment' ></i>
-                                <span>12</span>
-                            </div>
-                            <div className="share">
-                                <i className='bx bxs-share'></i>
-                                <span>54</span>
-                            </div>
-                        </div>
-                        <div className="tim flex item-center justify-center w-full px-1 "><p>3&nbsp;wed&nbsp;2022&nbsp;5:00PM</p></div>
-                    </div>
-                    <div className="imgcard shadow-2xl hover:scale-[1.04] duration-500 flex flex-col">
-                        <img src={im6} alt="" />
-                        <div className="rect flex justify-between px-4">
-                            <div className="like">
-                                <i className='bx bxs-heart'></i>
-                                <span>22</span>
-                            </div>
-                            <div className="">
-                                <i className='bx bxs-comment' ></i>
-                                <span>12</span>
-                            </div>
-                            <div className="share">
-                                <i className='bx bxs-share'></i>
-                                <span>54</span>
-                            </div>
-                        </div>
-                        <div className="tim flex item-center justify-center w-full px-1 "><p>3&nbsp;wed&nbsp;2022&nbsp;5:00PM</p></div>
-                    </div>
-                    <div className="imgcard shadow-2xl hover:scale-[1.04] duration-500 flex flex-col">
-                        <img src={im7} alt="" />
-                        <div className="rect flex justify-between px-4">
-                            <div className="like">
-                                <i className='bx bxs-heart'></i>
-                                <span>22</span>
-                            </div>
-                            <div className="">
-                                <i className='bx bxs-comment' ></i>
-                                <span>12</span>
-                            </div>
-                            <div className="share">
-                                <i className='bx bxs-share'></i>
-                                <span>54</span>
-                            </div>
-                        </div>
-                        <div className="tim flex item-center justify-center w-full px-1 "><p>3&nbsp;wed&nbsp;2022&nbsp;5:00PM</p></div>
-                    </div>
+                    {images.map(image =>
+                        (
+                            <Timeline images={images} image={image} />
+                        ))}
                 </div>
                 
             </div>
