@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import './settings/settings.css';
 import Nav from './Home/Nav';
 import Sleft from './settings/sleft';
+import deleteUtils from './settings/deleteAccount';
 
 const Settings = ({toggleDark,toggleIco}) => {
   const [showDel, setShowDel] = useState("delete");
@@ -18,16 +19,17 @@ const Settings = ({toggleDark,toggleIco}) => {
       <Nav />
       <div className={`${showDel} bg-black/70 flex 
       items-center w-full absolute h-screen justify-center`}>
-          <form action="" className="delform py-5 ">
+          <form className="delform py-5 " onLoad={deleteUtils.onload} onSubmit={deleteUtils.onsubmit}>
           <h1 className="text-center">Confirm deletion of your account</h1>
           <p className="text-center">This action cannot be undone.</p>
+          <p className="text-center">Type <strong>{localStorage.getItem("userName")}</strong> in the username field.</p>
             <div className="labels">
-              <label>Email</label>
-              <input type="email" placeholder="Enter your email" required />
+              <label>Username</label>
+              <input onInput={deleteUtils.getuname} id='username' type="text" />
             </div>
             <div className="labels">
               <label>Password</label>
-              <input placeholder="Enter your password" required />
+              <input onInput={deleteUtils.getpswd} placeholder="Enter your password" required />
             </div>
             <div className="labels">
             <input className="bg-red-300 hover:bg-red-400 dele duration-300 cursor-pointer" type="submit"  value="Delete" />
