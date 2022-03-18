@@ -7,7 +7,7 @@ import Settings from './settings';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Signup from './SignUp/signup';
 import Login from './Login/Login';
-import UpdateAccount from './account-page/updateAccount';
+import UpdateAccount from './account-page/updateAccountForm';
 
 
 function App() {

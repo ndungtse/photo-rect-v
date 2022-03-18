@@ -7,10 +7,11 @@ import SGroup from './groups';
 function Account(props) {
     const {isUsers, setIsUsers, images} =props;
 
-    const Timeline = () => {
+    const Timeline = (props) => {
+        const {image} = props;
         return (
             <div className="imgcard shadow-2xl hover:scale-[1.04] duration-500 flex flex-col">
-                <img src={im1} alt="" />
+                <img src={image} alt="" />
                 <div className="rect flex justify-between px-4">
                     <div className="like">
                         <i className='bx bxs-heart'></i>
