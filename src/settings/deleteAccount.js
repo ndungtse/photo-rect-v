@@ -23,8 +23,7 @@ const onsubmit = e => {
             // console.log("sdasdasd")
             if (data.message === "ACCOUNT DELETED SUCCESSFULLY") {
                 console.log(data)
-                localStorage.removeItem("userName")
-                localStorage.removeItem("fullName")
+                localStorage.clear()
                 window.location.replace('http://photo-rect-v.vercel.app/signup')
             }
             else if (data.message === "ACCOUNT NOT DELETED") {
