@@ -1,7 +1,5 @@
-let userName, password
-const getuname = e => {
-    userName = e.target.value
-}
+let userName = document.querySelector("#username").value
+let password
 const getpswd = e => {
     password = e.target.value
 }
@@ -20,7 +18,6 @@ const onsubmit = e => {
         })
     }).then(res => res.json())
         .then(data => {
-            // console.log("sdasdasd")
             if (data.message === "ACCOUNT DELETED SUCCESSFULLY") {
                 console.log(data)
                 localStorage.clear()
@@ -35,7 +32,6 @@ const onsubmit = e => {
         })
 }
 const deleteUtils = {
-    getuname,
     getpswd,
     onload,
     onsubmit
