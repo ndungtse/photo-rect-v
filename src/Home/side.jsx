@@ -13,11 +13,7 @@ function Side({ isVisible, handleShowRe, setVisible,
   isToggled, setToggled }) {
 
 
-  const ReStyle = styled.div`
-   display: ${({ isVisible }) => (isVisible ? 'flex' : 'none')};
-   flex-direction: column;
-   align-items: center;
-  `
+ 
   const [searchResults, setResults] = useState([]);
 
   useEffect(() => {
@@ -101,4 +97,9 @@ const Test = styled.div`
         background-color: rgba(12, 12, 12, 0.516);
         z-index: 56;
 }
+`
+const ReStyle = styled.div`
+display: ${({ isVisible }) => (isVisible ? 'flex' : 'none')};
+flex-direction: column;
+align-items: center;
 `

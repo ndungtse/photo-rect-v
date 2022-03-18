@@ -29,5 +29,8 @@ box-sizing: border-box;
 export const
  Logo = styled.div`
 width: 80px;
+display: flex;
+align-items: center;
+justify-content: center;
 `
 

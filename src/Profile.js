@@ -4,7 +4,8 @@ import './App.css';
 import './account-page/account.css'
 import Account from './account-page/account'
 import styled from 'styled-components';
-import users from './utility'
+import users from './utility';
+import {Link} from 'react-router-dom';
 
 
 function Home() {
@@ -51,7 +52,7 @@ function Home() {
                     <div className='flex items-center'><i className="fas fa-graduation-cap mr-2"></i><p>Student at RCA</p></div>
                     <div className='flex px-2 text-center flex-col items-center'><p className='mx-auto'>Programing is 
                         all about thinking and solving problems and making people lazy</p></div>
-                    <div className='flex items-center text-blue-500'><a href='/'>Edit Profile <i className='bx bx-edit'></i></a></div>
+                    <div className='flex items-center text-blue-500'><Link to='/profile/updateaccount'>Edit Profile <i className='bx bx-edit'></i></Link></div>
                 </div>
                 <div className="flex  w-[100%] text-center items-center justify-center">
                     <div className="hover:text-blue-500 duration-300 cursor-pointer mx-auto mt-4 flex w=[80px] items-center justify-center py-2 rounded-md ">

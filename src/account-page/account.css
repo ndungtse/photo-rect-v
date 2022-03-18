@@ -31,3 +31,10 @@
   .following:hover{
     background-color: rgb(213, 217, 247);
   }
+  .update-account{
+    background-color: var(--ligth-color);
+    color: var(--black-color)
+  }
+  .uplog label{
+    color: var(--black-color)
+  }
