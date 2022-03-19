@@ -9,7 +9,7 @@ const onLoad = (e) => {
 const onSubmit = (callback) => {
     
     userName = localStorage.getItem("userName")
-    fetch('http://photocorner33.herokuapp.com/post/newPost', {
+    fetch('https://photocorner33.herokuapp.com/post/newPost', {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ userName, caption })
@@ -19,7 +19,7 @@ const onSubmit = (callback) => {
 }
 
 const showPosts = async () => {
-   const res = await fetch('http://photocorner33.herokuapp.com/post/allPosts', {
+   const res = await fetch('https://photocorner33.herokuapp.com/post/allPosts', {
         method: "GET",
         headers: { 'Content-Type': 'application/json' }
     })
