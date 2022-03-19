@@ -25,7 +25,7 @@ const Settings = ({toggleDark,toggleIco}) => {
           <p className="text-center">Type <strong>YOUR PASSWORD</strong> in the password field.</p>
             <div className="labels">
               <label>Username</label>
-              <input disabled value={localStorage.userName} id='username' type="text" />
+              <input className='bg-white' disabled value={localStorage.userName} id='username' type="text" />
             </div>
             <div className="labels">
               <label>Password</label>
@@ -36,7 +36,7 @@ const Settings = ({toggleDark,toggleIco}) => {
             </div>
             <div className="labels">
             <input onClick={hideDeletion}
-             type="button" className='cursor-pointer hover:bg-slate-400 duration-300 '  value="Cancel" />
+             type="button" className='cursor-pointer bg-slate-100 hover:bg-slate-400 duration-300 '  value="Cancel" />
             </div>
           </form>
       </div>

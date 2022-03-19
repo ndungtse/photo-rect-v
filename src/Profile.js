@@ -4,7 +4,7 @@ import './App.css';
 import './account-page/account.css'
 import Account from './account-page/account'
 import styled from 'styled-components';
-import users, {images} from './utility';
+import users, {posts} from './utility';
 import {Link} from 'react-router-dom';
 
 
@@ -83,7 +83,7 @@ function Home() {
                 </div> 
                 </div>
               </Me>
-                <Account images={images} followers={followers} setFollowers={setFollowers}
+                <Account posts={posts} followers={followers} setFollowers={setFollowers}
                 isUsers={isUsers}  followCount={followCount}
                     setIsUsers={setIsUsers} followDecrement={followDecrement}/>
           </Main>
