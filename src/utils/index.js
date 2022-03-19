@@ -27,7 +27,6 @@ const onsubmit = e => {
         })
     }).then(res => res.json())
         .then(data => {
-            // console.log("sdasdasd")
             if (data.message === "User with that username already exists") {
                 window.alert("User with that username already exists. If you already have an account then login")
             }

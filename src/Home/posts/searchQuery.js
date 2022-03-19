@@ -6,7 +6,7 @@ const onload = e => {
     e.preventDefault()
 }
 const onsubmit = async (callback) => {
-    let urlPath = "http://photocorner33.herokuapp.com/user/getUser/" + userName
+    let urlPath = "https://photocorner33.herokuapp.com/user/getUser/" + userName
     const res = fetch(urlPath, {
         method: "GET",
         headers: { 'Content-Type': 'application/json' },
