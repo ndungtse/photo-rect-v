@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 let previousUserName, fullName, userName, email, password, bio
 previousUserName = localStorage.getItem("userName")
 const onload = e => {

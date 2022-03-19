@@ -5,25 +5,25 @@ import Acts from './acts'
 import SGroup from './groups';
 
 function Account(props) {
-    const {isUsers, setIsUsers, images} =props;
+    const {isUsers, setIsUsers, followCount,followDecrement,  posts} =props;
 
     const Timeline = (props) => {
-        const {image} = props;
+        const {post} = props;
         return (
             <div className="imgcard shadow-2xl hover:scale-[1.04] duration-500 flex flex-col">
-                <img src={image} alt="" />
+                <img src={post.image} alt="" />
                 <div className="rect flex justify-between px-4">
                     <div className="like">
                         <i className='bx bxs-heart'></i>
-                        <span>22</span>
+                        <span>{post.likes}</span>
                     </div>
                     <div className="">
                         <i className='bx bxs-comment' ></i>
-                        <span>12</span>
+                        <span>{post.comments}</span>
                     </div>
                     <div className="share">
                         <i className='bx bxs-share'></i>
-                        <span>54</span>
+                        <span>{post.shares}</span>
                     </div>
                 </div>
                 <div className="tim flex item-center justify-center w-full px-1 "><p className="mx-auto">3&nbsp;wed&nbsp;2022&nbsp;5:00PM</p></div>
@@ -36,15 +36,15 @@ function Account(props) {
             <div className="flex flex-col">
                 <h1 className="pl-3 pt-2">Recent Posts</h1>
                 <div className="imgscroll grid-flow-col grid auto-cols-[25%] gap-x-[2%] overflow-x-auto p-3">
-                    {images.map(image =>
+                    {posts.map(post =>
                         (
-                            <Timeline images={images} image={image} />
+                            <Timeline posts={posts} post={post} />
                         ))}
                 </div>
                 
             </div>
-            <Follow isUsers={isUsers} 
-                    setIsUsers={setIsUsers}/>
+            <Follow isUsers={isUsers} followCount={followCount} 
+                    setIsUsers={setIsUsers} followDecrement={followDecrement}/>
             <Acts />
             <SGroup />
         </div>

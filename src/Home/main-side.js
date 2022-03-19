@@ -28,7 +28,7 @@ function Mainside() {
     <div className="main-side">
       <Main />
       <div onClick={toggle} className='toggle'>
-        <i className={toggleicoClass}></i></div>
+        <i className={`duration-300 ${toggleicoClass}`}></i></div>
       <Side
       isToggled={isToggled}
       

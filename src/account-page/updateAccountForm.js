@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 import TextField from "@mui/material/TextField";
 import updateUtils from "./updateAccount";
 
-const updateAccountForm = () => {
+const UpdateAccount = () => {
   return (
     <div className="flex update-account w-full absolute h-full">
         <Nav />
@@ -52,4 +52,4 @@ const updateAccountForm = () => {
   );
 };
 
-export default updateAccountForm;
+export default UpdateAccount;

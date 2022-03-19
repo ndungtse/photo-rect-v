@@ -21,6 +21,7 @@ img{
   text-align: center;
   font-size: 1.1em;
   outline: none;
+  color:rgb(0, 0, 0);
 }
 .button input[type=submit]{
   color: white;
@@ -99,6 +100,7 @@ img{
 }
 .label input{
   transform: scale(1.2);
+  color: #fff;
 }
 .alt1{
   transition: all 0.3s;

@@ -1,12 +1,12 @@
 import React from 'react';
 import "./account.css";
 
-const Follow = ({isUsers, setIsUsers}) => {
+const Follow = (props) => {
 
-  
+  const {isUsers, setIsUsers, followCount, followDecrement} = props
 
   const Pfollow = (props) => {
-    const {user, isUsers, setIsUsers} = props
+    const {user, isUsers, setIsUsers, followCount,followDecrement} = props
     const followHandler = () => {
       setIsUsers(isUsers.map(card => {
         if (card.id === user.id) {
@@ -16,6 +16,11 @@ const Follow = ({isUsers, setIsUsers}) => {
         }
         return card
       }))
+      if(!user.followed){
+      followCount()
+      }else{
+        followDecrement()
+      }
     }
     const test = () =>{
       if (user.followed) {
@@ -45,8 +50,8 @@ const Follow = ({isUsers, setIsUsers}) => {
       <div className="pt-3 p-2 grid-cols-4 gap-10 grid overflow-x-auto">
         {isUsers.map(user =>(
           <Pfollow user={user} key={user.id} 
-           setIsUsers={setIsUsers}
-           isUsers={isUsers}/>))}
+           setIsUsers={setIsUsers} followCount={followCount}
+           isUsers={isUsers} followDecrement={followDecrement}/>))}
       </div>
     </div>
   );
