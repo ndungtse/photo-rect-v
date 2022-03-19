@@ -31,11 +31,11 @@ const Follow = (props) => {
     }
     const tested = test()
     return (
-      <div className="fcard flex flex-col items-center">
-        <img className="w-[100%] rounded-full"
-          src={user.image}
-          alt=""
-        />
+      <div className="fcard w-[120px] flex flex-col items-center">
+        <div className=" w-[100%] h-[50%] flex flex-col items-center">
+          <img className="h-[100%] rounded-full"
+          src={user.image} alt=""/>
+        </div>
         <p>{user.names}</p>
         <p className="opacity-[0.7]">@{user.username}</p>
         <p onClick={followHandler} isUsers={isUsers} setIsUsers={setIsUsers}
@@ -47,7 +47,7 @@ const Follow = (props) => {
   return (
     <div className="fo">
       <h1 className="pl-3 pt-2">People to follow</h1>
-      <div className="pt-3 p-2 grid-cols-4 gap-10 grid overflow-x-auto">
+      <div className="f-fol pt-3 p-2 gap-10 grid overflow-x-auto">
         {isUsers.map(user =>(
           <Pfollow user={user} key={user.id} 
            setIsUsers={setIsUsers} followCount={followCount}

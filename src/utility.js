@@ -1,3 +1,4 @@
+
 export const images = ['https://images.pexels.com/photos/2376994/pexels-photo-2376994.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260',
     'https://images.pexels.com/photos/840666/pexels-photo-840666.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260',
     'https://images.pexels.com/photos/1854897/pexels-photo-1854897.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260',
@@ -14,18 +15,18 @@ const users = [{
         followers: 0
     },
     {
-        names: 'Eduard Mendy',
+        names: 'Chloe Morgan',
         id: 2,
-        username: 'mendy',
-        image: 'https://resources.premierleague.com/premierleague/photos/players/250x250/p228286.png',
+        username: 'morgan_c',
+        image: 'https://images.pexels.com/photos/6389355/pexels-photo-6389355.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
         followed: false,
         followers: 0
     },
     {
-        names: "N'golo Kante",
+        names: "Kyrie Ederson",
         id: 3,
-        username: 'kante',
-        image: 'https://resources.premierleague.com/premierleague/photos/players/250x250/p116594.png',
+        username: 'Ederson',
+        image: 'https://images.pexels.com/photos/2635534/pexels-photo-2635534.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
         followed: false,
         followers: 0
     },
@@ -33,7 +34,7 @@ const users = [{
         names: 'Kai Havertz',
         id: 4,
         username: 'havertz',
-        image: 'https://resources.premierleague.com/premierleague/photos/players/250x250/p219847.png',
+        image: 'https://cdn.kickoff.com/cms2/image_manager/uploads/News/704032/7/image%2010.jpg',
         followed: false,
         followers: 0
     }

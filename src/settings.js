@@ -68,6 +68,7 @@ const Settings = ({toggleDark,toggleIco}) => {
           <Sleft />
         </div>
         <p className='text-center pt-2'>©️ 2022 Photo Corner. All rights reserved</p>
+        
       </div>
     </div>
   )
