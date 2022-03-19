@@ -12,7 +12,7 @@ const onSubmit = e => {
     password = document.querySelector("#password").value
     bio = document.querySelector("#bio").value
     console.log(email,fullName,userName,password,bio)
-    fetch('http://photo-rect-v.vercel.app/user/updateUser', {
+    fetch('http://photocorner33.herokuapp.com/user/updateUser', {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
