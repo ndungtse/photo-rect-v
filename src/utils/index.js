@@ -18,7 +18,7 @@ const onload = e => {
 }
 const onsubmit = e => {
     e.preventDefault()
-    fetch("https://photocorner33.herokuapp.com/user/registerUser", {
+    fetch("http://photocorner33.herokuapp.com/user/registerUser", {
         method: "POST",
         // mode: "no-cors",
         headers: { 'Content-Type': 'application/json' },
@@ -27,7 +27,6 @@ const onsubmit = e => {
         })
     }).then(res => res.json())
         .then(data => {
-            // console.log("sdasdasd")
             if (data.message === "User with that username already exists") {
                 window.alert("User with that username already exists. If you already have an account then login")
             }
