@@ -142,15 +142,18 @@ body{
 .story-cont img{
     width:100%;
     border-radius: 30px;
-    border: 2px double var(--blue-color);
     cursor: pointer;
 }
 
-.story-cont div{
+.story-cont .s-cont{
     text-decoration: none;
     color: var(--black-color);
     margin-top: 15px;
     cursor: pointer;
+    border: 2px double var(--blue-color);
+}
+.story-cont div span{
+    color: var(--black-color);  
 }
 .main-contents{
     background-color: var(--ligth-color);
