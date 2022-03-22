@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import './account.css';
 import Nav from "../Home/Nav";
 import {Link} from 'react-router-dom';
@@ -6,17 +6,26 @@ import TextField from "@mui/material/TextField";
 import updateUtils from "./updateAccount";
 
 const UpdateAccount = () => {
+  let data = null
+  useEffect(async ()=>{
+    data = await updateUtils.onload()
+    document.querySelector('#email').value = data.email
+    document.querySelector('#fullname').value = data.fullName
+    document.querySelector('#username').value = data.userName
+    document.querySelector('#password ').value = data.password
+    // console.log(data)
+  }, [])
   return (
     <div className="flex update-account w-full absolute h-full">
         <Nav />
-      <div className="flex flex-col items-center w-[95%]">
+      <div onLoad={updateUtils.onload} className="flex flex-col items-center w-[95%]">
         <h1>Update your account</h1>
         <form onLoad={updateUtils.onload} onSubmit={updateUtils.onSubmit} className="flex flex-col items-center h-[90vh] py-[10%] w-full">
           <div className="flex items-center w-[50%] justify-between mt-4">
             <label className="">
               Email
             </label>
-            <TextField id="email" className="w-[70%] uplog" label="Email"
+            <TextField id="email" className="w-[70%] uplog"
               variant="standard"
               type="email"
             />
@@ -24,18 +33,16 @@ const UpdateAccount = () => {
           <div className="flex items-center  w-[50%] justify-between mt-4">
             <label className="uplog">Full Name</label>
             <TextField id="fullname" onInput={updateUtils.getFullName} className=" w-[70%] uplog" variant="standard"
-              label="Full Name"
             />
           </div>
           <div className="flex items-center  w-[50%] justify-between mt-4">
             <label className="">Username</label>
             <TextField id="username" className=" w-[70%] uplog" variant="standard"
-              label="Username"
             />
           </div>
           <div className="flex items-center  w-[50%] justify-between mt-4">
             <label className="">Password</label>
-            <TextField id="password" className=" w-[70%] uplog" variant="standard" label="Password"
+            <TextField id="password" className=" w-[70%] uplog" variant="standard"
             />
           </div>
           <div className="flex items-center  w-[50%] justify-between mt-4">
