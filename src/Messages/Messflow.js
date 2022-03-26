@@ -1,18 +1,24 @@
 
 import './mess.css';
 
-function Messflow() {
+function Messflow(props) {
+  const {usermess} = props;
+  
   return (
     <div className="mess-scroll">
-        <div className="mess-cont">
-          <div className='conts'>
-            <div className="img-mes"><img src={require("./../Home/Images/Bitmap-1.png")} alt="" /></div>
+        {usermess.map((user) => (
+      <div className="mess-cont mt-2 flex-col">
+          <div className="conts w-full px-2">
+            <div className="img-mes">
+              <img className="w-[30px] h-[50px]" src={user.image} alt="" />
+            </div>
             <div className="conts-mes">
-              <p>Ishimwe Christian</p>
+              <p>{user.username}</p>
               <p>Hhhhhhhh</p>
             </div>
           </div>
-        </div>
+      </div>
+        ))}
     </div>
   );
 }

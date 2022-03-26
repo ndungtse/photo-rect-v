@@ -363,16 +363,14 @@
     padding: 2px 20px;
     border-radius: 60px;
     width: 100%;
-    justify-content: space-between;
-    background-color: #bbbcbe;
+    justify-content: center;
+    background-color: var(--primary-color);
+    cursor: pointer;
   }
   .conts-mes {
     margin-top: auto;
-    width: 100%;
   }
-  .mess-cont:hover {
-    background-color: #fff;
-  }
+  
   .img-mes {
     margin-top: auto;
     width: 100px;

@@ -18,8 +18,6 @@ function Chatinput ({setMessage, message, setSend, inputMessage}) {
         setMessage("");
         }
       }
-
-      
   return (
     <div className="chat-inputs md:container md:mx-auto">
       <form action="" className="messform pr-4">

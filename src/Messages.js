@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import Messprev from './Messages/mesprev';
+import Messflow from './Messages/Messflow'
 import Nav from './Home/Nav';
 import './Messages/mess.css';
 import users from './utility';
@@ -32,23 +33,7 @@ function Messages() {
                 <input type="text" placeholder="Search messages" />
               </div>
             </div>
-            <div className="mess-scroll">
-              <div className="mess-cont">
-                {usermess.map((user) => (
-                <div className="conts">
-                  <div className="img-mes">
-                    <img
-                      src={user.image}
-                      alt=""
-                    />
-                  </div>
-                  <div className="conts-mes">
-                    <p>{user.username}</p>
-                    <p>Hhhhhhhh</p>
-                  </div>
-                </div>))}
-              </div>
-            </div>
+            <Messflow usermess={usermess} setUsermess={setUsermess}/>
           </div>
         </div>
         <Messprev usermess={usermess} setUsermess={setUsermess}/>
