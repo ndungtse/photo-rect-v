@@ -42,8 +42,11 @@ const users = [{
 
 export default users
 
+let id = Math.random()*10000
+
 export const posts = [
     {
+        id: id,
         image: 'https://images.pexels.com/photos/2376994/pexels-photo-2376994.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260',
         description: '',
         likes: 0,
@@ -52,6 +55,7 @@ export const posts = [
         date: '3&nbsp;wed&nbsp;2022&nbsp;5:00PM' 
     },
     {
+        id: id,
         image: 'https://images.pexels.com/photos/840666/pexels-photo-840666.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260',
         description: '',
         likes: 0,
@@ -60,6 +64,7 @@ export const posts = [
         date: '3&nbsp;wed&nbsp;2022&nbsp;5:00PM'
     },
     {
+        id: id,
         image: 'https://images.pexels.com/photos/1854897/pexels-photo-1854897.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260',
         description: '',
         likes: 0,
@@ -68,6 +73,7 @@ export const posts = [
         date: '3&nbsp;wed&nbsp;2022&nbsp;5:00PM'
     },
     {
+        id: id,
         image: 'https://images.pexels.com/photos/307847/pexels-photo-307847.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260',
         description: '',
         likes: 0,

@@ -3,11 +3,14 @@ import ReactDOM from 'react-dom';
 import 'boxicons'
 import './index.css';
 import App from './App';
+import Login from "./Login/Login";
 import reportWebVitals from './reportWebVitals';
+
+let userName = localStorage.getItem("userName");
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    {userName ? <App/>:<Login />}
   </React.StrictMode>,
   document.getElementById('root')
 );
