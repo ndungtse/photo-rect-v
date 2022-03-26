@@ -1,36 +1,58 @@
-import Messflow from './Messages/Messflow';
+import React, {useState} from 'react';
 import Messprev from './Messages/mesprev';
 import Nav from './Home/Nav';
 import './Messages/mess.css';
+import users from './utility';
 
 function Messages() {
+  const [usermess, setUsermess] = useState(users);
   return (
     <div className="m-mes">
-
-    <Nav />
-    <div className="message">
+      <Nav />
+      <div className="message">
         <div className="simple-m">
           <div className="simple-view">
             <div className="chat-title">
               <p>Chats</p>
               <div className="chat-icons">
-                <div><i className="bx bx-dots-horizontal-rounded icon"></i></div>
-                <div><i className='bx bxs-message-square-edit'></i></div>
-                <div><i className="bx bxs-video-plus icon"></i></div>
+                <div>
+                  <i className="bx bx-dots-horizontal-rounded icon"></i>
+                </div>
+                <div>
+                  <i className="bx bxs-message-square-edit"></i>
+                </div>
+                <div>
+                  <i className="bx bxs-video-plus icon"></i>
+                </div>
               </div>
-              
             </div>
             <div className="px-4">
-            <div className="search-mess pr-3">
+              <div className="search-mess pr-3">
                 <i className="bx bx-search icon"></i>
                 <input type="text" placeholder="Search messages" />
-             </div>
-             </div>
-            <Messflow />
+              </div>
+            </div>
+            <div className="mess-scroll">
+              <div className="mess-cont">
+                {usermess.map((user) => (
+                <div className="conts">
+                  <div className="img-mes">
+                    <img
+                      src={user.image}
+                      alt=""
+                    />
+                  </div>
+                  <div className="conts-mes">
+                    <p>{user.username}</p>
+                    <p>Hhhhhhhh</p>
+                  </div>
+                </div>))}
+              </div>
+            </div>
           </div>
         </div>
-        <Messprev />
-    </div>
+        <Messprev usermess={usermess} setUsermess={setUsermess}/>
+      </div>
     </div>
   );
 }

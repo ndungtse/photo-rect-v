@@ -1,12 +1,16 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Poppins:wght@300&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Nunito&family=Open+Sans&family=Poppins:wght@300&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-weight: 500;
-  font-family: 'Open Sans', sans-serif;
+  /* font-weight: 500; */
+  font-family: 'Roboto',
+    sans-serif;
 
 }
+
+
 :root {
   --primary-color: #e7eefa;
   --blue-color: #2e4b9c;
@@ -19,6 +23,7 @@
   --warning: rgb(133, 18, 179);
   --other: rgb(24, 20, 20);
 }
+
 .dark-theme {
   --primary-color: #08021d;
   --blue-color: #2e4b9c;
@@ -27,22 +32,27 @@
   --ligth-color: #0a0520;
   --dim-light: #08021d;
 }
+
 body {
   background: var(--primary-color);
 }
+
 .main-container {
   display: flex;
   background-color: var(--primary-color);
   top: 0;
 }
-.bx-x{
+
+.bx-x {
   font-size: 1.5em;
   transition: all 0.3s;
 }
-.bx-x:hover{
+
+.bx-x:hover {
   color: var(--warning);
 }
-.area-up{
+
+.area-up {
   border: 1px solid rgb(12, 12, 12);
   size-adjust: none;
 }
