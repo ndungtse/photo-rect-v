@@ -38,7 +38,7 @@ function Account(props) {
                 <div className="imgscroll grid-flow-col grid auto-cols-[25%] gap-x-[2%] overflow-x-auto p-3">
                     {posts.map(post =>
                         (
-                            <Timeline posts={posts} post={post} />
+                            <Timeline posts={posts} post={post} key={post.id} />
                         ))}
                 </div>
                 
