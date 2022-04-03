@@ -1,24 +1,3 @@
-<<<<<<< HEAD
-import Mess from './mess';
-import './mess.css';
-
-function Chatflow({message}) {
-
-  return (
-    <div className="chat-flow">
-    <div className="speakers send">
-      {message.map((toSend)=>(
-      <Mess
-      messagetext={toSend.messagetext}/>
-          ))}
-    </div>
-    
-  </div>
-  );
-}
-
-export default Chatflow;
-=======
 // import Mess from './mess';
 import './mess.css';
 
@@ -45,4 +24,3 @@ function Chatflow({message}) {
 }
 
 export default Chatflow;
->>>>>>> b2a837bb4563fa7f2390cc8544b1b323e0743192

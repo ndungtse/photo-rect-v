@@ -8,7 +8,7 @@ const getpswd = e => {
 const onloginsubmit = e => {
     e.preventDefault()
         // console.log(email,password)
-    fetch("https://photocorner33.herokuapp.com/user/confirmUser", {
+    fetch("https://localhost:5000/user/confirmUser", {
         method: "POST",
         // mode: 'no-cors',
         headers: { 'Content-Type': 'application/json' },
