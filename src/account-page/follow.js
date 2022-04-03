@@ -4,7 +4,7 @@ import users from '../utility';
 const Follow = (props) => {
 
   let {isUsers, setIsUsers, followCount, followDecrement} = props
-isUsers = users
+
   const Pfollow = (props) => {
     const {user, isUsers, setIsUsers, followCount,followDecrement} = props
     const followHandler = () => {
@@ -48,7 +48,7 @@ isUsers = users
     <div className="fo">
       <h1 className="pl-3 pt-2">People to follow</h1>
       <div className="f-fol pt-3 p-2 gap-10 grid overflow-x-auto">
-        {users.map(user =>
+        {isUsers.map(user =>
           <Pfollow user={user} key={user.id} 
            setIsUsers={setIsUsers} followCount={followCount}
            isUsers={isUsers} followDecrement={followDecrement}/>)}
