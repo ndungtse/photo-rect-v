@@ -42,14 +42,11 @@ function App() {
       window.localStorage.setItem('toggleIco', 'bx bx-toggle-right')
     }
     }
-    
-    let userName = localStorage.getItem("userName");
   return (
     <BrowserRouter>
        <div className={dark}>
-         <Routes >{userName ?
+         <Routes >
          <Route path="/" element={<Home />} />
-         : <Route path="/" element={<Login />} />}
          <Route path="/home" element={<Home />} />
          <Route path="/messages" element={<Messages />} />
          <Route path="/signup" element={<Signup />} />

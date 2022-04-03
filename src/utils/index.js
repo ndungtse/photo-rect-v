@@ -20,7 +20,7 @@ const onsubmit = e => {
     e.preventDefault()
     fetch("https://localhost:5000/user/registerUser", {
         method: "POST",
-        // mode: "no-cors",
+        mode: "no-cors",
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
             fullName, userName, email, password
