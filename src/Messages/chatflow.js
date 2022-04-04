@@ -1,8 +1,5 @@
-<<<<<<< HEAD
 // import Mess from './mess';
-=======
 import Mess from './mess';
->>>>>>> 3d74eb451d9869778d1f3d35f2ac79b69846a9d2
 import './mess.css';
 
 function Chatflow({message}) {
