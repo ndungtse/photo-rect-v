@@ -1,10 +1,14 @@
 import './side.css';
 import './Home.css';
 import { Link } from 'react-router-dom';
+import allUsers from './users';
+import { useEffect } from 'react';
+
 
 function Follow({handleShowRe}) {
+
   return ( 
-    <div  className="follow">
+    <div  className="follow" onLoad={allUsers.onload}>
       <div className="p-follow">
       </div>
        <div className="follow-cont">
