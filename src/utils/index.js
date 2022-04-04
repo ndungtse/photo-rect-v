@@ -18,9 +18,9 @@ const onload = e => {
 }
 const onsubmit = e => {
     e.preventDefault()
-    fetch("https://localhost:5000/user/registerUser", {
+    fetch("https://photocorner33.herokuapp.com/user/registerUser", {
         method: "POST",
-        mode: "no-cors",
+        // mode: "no-cors",
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
             fullName, userName, email, password

@@ -9,7 +9,7 @@ const onload = e => {
 const onsubmit = e => {
     e.preventDefault()
     // return console.log("Hi")
-    fetch("https://localhost:5000/message/newMessage", {
+    fetch("https://photocorner33.herokuapp.com/message/newMessage", {
         method: "POST",
         // mode: "no-cors",
         headers: { 'Content-Type': 'application/json' },

@@ -6,7 +6,7 @@ const onload = e => {
             method: "GET"
         }).then(res => res.json())
             .then(data => {
-                // console.log(data.users)
+                console.log(data.users)
                 resolve(data)
             })
     })
