@@ -60,7 +60,7 @@ function Side({ isVisible, handleShowRe, setVisible,
             <div className="input-search1">
               <input type="text" onInput={searchUtils.getuname} placeholder="Search" />
               <i className="bx bx-search icon"></i>
-              <i onClick={handleShowRe} class='bx bx-x' id="close"></i>
+              <i onClick={handleShowRe} className='bx bx-x' id="close"></i>
             </div>
             <div className="searchContents" onClick={handleShowRe}>
               {
