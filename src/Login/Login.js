@@ -26,7 +26,6 @@ const Login = () => {
 
   const handlePasswordChange = (prop) => (e) => {
     setValues({ ...values, [prop]: e.target.value });
-    console.log(e.target.value)
   };
 
 
