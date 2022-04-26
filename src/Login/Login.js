@@ -38,7 +38,7 @@ const Login = () => {
             <h1>Log into Photo Corner</h1>
             <div className="labels">
               <TextField className="inmaterial inlog" label="Email"
-          id="standard-password-input" variant="filled" onInput={loginUtils.getemail} type="email" placeholder="Enter your email" autocomplete="off" required/>
+          id="standard-input" variant="filled" onInput={loginUtils.getemail} type="email" placeholder="Enter your email" autoComplete="off" required/>
             </div>
             <div className="labels">
               <TextField className="inmaterial inlog" placeholder="Enter your passoward"

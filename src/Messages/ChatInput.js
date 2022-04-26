@@ -1,23 +1,39 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './mess.css';
 
-function Chatinput ({setMessage, message, setSend, inputMessage}) {
+function Chatinput ({setMessage, username, room, socket, message, setSend, inputMessage}) {
  
     const  MessageHandler = (e)=> {
         setMessage(e.target.value);
 
       }
-      const submitMessage = (e) => {
-        if (inputMessage==="") {
-          // alert("Please enter a message")
-        }else {
+
+        const sendMessage = async (e) => {
           e.preventDefault();
-        setSend([ 
-            ...message, {messagetext: inputMessage, id: Math.random().toString(36).substr(2, 9)},
-        ]);
-        setMessage("");
-        }
-      }
+          if (inputMessage !== "") {
+            const messageData = {
+              id: Math.random().toString(36).substr(2, 9),
+              room: room,
+              author: username,
+              message: inputMessage,
+              time:
+                new Date(Date.now()).getHours() +
+                ":" +
+                new Date(Date.now()).getMinutes(),
+            }
+
+            await socket.emit("send_message", messageData);
+            setSend((list) => [...list, messageData]);
+            setMessage("");
+          }else{
+            return
+          }
+        };
+       useEffect(() => {
+         socket.on("receive_message", (data) => {
+           setSend((list) => [...list, data]);
+         });
+       }, [setSend, socket]);
   return (
     <div className="chat-inputs md:container md:mx-auto">
       <form action="" className="messform pr-4">
@@ -36,7 +52,7 @@ function Chatinput ({setMessage, message, setSend, inputMessage}) {
       </div>
       <div className="send-li">
         <div><i className="fas fa-thumbs-up"></i></div>
-        <button onClick={submitMessage}
+        <button onClick={sendMessage}
          id="send" href="index.html"
          type=''>send
             <i title="send" className='bx bxs-send'></i></button>
