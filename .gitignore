@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+/public/boxicons-2.1.1
 /.pnp
 .pnp.js
 
