@@ -7,7 +7,8 @@ function Messflow(props) {
   return (
     <div className="mess-scroll">
         {usermess.map((user) => (
-      <div className="mess-cont mt-2 flex-col">
+      <div key={usermess.id} className="mess-cont mt-2 flex-col">
+        { console.log(usermess.id) }
           <div className="conts w-full px-2">
             <div className="img-mes">
               <img className="w-[30px] h-[50px]" src={user.image} alt="" />
