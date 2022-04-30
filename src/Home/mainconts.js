@@ -11,7 +11,7 @@ function Mainconts() {
   const [iniImgClass, setinImgClass] = useState("img-file");
   const [image, setImage] = useState('')
   const [preview, setPreview] = useState()
-  const [posts, setPosts] = useState()
+  const [posts, setPosts] = useState([])
   const [caption, setCaption] = useState('')
 
 
@@ -29,9 +29,7 @@ function Mainconts() {
   }
 
   useEffect(() => {
-    if (!posts.length) {
       getPosts()
-    }
   }, [posts])
 
   const previewFile = () => {

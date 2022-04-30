@@ -1,0 +1,102 @@
+{
+  "users": [
+    {
+      "names": "Admin Charles",
+      "id": 1,
+      "username": "admin",
+      "image": "https://resources.premierleague.com/premierleague/photos/players/250x250/p184341.png",
+      "followed": false,
+      "followers": 0,
+      "rooms": [],
+      "messages": []
+    },
+    {
+      "names": "Chloe Morgan",
+      "id": 2,
+      "username": "morgan_c",
+      "image": "https://images.pexels.com/photos/6389355/pexels-photo-6389355.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+      "followed": false,
+      "followers": 0,
+      "rooms": [],
+      "messages": []
+    },
+    {
+      "names": "Kyrie Ederson",
+      "id": 3,
+      "username": "Ederson",
+      "image": "https://images.pexels.com/photos/2635534/pexels-photo-2635534.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+      "followed": false,
+      "followers": 0,
+      "rooms": [],
+      "messages": []
+    },
+    {
+      "names": "Kai Havertz",
+      "id": 4,
+      "username": "havertz",
+      "image": "https://cdn.kickoff.com/cms2/image_manager/uploads/News/704032/7/image%2010.jpg",
+      "followed": false,
+      "followers": 0,
+      "rooms": [],
+      "messages": []
+    }
+  ],
+  "messages": [
+    {
+      "id": "i9wui3bik",
+      "room": 3,
+      "author": "admin",
+      "message": "fk",
+      "time": "23:48"
+    },
+    {
+      "id": "sq0ogwjh9",
+      "room": 3,
+      "author": "morgan_c",
+      "message": "ngo",
+      "time": "23:53"
+    },
+    {
+      "id": "ntfm8yirk",
+      "room": 5,
+      "author": "Ederson",
+      "message": "hfhh",
+      "time": "23:54"
+    },
+    {
+      "id": "7hf5xhrqp",
+      "room": 5,
+      "author": "morgan_c",
+      "message": "kk\\",
+      "time": "23:54"
+    },
+    {
+      "id": "fh5a9wzug",
+      "room": 5,
+      "author": "Ederson",
+      "message": "ok",
+      "time": "23:54"
+    },
+    {
+      "id": "mh1n32dad",
+      "room": 5,
+      "author": "morgan_c",
+      "message": "late fd",
+      "time": "23:55"
+    },
+    {
+      "id": "6gby6to81",
+      "room": 5,
+      "author": "Ederson",
+      "message": "fun",
+      "time": "23:55"
+    },
+    {
+      "id": "b3vh335oq",
+      "room": 5,
+      "author": "morgan_c",
+      "message": "fin",
+      "time": "23:55"
+    }
+  ]
+}

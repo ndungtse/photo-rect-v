@@ -7,7 +7,7 @@ function Main() {
   return ( 
       <div className='main'>
           <Stories />
-          <Mainconts />
+          {/* <Mainconts /> */}
       </div>
   );
 }

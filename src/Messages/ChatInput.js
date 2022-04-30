@@ -14,7 +14,7 @@ function Chatinput ({setMessage, username, room, socket, message, setSend, input
             const messageData = {
               id: Math.random().toString(36).substr(2, 9),
               room: room,
-              author: username,
+              author: username.name,
               message: inputMessage,
               time:
                 new Date(Date.now()).getHours() +
@@ -23,6 +23,14 @@ function Chatinput ({setMessage, username, room, socket, message, setSend, input
             }
 
             await socket.emit("send_message", messageData);
+            const res = await fetch("http://localhost:3000/messages", {
+              method: "POST",
+              headers: {
+                "Content-type": "application/json",
+              },
+              body: JSON.stringify(messageData),
+            });
+            console.log(res);
             setSend((list) => [...list, messageData]);
             setMessage("");
           }else{

@@ -7,7 +7,7 @@ function Saved() {
     <div className="saved">
       <div className="savetop">
         <p>You saved</p>
-        <p><div>See all</div></p>
+        <div><p>See all</p></div>
       </div>
       <div className="savedcont">
         <div className="contcont">
