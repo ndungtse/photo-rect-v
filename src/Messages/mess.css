@@ -339,12 +339,6 @@
   .message {
     width: 85%;
   }
-  .navbar {
-    width: 60px;
-  }
-  .nav-contents {
-    width: 60px;
-  }
   .simple-m {
     width: 100%;
   }
@@ -377,4 +371,11 @@
   .img-mes img {
     width: 60px;
   }
+}
+
+@media screen and (max-width: 700px) {
+     .m-mes {
+       display: flex;
+       flex-direction: column !important;
+     }
 }

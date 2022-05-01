@@ -1,8 +1,8 @@
 .side{
     display: flex;
     flex-direction: column;
-    width: 30%;
-    background-color: var(--ligth-color);
+    width: 35%;
+    /* background-color: var(--ligth-color); */
     align-items: center;
     justify-content: center;
     top: 0;
@@ -19,8 +19,8 @@
     top: 0;
     width: 29%;
     height: 100%;
-    border-radius: 16px;
-    background-color: var(--dim-light);
+    border-left: 1px solid #ccc;
+    background-color: var(--ligth-color);
     z-index: 6;
     position:fixed;
     justify-content: space-between;
@@ -38,7 +38,7 @@
     margin-left: 20px;
     width: 250px;
     padding: 0 10px;
-    background-color: var(--ligth-color);
+    background-color: var(--dim-light);
     height: 40px;
     align-items: center;
     align-items: center;

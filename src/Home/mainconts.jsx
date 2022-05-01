@@ -68,7 +68,6 @@ function Mainconts() {
       }
     );
     const posts = await res.json();
-    console.log(res);
     setPosts(posts);
   };
 
@@ -126,7 +125,7 @@ function Mainconts() {
       </div>
       <div className="contents  flex-col items-center w-full felx">
         {posts.map((post) => (
-          <div className="  w-[60%]  items-center mt-6">
+          <div key={post._id} className="  w-[60%]  items-center mt-6">
             <div className="postcard px-4 flex flex-col justify-between rounded-sm shadow-sm py-[1%] border-[1px] aspect-[9/10]">
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
@@ -142,6 +141,7 @@ function Mainconts() {
               </div>
               <div className="flex w-full aspect-square">
                 <p className="m-auto">{post.caption}</p>
+                <img src="" alt="" />
               </div>
               <div className=" flex items-center text-2xl py-2">
                 <BiHeart className="ml-4 cursor-pointer" />
