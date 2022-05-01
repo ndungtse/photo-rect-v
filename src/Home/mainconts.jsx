@@ -139,7 +139,7 @@ function Mainconts() {
                 </div>
                 <BiDotsHorizontalRounded className="cursor-pointer text-3xl" />
               </div>
-              <div className="flex w-full aspect-square">
+              <div className="flex flex-col w-full aspect-square">
                 <p className="m-auto">{post.caption}</p>
                 <img src="" alt="" />
               </div>

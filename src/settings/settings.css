@@ -39,4 +39,27 @@ color: black;
   .set-view{
     justify-content: space-between;
   }
+  .settings{
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 410px) {
+  .nav-contents{
+    flex-direction: column;
+    height: 120px;
+    justify-content: center;
+  }
+  .navbar{
+    height: 120px;
+  }
+  .navlogo img{
+    width: 150px;
+    margin: 0!important;
+  }
+  .navlinks:first-child{
+    margin: 0;
+  }
+  .nav-container{
+    padding-left: 0;
+  }
 }

@@ -1,4 +1,4 @@
-
+import {BiDotsHorizontalRounded} from 'react-icons/bi'
 import './mess.css';
 import Test from './test';
 
@@ -20,20 +20,22 @@ function Messflow(props) {
           <div
             id={user.id}
             onClick={startChat}
-            className="conts w-full px-2 cursor-pointer"
+            className="conts flex justify-between w-full px-2 cursor-pointer"
           >
             <div className="img-mes">
               <img
                 id={user.id}
-                className="w-[30px] h-[50px]"
+                className=" aspect-square "
                 src={user.image}
                 alt=""
               />
+
+              <div id={user.id} className="conts-mes ml-3">
+                <p id={user.id}>{user.username}</p>
+                <p id={user.id}>Hhhhhhhh</p>
+              </div>
             </div>
-            <div id={user.id} className="conts-mes">
-              <p id={user.id}>{user.username}</p>
-              <p id={user.id}>Hhhhhhhh</p>
-            </div>
+            <BiDotsHorizontalRounded className='text-2xl cursor-pointer' />
           </div>
         </div>
       ))}
