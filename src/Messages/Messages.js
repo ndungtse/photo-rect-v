@@ -13,19 +13,20 @@ function Messages() {
   const [usermess, setUsermess] = useState([]);
   const [username, setUsername] = useState('');
   const [room, setRoom] = useState("");
+  const [room1, setRoom1] = useState("");
   const [inputMessage, setMessage] = useState("");
-  const [message, setSend] = useState([]);
+  // const [message, setSend] = useState([]);
 
-  useEffect(() => {
-    getMessage();
-  }, []);
+  // useEffect(() => {
+  //   getMessage();
+  // }, []);
 
-  const getMessage = async () => {
-    const res = await fetch("http://localhost:3000/messages")
-    const messages = await res.json()
-    console.log(messages);
-    setSend(messages)
-  };
+  // const getMessage = async () => {
+  //   const res = await fetch("http://localhost:3000/messages")
+  //   const messages = await res.json()
+  //   console.log(messages);
+  //   setSend(messages)
+  // };
   const getUsers= async() =>{
     const res = await fetch("http://localhost:3000/users");
     const users = await res.json()
@@ -71,6 +72,7 @@ function Messages() {
               </div>
             </div>
             <Messflow
+              setRoom1={setRoom1}
               joinRoom={joinRoom}
               setRoom={setRoom}
               setUsername={setUsername}
@@ -81,14 +83,14 @@ function Messages() {
           </div>
         </div>
         <Messprev
-          message={message}
-          setSend={setSend}
           inputMessage={inputMessage}
           setMessage={setMessage}
           usermess={usermess}
           joinRoom={joinRoom}
           room={room}
           setRoom={setRoom}
+          room1={room1}
+          setRoom1={setRoom1}
           username={username}
           setUsername={setUsername}
           socket={socket}

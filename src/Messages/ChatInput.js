@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import './mess.css';
 
-function Chatinput ({setMessage, username, room, socket, message, setSend, inputMessage}) {
+function Chatinput ({setMessage,room1, username, room, socket, inputMessage}) {
  
     const  MessageHandler = (e)=> {
         setMessage(e.target.value);
@@ -14,6 +14,7 @@ function Chatinput ({setMessage, username, room, socket, message, setSend, input
             const messageData = {
               id: Math.random().toString(36).substr(2, 9),
               room: room,
+              room1: room1,
               author: username.name,
               message: inputMessage,
               time:
@@ -31,7 +32,7 @@ function Chatinput ({setMessage, username, room, socket, message, setSend, input
               body: JSON.stringify(messageData),
             });
             console.log(res);
-            setSend((list) => [...list, messageData]);
+            // setSend((list) => [...list, messageData]);
             setMessage("");
           }else{
             return
@@ -39,9 +40,16 @@ function Chatinput ({setMessage, username, room, socket, message, setSend, input
         };
        useEffect(() => {
          socket.on("receive_message", (data) => {
-           setSend((list) => [...list, data]);
+          //  setSend((list) => [...list, data]);
+          fetch("http://localhost:3000/messages", {
+            method: "POST",
+            headers: {
+              "Content-type": "application/json",
+            },
+            body: JSON.stringify(data),
+          });
          });
-       }, [setSend, socket]);
+       }, [ socket]);
   return (
     <div className="chat-inputs md:container md:mx-auto">
       <form action="" className="messform pr-4">

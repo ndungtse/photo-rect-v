@@ -3,11 +3,13 @@ import './mess.css';
 import Test from './test';
 
 function Messflow(props) {
-  const {usermess, setUsername, joinRoom, setRoom, username} = props;
+  const {usermess,setRoom1, setUsername, joinRoom, setRoom, username} = props;
   const friends = usermess.filter(p => p.id != username.id)
   // console.log(usermess.filter((p) => p.id != username.id));
   const startChat = async(e)=>{
-    await setRoom(Number(parseInt(e.target.id)+ parseInt(username.id)))
+    // await setRece(e.target.id);
+    await setRoom(e.target.id + username.id);
+    await setRoom1(username.id + e.target.id);
     joinRoom()
   }
 

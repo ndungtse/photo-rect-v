@@ -22,6 +22,7 @@
   --dim-light: #e7eefa;
   --warning: rgb(133, 18, 179);
   --other: rgb(24, 20, 20);
+  --post-color: #ffffff6a;
 }
 
 .dark-theme {
@@ -31,6 +32,7 @@
   --dim-black-color: #edf1f8;
   --ligth-color: #0a0520;
   --dim-light: #08021d;
+  --post-color: #10152f;
 }
 
 body {

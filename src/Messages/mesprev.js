@@ -4,8 +4,7 @@ import Chatinput from './ChatInput';
 import './mess.css';
 
 function Messprev(props) {
-  const { room, setRoom, username, message, setSend, inputMessage, setMessage,
-    setUsername, joinRoom, socket } = props
+  const { room, room1, username, inputMessage, setMessage,  socket } = props
   return (
     <div className="mess-prev">
         <div className="prev-content">
@@ -27,12 +26,14 @@ function Messprev(props) {
               <div ><i className="bx bxs-info-circle icon"></i></div>
             </div>
           </div>
-          <Chatflow message={message} username={username}
-                    setSend={setSend} room={room} />
+          <Chatflow username={username}
+          room={room} socket={socket} />
           <Chatinput inputMessage={inputMessage}
-             setMessage={setMessage} username={username}
-             message={message} socket={socket}
-             setSend={setSend} room={room}/> 
+           username={username}
+           socket={socket}
+           setMessage={setMessage}
+           room={room}
+             room1={room1}/> 
         </div>
     </div>
   );
