@@ -7,7 +7,7 @@
 //     // e.preventDefault()
 // }
 // const onsubmit = async (callback) => {
-//     // let urlPath = "https://photocorner33.herokuapp.com/user/getUser/" + userName
+//     // let urlPath = "http://localhost:5000/user/getUser/" + userName
 //     // const res = fetch(urlPath, {
 //     //     method: "GET",
 //     //     headers: { 'Content-Type': 'application/json' },

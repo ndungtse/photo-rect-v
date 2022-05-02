@@ -44,7 +44,7 @@ function Mainconts() {
 
   const onSubmit = () => {
     let userName = localStorage.getItem("userName");
-    fetch("https://photocorner33.herokuapp.com/post/newPost", {
+    fetch("http://localhost:5000/post/newPost", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -61,7 +61,7 @@ function Mainconts() {
 
   const showPosts = async () => {
     const res = await fetch(
-      "https://photocorner33.herokuapp.com/post/allPosts",
+      "http://localhost:5000/post/allPosts",
       {
         method: "GET",
         headers: { "Content-Type": "application/json" },

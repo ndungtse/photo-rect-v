@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> refs/remotes/origin/master
+/* eslint-disable react-hooks/exhaustive-deps */
 // import Mess from './mess';
 import "./mess.css";
 import React, { useEffect, useState } from 'react'

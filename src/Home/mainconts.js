@@ -55,7 +55,7 @@ function Mainconts() {
   const newPost = async () => {
 
     let userName = localStorage.getItem("userName")
-    const api = await fetch('https://photocorner33.herokuapp.com/post/newPost', {
+    const api = await fetch('http://localhost:5000/post/newPost', {
       method: "POST",
       mode:'no-cors',
       headers: { 'Content-Type': 'application/json' },
@@ -69,7 +69,7 @@ function Mainconts() {
     console.log(data)
   }
   const getPosts = async () => {
-    const res = await fetch('https://photocorner33.herokuapp.com/post/allPosts', {
+    const res = await fetch('http://localhost:5000/post/allPosts', {
       method: "GET",
       mode:'no-cors',
       headers: { 'Content-Type': 'application/json' }

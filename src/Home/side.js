@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-  import { Link } from "react-router-dom";
-=======
 import { Link } from "react-router-dom";
->>>>>>> refs/remotes/origin/master
 import styled from 'styled-components';
 import './Home.css';
 import './side.css';
