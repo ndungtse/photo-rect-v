@@ -1,4 +1,8 @@
+<<<<<<< HEAD
   import { Link } from "react-router-dom";
+=======
+import { Link } from "react-router-dom";
+>>>>>>> refs/remotes/origin/master
 import styled from 'styled-components';
 import './Home.css';
 import './side.css';
@@ -50,7 +54,7 @@ function Side({ isVisible, handleShowRe, setVisible,
             <i title="See notifications" className="bx bx-bell icon"></i>
           </div>
           <div className="bell" id="bell">
-            <Link to="login"><i title="Log out" className="bx bx-log-out"></i></Link>
+            <Link to="login"><a href="login.html"><i title="Log out" className="bx bx-log-out"></i></a></Link>
           </div>
           <div>
           </div>

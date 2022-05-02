@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> refs/remotes/origin/master
 // import Mess from './mess';
 import "./mess.css";
 import React, { useEffect, useState } from 'react'
