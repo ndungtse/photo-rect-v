@@ -1,15 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito&family=Open+Sans&family=Poppins:wght@300&display=swap');
 
-@font-face {
-  font-family: Source;
-  src: url(./fonts/SourceSansPro-Regular.ttf);
-}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   /* font-weight: 500; */
-  font-family: Source;
+  font-family: 'Roboto',
+    sans-serif;
 
 }
 
@@ -25,6 +22,7 @@
   --dim-light: #e7eefa;
   --warning: rgb(133, 18, 179);
   --other: rgb(24, 20, 20);
+  --post-color: #ffffff6a;
 }
 
 .dark-theme {
@@ -34,6 +32,7 @@
   --dim-black-color: #edf1f8;
   --ligth-color: #0a0520;
   --dim-light: #08021d;
+  --post-color: #10152f;
 }
 
 body {

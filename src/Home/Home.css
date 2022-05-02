@@ -10,14 +10,13 @@ body{
 }
 .navlogo{
     z-index: 2;
-    
     align-items: center;
     justify-content: center;
 }
 
 .navlogo img {
     margin: 30px auto;
-    width: 40px;
+    width: 60px;
     z-index: 2;
     cursor: pointer;
 }
@@ -75,17 +74,8 @@ body{
     width: 95%;
     z-index: 10;
     display:flex;
-    height: 1000px;
     background-color: var(--ligth-color);
 }
-/* hr{
-   height: 2px;
-   background-color: var(--primary-color);
-   display: flex;
-   align-items: center;
-   border-radius: 10px;
-} */
-/* hides the checkbox */
 #heart {
     display: none;
   }
@@ -191,6 +181,10 @@ body{
 .time-item{
     height:50px;
 }
+.post {
+    position: sticky;
+    top: 0;
+}
 .t-link{
     color: var(--black-color);
     display: flex;
@@ -205,16 +199,6 @@ body{
     cursor: pointer;
 }
 
-.contents{
-    display: flex;
-    flex-flow: column wrap;
-    align-items: left;
-    justify-content: center;
-    width: 80%;
-    box-sizing: border-box;
-    padding: 10px;
-    margin: 10px;
-}
 .cont-cont{
     display: flex;
     align-items: center;
@@ -229,6 +213,11 @@ body{
     animation-duration: 3s;
     cursor: pointer;
 }
+.postcard{
+    background-color: var(--post-color);
+    border: 1px solid rgba(170, 166, 166, 0.539);
+}
+
 .cont-desc{
     width: 100%;
     display: flex;
@@ -383,4 +372,53 @@ body{
 }
 .img-file{
     display: none;
+}
+@media screen and (max-width: 700px) {
+    .navbar{
+        flex-direction: row;
+        position: sticky;
+        top: 0;
+        height: 80px;
+        width: 100%!important;
+        border-bottom: 1px solid rgb(169, 165, 165);
+    }
+    .main-container{
+        flex-direction: column;
+    }
+    .nav-contents{
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        height: 80px;
+        width: 100%!important;
+        justify-content: space-between;
+        padding: 0 30px;
+    }
+    .nav-container{
+        font-size: large;
+        flex-direction: row;
+        align-items: center;
+        margin: 0;
+        margin: 0 auto;
+        /* width: 100%; */
+    }
+    .navlinks:not(:last-child){
+        margin: 0;
+        margin-left: 30px;
+    }
+    .navlinks:last-child{
+        margin: 0;
+    }
+    .navlogo{
+        width: 60px;
+    }
+    .main-side{
+        margin: 0 auto;
+        /* background: transparent; */
+        width: 100% !important;
+    }
+    .main-contents{
+        margin-top: 20px;
+    }
+ 
 }

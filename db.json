@@ -1,0 +1,134 @@
+{
+  "users": [
+    {
+      "names": "Admin Charles",
+      "id": "vvedre1",
+      "username": "admin",
+      "image": "https://resources.premierleague.com/premierleague/photos/players/250x250/p184341.png",
+      "followed": false,
+      "followers": 0,
+      "rooms": [],
+      "messages": []
+    },
+    {
+      "names": "Chloe Morgan",
+      "id": "2csvsde3r",
+      "username": "morgan_c",
+      "image": "https://images.pexels.com/photos/6389355/pexels-photo-6389355.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+      "followed": false,
+      "followers": 0,
+      "rooms": [],
+      "messages": []
+    },
+    {
+      "names": "Kyrie Ederson",
+      "id": "we34rt3",
+      "username": "Ederson",
+      "image": "https://images.pexels.com/photos/2635534/pexels-photo-2635534.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+      "followed": false,
+      "followers": 0,
+      "rooms": [],
+      "messages": []
+    },
+    {
+      "names": "Kai Havertz",
+      "id": "4kjhynkj",
+      "username": "havertz",
+      "image": "https://cdn.kickoff.com/cms2/image_manager/uploads/News/704032/7/image%2010.jpg",
+      "followed": false,
+      "followers": 0,
+      "rooms": [],
+      "messages": []
+    }
+  ],
+  "messages": [
+    {
+      "id": "hjhc9gt45",
+      "room": "vvedre12csvsde3r",
+      "room1": "2csvsde3rvvedre1",
+      "author": "morgan_c",
+      "message": "hi charles",
+      "time": "23:46"
+    },
+    {
+      "id": "uy8tulsee",
+      "room": "2csvsde3rvvedre1",
+      "room1": "vvedre12csvsde3r",
+      "author": "admin",
+      "message": "eww",
+      "time": "23:47"
+    },
+    {
+      "id": "hjexcfmq6",
+      "room": "vvedre12csvsde3r",
+      "room1": "2csvsde3rvvedre1",
+      "author": "morgan_c",
+      "message": "crazy",
+      "time": "23:47"
+    },
+    {
+      "id": "qmf1vc1vw",
+      "room": "2csvsde3rvvedre1",
+      "room1": "vvedre12csvsde3r",
+      "author": "admin",
+      "message": "maybe",
+      "time": "23:47"
+    },
+    {
+      "id": "tp8gp2exa",
+      "room": "4kjhynkj2csvsde3r",
+      "room1": "2csvsde3r4kjhynkj",
+      "author": "morgan_c",
+      "message": "havertz",
+      "time": "23:47"
+    },
+    {
+      "id": "irai9rydd",
+      "room": "2csvsde3r4kjhynkj",
+      "room1": "4kjhynkj2csvsde3r",
+      "author": "havertz",
+      "message": "cloe",
+      "time": "23:47"
+    },
+    {
+      "id": "70p3kysdd",
+      "room": "we34rt3vvedre1",
+      "room1": "vvedre1we34rt3",
+      "author": "admin",
+      "message": "ederson",
+      "time": "23:48"
+    },
+    {
+      "id": "tnrivo62v",
+      "room": "vvedre1we34rt3",
+      "room1": "we34rt3vvedre1",
+      "author": "Ederson",
+      "message": "admin",
+      "time": "23:48"
+    },
+    {
+      "id": "etst5i11m",
+      "room": "vvedre14kjhynkj",
+      "room1": "4kjhynkjvvedre1",
+      "author": "havertz",
+      "message": "admin",
+      "time": "23:48"
+    },
+    {
+      "id": "hwiwa2efk",
+      "room": "4kjhynkjvvedre1",
+      "room1": "vvedre14kjhynkj",
+      "author": "admin",
+      "message": "havertz",
+      "time": "23:49"
+    },
+    {
+      "id": "h2bfvcxlo",
+      "room": "2csvsde3rvvedre1",
+      "room1": "vvedre12csvsde3r",
+      "author": "admin",
+      "message": ".,kkkkkl4",
+      "time": "11:30"
+    }
+  ]
+}

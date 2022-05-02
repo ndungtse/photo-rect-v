@@ -1,24 +1,45 @@
-
+import {BiDotsHorizontalRounded} from 'react-icons/bi'
 import './mess.css';
+import Test from './test';
 
 function Messflow(props) {
-  const {usermess} = props;
-  
+  const {usermess,setRoom1, setUsername, joinRoom, setRoom, username} = props;
+  const friends = usermess.filter(p => p.id != username.id)
+  // console.log(usermess.filter((p) => p.id != username.id));
+  const startChat = async(e)=>{
+    // await setRece(e.target.id);
+    await setRoom(e.target.id + username.id);
+    await setRoom1(username.id + e.target.id);
+    joinRoom()
+  }
+
   return (
     <div className="mess-scroll">
-        {usermess.map((user) => (
-      <div className="mess-cont mt-2 flex-col">
-          <div className="conts w-full px-2">
+      {friends.map((user) => (
+        <div key={user.id} className="mess-cont mt-2 flex-col">
+          <div
+            id={user.id}
+            onClick={startChat}
+            className="conts flex justify-between w-full px-2 cursor-pointer"
+          >
             <div className="img-mes">
-              <img className="w-[30px] h-[50px]" src={user.image} alt="" />
+              <img
+                id={user.id}
+                className=" aspect-square "
+                src={user.image}
+                alt=""
+              />
+
+              <div id={user.id} className="conts-mes ml-3">
+                <p id={user.id}>{user.username}</p>
+                <p id={user.id}>Hhhhhhhh</p>
+              </div>
             </div>
-            <div className="conts-mes">
-              <p>{user.username}</p>
-              <p>Hhhhhhhh</p>
-            </div>
+            <BiDotsHorizontalRounded className='text-2xl cursor-pointer' />
           </div>
-      </div>
-        ))}
+        </div>
+      ))}
+      <Test usermess={usermess} setUsername={setUsername} />
     </div>
   );
 }

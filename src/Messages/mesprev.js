@@ -3,31 +3,8 @@ import Chatflow from './chatflow';
 import Chatinput from './ChatInput';
 import './mess.css';
 
-function Messprev() {
-  const [inputMessage, setMessage] = useState("");
-  const [message, setSend] = useState([]);
-
-  useEffect(() => {
-    getSavedMessage();
-  }, []);
-
-  useEffect(() => {
-    const saveMessage = () => { 
-      (localStorage.setItem("message", JSON.stringify(message))); 
-      
-    }
-    saveMessage();
-  }, [message, setSend]);
-
-  
-  const getSavedMessage = () => {
-    if (localStorage.getItem("message") === null){
-      localStorage.setItem("message", JSON.stringify([]));
-    }else{
-      let localMessage = JSON.parse(localStorage.getItem("message"));
-      setSend(localMessage);
-    }
-  }
+function Messprev(props) {
+  const { room, room1, username, inputMessage, setMessage,  socket } = props
   return (
     <div className="mess-prev">
         <div className="prev-content">
@@ -44,17 +21,19 @@ function Messprev() {
               </div>
             </div>
             <div className="mes-title-left-ico">
-              <div><i className="bx bxs-phone icon"></i></div>
-              <div><i className="bx bxs-video icon"></i></div>
-              <div><i className="bx bxs-info-circle icon"></i></div>
+              <div ><i className="bx bxs-phone icon"></i></div>
+              <div ><i className="bx bxs-video icon"></i></div>
+              <div ><i className="bx bxs-info-circle icon"></i></div>
             </div>
           </div>
-          <Chatflow message={message}
-                    setSend={setSend}/>
+          <Chatflow username={username}
+          room={room} socket={socket} />
           <Chatinput inputMessage={inputMessage}
-             setMessage={setMessage}
-             message={message}
-             setSend={setSend}/> 
+           username={username}
+           socket={socket}
+           setMessage={setMessage}
+           room={room}
+             room1={room1}/> 
         </div>
     </div>
   );

@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
 import Home from './Home';
-import Messages from './Messages';
+import Messages from './Messages/Messages';
 import Profile from './Profile';
 import Settings from './settings';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
