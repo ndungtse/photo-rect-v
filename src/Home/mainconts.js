@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
 import './Home.css';
 
@@ -28,74 +30,76 @@ function Mainconts() {
     setinImgClass("img-file")
   }
 
-  useEffect(() => {
-    if (!posts.length) {
-      getPosts()
-    }
-  }, [posts])
+  // useEffect(() => {
+  //   if (!posts.length) {
+  // getPosts()
+  //   }
+  // }, [posts])
 
   const previewFile = () => {
-    const preview = document.querySelector('#preview')
-    const file = document.querySelector('#file').files[0]
+    const preview = document.querySelector('.image-picked')
+    // preview? console.log("Defined"):console.log('Not defined');
+    const file = document.querySelector('.post-image').files[0]
     const reader = new FileReader()
 
-    reader.addEventListener('load',()=>{
+    reader.addEventListener('load', () => {
       preview.src = reader.result
-    })
+      console.log(reader.result);
+      setImage(reader.result)
+    }, false)
+    if (file) {
+      reader.readAsDataURL(file)
+    }
+    console.log(image);
+  }
+  const newPost = async () => {
 
+    let userName = localStorage.getItem("userName")
+    const api = await fetch('http://localhost:5000/post/newPost', {
+      method: "POST",
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        userName: (userName),
+        caption: (caption),
+        imageStr: (image)
+      })
+    })
+    const data = api.json()
+    console.log(data)
   }
   const getPosts = async () => {
-
-    const onSubmit = (callback) => {
-
-      let userName = localStorage.getItem("userName")
-      fetch('https://localhost:5000/post/newPost', {
-        method: "POST",
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 
-          userName:(userName),
-           caption:(caption),
-           imageStr:(image)
-         })
-      })
-        .then(res => res.json())
-        .then(data => { console.log({ message: "All data retrieved" }); callback() })
-    }
-
-    const showPosts = async () => {
-      const res = await fetch('https://localhost:5000/post/allPosts', {
-        method: "GET",
-        headers: { 'Content-Type': 'application/json' }
-      })
-      const posts = await res.json()
-      console.log(res)
-      return posts
-
-    }
-
-    setPosts(showPosts())
-    let res = posts
-    if (res.length) {
-      setPosts(res)
-    }
+    const res = await fetch('http://localhost:5000/post/allPosts', {
+      method: "GET",
+      headers: { 'Content-Type': 'application/json' }
+    })
+    const posts = await res.json()
+    return posts
   }
+
+
+
+  useEffect(() => {
+    setPosts(getPosts())
+  }, [])
+
+useEffect(()=>{
+  console.log(posts);
+},[posts])
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    posts.onSubmit(() => {
-      getPosts()
-    })
+    newPost()
   }
   return (
     <div className="main-contents ">
       <div className="post">
-        <form onLoad={posts.onLoad} onSubmit={handleSubmit} className={`${formClass}`}>
+        <form onSubmit={handleSubmit} className={`${formClass}`}>
           <div className="flex items-center w-full justify-between">
             <i onClick={hidePostForm} className={`bx bx-x float-left cursor-pointer ${iniImgClass} `}></i>
             <label className="text-center ">Post something</label></div>
-          <input type="file" id="file" accept="image/png,jpg" onChange={previewFile} />
-          <img alt=''/>
-          <textarea className={`bg-slate-300 text-black ${areaClass}`} type="textarea" onChange={(e)=>{setCaption(e.target.value)}} placeholder='Say something' />
+          <input type="file" id="file" className='post-image' accept="image/png,jpg" onChange={previewFile} />
+          <img src='' width={300} height={300} className='image-picked' alt='' />
+          <textarea className={`bg-slate-300 text-black ${areaClass}`} type="textarea" onChange={(e) => { setCaption(e.target.value) }} placeholder='Say something' />
           <div className='p-input w-full justify-end'>
             <label htmlFor="file" className='pfile'>
               <i title='add photos' className={`bx bx-image pt-4 mr-8 ${iniImgClass} `}>
@@ -107,14 +111,14 @@ function Mainconts() {
         </form>
       </div>
       <div className="contents">
-        {
+        {/* {
           posts.map((item) =>
             <div id='post' key={item._id}>
               <div className='created'>{item.created}</div>
               <div className='userName'>{item.userName}</div>
               <hr></hr>
             </div>)
-        }
+        } */}
       </div>
     </div>
   );
