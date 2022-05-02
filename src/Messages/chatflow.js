@@ -6,7 +6,7 @@ function Chatflow({ username, room, socket }) {
   const [relMessages, setRelMessages]= useState([])
 
   const getRelMessages = async()=>{
-   const res = await fetch("http://localhost:3000/messages");
+   const res = await fetch("https://localhost:3000/messages");
    const messages = await res.json()
     const relMess = messages.filter((m) => m.room === room || m.room1 === room);
     setRelMessages(relMess)

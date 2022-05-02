@@ -1,7 +1,7 @@
 const picture = document.querySelector('#file').value
 const getPic = e => {
     e.preventDefault()
-    fetch("http://localhost:5000/post/upload", {
+    fetch("https://photocorner33.herokuapp.com/post/upload", {
         headers: { 'Content-Type': 'application/json' },
         method: "POST",
         body: {
