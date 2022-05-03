@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import './Home.css';
 import checkAuthorization from './../checker'
-
+import { GiHeartBeats } from 'react-icons/gi'
 
 
 function Mainconts() {
@@ -16,6 +16,7 @@ function Mainconts() {
   const [fileInputState, setFileInputState] = useState('');
   const [previewSource, setPreviewSource] = useState('');
   const [selectedFile, setSelectedFile] = useState();
+  const [image, setImage] = useState()
 
   const [posts, setPosts] = useState()
   const [caption, setCaption] = useState('')
@@ -43,8 +44,9 @@ function Mainconts() {
     reader.readAsDataURL(file);
     reader.onloadend = () => {
       setPreviewSource(reader.result);
+      setImage(reader.result)
     };
-    // console.log(image);
+    console.log(image);
   }
 
   useEffect(() => {
@@ -60,23 +62,7 @@ function Mainconts() {
     setUser(decodedCookies.userInfo)
     // console.log(decodedCookies.userInfo);
   }, [])
-  const newPost = async () => {
-    console.log(user);
-    const username = user.needed.username
-    // console.log(image);
-    const api = await fetch('http://localhost:5000/post/newPost', {
-      method: "POST",
-      credentials: 'include',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        username: (username),
-        caption: (caption),
-        imageStr: (previewSource)
-      })
-    })
-    const data = api.json()
-    getPosts()
-  }
+
   const getPosts = async () => {
     const res = await fetch('http://localhost:5000/post/allPosts', {
       method: "GET",
@@ -103,6 +89,54 @@ function Mainconts() {
     e.preventDefault()
     newPost()
   }
+  const handleFileInputChange = (e) => {
+    const file = e.target.files[0]
+    previewFile(file)
+    setSelectedFile(file);
+    setFileInputState(e.target.value);
+  }
+
+  const newPost = async () => {
+    console.log(user);
+    const username = user.needed.username
+    console.log(image);
+    const api = await fetch('http://localhost:5000/post/newPost', {
+      method: "POST",
+      credentials: 'include',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        username: (username),
+        caption: (caption),
+        imageStr: (image)
+      })
+    })
+    const data = api.json()
+    console.log(data)
+    setPreviewSource('')
+    getPosts()
+  }
+  const handleLike = async (itemID) => {
+    const api = await fetch('http://localhost:5000/post/like/' + itemID, {
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include'
+    })
+    const res = await api.json()
+    console.log(res)
+    if (res.message === `Post with ID ${itemID} was liked succesfully`) {
+      document.querySelector(`'like' + ${itemID}`).classList.replace('bx-heart', 'bxs-heart')
+    }
+  }
+  const handleShare = async(itemID)=>{
+    const api = await fetch('http://localhost:5000/post/share/' + itemID, {
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include'
+    })
+    const res = await api.json()
+    console.log(res)
+    if (res.message === `Post with ID ${itemID} was shared succesfully`) {
+      document.querySelector(`'like' + ${itemID}`).classList.replace('bx-share', 'bxs-share')
+    } 
+  }
   return (
     <div className="main-contents w-64">
       {loader ? <>Loading</> :
@@ -117,10 +151,15 @@ function Mainconts() {
 
                 <label className="text-center ">Post something</label></div>
 
-              <input type="file" id="file" className='post-image' accept="image/png,jpg" onChange={previewFile} />
+              <input type="file" id="file" className='post-image' accept="image/png,jpg" onChange={handleFileInputChange} />
 
-              <img src='' width={300} height={300} className='image-picked' alt='' />
-
+              {previewSource && (
+                <img
+                  src={previewSource}
+                  alt="chosen"
+                  style={{ height: '300px' }}
+                />
+              )}
               <textarea className={`bg-slate-300 text-black ${areaClass}`} type="textarea" onChange={(e) => { setCaption(e.target.value) }} placeholder='Say something' />
               <div className='p-input w-full justify-end'>
 
@@ -142,11 +181,17 @@ function Mainconts() {
               posts.map((item) =>
                 <div id='post' className='w-2/5' key={item._id}>
                   <div className='username'>{item.username}</div>
-                  <div className='created'>{item.created}</div>
                   <div>
                     <img className='w-full h-81' src={item.secureUrl} alt='' />
                   </div>
+                  <div className='reviews flex flex-row items-center justify-around m-2'>
+                    <i color='red' onClick={handleLike(item._id)} className={`${'like' + item._id} hover:cursor-pointer bx bx-heart bx-md bx-flashing-hover`}></i>
+                    <i className={`hover:cursor-pointer bx bx-message-dots bx-md bx-tada-hover`}></i>
+                    <i class={`hover:cursor-pointer bx bx-share bx-md`}></i>
+                  </div>
+                  <div className='text-gray-500 text-sm'>{item.created}</div>
                   <div>{item.caption}</div>
+
                   <hr></hr>
                 </div>)
             }
