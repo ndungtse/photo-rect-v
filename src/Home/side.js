@@ -50,7 +50,7 @@ function Side({ isVisible, handleShowRe, setVisible,
             <i title="See notifications" className="bx bx-bell icon"></i>
           </div>
           <div className="bell" id="bell">
-            <Link to="login"><a href="login.html"><i title="Log out" className="bx bx-log-out"></i></a></Link>
+           <i title="Log out" className="bx bx-log-out"></i>
           </div>
           <div>
           </div>
