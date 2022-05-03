@@ -43,11 +43,11 @@ function App() {
     }
     }
     
-    let userName = localStorage.getItem("userName");
+    let username = localStorage.getItem("username");
   return (
     <BrowserRouter>
        <div className={dark}>
-         <Routes >{userName ?
+         <Routes >{username ?
          <Route path="/" element={<Home />} />
          : <Route path="/" element={<Login />} />}
          <Route path="/home" element={<Home />} />

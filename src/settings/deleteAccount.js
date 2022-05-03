@@ -1,4 +1,4 @@
-let password, userName
+let password, username
 const getpswd = e => {
     password = e.target.value
 }
@@ -7,14 +7,14 @@ const onload = e => {
 }
 const onsubmit = e => {
     e.preventDefault()
-    userName = document.querySelector("#username").value
+    username = document.querySelector("#username").value
     password = document.querySelector("#password").value
-    console.log(userName, password)
+    console.log(username, password)
     fetch("http://localhost:5000/user/deleteUser", {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-            userName: (userName),
+            username: (username),
             password: (password)
         })
     }).then(res => res.json())
@@ -28,7 +28,7 @@ const onsubmit = e => {
             else if (data.message === "ACCOUNT NOT DELETED") {
                 window.alert("Password is incorrect try again!!")
             }
-            else if (data.message === "USERNAME INCORRECT") {
+            else if (data.message === "username INCORRECT") {
                 window.alert("Type the username correctly please!!")
             }
         })

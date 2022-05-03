@@ -1,13 +1,13 @@
 /* eslint-disable no-unused-vars */
-let userName
+let username
 const getuname = e => {
-    // userName = e.target.value
+    // username = e.target.value
 }
 const onload = e => {
     // e.preventDefault()
 }
 const onsubmit = async () => {
-    let urlPath = "http://localhost:5000/user/getUser/" + userName
+    let urlPath = "http://localhost:5000/user/getUser/" + username
     const res = await fetch(urlPath, {
         method: "GET",
         credentials:'include',

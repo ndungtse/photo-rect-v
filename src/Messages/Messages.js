@@ -11,7 +11,7 @@ const socket = io.connect("/* https://photocornerchat.herokuapp.com/ */");
 
 function Messages() {
   const [usermess, setUsermess] = useState([]);
-  const [username, setUsername] = useState('');
+  const [username, setusername] = useState('');
   const [room, setRoom] = useState("");
   const [room1, setRoom1] = useState("");
   const [inputMessage, setMessage] = useState("");
@@ -75,7 +75,7 @@ function Messages() {
               setRoom1={setRoom1}
               joinRoom={joinRoom}
               setRoom={setRoom}
-              setUsername={setUsername}
+              setusername={setusername}
               username={username}
               usermess={usermess}
               setUsermess={setUsermess}
@@ -92,7 +92,7 @@ function Messages() {
           room1={room1}
           setRoom1={setRoom1}
           username={username}
-          setUsername={setUsername}
+          setusername={setusername}
           socket={socket}
           setUsermess={setUsermess}
         />

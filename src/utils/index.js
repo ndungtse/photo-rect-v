@@ -1,10 +1,10 @@
-let fullName, email, password, userName
+let fullName, email, password, username
 
 const getfullname = e => {
     fullName = e.target.value
 }
 const getuname = e => {
-    userName = e.target.value
+    username = e.target.value
 }
 const getemail = e => {
     email = e.target.value
@@ -23,7 +23,7 @@ const onsubmit = e => {
         // mode: "no-cors",
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-            fullName, userName, email, password
+            fullName, username, email, password
         })
     }).then(res => res.json())
         .then(data => {
@@ -35,9 +35,9 @@ const onsubmit = e => {
             }
             else if (data.message === "Account created") {
                 // console.log(data)
-                localStorage.setItem("userName",userName)
+                localStorage.setItem("username",username)
                 localStorage.setItem("fullName",fullName)
-                localStorage.userName = userName
+                localStorage.username = username
                 localStorage.fullName = fullName
                 window.location.replace('https://photo-rect-v.vercel.app/')
             }

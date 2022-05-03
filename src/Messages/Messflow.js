@@ -3,7 +3,7 @@ import './mess.css';
 import Test from './test';
 
 function Messflow(props) {
-  const {usermess,setRoom1, setUsername, joinRoom, setRoom, username} = props;
+  const {usermess,setRoom1, setusername, joinRoom, setRoom, username} = props;
   const friends = usermess.filter(p => p.id != username.id)
   // console.log(usermess.filter((p) => p.id != username.id));
   const startChat = async(e)=>{
@@ -39,7 +39,7 @@ function Messflow(props) {
           </div>
         </div>
       ))}
-      <Test usermess={usermess} setUsername={setUsername} />
+      <Test usermess={usermess} setusername={setusername} />
     </div>
   );
 }

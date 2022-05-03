@@ -1,13 +1,13 @@
 // eslint-disable-next-line no-unused-vars
-let previousUserName, fullName, userName, email, password, bio, userInfo
-previousUserName = localStorage.getItem("userName")
+let previoususername, fullName, username, email, password, bio, userInfo
+previoususername = localStorage.getItem("username")
 const onload = async (e) => {
     return new Promise((resolve, reject)=>{
         fetch('http://localhost:5000/user/loggedUser', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                previousUserName: (previousUserName)
+                previoususername: (previoususername)
             })
         }).then(res => res.json())
             .then(data => {
@@ -20,17 +20,17 @@ const onSubmit = e => {
     e.preventDefault()
     email = document.querySelector("#email").value
     fullName = document.querySelector("#fullname").value
-    userName = document.querySelector("#username").value
+    username = document.querySelector("#username").value
     password = document.querySelector("#password").value
     bio = document.querySelector("#bio").value
-    console.log(previousUserName)
+    console.log(previoususername)
     fetch('http://localhost:5000/user/updateUser', {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-            previousUserName:(previousUserName),
+            previoususername:(previoususername),
             fullName: (fullName),
-            userName: (userName),
+            username: (username),
             email: (email),
             password: (password)
         })
@@ -38,8 +38,8 @@ const onSubmit = e => {
         .then(data => {
             console.log(data)
             if (data.message === "USER UPDATED") {
-                console.log(userName, fullName);
-                (userName === "") ? console.log("USERNAME NOT UPDATED") : localStorage.setItem("userName", userName);
+                console.log(username, fullName);
+                (username === "") ? console.log("username NOT UPDATED") : localStorage.setItem("username", username);
                 (fullName === "") ? console.log("FULLNAME NOT UPDATED") : localStorage.setItem("fullName", fullName);
                 window.alert("ACCOUNT UPDATED SUCCESSFULLY")
             }

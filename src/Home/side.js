@@ -69,7 +69,7 @@ function Side({ isVisible, handleShowRe, setVisible,
                     <div className="img"><img src={require("./Images/Bitmap-1.png")} alt="" /></div>
                     <div className="descriptions">
                       <div className="fullName">{item.fullName}</div>
-                      <div className="userName">{item.userName}</div>
+                      <div className="username">{item.username}</div>
                     </div>
                   </div>
                 )
