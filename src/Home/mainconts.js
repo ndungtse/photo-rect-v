@@ -12,8 +12,11 @@ function Mainconts() {
   const [areaClass, setAreaClass] = useState("b-area");
   const [inpuClass, setInputClass] = useState("");
   const [iniImgClass, setinImgClass] = useState("img-file");
-  const [image, setImage] = useState('')
-  const [preview, setPreview] = useState()
+
+  const [fileInputState, setFileInputState] = useState('');
+  const [previewSource, setPreviewSource] = useState('');
+  const [selectedFile, setSelectedFile] = useState();
+
   const [posts, setPosts] = useState()
   const [caption, setCaption] = useState('')
   const [loader, setLoader] = useState(true)
@@ -32,22 +35,15 @@ function Mainconts() {
   }
 
 
-  useEffect((e)=>{
+  useEffect((e) => {
     checkAuthorization()
-  },[])
-  const previewFile = () => {
-    const preview = document.querySelector('.image-picked')
-    const file = document.querySelector('.post-image').files[0]
-    const reader = new FileReader()
-
-    reader.addEventListener('load', () => {
-      preview.src = reader.result
-      // console.log(reader.result);
-      setImage(reader.result)
-    }, false)
-    if (file) {
-      reader.readAsDataURL(file)
-    }
+  }, [])
+  const previewFile = (file) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onloadend = () => {
+      setPreviewSource(reader.result);
+    };
     // console.log(image);
   }
 
@@ -75,23 +71,22 @@ function Mainconts() {
       body: JSON.stringify({
         username: (username),
         caption: (caption),
-        imageStr: (image)
+        imageStr: (previewSource)
       })
     })
     const data = api.json()
-getPosts()
+    getPosts()
   }
   const getPosts = async () => {
     const res = await fetch('http://localhost:5000/post/allPosts', {
       method: "GET",
-      // mode:'no-cors',
       credentials: 'include',
       headers: { 'Content-Type': 'application/json' }
     })
 
     const posts = await res.json()
     console.log(posts.posts);
-    setPosts(posts.posts)
+    setPosts(posts.posts.reverse())
     setLoader(false)
     return posts
   }
@@ -109,7 +104,7 @@ getPosts()
     newPost()
   }
   return (
-    <div className="main-contents ">
+    <div className="main-contents w-64">
       {loader ? <>Loading</> :
         <>
           <div className="post w-full">
@@ -142,14 +137,14 @@ getPosts()
               </div>
             </form>
           </div>
-          <div className="contents">
+          <div className="contents w-72">
             {
-              (posts.reverse()).map((item) =>
-                <div id='post' key={item._id}>
+              posts.map((item) =>
+                <div id='post' className='w-2/5' key={item._id}>
                   <div className='username'>{item.username}</div>
                   <div className='created'>{item.created}</div>
                   <div>
-                    <img className='w-full h-48' src={item.secureUrl} alt='' />
+                    <img className='w-full h-81' src={item.secureUrl} alt='' />
                   </div>
                   <div>{item.caption}</div>
                   <hr></hr>
