@@ -5,7 +5,7 @@ import Nav from '../Home/Nav';
 import './mess.css';
 import io from "socket.io-client";
 
-const socket = io.connect("https://photocornerchat.herokuapp.com/");
+const socket = io.connect("/* https://photocornerchat.herokuapp.com/ */");
 
 
 

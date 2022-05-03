@@ -6,7 +6,7 @@ import {
   BiHeart,
   BiShare,
   BiSmile,
-  BiSend 
+  BiSend
 } from "react-icons/bi";
 
 function Mainconts() {
@@ -46,6 +46,7 @@ function Mainconts() {
     let userName = localStorage.getItem("userName");
     fetch("http://localhost:5000/post/newPost", {
       method: "POST",
+      credentials: 'include',
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         userName: userName,
@@ -64,12 +65,14 @@ function Mainconts() {
       "http://localhost:5000/post/allPosts",
       {
         method: "GET",
+        credentials: 'include',
         headers: { "Content-Type": "application/json" },
       }
     );
     const posts = await res.json();
     setPosts(posts);
   };
+  console.log(posts);
 
   useEffect(() => {
     showPosts();
