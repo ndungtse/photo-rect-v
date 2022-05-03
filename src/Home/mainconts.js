@@ -2,11 +2,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
 import './Home.css';
-
+import checkAuthorization from './../checker'
 
 
 
 function Mainconts() {
+
   const [formClass, setFormClass] = useState("form1")
   const [areaClass, setAreaClass] = useState("b-area");
   const [inpuClass, setInputClass] = useState("");
@@ -31,6 +32,9 @@ function Mainconts() {
   }
 
 
+  useEffect((e)=>{
+    checkAuthorization()
+  },[])
   const previewFile = () => {
     const preview = document.querySelector('.image-picked')
     const file = document.querySelector('.post-image').files[0]
@@ -61,8 +65,8 @@ function Mainconts() {
     // console.log(decodedCookies.userInfo);
   }, [])
   const newPost = async () => {
-    const username = user.username
-    console.log(username);
+    console.log(user);
+    const username = user.needed.username
     // console.log(image);
     const api = await fetch('http://localhost:5000/post/newPost', {
       method: "POST",
@@ -75,7 +79,7 @@ function Mainconts() {
       })
     })
     const data = api.json()
-    console.log(data)
+getPosts()
   }
   const getPosts = async () => {
     const res = await fetch('http://localhost:5000/post/allPosts', {
@@ -108,7 +112,7 @@ function Mainconts() {
     <div className="main-contents ">
       {loader ? <>Loading</> :
         <>
-          <div className="post">
+          <div className="post w-full">
 
             <form onSubmit={handleSubmit} className={`${formClass}`}>
 
@@ -140,13 +144,14 @@ function Mainconts() {
           </div>
           <div className="contents">
             {
-              posts.map((item) =>
+              (posts.reverse()).map((item) =>
                 <div id='post' key={item._id}>
+                  <div className='username'>{item.username}</div>
                   <div className='created'>{item.created}</div>
                   <div>
                     <img className='w-full h-48' src={item.secureUrl} alt='' />
                   </div>
-                  <div className='username'>{item.username}</div>
+                  <div>{item.caption}</div>
                   <hr></hr>
                 </div>)
             }
