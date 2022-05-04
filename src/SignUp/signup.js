@@ -36,7 +36,7 @@ const Signup = () => {
           id="standard-password-input" variant="filled" onInput={Utils.getfullname} type="text" placeholder="First Name"required />
                 </div>
                 <div className="labels">
-                    <TextField className="inmaterial insign" label="Username"
+                    <TextField className="inmaterial insign" label="username"
           id="standard-password-input" variant="filled" onInput={Utils.getuname} type="text" placeholder="Enter your username" required />
                 </div>
                 <div className="labels">

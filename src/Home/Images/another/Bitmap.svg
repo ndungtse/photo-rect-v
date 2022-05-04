@@ -1,4 +1,4 @@
-<svg id="Bitmap" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50" height="50" viewBox="0 0 50 50">
+<svg id="Bitmap" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" width="50" height="50" viewBox="0 0 50 50">
   <defs>
     <clipPath id="clip-path">
       <circle id="Mask" cx="25" cy="25" r="25" fill="#cfcfcf"/>

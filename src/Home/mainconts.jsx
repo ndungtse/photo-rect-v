@@ -7,6 +7,7 @@ import {
   BiShare,
   BiSmile,
   BiSend,
+
 } from "react-icons/bi";
 
 function Mainconts() {
@@ -43,12 +44,13 @@ function Mainconts() {
   };
 
   const onSubmit = () => {
-    let userName = localStorage.getItem("userName");
-    fetch("https://localhost:5000/post/newPost", {
+    let username = localStorage.getItem("username");
+    fetch("http://localhost:5000/post/newPost", {
       method: "POST",
+      credentials: 'include',
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        userName: userName,
+        username: username,
         caption: caption,
         imageStr: image,
       }),
@@ -61,15 +63,17 @@ function Mainconts() {
 
   const showPosts = async () => {
     const res = await fetch(
-      "https://photocorner33.herokuapp.com/post/allPosts",
+      "http://localhost:5000/post/allPosts",
       {
         method: "GET",
+        credentials: 'include',
         headers: { "Content-Type": "application/json" },
       }
     );
     const posts = await res.json();
     setPosts(posts);
   };
+  console.log(posts);
 
   useEffect(() => {
     showPosts();
@@ -131,7 +135,7 @@ function Mainconts() {
                 <div className="flex items-center">
                   <img src="" alt="" />
                   <div className="flex flex-col my-auto">
-                    <p>{post.userName} </p>
+                    <p>{post.username} </p>
                     <span className="text-sm opacity-[0.7] w-full flex whitespace-nowrap">
                       {post.created}
                     </span>

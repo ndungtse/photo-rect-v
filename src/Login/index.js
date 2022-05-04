@@ -5,12 +5,14 @@ const getemail = e => {
 const getpswd = e => {
     password = e.target.value
 }
+
 const onloginsubmit = e => {
     e.preventDefault()
         // console.log(email,password)
-    fetch("https://photocorner33.herokuapp.com/user/confirmUser", {
+    fetch("http://localhost:5000/user/login", {
         method: "POST",
         // mode: 'no-cors',
+        credentials:'include',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
             email:(email),
@@ -19,17 +21,14 @@ const onloginsubmit = e => {
     }).then(res => res.json())
         .then(data => {
             console.log(data.message)
-            if(data.message === "Email correct and passwords match"){
-                console.log(data.user.fullName)
-                localStorage.fullName = data.user.fullName
-                localStorage.userName = data.user.userName
-                window.location.replace('https://photo-rect-v.vercel.app')
+            if(data.message === "Can continue"){
+                window.location.replace('http://localhost:3000/home')
             }
-            else if(data.message === "Email incorrect "){
-                window.alert("Email incorrect")
+            else if(data.message === "No token generated try logging in again"){
+                window.alert("No token generated try logging in again")
             }
-            else if(data.message === "Email correct and passwords do not match"){
-                window.alert("Password is incorrect")
+            else if(data.message === "Wrong login info"){
+                window.alert("Login info incorrect")
             }
         })
 

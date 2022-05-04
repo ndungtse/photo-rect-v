@@ -24,7 +24,7 @@ function Chatinput ({setMessage,room1, username, room, socket, inputMessage}) {
             }
 
             await socket.emit("send_message", messageData);
-            const res = await fetch("http://localhost:3000/messages", {
+            const res = await fetch("https://localhost:3000/messages", {
               method: "POST",
               headers: {
                 "Content-type": "application/json",
@@ -41,7 +41,7 @@ function Chatinput ({setMessage,room1, username, room, socket, inputMessage}) {
        useEffect(() => {
          socket.on("receive_message", (data) => {
           //  setSend((list) => [...list, data]);
-          fetch("http://localhost:3000/messages", {
+          fetch("https://localhost:3000/messages", {
             method: "POST",
             headers: {
               "Content-type": "application/json",

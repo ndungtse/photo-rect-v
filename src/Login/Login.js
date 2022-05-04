@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { Form, Body, Main, Logo } from './../SignUp/signupcss'
 import './../SignUp/signup.css'
 import Utils from '../utils';
-import loginUtils from '.';
+import loginUtils from './index';
 import Checkbox from '@mui/material/Checkbox';
 
 

@@ -22,7 +22,7 @@ function Home() {
     }
    
     let fullName = localStorage.getItem("fullName")
-    let userName = localStorage.getItem("userName")
+    let username = localStorage.getItem("username")
   return (
       <Prof className='Profile  w-[100%] flex h-screen'>
           <Nav className='' />
@@ -38,7 +38,7 @@ function Home() {
                     </div>
                     <div className="w-[100%] flex flex-col items-center justify-center">
                         <p className="text-xl mt-7 mx-auto">{fullName}</p>
-                        <p className="text-xl mx-auto opacity-[0.7]">@{userName}</p>
+                        <p className="text-xl mx-auto opacity-[0.7]">@{username}</p>
                     </div> 
                 </Avatar>
                 <div className="flex px-[6%] justify-between items-center">

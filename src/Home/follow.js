@@ -13,7 +13,7 @@ function Follow({handleShowRe}) {
              <div className="img-f"><div><img src={require("./Images/another/Bitmap.png")} alt="" /></div></div>
              <div className="img-des">
                <div><p>{localStorage.fullName}</p>
-               <p>{localStorage.userName}</p></div>
+               <p>{localStorage.username}</p></div>
              </div>
            </div>
            <Link to='/profile'> <div className="follow-btn"><div onClick={handleShowRe}>View profile</div></div></Link>

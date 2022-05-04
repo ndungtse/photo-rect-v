@@ -1,9 +1,9 @@
 import React from 'react'
 
-function Test({usermess, setUsername}) {
+function Test({usermess, setusername}) {
 
   const setUser = (e)=>{
-    setUsername({name: e.target.textContent, id: e.target.id});
+    setusername({name: e.target.textContent, id: e.target.id});
     const user = {
       name: e.target.textContent,
       id: e.target.id,

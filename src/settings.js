@@ -24,8 +24,8 @@ const Settings = ({toggleDark,toggleIco}) => {
           <p className="text-center">This action cannot be undone.</p>
           <p className="text-center">Type <strong>YOUR PASSWORD</strong> in the password field.</p>
             <div className="labels">
-              <label>Username</label>
-              <input className='bg-white' disabled value={localStorage.userName} id='username' type="text" />
+              <label>username</label>
+              <input className='bg-white' disabled value={localStorage.username} id='username' type="text" />
             </div>
             <div className="labels">
               <label>Password</label>

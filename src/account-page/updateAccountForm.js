@@ -12,7 +12,7 @@ const UpdateAccount = () => {
     data = updateUtils.onload()
     document.querySelector('#email').value = data.email
     document.querySelector('#fullname').value = data.fullName
-    document.querySelector('#username').value = data.userName
+    document.querySelector('#username').value = data.username
     document.querySelector('#password ').value = data.password
     // console.log(data)
   }, [])
@@ -38,7 +38,7 @@ const UpdateAccount = () => {
             />
           </div>
           <div className="flex items-center  w-[50%] justify-between mt-4">
-            <label className="">Username</label>
+            <label className="">username</label>
             <TextField id="username" className=" w-[70%] uplog" variant="standard"
             />
           </div>
