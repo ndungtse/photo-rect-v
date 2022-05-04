@@ -10,7 +10,7 @@ function Mainconts() {
 
   const [formClass, setFormClass] = useState("form1")
   const [areaClass, setAreaClass] = useState("b-area");
-  const [inpuClass, setInputClass] = useState("");
+  const [inputClass, setInputClass] = useState("");
   const [iniImgClass, setinImgClass] = useState("img-file");
 
   const [fileInputState, setFileInputState] = useState('');
@@ -18,6 +18,7 @@ function Mainconts() {
   const [selectedFile, setSelectedFile] = useState();
   const [image, setImage] = useState()
 
+  const [comment,setComment] = useState()
   const [posts, setPosts] = useState()
   const [caption, setCaption] = useState('')
   const [loader, setLoader] = useState(true)
@@ -115,10 +116,14 @@ function Mainconts() {
     setPreviewSource('')
     getPosts()
   }
+
   const handleLike = async (itemID) => {
+    console.log('Liking post with ID ' + itemID );
     const api = await fetch('http://localhost:5000/post/like/' + itemID, {
+      method:'GET',
       headers: { 'Content-Type': 'application/json' },
-      credentials: 'include'
+      credentials: 'include',
+      mode:'no-cors'
     })
     const res = await api.json()
     console.log(res)
@@ -128,8 +133,25 @@ function Mainconts() {
   }
   const handleShare = async(itemID)=>{
     const api = await fetch('http://localhost:5000/post/share/' + itemID, {
+      method:'GET',
       headers: { 'Content-Type': 'application/json' },
-      credentials: 'include'
+      credentials: 'include',
+    })
+    const res = await api.json()
+    console.log(res)
+    if (res.message === `Post with ID ${itemID} was shared succesfully`) {
+      document.querySelector(`'like' + ${itemID}`).classList.replace('bx-share', 'bxs-share')
+    } 
+  }
+  const handleComment = async(itemID)=>{
+    const api = await fetch('http://localhost:5000/post/comment/', {
+      method:'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      body:JSON.stringify({
+        username:(user.needed.username),
+        comment:(comment)
+      })
     })
     const res = await api.json()
     console.log(res)
@@ -171,7 +193,7 @@ function Mainconts() {
 
                 <input onClick={showPostForm} value='Start a post' type="button"
 
-                  className={`bg-slate-300 hover:bg-slate-400 ${inpuClass} cursor-pointer text-black h-[40px] px-4 mt-3 mr-3 rounded-4 ml-2 duration-300`}></input>
+                  className={`bg-slate-300 hover:bg-slate-400 ${inputClass} cursor-pointer text-black h-[40px] px-4 mt-3 mr-3 rounded-4 ml-2 duration-300`}></input>
                 <input onClick={hidePostForm} type={"submit"} value={"Post"} className={`px-7 mt-3 py-2 rounded-4 ${iniImgClass} postsub`} />
               </div>
             </form>
@@ -185,7 +207,9 @@ function Mainconts() {
                     <img className='w-full h-81' src={item.secureUrl} alt='' />
                   </div>
                   <div className='reviews flex flex-row items-center justify-around m-2'>
-                    <i color='red' onClick={handleLike(item._id)} className={`${'like' + item._id} hover:cursor-pointer bx bx-heart bx-md bx-flashing-hover`}></i>
+                    <i color='red' onClick={()=>{
+                      this.handleLike.bind(this,item._id)
+                    }} className={`${'like' + item._id} hover:cursor-pointer bx bx-heart bx-md `}></i>
                     <i className={`hover:cursor-pointer bx bx-message-dots bx-md bx-tada-hover`}></i>
                     <i class={`hover:cursor-pointer bx bx-share bx-md`}></i>
                   </div>
