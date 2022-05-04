@@ -10,7 +10,7 @@ const onsubmit = e => {
     username = document.querySelector("#username").value
     password = document.querySelector("#password").value
     console.log(username, password)
-    fetch("https://localhost:5000/user/deleteUser", {
+    fetch("http://localhost:5000/user/deleteUser", {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -23,7 +23,7 @@ const onsubmit = e => {
             if (data.message === "ACCOUNT DELETED SUCCESSFULLY") {
                 console.log(data)
                 localStorage.clear()
-                window.location.replace('https://localhost:3000/signup')
+                window.location.replace('http://localhost:3000/signup')
                 window.alert("Account deleted successfully")
             }
             else if (data.message === "ACCOUNT NOT DELETED") {
