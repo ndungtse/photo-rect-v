@@ -51,17 +51,11 @@ function Mainconts() {
   }
 
   useEffect(() => {
-    let keys = document.cookie.match(/(\w+)=/g).map(x => x.slice(0, -1))
-    // console.log(keys)
-    let decodedCookies = {}
-    for (let i = 0; i < keys.length; i++) {
-      decodedCookies[keys[i]] = document.cookie.split('; ')[i].slice(keys[i].length + 1)
+    console.log(localStorage.getItem('userInfo'));
+    if (localStorage.getItem('userInfo') === null) {
+      checkAuthorization()
     }
-    decodedCookies.userInfo = decodeURIComponent(decodedCookies.userInfo)
-    decodedCookies.userInfo = JSON.parse(decodedCookies.userInfo)
-    console.log(decodedCookies)
-    setUser(decodedCookies.userInfo)
-    // console.log(decodedCookies.userInfo);
+    setUser(JSON.parse(localStorage.getItem('userInfo')))
   }, [])
 
   const getPosts = async () => {
@@ -75,7 +69,7 @@ function Mainconts() {
     console.log(posts.posts);
     setPosts(posts.posts.reverse())
     console.log(posts);
-    // setLoader(false)
+    setLoader(false)
     return posts
   }
 
@@ -100,7 +94,8 @@ function Mainconts() {
 
   const newPost = async () => {
     console.log(user);
-    const username = user.needed.username
+    (user === null) ? checkAuthorization() : console.log('Still authorized')
+    const username = user.username
     // console.log(image);
     const api = await fetch('https://photocorner33.herokuapp.com/post/newPost', {
       method: "POST",
@@ -112,7 +107,7 @@ function Mainconts() {
         imageStr: (image)
       })
     })
-    const data = api.json()
+    const data = await api.json()
     console.log(data)
     setPreviewSource('')
     getPosts()
@@ -168,7 +163,7 @@ function Mainconts() {
   return (
     <div className="main-contents w-64">
       {loader ? <>
-      Loading.....
+        Loading.....
       </> :
         <>
           <div className="post w-full">

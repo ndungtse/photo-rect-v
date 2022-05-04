@@ -10,26 +10,24 @@ const onsubmit = e => {
     username = document.querySelector("#username").value
     password = document.querySelector("#password").value
     console.log(username, password)
-    fetch("https://photocorner33.herokuapp.com/user/deleteUser", {
+    fetch("https://localhost:5000/user/deleteUser", {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
             username: (username),
             password: (password)
-        })
+        }),
+        credentials:'include'
     }).then(res => res.json())
         .then(data => {
             if (data.message === "ACCOUNT DELETED SUCCESSFULLY") {
                 console.log(data)
                 localStorage.clear()
-                window.location.replace('https://photo-rect-v.vercel.app/signup')
+                window.location.replace('https://localhost:3000/signup')
                 window.alert("Account deleted successfully")
             }
             else if (data.message === "ACCOUNT NOT DELETED") {
                 window.alert("Password is incorrect try again!!")
-            }
-            else if (data.message === "username INCORRECT") {
-                window.alert("Type the username correctly please!!")
             }
         })
 }

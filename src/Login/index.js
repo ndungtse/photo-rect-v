@@ -11,7 +11,6 @@ const onloginsubmit = e => {
         // console.log(email,password)
     fetch("https://photocorner33.herokuapp.com/user/login", {
         method: "POST",
-        // mode: 'no-cors',
         credentials:'include',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -20,8 +19,9 @@ const onloginsubmit = e => {
         })
     }).then(res => res.json())
         .then(data => {
-            console.log(data.message)
+            console.log(data)
             if(data.message === "Can continue"){
+                localStorage.setItem('token',JSON.stringify(data.token))
                 window.location.replace('http://localhost:3000/home')
             }
             else if(data.message === "No token generated try logging in again"){
@@ -30,6 +30,7 @@ const onloginsubmit = e => {
             else if(data.message === "Wrong login info"){
                 window.alert("Login info incorrect")
             }
+            
         })
 
 }

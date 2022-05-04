@@ -25,11 +25,11 @@ const Settings = ({toggleDark,toggleIco}) => {
           <p className="text-center">Type <strong>YOUR PASSWORD</strong> in the password field.</p>
             <div className="labels">
               <label>username</label>
-              <input className='bg-white' disabled value={localStorage.username} id='username' type="text" />
+              <input className='bg-white' disabled value={JSON.parse(localStorage.userInfo).username} id='username' type="text" />
             </div>
             <div className="labels">
               <label>Password</label>
-              <input className='px-2' id='password' placeholder="Enter your password" required />
+              <input className='px-2' id='password' type={'password'} placeholder="Enter your password" required />
             </div>
             <div className="labels">
             <input className="bg-red-300 hover:bg-red-400 dele duration-300 cursor-pointer" type="submit"  value="Delete" />
