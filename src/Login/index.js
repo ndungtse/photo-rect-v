@@ -9,7 +9,7 @@ const getpswd = e => {
 const onloginsubmit = e => {
     e.preventDefault()
         // console.log(email,password)
-    fetch("http://localhost:5000/user/login", {
+    fetch("https://photocorner33.herokuapp.com/user/login", {
         method: "POST",
         // mode: 'no-cors',
         credentials:'include',

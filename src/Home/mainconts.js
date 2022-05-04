@@ -18,7 +18,7 @@ function Mainconts() {
   const [selectedFile, setSelectedFile] = useState();
   const [image, setImage] = useState()
 
-  const [comment,setComment] = useState()
+  const [comment, setComment] = useState()
   const [posts, setPosts] = useState()
   const [caption, setCaption] = useState('')
   const [loader, setLoader] = useState(true)
@@ -65,7 +65,7 @@ function Mainconts() {
   }, [])
 
   const getPosts = async () => {
-    const res = await fetch('http://localhost:5000/post/allPosts', {
+    const res = await fetch('https://photocorner33.herokuapp.com/post/allPosts', {
       method: "GET",
       credentials: 'include',
       headers: { 'Content-Type': 'application/json' }
@@ -100,8 +100,8 @@ function Mainconts() {
   const newPost = async () => {
     console.log(user);
     const username = user.needed.username
-    console.log(image);
-    const api = await fetch('http://localhost:5000/post/newPost', {
+    // console.log(image);
+    const api = await fetch('https://photocorner33.herokuapp.com/post/newPost', {
       method: "POST",
       credentials: 'include',
       headers: { 'Content-Type': 'application/json' },
@@ -117,23 +117,28 @@ function Mainconts() {
     getPosts()
   }
 
-  const handleLike = async (itemID) => {
-    console.log('Liking post with ID ' + itemID );
-    const api = await fetch('http://localhost:5000/post/like/' + itemID, {
-      method:'GET',
+  const HandleLike = async (itemID) => {
+    console.log('Liking post with ID ' + itemID);
+    const api = await fetch('https://photocorner33.herokuapp.com/post/like/' + itemID, {
+      method: 'GET',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',
-      mode:'no-cors'
+      mode: 'no-cors'
     })
+
     const res = await api.json()
-    console.log(res)
+    console.log(await api.json())
     if (res.message === `Post with ID ${itemID} was liked succesfully`) {
       document.querySelector(`'like' + ${itemID}`).classList.replace('bx-heart', 'bxs-heart')
     }
+    useEffect(() => {
+      getPosts()
+    }, [posts.filter(x => x._id = itemID)])
   }
-  const handleShare = async(itemID)=>{
-    const api = await fetch('http://localhost:5000/post/share/' + itemID, {
-      method:'GET',
+
+  const handleShare = async (itemID) => {
+    const api = await fetch('https://photocorner33.herokuapp.com/post/share/' + itemID, {
+      method: 'GET',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',
     })
@@ -141,23 +146,23 @@ function Mainconts() {
     console.log(res)
     if (res.message === `Post with ID ${itemID} was shared succesfully`) {
       document.querySelector(`'like' + ${itemID}`).classList.replace('bx-share', 'bxs-share')
-    } 
+    }
   }
-  const handleComment = async(itemID)=>{
-    const api = await fetch('http://localhost:5000/post/comment/', {
-      method:'POST',
+  const handleComment = async (itemID) => {
+    const api = await fetch('https://photocorner33.herokuapp.com/post/comment/' + itemID, {
+      method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',
-      body:JSON.stringify({
-        username:(user.needed.username),
-        comment:(comment)
+      body: JSON.stringify({
+        username: (user.needed.username),
+        comment: (comment)
       })
     })
     const res = await api.json()
     console.log(res)
     if (res.message === `Post with ID ${itemID} was shared succesfully`) {
-      document.querySelector(`'like' + ${itemID}`).classList.replace('bx-share', 'bxs-share')
-    } 
+      document.querySelector(`'like' + ${itemID}`).classList.replace('bx-message-dots', 'bxs-message-dots')
+    }
   }
   return (
     <div className="main-contents w-64">
@@ -207,11 +212,19 @@ function Mainconts() {
                     <img className='w-full h-81' src={item.secureUrl} alt='' />
                   </div>
                   <div className='reviews flex flex-row items-center justify-around m-2'>
-                    <i color='red' onClick={()=>{
-                      this.handleLike.bind(this,item._id)
-                    }} className={`${'like' + item._id} hover:cursor-pointer bx bx-heart bx-md `}></i>
-                    <i className={`hover:cursor-pointer bx bx-message-dots bx-md bx-tada-hover`}></i>
-                    <i class={`hover:cursor-pointer bx bx-share bx-md`}></i>
+                    <div className='flex flex-col items-center justify-center'>
+                      <i color='red' onClick={() => {
+                        HandleLike(item._id)
+                      }} className={`${'like' + item._id} hover:cursor-pointer bx bx-heart bx-md `}></i>
+                      <p>{item.likes}</p>
+                    </div>
+                    <div className='flex flex-col items-center justify-center'>
+                      <i className={`hover:cursor-pointer bx bx-message-dots bx-md bx-tada-hover`}></i>
+                      <p>{item.comments.count}</p>
+                    </div>
+                    <div className='flex flex-col items-center justify-center'>
+                      <i className={`hover:cursor-pointer bx bx-share bx-md`}></i>
+                    </div>
                   </div>
                   <div className='text-gray-500 text-sm'>{item.created}</div>
                   <div>{item.caption}</div>

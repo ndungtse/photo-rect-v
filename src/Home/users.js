@@ -1,7 +1,7 @@
 
 const onload = e => {
     return new Promise((resolve, reject) => {
-        fetch('http://localhost:5000/user/allUsers', {
+        fetch('https://photocorner33.herokuapp.com/user/allUsers', {
             headers: { 'Content-Type': 'application/json' },
             method: "GET"
         }).then(res => res.json())
