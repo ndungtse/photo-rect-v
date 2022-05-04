@@ -6,7 +6,8 @@ import {
   BiHeart,
   BiShare,
   BiSmile,
-  BiSend
+  BiSend,
+
 } from "react-icons/bi";
 
 function Mainconts() {
