@@ -18,7 +18,7 @@ const onload = e => {
 }
 const onsubmit = e => {
     e.preventDefault()
-    fetch("https://photocorner33.herokuapp.com/user/registerUser", {
+    fetch("http://localhost:5000/user/registerUser", {
         method: "POST",
         // mode: "no-cors",
         headers: { 'Content-Type': 'application/json' },
@@ -35,10 +35,7 @@ const onsubmit = e => {
             }
             else if (data.message === "Account created") {
                 // console.log(data)
-                localStorage.setItem("username",username)
-                localStorage.setItem("fullName",fullName)
-                localStorage.username = username
-                localStorage.fullName = fullName
+                localStorage.setItem("token",data.token)
                 window.location.replace('https://photo-rect-v.vercel.app/')
             }
             else {

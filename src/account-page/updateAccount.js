@@ -3,7 +3,7 @@ let previoususername, fullName, username, email, password, bio, userInfo
 previoususername = localStorage.getItem("username")
 const onload = async (e) => {
     return new Promise((resolve, reject)=>{
-        fetch('https://photocorner33.herokuapp.com/user/loggedUser', {
+        fetch('http://localhost:5000/user/loggedUser', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -24,7 +24,7 @@ const onSubmit = e => {
     password = document.querySelector("#password").value
     bio = document.querySelector("#bio").value
     console.log(previoususername)
-    fetch('https://photocorner33.herokuapp.com/user/updateUser', {
+    fetch('http://localhost:5000/user/updateUser', {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

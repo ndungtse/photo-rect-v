@@ -9,7 +9,7 @@ const onload = e => {
     // e.preventDefault()
 }
 const onsubmit = async () => {
-    let urlPath = "https://photocorner33.herokuapp.com/user/getUser/" + 'mprecieux'
+    let urlPath = "http://localhost:5000/user/getUser/" + 'mprecieux'
     const res = await fetch(urlPath, {
         method: "GET",
         credentials: 'include',
