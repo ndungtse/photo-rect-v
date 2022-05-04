@@ -1,3 +1,5 @@
+import { check } from "../../checker"
+
 /* eslint-disable no-unused-vars */
 let username
 const getuname = e => {
@@ -10,11 +12,13 @@ const onsubmit = async () => {
     let urlPath = "https://photocorner33.herokuapp.com/user/getUser/" + 'mprecieux'
     const res = await fetch(urlPath, {
         method: "GET",
-        credentials:'include',
+        credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
     })
     // const user = await res.json()
     const user = await res.json()
+    check(user)
+
     console.log(user);
     if (user === []) {
         console.log({ message: "No user found with that username" })

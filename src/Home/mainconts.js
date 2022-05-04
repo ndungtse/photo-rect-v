@@ -2,8 +2,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
 import './Home.css';
-import checkAuthorization from './../checker'
 import { GiHeartBeats } from 'react-icons/gi'
+import { check } from '../checker';
 
 
 function Mainconts() {
@@ -37,9 +37,7 @@ function Mainconts() {
   }
 
 
-  useEffect((e) => {
-    checkAuthorization()
-  }, [])
+
   const previewFile = (file) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
@@ -53,7 +51,6 @@ function Mainconts() {
   useEffect(() => {
     console.log(localStorage.getItem('userInfo'));
     if (localStorage.getItem('userInfo') === null) {
-      checkAuthorization()
     }
     setUser(JSON.parse(localStorage.getItem('userInfo')))
   }, [])
@@ -64,8 +61,11 @@ function Mainconts() {
       credentials: 'include',
       headers: { 'Content-Type': 'application/json' }
     })
-
     const posts = await res.json()
+    check(res)
+    if (posts.message === "No token generated go back login") {
+      window.location.replace('/login')
+    }
     console.log(posts.posts);
     setPosts(posts.posts.reverse())
     console.log(posts);
@@ -94,7 +94,6 @@ function Mainconts() {
 
   const newPost = async () => {
     console.log(user);
-    (user === null) ? checkAuthorization() : console.log('Still authorized')
     const username = user.username
     // console.log(image);
     const api = await fetch('https://photocorner33.herokuapp.com/post/newPost', {
@@ -108,7 +107,11 @@ function Mainconts() {
       })
     })
     const data = await api.json()
+    check(data)
     console.log(data)
+    if (data.message === "No token generated go back login") {
+      window.location.replace('/login')
+    }
     setPreviewSource('')
     getPosts()
   }
@@ -123,6 +126,8 @@ function Mainconts() {
     })
 
     const res = await api.json()
+    check(res)
+
     console.log(await api.json())
     if (res.message === `Post with ID ${itemID} was liked succesfully`) {
       document.querySelector(`'like' + ${itemID}`).classList.replace('bx-heart', 'bxs-heart')
@@ -139,6 +144,8 @@ function Mainconts() {
       credentials: 'include',
     })
     const res = await api.json()
+    check(res)
+
     console.log(res)
     if (res.message === `Post with ID ${itemID} was shared succesfully`) {
       document.querySelector(`'like' + ${itemID}`).classList.replace('bx-share', 'bxs-share')
@@ -155,6 +162,7 @@ function Mainconts() {
       })
     })
     const res = await api.json()
+    check(res)
     console.log(res)
     if (res.message === `Post with ID ${itemID} was shared succesfully`) {
       document.querySelector(`'like' + ${itemID}`).classList.replace('bx-message-dots', 'bxs-message-dots')

@@ -10,7 +10,7 @@ const onsubmit = e => {
     username = document.querySelector("#username").value
     password = document.querySelector("#password").value
     console.log(username, password)
-    fetch("http://localhost:5000/user/deleteUser", {
+    fetch("https://photocorner33.herokuapp.com/user/deleteUser", {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -20,6 +20,7 @@ const onsubmit = e => {
         credentials:'include'
     }).then(res => res.json())
         .then(data => {
+            console.log(data);
             if (data.message === "ACCOUNT DELETED SUCCESSFULLY") {
                 console.log(data)
                 localStorage.clear()
@@ -28,6 +29,9 @@ const onsubmit = e => {
             }
             else if (data.message === "ACCOUNT NOT DELETED") {
                 window.alert("Password is incorrect try again!!")
+            }
+            else if(data.message === "No token generated go back login"){
+                window.location.replace('/login')
             }
         })
 }
