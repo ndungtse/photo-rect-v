@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import './Home.css';
 import { GiHeartBeats } from 'react-icons/gi'
 import { check } from '../checker';
+import { TextField } from '@material-ui/core';
 
 
 function Mainconts() {
@@ -152,12 +153,12 @@ function Mainconts() {
     }
   }
   const handleComment = async (itemID) => {
-    const api = await fetch('https://photocorner33.herokuapp.com/post/comment/' + itemID, {
+    const api = await fetch('http://localhost:5000/post/comment/' + itemID, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',
       body: JSON.stringify({
-        username: (user.needed.username),
+        username: (user.username),
         comment: (comment)
       })
     })
@@ -212,7 +213,7 @@ function Mainconts() {
           <div className="contents w-72">
             {
               posts.map((item) =>
-                <div id='post' className='w-2/5' key={item._id}>
+                <div id='post' className='flex flex-col w-2/5' key={item._id}>
                   <div className='username'>{item.username}</div>
                   <div>
                     <img className='w-full h-81' src={item.secureUrl} alt='' />
@@ -225,7 +226,7 @@ function Mainconts() {
                       <p>{item.likes}</p>
                     </div>
                     <div className='flex flex-col items-center justify-center'>
-                      <i className={`hover:cursor-pointer bx bx-message-dots bx-md bx-tada-hover`}></i>
+                      <i className={`hover:cursor-pointer bx bx-message-dots bx-md bx-tada-hover comment`}></i>
                       <p>{item.comments.count}</p>
                     </div>
                     <div className='flex flex-col items-center justify-center'>
@@ -234,7 +235,12 @@ function Mainconts() {
                   </div>
                   <div className='text-gray-500 text-sm'>{item.created}</div>
                   <div>{item.caption}</div>
-
+                  <div className='mt-2 form w-ful flex flex-row'>
+                    <form onSubmit={()=>{handleComment(item._id)}} className='w-2/3'>
+                        <TextField className='w-full h-24 rounded' placeholder='Type a comment here' type='text' />
+                    </form>
+                    <button className='w-1/3 rounded-xl font-bold h-9 text-white bg-blue-700' type='submit'>Send</button>
+                  </div>
                   <hr></hr>
                 </div>)
             }

@@ -8,7 +8,7 @@
     top: 0;
 }
 .toggle{
-    position: fixed;
+    /* position: fixed; */
     display: none;
 }
 .side-view{
@@ -22,7 +22,7 @@
     border-left: 1px solid #ccc;
     background-color: var(--ligth-color);
     z-index: 6;
-    position:fixed;
+    /* position:fixed; */
     justify-content: space-between;
 }
 .topside{

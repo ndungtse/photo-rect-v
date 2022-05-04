@@ -103,7 +103,6 @@ export default Side;
 
 const Test = styled.div`
 @media screen and (max-width: 900px){
-        position: fixed;
         height: 100vh;
         // right: -1000px;
         right: ${({ isToggled }) => (isToggled ? '0' : '-2000px')};
