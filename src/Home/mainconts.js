@@ -74,7 +74,8 @@ function Mainconts() {
     const posts = await res.json()
     console.log(posts.posts);
     setPosts(posts.posts.reverse())
-    setLoader(false)
+    console.log(posts);
+    // setLoader(false)
     return posts
   }
 
@@ -83,7 +84,7 @@ function Mainconts() {
   }, [])
 
   useEffect(() => {
-    console.log(posts);
+    // console.log(posts);
   }, [posts])
 
   const handleSubmit = (e) => {
@@ -166,7 +167,9 @@ function Mainconts() {
   }
   return (
     <div className="main-contents w-64">
-      {loader ? <>Loading</> :
+      {loader ? <>
+      Loading.....
+      </> :
         <>
           <div className="post w-full">
 
