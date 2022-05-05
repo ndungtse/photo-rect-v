@@ -67,7 +67,7 @@ function Mainconts() {
   }, [])
 
   const getPosts = async () => {
-    const res = await fetch('http://localhost:5000/post/allPosts', {
+    const res = await fetch('https://photocorner33.herokuapp.com/post/allPosts', {
       method: "GET",
       credentials: 'include',
       headers: { 'Content-Type': 'application/json' }
@@ -105,7 +105,7 @@ function Mainconts() {
     console.log(user);
     const username = user.username
     // console.log(image);
-    const api = await fetch('http://localhost:5000/post/newPost', {
+    const api = await fetch('https://photocorner33.herokuapp.com/post/newPost', {
       method: "POST",
       credentials: 'include',
       headers: { 'Content-Type': 'application/json' },
@@ -124,7 +124,7 @@ function Mainconts() {
 
   const HandleLike = async (itemID) => {
     console.log('Liking post with ID ' + itemID);
-    const api = await fetch('http://localhost:5000/post/like/' + itemID, {
+    const api = await fetch('https://photocorner33.herokuapp.com/post/like/' + itemID, {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',
@@ -144,7 +144,7 @@ function Mainconts() {
   }
 
   const handleShare = async (itemID) => {
-    const api = await fetch('http://localhost:5000/post/share/' + itemID, {
+    const api = await fetch('https://photocorner33.herokuapp.com/post/share/' + itemID, {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',
@@ -159,7 +159,7 @@ function Mainconts() {
   }
   const handleComment = async (e, itemID) => {
     e.preventDefault()
-    const api = await fetch('http://localhost:5000/post/commentPost/' + itemID, {
+    const api = await fetch('https://photocorner33.herokuapp.com/post/commentPost/' + itemID, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',

@@ -42,7 +42,7 @@ function Side({ isVisible, handleShowRe, setVisible,
   return (
     <Test isToggled={isToggled} setToggled={setToggled}
       className={`side sticky top-0`}>
-      <div className="side-view fixed">
+      <div className="side-view fixed w-[30%]">
         {
           !loader ?
             <>
@@ -75,7 +75,7 @@ function Side({ isVisible, handleShowRe, setVisible,
                     {
                       searchResults.map((item) =>
                         <div id="search-result" key={item._id}>
-                          <div className="img"><img src={require("./Images/Bitmap-1.png")} alt="" /></div>
+                          <div className=""><img src={require("./Images/Bitmap-1.png")} alt="" /></div>
                           <div className="descriptions">
                             <div className="fullName">{item.fullName}</div>
                             <div className="username">{item.username}</div>
