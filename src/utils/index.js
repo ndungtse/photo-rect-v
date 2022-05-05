@@ -1,3 +1,5 @@
+import checks from './../checker'
+
 let fullName, email, password, username
 
 const getfullname = e => {
@@ -34,9 +36,8 @@ const onsubmit = e => {
                 window.alert("User with that email already exists. If you already have an account then login")
             }
             else if (data.message === "Account created") {
-                // console.log(data)
-                localStorage.setItem("token",data.token)
-                window.location.replace('https://photo-rect-v.vercel.app/')
+                checks.check(data)
+                window.location.replace('/login')
             }
             else {
                 window.alert("Error in creating new account for you please")

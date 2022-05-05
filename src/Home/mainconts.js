@@ -3,12 +3,12 @@
 import React, { useState, useEffect } from 'react';
 import './Home.css';
 import { GiHeartBeats } from 'react-icons/gi'
-import { check } from '../checker';
+import  checks from '../checker';
 import { TextField } from '@material-ui/core';
 
 
 function Mainconts() {
-
+  checks.verification()
   const [formClass, setFormClass] = useState("form1")
   const [areaClass, setAreaClass] = useState("b-area");
   const [inputClass, setInputClass] = useState("");
@@ -64,10 +64,8 @@ function Mainconts() {
       headers: { 'Content-Type': 'application/json' }
     })
     const posts = await res.json()
-    check(res)
-    if (posts.message === "No token generated go back login") {
-      window.location.replace('/login')
-    }
+    checks.check(res)
+
     console.log(posts.posts);
     setPosts(posts.posts.reverse())
     console.log(posts);
@@ -109,11 +107,8 @@ function Mainconts() {
       })
     })
     const data = await api.json()
-    check(data)
+    checks.check(data)
     console.log(data)
-    if (data.message === "No token generated go back login") {
-      window.location.replace('/login')
-    }
     setPreviewSource('')
     getPosts()
   }
@@ -128,7 +123,7 @@ function Mainconts() {
     })
 
     const res = await api.json()
-    check(res)
+    checks.check(res)
 
     console.log(await api.json())
     if (res.message === `Post with ID ${itemID} was liked succesfully`) {
@@ -146,14 +141,14 @@ function Mainconts() {
       credentials: 'include',
     })
     const res = await api.json()
-    check(res)
+    checks.check(res)
 
     console.log(res)
     if (res.message === `Post with ID ${itemID} was shared succesfully`) {
       document.querySelector(`'like' + ${itemID}`).classList.replace('bx-share', 'bxs-share')
     }
   }
-  const handleComment = async (e,itemID) => {
+  const handleComment = async (e, itemID) => {
     e.preventDefault()
     const api = await fetch('http://localhost:5000/post/commentPost/' + itemID, {
       method: 'POST',
@@ -165,7 +160,7 @@ function Mainconts() {
       })
     })
     const res = await api.json()
-    check(res)
+    checks.check(res)
     console.log(res)
     if (res.message === `Post with ID ${itemID} was shared succesfully`) {
       document.querySelector(`'like' + ${itemID}`).classList.replace('bx-message-dots', 'bxs-message-dots')
@@ -244,11 +239,11 @@ function Mainconts() {
                     </form>
                   </div>
                   <div className='comments'>
-                    {item.comments.data.map(x=>
-                      (
+                    {item.comments.data.map(x =>
+                    (
                       <div className='flex flex-col rounded-md bg-gray-300 box-border p-1 m-1'>
                         <p className='text-gray-500 text-xs'>{x.username}</p><p>{x.comment}</p>
-                        </div>))}
+                      </div>))}
                   </div>
                   <hr></hr>
                 </div>)

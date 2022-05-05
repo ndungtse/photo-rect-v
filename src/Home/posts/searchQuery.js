@@ -1,4 +1,4 @@
-import { check } from "../../checker"
+import  check  from "../../checker"
 
 /* eslint-disable no-unused-vars */
 let username
