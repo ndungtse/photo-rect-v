@@ -22,7 +22,7 @@ const onloginsubmit = e => {
             console.log(data)
             if(data.message === "Can continue"){
                 localStorage.setItem('token',JSON.stringify(data.token))
-                window.location.replace('http://localhost:3000/home')
+                window.location.replace('http://localhost:3030/home')
             }
             else if(data.message === "No token generated try logging in again"){
                 window.alert("No token generated try logging in again")

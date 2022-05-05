@@ -14,7 +14,7 @@ function Side({ isVisible, handleShowRe, setVisible,
 
 
 
-  const [searchResults, setResults] = useState('');
+  const [searchResults, setResults] = useState([]);
   const [loader, setLoader] = useState(true)
 
   useEffect(() => {
@@ -41,10 +41,10 @@ function Side({ isVisible, handleShowRe, setVisible,
 
   return (
     <Test isToggled={isToggled} setToggled={setToggled}
-      className={`side `}>
-      <div className="side-view">
+      className={`side sticky top-0`}>
+      <div className="side-view fixed">
         {
-          loader ?
+          !loader ?
             <>
               Loading.....
             </>

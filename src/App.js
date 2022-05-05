@@ -9,7 +9,6 @@ import Signup from './SignUp/signup';
 import Login from './Login/Login';
 import UpdateAccount from './account-page/updateAccountForm';
 
-
 function App() {
   const [dark, setDark] = useState("")
   const [toggleIco, setToggleIco] = useState("bx bx-toggle-left");

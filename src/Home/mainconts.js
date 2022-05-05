@@ -4,7 +4,14 @@ import React, { useState, useEffect } from 'react';
 import './Home.css';
 import { GiHeartBeats } from 'react-icons/gi'
 import { check } from '../checker';
-import { TextField } from '@material-ui/core';
+import {
+  BiDotsHorizontalRounded,
+  BiCommentDots,
+  BiHeart,
+  BiShare,
+  BiSmile,
+  BiSend,
+} from "react-icons/bi";
 
 
 function Mainconts() {
@@ -171,82 +178,107 @@ function Mainconts() {
   }
   return (
     <div className="main-contents w-64">
-      {loader ? <>
-        Loading.....
-      </> :
+      {loader ? (
+        <>Loading.....</>
+      ) : (
         <>
           <div className="post w-full">
-
             <form onSubmit={handleSubmit} className={`${formClass}`}>
-
               <div className="flex items-center w-full justify-between">
+                <i
+                  onClick={hidePostForm}
+                  className={`bx bx-x float-left cursor-pointer ${iniImgClass} `}
+                ></i>
 
-                <i onClick={hidePostForm} className={`bx bx-x float-left cursor-pointer ${iniImgClass} `}></i>
+                <label className="text-center ">Post something</label>
+              </div>
 
-                <label className="text-center ">Post something</label></div>
-
-              <input type="file" id="file" className='post-image' accept="image/png,jpg" onChange={handleFileInputChange} />
+              <input
+                type="file"
+                id="file"
+                className="post-image"
+                accept="image/png,jpg"
+                onChange={handleFileInputChange}
+              />
 
               {previewSource && (
                 <img
                   src={previewSource}
                   alt="chosen"
-                  style={{ height: '300px' }}
+                  style={{ height: "300px" }}
                 />
               )}
-              <textarea className={`bg-slate-300 text-black ${areaClass}`} type="textarea" onChange={(e) => { setCaption(e.target.value) }} placeholder='Say something' />
-              <div className='p-input w-full justify-end'>
+              <textarea
+                className={`bg-slate-300 text-black ${areaClass}`}
+                type="textarea"
+                onChange={(e) => {
+                  setCaption(e.target.value);
+                }}
+                placeholder="Say something"
+              />
+              <div className="p-input w-full justify-end">
+                <label htmlFor="file" className="pfile">
+                  <i
+                    title="add photos"
+                    className={`bx bx-image pt-4 mr-8 ${iniImgClass} `}
+                  ></i>
+                </label>
 
-                <label htmlFor="file" className='pfile'>
-
-                  <i title='add photos' className={`bx bx-image pt-4 mr-8 ${iniImgClass} `}>
-
-                  </i></label>
-
-                <input onClick={showPostForm} value='Start a post' type="button"
-
-                  className={`bg-slate-300 hover:bg-slate-400 ${inputClass} cursor-pointer text-black h-[40px] px-4 mt-3 mr-3 rounded-4 ml-2 duration-300`}></input>
-                <input onClick={hidePostForm} type={"submit"} value={"Post"} className={`px-7 mt-3 py-2 rounded-4 ${iniImgClass} postsub`} />
+                <input
+                  onClick={showPostForm}
+                  value="Start a post"
+                  type="button"
+                  className={`bg-slate-300 hover:bg-slate-400 ${inputClass} cursor-pointer text-black h-[40px] px-4 mt-3 mr-3 rounded-4 ml-2 duration-300`}
+                ></input>
+                <input
+                  onClick={hidePostForm}
+                  type={"submit"}
+                  value={"Post"}
+                  className={`px-7 mt-3 py-2 rounded-4 ${iniImgClass} postsub`}
+                />
               </div>
             </form>
           </div>
           <div className="contents w-72">
-            {
-              posts.map((item) =>
-                <div id='post' className='flex flex-col w-2/5' key={item._id}>
-                  <div className='username'>{item.username}</div>
-                  <div>
-                    <img className='w-full h-81' src={item.secureUrl} alt='' />
-                  </div>
-                  <div className='reviews flex flex-row items-center justify-around m-2'>
-                    <div className='flex flex-col items-center justify-center'>
-                      <i color='red' onClick={() => {
-                        HandleLike(item._id)
-                      }} className={`${'like' + item._id} hover:cursor-pointer bx bx-heart bx-md `}></i>
-                      <p>{item.likes}</p>
+            {posts.map((item) => (
+              <div key={item._id} className="  w-[60%]  items-center mt-6">
+                <div className="postcard px-4 flex flex-col justify-between rounded-sm shadow-sm py-[1%] border-[1px] aspect-[9/10]">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center">
+                      <img src="" alt="" />
+                      <div className="flex flex-col my-auto">
+                        <p>{item.username} </p>
+                        <span className="text-sm opacity-[0.7] w-full flex whitespace-nowrap">
+                          {item.created}
+                        </span>
+                      </div>
                     </div>
-                    <div className='flex flex-col items-center justify-center'>
-                      <i className={`hover:cursor-pointer bx bx-message-dots bx-md bx-tada-hover comment`}></i>
-                      <p>{item.comments.count}</p>
-                    </div>
-                    <div className='flex flex-col items-center justify-center'>
-                      <i className={`hover:cursor-pointer bx bx-share bx-md`}></i>
-                    </div>
+                    <BiDotsHorizontalRounded className="cursor-pointer text-3xl" />
                   </div>
-                  <div className='text-gray-500 text-sm'>{item.created}</div>
-                  <div>{item.caption}</div>
-                  <div className='mt-2 form w-ful flex flex-row'>
-                    <form onSubmit={()=>{handleComment(item._id)}} className='w-2/3'>
-                        <TextField className='w-full h-24 rounded' placeholder='Type a comment here' type='text' />
-                    </form>
-                    <button className='w-1/3 rounded-xl font-bold h-9 text-white bg-blue-700' type='submit'>Send</button>
+                  <div className="flex flex-col w-full aspect-square">
+                    <p className="m-auto">{item.caption}</p>
+                    <img src="" alt="" />
                   </div>
-                  <hr></hr>
-                </div>)
-            }
-          </div></>
-      }
-
+                  <div className=" flex items-center text-2xl py-2">
+                    <BiHeart className="ml-4 cursor-pointer" />
+                    <BiCommentDots className="ml-4 cursor-pointer" />
+                    <BiShare className="ml-4 cursor-pointer" />
+                  </div>
+                  <div className="flex py-1 px-2 items-center rounded-3xl border-[2px]">
+                    <BiSmile className="text-2xl cursor-pointer" />
+                    <input
+                      className="bg-transparent outline-none px-2 w-full"
+                      type="text"
+                      placeholder="Add a comment"
+                    />
+                    <BiSend className="text-2xl cursor-pointer" />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </>
+      )}
     </div>
   );
 }

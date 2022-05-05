@@ -17,12 +17,9 @@
     flex-direction: column;
     align-items: center;
     top: 0;
-    width: 29%;
-    height: 100%;
     border-left: 1px solid #ccc;
     background-color: var(--ligth-color);
     z-index: 6;
-    /* position:fixed; */
     justify-content: space-between;
 }
 .topside{
