@@ -12,10 +12,12 @@ import {
   BiSmile,
   BiSend,
 } from "react-icons/bi";
+import  checks from '../checker';
+import { TextField } from '@material-ui/core';
 
 
 function Mainconts() {
-
+  checks.verification()
   const [formClass, setFormClass] = useState("form1")
   const [areaClass, setAreaClass] = useState("b-area");
   const [inputClass, setInputClass] = useState("");
@@ -26,11 +28,12 @@ function Mainconts() {
   const [selectedFile, setSelectedFile] = useState();
   const [image, setImage] = useState()
 
-  const [comment, setComment] = useState()
   const [posts, setPosts] = useState()
   const [caption, setCaption] = useState('')
   const [loader, setLoader] = useState(true)
   const [user, setUser] = useState()
+  const [comment, setComment] = useState('')
+
   const showPostForm = () => {
     setFormClass("form2");
     setAreaClass("area")
@@ -64,16 +67,14 @@ function Mainconts() {
   }, [])
 
   const getPosts = async () => {
-    const res = await fetch('https://photocorner33.herokuapp.com/post/allPosts', {
+    const res = await fetch('http://localhost:5000/post/allPosts', {
       method: "GET",
       credentials: 'include',
       headers: { 'Content-Type': 'application/json' }
     })
     const posts = await res.json()
-    check(res)
-    if (posts.message === "No token generated go back login") {
-      window.location.replace('/login')
-    }
+    checks.check(res)
+
     console.log(posts.posts);
     setPosts(posts.posts.reverse())
     console.log(posts);
@@ -104,7 +105,7 @@ function Mainconts() {
     console.log(user);
     const username = user.username
     // console.log(image);
-    const api = await fetch('https://photocorner33.herokuapp.com/post/newPost', {
+    const api = await fetch('http://localhost:5000/post/newPost', {
       method: "POST",
       credentials: 'include',
       headers: { 'Content-Type': 'application/json' },
@@ -115,18 +116,15 @@ function Mainconts() {
       })
     })
     const data = await api.json()
-    check(data)
+    checks.check(data)
     console.log(data)
-    if (data.message === "No token generated go back login") {
-      window.location.replace('/login')
-    }
     setPreviewSource('')
     getPosts()
   }
 
   const HandleLike = async (itemID) => {
     console.log('Liking post with ID ' + itemID);
-    const api = await fetch('https://photocorner33.herokuapp.com/post/like/' + itemID, {
+    const api = await fetch('http://localhost:5000/post/like/' + itemID, {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',
@@ -134,7 +132,7 @@ function Mainconts() {
     })
 
     const res = await api.json()
-    check(res)
+    checks.check(res)
 
     console.log(await api.json())
     if (res.message === `Post with ID ${itemID} was liked succesfully`) {
@@ -146,21 +144,22 @@ function Mainconts() {
   }
 
   const handleShare = async (itemID) => {
-    const api = await fetch('https://photocorner33.herokuapp.com/post/share/' + itemID, {
+    const api = await fetch('http://localhost:5000/post/share/' + itemID, {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',
     })
     const res = await api.json()
-    check(res)
+    checks.check(res)
 
     console.log(res)
     if (res.message === `Post with ID ${itemID} was shared succesfully`) {
       document.querySelector(`'like' + ${itemID}`).classList.replace('bx-share', 'bxs-share')
     }
   }
-  const handleComment = async (itemID) => {
-    const api = await fetch('http://localhost:5000/post/comment/' + itemID, {
+  const handleComment = async (e, itemID) => {
+    e.preventDefault()
+    const api = await fetch('http://localhost:5000/post/commentPost/' + itemID, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',
@@ -170,7 +169,7 @@ function Mainconts() {
       })
     })
     const res = await api.json()
-    check(res)
+    checks.check(res)
     console.log(res)
     if (res.message === `Post with ID ${itemID} was shared succesfully`) {
       document.querySelector(`'like' + ${itemID}`).classList.replace('bx-message-dots', 'bxs-message-dots')
@@ -255,9 +254,20 @@ function Mainconts() {
                     </div>
                     <BiDotsHorizontalRounded className="cursor-pointer text-3xl" />
                   </div>
-                  <div className="flex flex-col w-full aspect-square">
-                    <p className="m-auto">{item.caption}</p>
-                    <img src="" alt="" />
+                  <div className='text-gray-500 text-sm'>{item.created}</div>
+                  <div>{item.caption}</div>
+                  <div className='mt-2 form w-ful flex flex-row'>
+                    <form onSubmit={() => { handleComment(item._id) }} className='w-full flex'>
+                      <TextField onChange={(e) => { setComment(e.target.value) }} className='w-2/3 h-24 rounded' placeholder='Type a comment here' type='text' />
+                      <button className='w-1/3 rounded-xl font-bold h-9 text-white bg-blue-700' type='submit'>Send</button>
+                    </form>
+                  </div>
+                  <div className='comments'>
+                    {item.comments.data.map(x =>
+                    (
+                      <div className='flex flex-col rounded-md bg-gray-300 box-border p-1 m-1'>
+                        <p className='text-gray-500 text-xs'>{x.username}</p><p>{x.comment}</p>
+                      </div>))}
                   </div>
                   <div className=" flex items-center text-2xl py-2">
                     <BiHeart className="ml-4 cursor-pointer" />

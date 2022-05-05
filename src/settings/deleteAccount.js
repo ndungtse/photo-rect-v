@@ -10,7 +10,7 @@ const onsubmit = e => {
     username = document.querySelector("#username").value
     password = document.querySelector("#password").value
     console.log(username, password)
-    fetch("https://photocorner33.herokuapp.com/user/deleteUser", {
+    fetch("http://localhost:5000/user/deleteUser", {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

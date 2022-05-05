@@ -1,3 +1,5 @@
+import checks from './../checker'
+
 let fullName, email, password, username
 
 const getfullname = e => {
@@ -18,7 +20,7 @@ const onload = e => {
 }
 const onsubmit = e => {
     e.preventDefault()
-    fetch("https://photocorner33.herokuapp.com/user/registerUser", {
+    fetch("http://localhost:5000/user/registerUser", {
         method: "POST",
         // mode: "no-cors",
         headers: { 'Content-Type': 'application/json' },
@@ -34,12 +36,8 @@ const onsubmit = e => {
                 window.alert("User with that email already exists. If you already have an account then login")
             }
             else if (data.message === "Account created") {
-                // console.log(data)
-                localStorage.setItem("username",username)
-                localStorage.setItem("fullName",fullName)
-                localStorage.username = username
-                localStorage.fullName = fullName
-                window.location.replace('https://photo-rect-v.vercel.app/')
+                checks.check(data)
+                window.location.replace('/login')
             }
             else {
                 window.alert("Error in creating new account for you please")
