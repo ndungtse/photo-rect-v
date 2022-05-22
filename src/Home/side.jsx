@@ -50,16 +50,15 @@ function Side({ isVisible, handleShowRe, setVisible,
             </>
             :
             <>
-              <div className="topside">
-                <div onClick={handleShowRe} className="input-search" >
-                  <input onClick={handleShowRe} type="text" placeholder="Search" disabled />
+              <div className=" flex mt-9 w-full px-3">
+                <div onClick={handleShowRe} className="w-full flex items-center p-2 rounded-3xl bg-slate-300" >
+                  <input
+                  className="w-full"
+                   onClick={handleShowRe} type="text" placeholder="Search" disabled />
                   <i className="bx bx-search icon"></i>
                 </div>
                 <div className="bell" id="log">
                   <i title="See notifications" className="bx bx-bell icon"></i>
-                </div>
-                <div className="bell" id="bell">
-                  <i title="Log out" className="bx bx-log-out"></i>
                 </div>
                 <div>
                 </div>
