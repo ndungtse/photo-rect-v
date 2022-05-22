@@ -1,0 +1,55 @@
+.search{
+    box-shadow: 0 0 4px 2px rgba(19, 148, 218, 0.524);
+}
+.mcard{
+    box-shadow: 0 0 4px 4px rgba(19, 148, 218, 0.324);
+}
+.mess{
+    border-radius: 0px 10px 10px 10px;
+}
+.mess1{
+    border-radius: 10px 10px 0px 10px;
+    background: #A9DBF8;
+;
+}
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(191, 196, 201);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(140, 143, 145);
+}
+.ref div{
+    /* display: flex;
+    flex-direction: column;
+    justify-content: flex-end; */
+    /* height: 100%; */
+    overflow-y: auto;
+}
+.mdiv1{
+    flex-direction: row!important;
+    justify-content: flex-end;
+}
+.mdiv2{
+    flex-direction: row!important;
+    justify-content: flex-start!important;
+}
+.chat{
+    /* background: url(./../../images/cover-sign.png); */
+    background-size: 100% 50%;
+    background: rgba(255, 255, 255, 0.071);
+
+}
+.messages{
+    /* background: url(./../../images/cover-sign.png); */
+    background: rgba(255, 255, 255, 0.537);
+}
