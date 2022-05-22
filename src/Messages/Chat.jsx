@@ -16,11 +16,29 @@ function Chat({user}) {
     }, [socket, start]);
 
   return (
-    <div className="mt-2 mx-3 chat px-4 py-2 shadow-md shadow-sky-200 w-[50%] h-[85vh] overflow-auto">
+    <div className="mt-2 mx-3 chat px-4 py-2 shadow-md shadow-sky-200 w-full h-screen overflow-auto">
+      <div className="mes-prev-title">
+            <div className="mes-titl-left">
+              <div>
+              <div id="left-title-img">
+                {/* <img src={require("./../Home/Images/Bitmap-2.png")} alt="" /> */}
+              </div>
+              </div>
+              <div id="left-title-img-desc">
+                <div><p>Ishimwe&nbsp;Christian</p></div>
+                <div><p id="hour-left">Active&nbsp;11h&nbsp;ago</p></div>
+              </div>
+            </div>
+            <div className="mes-title-left-ico">
+              <div ><i className="bx bxs-phone icon"></i></div>
+              <div ><i className="bx bxs-video icon"></i></div>
+              <div ><i className="bx bxs-info-circle icon"></i></div>
+            </div>
+          </div>
       <div className="w-full flex justify-center text-sm items-center mt-6">
         <p>Today 12:05 am</p>
       </div>
-      <ScrollToBottom className="mt-6 flex flex-col items-center justify-end h-[63vh] ref overflow-auto">
+      <ScrollToBottom className="mt-6 flex flex-col items-center justify-end h-[74vh] ref overflow-auto">
         {relMessages.map((rel) => (
           <div
             key={rel._id}

@@ -14,28 +14,28 @@ export function useUser() {
 
 export function UserProvider({ children }) {
   const [users, setUsers] = useState([]);
-  const [user, setUser] = useState("");
+  const [user, setUser] = useState({name: 'charles', id: 21323});
 
   useEffect(() => {
     fetchUsers();
   }, []);
 
-  const deCode = () => {
-    try {
-      const res = jwt_decode(localStorage.getItem("user"));
-      if (res._id) {
-        const user = {
-          name: res.name,
-          id: res._id,
-        };
-        localStorage.setItem("userinfo", JSON.stringify(user));
-        return true;
-      }
-    } catch (error) {
-      console.log(error.message);
-      return false;
-    }
-  };
+//   const deCode = () => {
+//     try {
+//       const res = jwt_decode(localStorage.getItem("user"));
+//       if (res._id) {
+//         const user = {
+//           name: res.name,
+//           id: res._id,
+//         };
+//         localStorage.setItem("userinfo", JSON.stringify(user));
+//         return true;
+//       }
+//     } catch (error) {
+//       console.log(error.message);
+//       return false;
+//     }
+//   };
 
   const getUser = async () => {
     try {
@@ -78,7 +78,7 @@ export function UserProvider({ children }) {
 
   return (
     <UsersContext.Provider value={{ users, user, setUsers, setUser }}>
-      <UserContext.Provider value={{ user, deCode }}>
+      <UserContext.Provider value={{ user}}>
         {children}
       </UserContext.Provider>
     </UsersContext.Provider>

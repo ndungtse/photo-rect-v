@@ -2,45 +2,47 @@ import React, {useState} from 'react';
 import { Link } from "react-router-dom";
 import './Home.css';
 import 'boxicons';
-import logo from './Images/another/flogo.png';
+// import logo from './Images/another/flogo.png';
+import { BiMessageRoundedDots,BiUser, BiHome, BiGroup, BiCog, } from 'react-icons/bi'
 
-function Nav() {
-  const [active, seActive] = useState("");
-  const activate = () => {
-    seActive("activate")
-  }
+function Nav({active}) {
+  const [mobile, setMobile] = useState(false)
   return (
-    <nav className="navbar">
-        <div className="nav-contents">
-          <div className="navlogo">
-            <Link to="./"><img src={logo} alt='logo'/></Link>
-          </div>
-          <ul className="nav-container">
-            <li onClick={activate} className="navlinks">
-              <Link to='/'><div title="Home" className="links"><i
-                  className={`bx bxs-home icon ${active}`}></i></div></Link>
-            </li>
-            <li /* onClick={activate1}  */className="navlinks">
-              <Link to='/messages'><div title="Message" className="links"><i
-                  className={`bx bxs-message-dots icon`}></i></div></Link>
-            </li>
-            <li  className="navlinks">
-             <Link to='/profile'><div title="Profile" className="links">
-               <i className={`bx bxs-user icon`}></i></div></Link>
-            </li>
-            <li  className="navlinks">
-              <div title="Clubs" className="links"><i className={`bx bxs-group icon`}></i></div>
-            </li>
-            <li className="navlinks">
-              <span></span>
-            </li>
-            <li  className="navlinks">
-              <Link to='/settings'><div id="flex" title="Settings" className="links">
-                <i className={`bx bx-cog icon`}></i></div></Link>
-            </li>
-          </ul>
-        </div>
-      </nav>
+    <div className={`${mobile && 'show'}
+      duration-500 sidebar h-screen py-8 bg-slate-300 w-[200px] flex flex-col justify-between`}>
+      <h1 className="text-2xl flex justify-center w-full font-bold text-black">
+        <p>Photo</p> <span className="text-[#3a73ed]">Corner</span>
+      </h1>
+      <div className="flex flex-col w-full items-center px-3 text-black">
+        <Link to='/'
+         className={`${active==='overview' && 'bg-[#0B6041]'}
+         flex cursor-pointer mt-6 mx-auto items-center w-full rounded-lg p-2 hover:bg-blue-500`}>
+          <BiHome className='text-xl' />
+          <p className="ml-6">Home</p>
+        </Link>
+        <Link to='/messages' className={`${active==='users' && 'bg-[#0B6041]'}
+        flex cursor-pointer mt-6 mx-auto items-center w-full rounded-lg p-2 hover:bg-blue-500`}>
+          <BiMessageRoundedDots className='text-xl' />
+          <p className="ml-6">Messages</p>
+        </Link>
+        <Link to='/profile' className={`${active==='users' && 'bg-[#0B6041]'}
+        flex cursor-pointer mt-6 mx-auto items-center w-full rounded-lg p-2 hover:bg-blue-500`}>
+          <BiUser className='text-xl' />
+          <p className="ml-6">Profile</p>
+        </Link>
+          <Link to='' className={`${active==='clients' && 'bg-[#0B6041]'}
+          flex cursor-pointer mt-6 mx-auto items-center w-full rounded-lg p-2 hover:bg-blue-500`}>
+            <BiGroup className='text-xl' />
+            <p className="ml-6">Groups</p>
+          </Link>
+      </div>
+      <div className="flex flex-col w-full items-center px-3 text-black">
+        <Link to={`/settings`} className="flex cursor-pointer mt-6 mx-auto items-center w-full rounded-lg p-2 hover:bg-blue-500">
+          <BiCog className='text-xl' />
+          <p className="ml-6">Settings</p>
+        </Link>
+      </div>
+    </div>
   );
 }
 

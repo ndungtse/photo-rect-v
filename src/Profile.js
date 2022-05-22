@@ -41,8 +41,8 @@ function Home() {
                                     <img className='w-[150px] rounded-full' src={require("./Home/Images/subs/mount.jpg")} alt="Bitmap" /></div>
                             </div>
                             <div className="w-[100%] flex flex-col items-center justify-center">
-                                <p className="text-xl mt-7 mx-auto">{user.fullname}</p>
-                                <p className="text-xl mx-auto opacity-[0.7]">@{user.username}</p>
+                                <p className="text-xl mt-7 mx-auto">{`user.fullname`}</p>
+                                <p className="text-xl mx-auto opacity-[0.7]">@{`user.username`}</p>
                             </div>
                         </Avatar>
                         <div className="flex px-[6%] justify-between items-center">

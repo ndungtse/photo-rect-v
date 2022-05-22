@@ -25,7 +25,7 @@ const Settings = ({toggleDark,toggleIco}) => {
           <p className="text-center">Type <strong>YOUR PASSWORD</strong> in the password field.</p>
             <div className="labels">
               <label>username</label>
-              <input className='bg-white' disabled value={JSON.parse(localStorage.userInfo).username} id='username' type="text" />
+              <input className='bg-white' id='username' type="text" />
             </div>
             <div className="labels">
               <label>Password</label>

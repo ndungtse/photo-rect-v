@@ -46,9 +46,8 @@ function App() {
   return (
     <BrowserRouter>
        <div className={dark}>
-         <Routes >{username ?
+         <Routes >
          <Route path="/" element={<Home />} />
-         : <Route path="/" element={<Login />} />}
          <Route path="/home" element={<Home />} />
          <Route path="/messages" element={<Messages />} />
          <Route path="/signup" element={<Signup />} />
