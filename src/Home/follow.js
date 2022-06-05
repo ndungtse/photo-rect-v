@@ -6,11 +6,11 @@ function Follow({ handleShowRe }) {
   return (
     <div className="flex">
       <div className=" flex items-center px-2">
-        <di className="img-f">
+        <div className="img-f">
           <div>
             <img src={require("./Images/another/Bitmap.png")} alt="" />
           </div>
-        </di>
+        </div>
         <div className="img-des">
           <div>
             <p>{`fullName`}</p>

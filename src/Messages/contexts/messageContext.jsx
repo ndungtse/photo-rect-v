@@ -3,7 +3,7 @@ import { io } from "socket.io-client";
 
 const MessageContext = React.createContext();
 
-const socket = io.connect("http://localhost:3031");
+const socket = io.connect("https://photocornerchat.herokuapp.com");
 
 export function useMessage() {
   return useContext(MessageContext);

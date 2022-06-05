@@ -4,7 +4,7 @@ import './App.css';
 
 function Home() {
   return (
-      <div className='main-container'>
+      <div className='main-container fixed h-screen overflow-hidden'>
         <Nav />
         <Mainside />
       </div>

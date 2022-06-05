@@ -5,7 +5,7 @@ import Mainconts from './mainconts'
 
 function Main() {
   return ( 
-      <div className='main'>
+      <div className='main overflow-auto h-screen'>
           <Stories />
           <Mainconts />
       </div>

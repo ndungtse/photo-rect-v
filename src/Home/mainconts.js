@@ -241,50 +241,39 @@ function Mainconts() {
           <div className="contents w-72">
             {posts.map((item) => (
               <div key={item._id} className="  w-[60%]  items-center mt-6">
-                <div className="postcard px-4 flex flex-col justify-between rounded-sm shadow-sm py-[1%] border-[1px] aspect-[9/10]">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center">
-                      <img src="" alt="" />
-                      <div className="flex flex-col my-auto">
-                        <p>{item.username} </p>
-                        <span className="text-sm opacity-[0.7] w-full flex whitespace-nowrap">
-                          {item.created}
-                        </span>
-                      </div>
+              <div className="postcard px-4 flex flex-col justify-between rounded-sm shadow-sm py-[1%] border-[1px] aspect-[9/10]">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center">
+                    <img src="" alt="" />
+                    <div className="flex flex-col my-auto">
+                      <p>{item.username} </p>
+                      <span className="text-sm opacity-[0.7] w-full flex whitespace-nowrap">
+                        {item.created}
+                      </span>
                     </div>
-                    <BiDotsHorizontalRounded className="cursor-pointer text-3xl" />
                   </div>
-                  <div className='text-gray-500 text-sm'>{item.created}</div>
-                  <div>{item.caption}</div>
-                  <div className='mt-2 form w-ful flex flex-row'>
-                    <form onSubmit={() => { handleComment(item._id) }} className='w-full flex'>
-                      <TextField onChange={(e) => { setComment(e.target.value) }} className='w-2/3 h-24 rounded' placeholder='Type a comment here' type='text' />
-                      <button className='w-1/3 rounded-xl font-bold h-9 text-white bg-blue-700' type='submit'>Send</button>
-                    </form>
-                  </div>
-                  <div className='comments'>
-                    {item.comments.data.map(x =>
-                    (
-                      <div className='flex flex-col rounded-md bg-gray-300 box-border p-1 m-1'>
-                        <p className='text-gray-500 text-xs'>{x.username}</p><p>{x.comment}</p>
-                      </div>))}
-                  </div>
-                  <div className=" flex items-center text-2xl py-2">
-                    <BiHeart className="ml-4 cursor-pointer" />
-                    <BiCommentDots className="ml-4 cursor-pointer" />
-                    <BiShare className="ml-4 cursor-pointer" />
-                  </div>
-                  <div className="flex py-1 px-2 items-center rounded-3xl border-[2px]">
-                    <BiSmile className="text-2xl cursor-pointer" />
-                    <input
-                      className="bg-transparent outline-none px-2 w-full"
-                      type="text"
-                      placeholder="Add a comment"
-                    />
-                    <BiSend className="text-2xl cursor-pointer" />
-                  </div>
+                  <BiDotsHorizontalRounded className="cursor-pointer text-3xl" />
+                </div>
+                <div className="flex flex-col w-full aspect-square">
+                  <p className="m-auto">{item.caption}</p>
+                  <img src="" alt="" />
+                </div>
+                <div className=" flex items-center text-2xl py-2">
+                  <BiHeart className="ml-4 cursor-pointer" />
+                  <BiCommentDots className="ml-4 cursor-pointer" />
+                  <BiShare className="ml-4 cursor-pointer" />
+                </div>
+                <div className="flex py-1 px-2 items-center rounded-3xl border-[2px]">
+                  <BiSmile className="text-2xl cursor-pointer" />
+                  <input
+                    className="bg-transparent outline-none px-2 w-full"
+                    type="text"
+                    placeholder="Add a comment"
+                  />
+                  <BiSend className="text-2xl cursor-pointer" />
                 </div>
               </div>
+            </div>
             ))}
           </div>
         </>

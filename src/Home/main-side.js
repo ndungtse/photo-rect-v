@@ -29,14 +29,14 @@ function Mainside() {
       <Main />
       <div onClick={toggle} className='toggle'>
         <i className={`duration-300 ${toggleicoClass}`}></i></div>
-      <Side
+      {/* <Side
       isToggled={isToggled}
       
       setToggled={setToggled}
       toggle={toggle}
       isVisible={isVisible}
       setVisible={setVisible}
-      handleShowRe={handleShowRe}></Side>
+      handleShowRe={handleShowRe}></Side> */}
     </div>  
   );
 }

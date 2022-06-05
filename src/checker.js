@@ -5,7 +5,7 @@ const check = (response) => {
     }
 }
 const verification = async () => {
-    const api = await fetch('http://localhost:5000/user/authorize', {
+    const api = await fetch('https://photocorner33.herokuapp.com/user/authorize', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
