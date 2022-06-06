@@ -27,7 +27,7 @@ function Profile() {
 
     return (
         <Prof className='Profile  w-[100%] flex h-screen'>
-            <Nav className='' />
+            <Nav className='' active={`profile`} />
             <Main className='w-full flex p-4'>
                 <div className='w-full flex flex-col mx-auto items-center max-w-[900px]'>
                     <div className="w-full h-[30vh] overflow-hidden">

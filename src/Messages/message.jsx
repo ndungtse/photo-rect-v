@@ -9,7 +9,7 @@ function Messages() {
   return (
     <MessageProvider>
       <div className="w-full flex h-screen bg-white overflow-hidden">
-        <Nav />
+        <Nav active={`messages`} />
         <div className="flex w-full">
           <Unified />
         </div>

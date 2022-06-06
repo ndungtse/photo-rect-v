@@ -6,7 +6,7 @@ import Main from './Home/main';
 function Home() {
   return (
       <div className='main-container w-full fixed h-screen overflow-hidden'>
-        <Nav />
+        <Nav active={`home`} />
         <Main />
       </div>
   );

@@ -16,7 +16,7 @@ const Settings = ({toggleDark,toggleIco}) => {
  
   return (
     <div className='settings w-full flex'>
-      <Nav />
+      <Nav active={`settings`} />
       <div className={`${showDel} bg-black/70 flex 
       items-center w-full absolute h-screen justify-center`}>
           <form className="delform py-5 " onLoad={deleteUtils.onload} onSubmit={deleteUtils.onsubmit}>
