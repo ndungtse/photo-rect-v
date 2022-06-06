@@ -2,8 +2,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
 import './Home.css';
-import { GiHeartBeats } from 'react-icons/gi'
-import { check } from '../checker';
+import './side.css';
 import {
   BiDotsHorizontalRounded,
   BiCommentDots,
@@ -13,7 +12,6 @@ import {
   BiSend,
 } from "react-icons/bi";
 import  checks from '../checker';
-import { TextField } from '@material-ui/core';
 
 
 function Mainconts() {
@@ -176,7 +174,7 @@ function Mainconts() {
     }
   }
   return (
-    <div className="main-contents w-64">
+    <div className="w-full flex flex-col items-center">
       {loader ? (
         <>Loading.....</>
       ) : (
@@ -238,7 +236,7 @@ function Mainconts() {
               </div>
             </form>
           </div>
-          <div className="contents w-72">
+          <div className="w-full flex flex-col items-center">
             {posts.map((item) => (
               <div key={item._id} className="  w-[60%]  items-center mt-6">
               <div className="postcard px-4 flex flex-col justify-between rounded-sm shadow-sm py-[1%] border-[1px] aspect-[9/10]">

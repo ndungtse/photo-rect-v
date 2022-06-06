@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import styled from 'styled-components';
 import './Home.css';
 import './side.css';
+import React from 'react';
 import Follow from './follow';
 import Saved from './saved';
 import Activity from './activity';

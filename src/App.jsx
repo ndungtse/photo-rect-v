@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import './App.css';
 import Home from './Home';
 import Messages from './Messages/message';
-import Profile from './Profile';
+import Profile from './account-page/Profile';
 import Settings from './settings';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Signup from './SignUp/signup';

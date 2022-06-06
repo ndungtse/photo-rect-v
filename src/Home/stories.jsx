@@ -1,5 +1,6 @@
 import './Home.css';
 import users from '../utility';
+import React from 'react';
 
 function Stories() {
   return (

@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import { Link } from "react-router-dom";
 import './Home.css';
+import './side.css';
+import '../App.css'
 import 'boxicons';
 // import logo from './Images/another/flogo.png';
 import { BiMessageRoundedDots,BiUser, BiHome, BiGroup, BiCog, } from 'react-icons/bi'

@@ -1,4 +1,4 @@
-
+import React from 'react';
 import './Home.css';
 import Stories from './stories';
 import Mainconts from './mainconts'

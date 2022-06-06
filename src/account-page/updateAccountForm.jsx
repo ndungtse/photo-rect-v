@@ -1,6 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from "react";
-import './account.css';
 import Nav from "../Home/Nav";
 import { Link } from 'react-router-dom';
 import TextField from "@mui/material/TextField";

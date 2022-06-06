@@ -1,3 +1,4 @@
+import React from 'react'
 import Nav from './Home/Nav';
 import Mainside from './Home/main-side'
 import './App.css';
