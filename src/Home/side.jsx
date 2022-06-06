@@ -1,118 +1,55 @@
-import { Link } from "react-router-dom";
-import styled from 'styled-components';
-import './Home.css';
-import './side.css';
-import React from 'react';
-import Follow from './follow';
-import Saved from './saved';
-import Activity from './activity';
-import searchUtils from "./posts/searchQuery";
-import { useEffect, useState } from "react";
+import React from 'react'
 
-
-function Side({ isVisible, handleShowRe, setVisible,
-  isToggled, setToggled }) {
-
-
-
-  const [searchResults, setResults] = useState([]);
-  const [loader, setLoader] = useState(true)
-
-  useEffect(() => {
-    if (!searchResults.length) {
-      getResults()
-    }
-  }, ['searchResults'])
-
-  const getResults = async () => {
-    let res = await searchUtils.onsubmit()
-    if (res.length) {
-      setResults(res)
-      setLoader(false)
-    }
-  }
-
-  const handleSearch = (e) => {
-    e.preventDefault()
-    searchUtils.onsubmit(() => {
-      getResults()
-    })
-  }
-
-
+const Side = () => {
   return (
-    <Test isToggled={isToggled} setToggled={setToggled}
-      className={`side sticky top-0`}>
-      <div className="side-view fixed w-[30%]">
-        {
-          !loader ?
-            <>
-              Loading.....
-            </>
-            :
-            <>
-              <div className=" flex mt-9 w-full px-3">
-                <div onClick={handleShowRe} className="w-full flex items-center p-2 rounded-3xl bg-slate-300" >
-                  <input
-                  className="w-full"
-                   onClick={handleShowRe} type="text" placeholder="Search" disabled />
-                  <i className="bx bx-search icon"></i>
-                </div>
-                <div className="bell" id="log">
-                  <i title="See notifications" className="bx bx-bell icon"></i>
-                </div>
-                <div>
-                </div>
-              </div>
-              <ReStyle isVisible={isVisible} setVisible={setVisible} className="results shadow-xl">
-                <form onLoad={searchUtils.onload} onSubmit={handleSearch}>
-                  <div className="input-search1">
-                    <input type="text" onInput={searchUtils.getuname} placeholder="Search" />
-                    <i className="bx bx-search icon"></i>
-                    <i onClick={handleShowRe} className='bx bx-x' id="close"></i>
-                  </div>
-                  <div className="searchContents" onClick={handleShowRe}>
-                    {
-                      searchResults.map((item) =>
-                        <div id="search-result" key={item._id}>
-                          <div className=""><img src={require("./Images/Bitmap-1.png")} alt="" /></div>
-                          <div className="descriptions">
-                            <div className="fullName">{item.fullName}</div>
-                            <div className="username">{item.username}</div>
-                          </div>
-                        </div>
-                      )
-                    }
-
-                  </div>
-                </form>
-              </ReStyle>
-
-              <Follow onClick={handleShowRe} />
-              <Saved />
-              <Activity />
-            </>
-        }
-
+    <div className='min-w-[200px] sticky top-0 px-3 xtab:flex flex-col hidden w-1/2'>
+      <div className="flex mt-6 w-full items-center justify-between">
+        <div className="flex items-center">
+          <div className="flex overflow-hidden w-[60px] h-[60px] rounded-full">
+            <img className="min-w-full min-h-full object-cover"
+             src="https://resources.premierleague.com/premierleague/photos/players/250x250/p219847.png" alt="" />
+          </div>
+          <div className="flex flex-col ml-3">
+            <p className="font-semibold">Jessica Rire Ikutann</p>
+            <p className="opacity-80 font-light">@riraikutann</p>
+          </div>
+        </div>
+        <p className="text-blue-500">Switch</p>
       </div>
-    </Test>
-  );
+      <div className="flex flex-col w-full mt-6">
+        <div className="flex items-center justify-between w-full">
+          <p className="text-md font-semibold text-slate-600">Suggested For You</p>
+          <p className="font-semibold text-sm cursor-pointer">See All</p>
+        </div>
+        <Suggested />
+        <Suggested />
+        <Suggested />
+      </div>
+      <div className="flex mt-4 w-full">
+        <p className='text-slate-500'>&copy; Photo Corner 2022</p>
+      </div>
+    </div>
+  )
 }
 
-export default Side;
+export default Side
 
-const Test = styled.div`
-@media screen and (max-width: 900px){
-        height: 100vh;
-        // right: -1000px;
-        right: ${({ isToggled }) => (isToggled ? '0' : '-2000px')};
-        width: 100%;
-        background-color: rgba(12, 12, 12, 0.516);
-        z-index: 56;
+
+const Suggested = ()=>{
+
+  return(
+    <div className="w-full mt-3 text-sm flex justify-between items-center">
+      <div className="flex items-center">
+        <div className="flex overflow-hidden w-[40px] h-[40px] rounded-full">
+          <img className="min-w-full min-h-full object-cover"
+           src="https://resources.premierleague.com/premierleague/photos/players/250x250/p219847.png" alt="" />
+        </div>
+        <div className="flex flex-col ml-3">
+          <p className="font-semibold">Jessica Rire Ikutann</p>
+          <p className="opacity-80 font-light">@riraikutann</p>
+        </div>  
+      </div>
+      <p className="text-blue-500">Follow</p>
+    </div>
+  )
 }
-`
-const ReStyle = styled.div`
-display: ${({ isVisible }) => (isVisible ? 'flex' : 'none')};
-flex-direction: column;
-align-items: center;
-`

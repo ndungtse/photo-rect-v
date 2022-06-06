@@ -6,6 +6,9 @@ module.exports = {
   ],
   theme: {
     extend: {},
+    screens: {
+      'xtab': '900px',
+    }
   },
   plugins: [],
 }

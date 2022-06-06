@@ -12,6 +12,7 @@ import {
   BiSend,
 } from "react-icons/bi";
 import  checks from '../checker';
+import Side from './side';
 
 
 function Mainconts() {
@@ -174,7 +175,8 @@ function Mainconts() {
     }
   }
   return (
-    <div className="w-full flex flex-col items-center">
+    <div className="flex">
+    <div className="w-full h-[86vh] overflow-auto flex flex-col items-center">
       {loader ? (
         <>Loading.....</>
       ) : (
@@ -276,6 +278,8 @@ function Mainconts() {
           </div>
         </>
       )}
+    </div>
+    <Side />
     </div>
   );
 }

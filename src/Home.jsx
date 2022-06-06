@@ -1,13 +1,13 @@
 import React from 'react'
 import Nav from './Home/Nav';
-import Mainside from './Home/main-side'
 import './App.css';
+import Main from './Home/main';
 
 function Home() {
   return (
-      <div className='main-container fixed h-screen overflow-hidden'>
+      <div className='main-container w-full fixed h-screen overflow-hidden'>
         <Nav />
-        <Mainside />
+        <Main />
       </div>
   );
 }

@@ -1,14 +1,16 @@
-import React from 'react';
-import './Home.css';
-import Stories from './stories';
-import Mainconts from './mainconts'
+import React from "react";
+import "./Home.css";
+import Stories from "./stories";
+import Mainconts from "./mainconts";
 
 function Main() {
-  return ( 
-      <div className='main overflow-auto h-screen'>
-          <Stories />
-          <Mainconts />
+  return (
+    <div className="main-side">
+      <div className="main w-full h-screen">
+        <Stories />
+        <Mainconts />
       </div>
+    </div>
   );
 }
 

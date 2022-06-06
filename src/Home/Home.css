@@ -96,19 +96,7 @@ body{
     border-radius: 5px;
     padding: 10px;
 }
-.main{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 70%;
-    height: fit-content;
-}/* 
-.fixed-pup{
-    position: fixed;
-    width: 66.5%;
-    background-color: var(--primary-color);
-    z-index: 5;
-} */
+
 .stories{
     width:100%;
     background-color: var(--ligth-color);
@@ -171,41 +159,7 @@ body{
     height: 30px;
     color: var(--black-color);
 }
-.time-cont{
-    display: flex;
-    align-items: center;
-    list-style: none;
-    margin-bottom: 0 !important;/* 
-    margin-left: 190px; */
-}
-.time-item{
-    height:50px;
-}
-.post {
-    position: sticky;
-    top: 0;
-}
-.t-link{
-    color: var(--black-color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 75px;
-    text-decoration: none;
-    height: 100%;
-}
-.t-link:hover{
-    color:var(--blue-color);
-    cursor: pointer;
-}
 
-.cont-cont{
-    display: flex;
-    align-items: center;
-    max-width: 300px;
-    justify-content: center;
-    flex-direction: column;
-}
 .cont-img img{
     width: 100%;
     min-width: 70%;
@@ -372,53 +326,4 @@ body{
 }
 .img-file{
     display: none;
-}
-@media screen and (max-width: 700px) {
-    .navbar{
-        flex-direction: row;
-        position: sticky;
-        top: 0;
-        height: 80px;
-        width: 100%!important;
-        border-bottom: 1px solid rgb(169, 165, 165);
-    }
-    .main-container{
-        flex-direction: column;
-    }
-    .nav-contents{
-        display: flex;
-        flex-direction: row;
-        position: relative;
-        height: 80px;
-        width: 100%!important;
-        justify-content: space-between;
-        padding: 0 30px;
-    }
-    .nav-container{
-        font-size: large;
-        flex-direction: row;
-        align-items: center;
-        margin: 0;
-        margin: 0 auto;
-        /* width: 100%; */
-    }
-    .navlinks:not(:last-child){
-        margin: 0;
-        margin-left: 30px;
-    }
-    .navlinks:last-child{
-        margin: 0;
-    }
-    .navlogo{
-        width: 60px;
-    }
-    .main-side{
-        margin: 0 auto;
-        /* background: transparent; */
-        width: 100% !important;
-    }
-    .main-contents{
-        margin-top: 20px;
-    }
- 
 }

@@ -4,7 +4,7 @@ import React from 'react';
 
 function Stories() {
   return (
-    <div className='stories'>
+    <div className='stories sticky top-0'>
       {users.map(user =>(
       <a key={user.id} href="storyPreview.js" className="storyview flex flex-col items-center ">
         <div className="story-cont flex flex-col items-center ">
