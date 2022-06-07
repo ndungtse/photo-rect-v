@@ -34,7 +34,7 @@ const Login = () => {
       <Body className='loback'>
         <Main>
           <Form className='shadow-lg forform' onLoad={Utils.onload} onSubmit={loginUtils.onloginsubmit}>
-            <Logo><img src={require("./../Home/Images/logo.png")} alt="logo" /></Logo>
+            <Logo><img src="./src/Home/Images/logo.png" alt="logo" /></Logo>
             <h1>Log into Photo Corner</h1>
             <div className="labels">
               <TextField className="inmaterial inlog" label="Email"

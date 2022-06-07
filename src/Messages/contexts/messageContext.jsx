@@ -26,7 +26,6 @@ export function MessageProvider({ children }) {
   const getRelMessages = async (room) => {
     const res = await fetch("https://zamuka.herokuapp.com/hidden/messages");
     const messages = await res.json();
-    console.log("m fetched");
     const relMess = messages.filter((m) => m.room === room || m.room1 === room);
     setRelMessages(relMess);
   };

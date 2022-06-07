@@ -29,7 +29,7 @@ const Signup = () => {
       <Body className='loback'>
         <Main>
             <Form onLoad={Utils.onload} onSubmit={Utils.onsubmit}  className='shadow-lg forform'>
-                <Logo ><img src={require("../Home/Images/logo.png")} alt="logo" /></Logo>
+                <Logo ><img src="./src/Home/Images/logo.png" alt="logo" /></Logo>
                 <h1>Sign Up to Photo Corner</h1>
                 <div className="labels">
                     <TextField className="inmaterial insign" label="Full Name"
