@@ -18,24 +18,26 @@ export function UserProvider({ children }) {
 
   useEffect(() => {
     fetchUsers();
+    deCode()
   }, []);
 
-//   const deCode = () => {
-//     try {
-//       const res = jwt_decode(localStorage.getItem("user"));
-//       if (res._id) {
-//         const user = {
-//           name: res.name,
-//           id: res._id,
-//         };
-//         localStorage.setItem("userinfo", JSON.stringify(user));
-//         return true;
-//       }
-//     } catch (error) {
-//       console.log(error.message);
-//       return false;
-//     }
-//   };
+  const deCode = () => {
+    try {
+      const res = jwt_decode(localStorage.getItem("token"));
+      console.log(res);
+      if (res._id) {
+        const user = {
+          name: res.name,
+          id: res._id,
+        };
+        localStorage.setItem("userinfo", JSON.stringify(user));
+        return true;
+      }
+    } catch (error) {
+      console.log(error.message);
+      return false;
+    }
+  };
 
   const getUser = async () => {
     try {
@@ -77,7 +79,7 @@ export function UserProvider({ children }) {
   };
 
   return (
-    <UsersContext.Provider value={{ users, user, setUsers, setUser }}>
+    <UsersContext.Provider value={{ users, user, setUsers, setUser, deCode }}>
       <UserContext.Provider value={{ user}}>
         {children}
       </UserContext.Provider>

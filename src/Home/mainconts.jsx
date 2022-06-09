@@ -74,7 +74,7 @@ function Mainconts() {
     const posts = await res.json()
     checks.check(res)
 
-    console.log(posts.posts);
+    console.log(res);
     setPosts(posts.posts.reverse())
     console.log(posts);
     setLoader(false)

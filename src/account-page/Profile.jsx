@@ -3,7 +3,7 @@ import Nav from '../Home/Nav';
 import styled from 'styled-components';
 import users, { posts } from '../utility';
 import { Link } from 'react-router-dom';
-import { BiGrid } from 'react-icons/bi';
+import { BiGridAlt } from 'react-icons/bi';
 
 
 function Profile() {
@@ -64,13 +64,13 @@ function Profile() {
                             <p className='text-blue-500 cursor-pointer'>Edit Profile</p>
                           </div>
                         </div>
-                        <div className="flex items-center justify-between w-full">
+                        <div className="flex items-center justify-between mt-3 w-full">
                             <div className="flex items-center">
                                 <p className='py-1 border-b-2 border-blue-500'>Posts</p>
                                 <p className='ml-4' >Status</p>
                                 <p className='ml-4' >Media</p>
                             </div>
-                            <BiGrid className="text-2xl" />
+                            <BiGridAlt className="text-2xl" />
                         </div>
                      </div>
                 </div>    

@@ -29,7 +29,7 @@ function Recent({ startChat }) {
         <label htmlFor="" className="flex items-center">
           <BiSearch className="text-2xl"/>
           <input
-            className="outline-none border-none w-[100px] px-2 ml-3 focus:ring-1 focus:ring-blue-300"
+            className="outline-none border-none w-full px-2 ml-3 focus:border-b-2 focus:border-b-blue-300"
             type="text"
             placeholder="Search"
           />
@@ -48,7 +48,7 @@ const RecentChatLists = ({ use, startChat }) => {
   return (
     <div
       onClick={()=>startChat(use.id)}
-      className="flex w-full mt-6 cursor-pointer rounded-xl
+      className="flex w-full border-2 mt-4 cursor-pointer rounded-xl
         items-center p-2"
     >
       {/* <img className="w-[40px] rounded-full" src={images.user} alt="" /> */}
