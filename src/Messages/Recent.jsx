@@ -8,7 +8,7 @@ function Recent({ startChat }) {
   const { users, user, setUsers } = useUsers();
   // console.log(users);
 
-  const recentChats = users.filter((u) => u._id !== user.id);
+  const recentChats = users.filter((u) => u._id !== user._id);
 
   return (
     <div className="flex flex-col items-center p-4 w-[30%] ">

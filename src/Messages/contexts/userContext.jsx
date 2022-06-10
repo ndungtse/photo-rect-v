@@ -54,19 +54,11 @@ export function UserProvider({ children }) {
 
   const getUser = async () => {
     try {
-      const res = jwt_decode(localStorage.getItem("user"));
-      if (res._id) {
-        const res1 = await fetch(`https://zamuka.herokuapp.com/api/user/${res._id}`);
-        const user1 = await res1.json();
-        const final = {
-          id: user1._id,
-          firstname: user1.firstname,
-          lastname: user1.lastname
-        }
-        setUser(final);
-      }
+      const res = jwt_decode(localStorage.getItem("token"));
+        setUser(res.needed);
+      
     } catch (error) {
-      console.log(error.message);
+      console.log(error.message.username);
       return false;
     }
   };

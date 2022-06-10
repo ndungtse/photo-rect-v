@@ -19,12 +19,12 @@ function Unified() {
     const { setRoom1, setRoom, joinRoom, room } = useMessage();
 
     const startChat = async (e) => {
-      await setRoom(e + user.id);
-      await setRoom1(user.id + e);
+      await setRoom(e + user._id);
+      await setRoom1(user._id + e);
       console.log(room);
-      await joinRoom(user.name, e+user.id);
+      await joinRoom(user.username, e+user._id);
       setAfter(true)
-      await getRelMessages(e + user.id);
+      await getRelMessages(e + user._id);
       console.log('elleh');
     };
   return (

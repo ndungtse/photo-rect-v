@@ -22,13 +22,14 @@ function ChatInput() {
       const messageData = {
         room: mContextData.room,
         room1: mContextData.room1,
-        author: user.firstname,
+        author: user.username,
         text: inputMessage,
         time:  new Date(Date.now()).getHours() +
           ":" +
           new Date(Date.now()).getMinutes(),
       };
       await socket.emit("send_message", messageData);
+      console.log(messageData);
       const res = await fetch("https://zamuka.herokuapp.com/hidden/messages/newMessage", {
         method: "POST",
         headers: {

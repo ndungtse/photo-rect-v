@@ -43,14 +43,14 @@ function Chat({user}) {
           <div
             key={rel._id}
             className={
-              rel.author === user.firstname
+              rel.author === user.username
                 ? `flex items-center w-full justify-end my-2 mdiv1`
                 : `flex items-center w-full justify-start my-2 mdiv2`
             }
           >
             <div
               className={
-                rel.author === user.firstname
+                rel.author === user.username
                   ? "p-3 w-[40%] mess1 overflow-x-hidden break-words "
                   : "p-3 w-[40%] bg-slate-300 mess overflow-x-hidden  break-words "
               }
