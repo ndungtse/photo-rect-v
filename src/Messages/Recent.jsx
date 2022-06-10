@@ -6,8 +6,9 @@ import { BiSearch } from 'react-icons/bi'
 
 function Recent({ startChat }) {
   const { users, user, setUsers } = useUsers();
+  // console.log(users);
 
-  const recentChats = users.filter((u) => u.id !== user.id);
+  const recentChats = users.filter((u) => u._id !== user.id);
 
   return (
     <div className="flex flex-col items-center p-4 w-[30%] ">
@@ -47,13 +48,13 @@ export default Recent;
 const RecentChatLists = ({ use, startChat }) => {
   return (
     <div
-      onClick={()=>startChat(use.id)}
+      onClick={()=>startChat(use._id)}
       className="flex w-full border-2 mt-4 cursor-pointer rounded-xl
         items-center p-2"
     >
       {/* <img className="w-[40px] rounded-full" src={images.user} alt="" /> */}
       <div className="flex flex-col my-auto">
-        <p className="font-bold">{use.firstname}</p>
+        <p className="font-bold">{use.username}</p>
         <p className="text-sm">Hi, how are you</p>
       </div>
     </div>

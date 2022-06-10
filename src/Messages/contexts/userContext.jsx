@@ -21,6 +21,19 @@ export function UserProvider({ children }) {
     deCode()
   }, []);
 
+  const getUsers = async() => {
+    const res = await fetch("https://photocorner33.herokuapp.com/user/allUsers",{
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        token: "Bearer " + JSON.parse(localStorage.getItem("token"))
+      }
+    });
+    const data = await res.json();
+    console.log(data.data);
+    setUsers(data.data);
+  };
+
   const deCode = () => {
     try {
       const res = jwt_decode(localStorage.getItem("token"));
@@ -60,6 +73,7 @@ export function UserProvider({ children }) {
 
   useEffect(() => {
     getUser();
+    getUsers();
   }, []);
 
   const fetchUsers = async () => {

@@ -29,13 +29,15 @@ function ChatInput() {
           new Date(Date.now()).getMinutes(),
       };
       await socket.emit("send_message", messageData);
-      await fetch("https://zamuka.herokuapp.com/hidden/messages/newMessage", {
+      const res = await fetch("https://zamuka.herokuapp.com/hidden/messages/newMessage", {
         method: "POST",
         headers: {
           "Content-type": "application/json",
         },
         body: JSON.stringify(messageData),
       });
+      const data =await res.json();
+      console.log(data);
       setStart(!start)
       console.log('sent');
       getRelMessages(room);
