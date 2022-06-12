@@ -1,29 +1,20 @@
 import React, { useState, useEffect  } from 'react';
 import Nav from '../Home/Nav';
 import styled from 'styled-components';
-import users, { posts } from '../utility';
-import { Link } from 'react-router-dom';
+// import users, { posts } from '../utility';
+// import { Link } from 'react-router-dom';
 import { BiGridAlt } from 'react-icons/bi';
 
 
 function Profile() {
-    const [followers, setFollowers] = useState(0);
-    const [isUsers, setIsUsers] = useState(users);
-    const [user, setUser] = useState()
+    const [user, setUser] = useState({});
     
+
     useEffect(() => {
-        setUser(JSON.parse(localStorage.getItem('userInfo')))
-    }, [])
-
-    const followCount = () => {
-        setFollowers((prevCount) => prevCount + 1
-        )
-    }
-    const followDecrement = () => {
-        setFollowers((prevCount) => prevCount - 1
-        )
-    }
-
+        const user = JSON.parse(localStorage.getItem('userinfo'));
+        console.log(user.username);
+        setUser(user);
+    }, []);
 
     return (
         <Prof className='Profile  w-[100%] flex h-screen'>
@@ -56,8 +47,8 @@ function Profile() {
                         </div>
                         <div className="flex items-center">
                           <div className="flex w-1/3 flex-col">
-                              <p className="font-semibold">Jessica Rire Ikutann</p>
-                              <p className="opacity-80">@riraikutann</p>
+                              <p className="font-semibold">{user.fullname}</p>
+                              <p className="opacity-80">{user.username}</p>
                           </div>
                           <div className="flex flex-col w-full items-center">
                             <p>Programming is all about thinking, solving problems and making people lazy 😂</p>

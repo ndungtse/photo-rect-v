@@ -16,10 +16,6 @@ export function UserProvider({ children }) {
   const [users, setUsers] = useState([]);
   const [user, setUser] = useState({name: 'charles', id: 21323});
 
-  useEffect(() => {
-    fetchUsers();
-    deCode()
-  }, []);
 
   const getUsers = async() => {
     const res = await fetch("https://photocorner33.herokuapp.com/user/allUsers",{
@@ -34,28 +30,11 @@ export function UserProvider({ children }) {
     setUsers(data.data);
   };
 
-  const deCode = () => {
-    try {
-      const res = jwt_decode(localStorage.getItem("token"));
-      console.log(res);
-      if (res._id) {
-        const user = {
-          name: res.name,
-          id: res._id,
-        };
-        localStorage.setItem("userinfo", JSON.stringify(user));
-        return true;
-      }
-    } catch (error) {
-      console.log(error.message);
-      return false;
-    }
-  };
-
   const getUser = async () => {
     try {
       const res = jwt_decode(localStorage.getItem("token"));
         setUser(res.needed);
+        localStorage.setItem("userinfo", JSON.stringify(res.needed));
       
     } catch (error) {
       console.log(error.message.username);
@@ -67,6 +46,8 @@ export function UserProvider({ children }) {
     getUser();
     getUsers();
   }, []);
+
+ 
 
   const fetchUsers = async () => {
     let arr=[]
@@ -83,9 +64,13 @@ export function UserProvider({ children }) {
     }
     setUsers(arr);
   };
+   
+  useEffect(() => {
+    fetchUsers();
+  }, []);
 
   return (
-    <UsersContext.Provider value={{ users, user, setUsers, setUser, deCode }}>
+    <UsersContext.Provider value={{ users, user, setUsers, setUser}}>
       <UserContext.Provider value={{ user}}>
         {children}
       </UserContext.Provider>
