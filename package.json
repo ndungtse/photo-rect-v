@@ -1,5 +1,5 @@
 {
-  "name": "photo_corner",
+  "name": "zamuka",
   "private": true,
   "version": "0.0.0",
   "scripts": {
@@ -8,37 +8,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@emotion/react": "^11.9.0",
-    "@emotion/styled": "^11.8.1",
-    "@mui/icons-material": "^5.8.2",
-    "@mui/material": "^5.8.2",
-    "axios": "^0.27.2",
-    "boxicons": "^2.1.1",
-    "clsx": "^1.1.1",
-    "json-server": "^0.17.0",
-    "jwt-decode": "^3.1.2",
     "react": "^18.0.0",
-    "react-animated-heart": "^0.0.7-alpha.1",
-    "react-dom": "^18.0.0",
-    "react-icons": "^4.3.1",
-    "react-image-file-resizer": "^0.4.7",
-    "react-responsive": "^9.0.0-beta.6",
-    "react-router-dom": "^6.2.1",
-    "react-scroll-to-bottom": "^4.2.0",
-    "sass": "^1.49.9",
-    "socket.io-client": "^4.5.0",
-    "source-map-url": "^0.4.1",
-    "styled-components": "^5.3.3",
-    "util": "^0.12.4"
+    "react-dom": "^18.0.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "@vitejs/plugin-react": "^1.3.0",
-    "autoprefixer": "^10.4.2",
-    "gh-pages": "^3.2.3",
-    "postcss": "^8.4.7",
-    "tailwindcss": "^3.0.23",
     "vite": "^2.9.9"
   }
 }

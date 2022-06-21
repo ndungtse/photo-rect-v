@@ -276,7 +276,7 @@ function Mainconts() {
 										</div>
 										<div className="flex flex-col w-full aspect-square">
 											<p className="m-auto">{item.caption}</p>
-											<img src="" alt="" />
+											<img src={item.secureUrl} alt="" />
 										</div>
 										<div className=" flex items-center text-2xl py-2">
 											<BiHeart className="ml-4 cursor-pointer" />
