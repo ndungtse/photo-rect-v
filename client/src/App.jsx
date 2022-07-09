@@ -4,14 +4,18 @@ import Home from './Home';
 import Messages from './Messages/message';
 import Profile from './account-page/Profile';
 import Settings from './settings';
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Signup from './SignUp/signup';
 import Login from './Login/Login';
 import UpdateAccount from './account-page/updateAccountForm';
+import { useUsers } from './Messages/contexts/userContext';
+import { useAuth } from './contexts/AuthContext';
 
 function App() {
   const [dark, setDark] = useState("")
   const [toggleIco, setToggleIco] = useState("bx bx-toggle-left");
+  const { isLoggeIn } = useUsers()
+  const { user } = useAuth()
 
    useEffect(() => {
     const localTheme = window.localStorage.getItem('mode');
@@ -41,13 +45,11 @@ function App() {
       window.localStorage.setItem('toggleIco', 'bx bx-toggle-right')
     }
     }
-    
-    let username = localStorage.getItem("username");
   return (
     <BrowserRouter>
        <div className={dark}>
          <Routes >
-         <Route path="/" element={<Home />} />
+         <Route path="/" element={user !== null?<Home />: <Navigate replace to="/login" />} />
          <Route path="/home" element={<Home />} />
          <Route path="/messages" element={<Messages />} />
          <Route path="/signup" element={<Signup />} />

@@ -15,7 +15,7 @@ export function useUser() {
 export function UserProvider({ children }) {
   const [users, setUsers] = useState([]);
   const [user, setUser] = useState({name: 'charles', id: 21323});
-
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const getUsers = async() => {
     const res = await fetch("https://photocorner33.herokuapp.com/user/allUsers",{
@@ -26,6 +26,7 @@ export function UserProvider({ children }) {
       }
     });
     const data = await res.json();
+    console.log(data);
     console.log(data.data);
     setUsers(data.data);
   };
@@ -51,7 +52,7 @@ export function UserProvider({ children }) {
 
   const fetchUsers = async () => {
     let arr=[]
-    const res = await fetch("https://zamuka.herokuapp.com/api/user/");
+    const res = await fetch("https://zamuka.herokuapp.com/api/users");
     const users = await res.json();
     
     for(let i=0; i<users.length; i++){
@@ -70,7 +71,7 @@ export function UserProvider({ children }) {
   }, []);
 
   return (
-    <UsersContext.Provider value={{ users, user, setUsers, setUser}}>
+    <UsersContext.Provider value={{ users, user, setUsers, setUser, isLoggedIn, setIsLoggedIn}}>
       <UserContext.Provider value={{ user}}>
         {children}
       </UserContext.Provider>
