@@ -6,12 +6,14 @@ import Recent from './Recent'
 import { useMessage } from "./contexts/messageContext";
 import { useUsers } from "./contexts/userContext";
 import { BiMessageDots } from 'react-icons/bi'
+import { useAuth } from '../contexts/AuthContext';
 
 function Unified() {
     const [start, setStart]= useState(false)
     const [before, setAfter] = useState(false)
 
-    const { user } = useUsers();
+    const data = useAuth();
+    const user = data.user.needed;
 
     const mContextData = useMessage();
     const { socket, getRelMessages } = mContextData;

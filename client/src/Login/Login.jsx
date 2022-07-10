@@ -8,6 +8,7 @@ import loginUtils from './index';
 import Checkbox from '@mui/material/Checkbox';
 import { Link } from 'react-router-dom';
 import { useUsers } from '../Messages/contexts/userContext'
+import { setCookie } from '../contexts/RequireAuth';
 
 const Login = () => {
   const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
@@ -45,7 +46,8 @@ const Login = () => {
         .then(data => {
             console.log(data)
             if(data.message === "Can continue"){
-                localStorage.setItem('token',JSON.stringify(data.token))
+                // localStorage.setItem('token',JSON.stringify(data.token))
+                setCookie('token', data.token, 3)
                 window.location.replace('http://localhost:3030/home')
             }
             else if(data.message === "No token generated try logging in again"){

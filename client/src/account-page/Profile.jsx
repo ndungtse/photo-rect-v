@@ -4,18 +4,12 @@ import styled from 'styled-components';
 // import users, { posts } from '../utility';
 // import { Link } from 'react-router-dom';
 import { BiGridAlt } from 'react-icons/bi';
+import { useAuth } from '../contexts/AuthContext';
 
 
 function Profile() {
-    const [user, setUser] = useState({});
-    
-
-    useEffect(() => {
-        const user = JSON.parse(localStorage.getItem('userinfo'));
-        console.log(user.username);
-        setUser(user);
-    }, []);
-
+    const { user: { needed } } = useAuth()
+   
     return (
         <Prof className='Profile  w-[100%] flex h-screen'>
             <Nav className='' active={`profile`} />
@@ -47,8 +41,8 @@ function Profile() {
                         </div>
                         <div className="flex items-center">
                           <div className="flex w-1/3 flex-col">
-                              <p className="font-semibold">{user.fullname}</p>
-                              <p className="opacity-80">{user.username}</p>
+                              <p className="font-semibold">{needed.fullname}</p>
+                              <p className="opacity-80">{needed.username}</p>
                           </div>
                           <div className="flex flex-col w-full items-center">
                             <p>Programming is all about thinking, solving problems and making people lazy 😂</p>

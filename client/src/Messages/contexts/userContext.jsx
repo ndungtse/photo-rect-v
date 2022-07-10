@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import jwt_decode from "jwt-decode";
+import { getCookie } from "../../contexts/RequireAuth";
 
 const UsersContext = React.createContext();
 const UserContext = React.createContext();
@@ -14,7 +15,6 @@ export function useUser() {
 
 export function UserProvider({ children }) {
   const [users, setUsers] = useState([]);
-  const [user, setUser] = useState({name: 'charles', id: 21323});
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const getUsers = async() => {
@@ -22,7 +22,7 @@ export function UserProvider({ children }) {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        token: "Bearer " + JSON.parse(localStorage.getItem("token"))
+        token: "Bearer " + getCookie("token"),
       }
     });
     const data = await res.json();
@@ -31,20 +31,8 @@ export function UserProvider({ children }) {
     setUsers(data.data);
   };
 
-  const getUser = async () => {
-    try {
-      const res = jwt_decode(localStorage.getItem("token"));
-        setUser(res.needed);
-        localStorage.setItem("userinfo", JSON.stringify(res.needed));
-      
-    } catch (error) {
-      console.log(error.message.username);
-      return false;
-    }
-  };
 
   useEffect(() => {
-    getUser();
     getUsers();
   }, []);
 
@@ -71,10 +59,8 @@ export function UserProvider({ children }) {
   }, []);
 
   return (
-    <UsersContext.Provider value={{ users, user, setUsers, setUser, isLoggedIn, setIsLoggedIn}}>
-      <UserContext.Provider value={{ user}}>
+    <UsersContext.Provider value={{ users, setUsers, isLoggedIn, setIsLoggedIn}}>
         {children}
-      </UserContext.Provider>
     </UsersContext.Provider>
   );
 }

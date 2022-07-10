@@ -3,10 +3,13 @@ import React from "react";
 import "./style.css";
 import { useUsers } from "./contexts/userContext";
 import { BiSearch } from 'react-icons/bi'
+import { useAuth } from "../contexts/AuthContext";
 
 function Recent({ startChat }) {
-  const { users, user, setUsers } = useUsers();
-  // console.log(users);
+  const { users, setUsers } = useUsers();
+  const data = useAuth();
+  const user = data.user.needed;
+  console.log(user);
 
   const recentChats = users.filter((u) => u._id !== user._id);
 

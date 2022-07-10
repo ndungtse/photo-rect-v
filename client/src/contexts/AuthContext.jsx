@@ -1,5 +1,6 @@
 import React from 'react'
 import jwtdecode from 'jwt-decode'
+import { deleteAllCookies, getCookie } from './RequireAuth';
 
 let AuthContext = React.createContext();
 
@@ -8,31 +9,24 @@ export const useAuth = () => {
   }
 
 export default function AuthProvider({ children }) {
-  let [user, setUser] = React.useState(null);
+  let [user, setUser] = React.useState(undefined);
 
   const decodeToken = ()=> {
-    try{
-        const userDetails = jwtdecode(localStorage.getItem('token'));
-        setUser(userDetails);
+    // deleteAllCookies();
+    const token = getCookie('token');
+    // console.log(typeof(token));
+    if (token) {
+      try{
+        const userDetails = jwtdecode(token);
+       return  setUser(userDetails);
+      }
+      catch(err){
+        console.log(err);
+        setUser(null);
+      }
     }
-    catch(err){
-        console.log(err)
-    }
+    setUser(null)
   }
-  // let signin = (newUser, callback) => {
-  //   return fakeAuthProvider.signin(() => {
-  //     setUser(newUser);
-  //     callback();
-  //   });
-  // };
-
-  // let signout = (callback) => {
-  //   return fakeAuthProvider.signout(() => {
-  //     setUser(null);
-  //     callback();
-  //   });
-  // };
-
   React.useEffect(() => {
     decodeToken();
   }, [])
@@ -40,5 +34,11 @@ export default function AuthProvider({ children }) {
 
   let value = { user };
 
-  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+  return (
+    <>{user!==undefined&&(
+    <AuthContext.Provider value={value}>
+      {children}
+    </AuthContext.Provider>
+     )}</>
+  );
 }

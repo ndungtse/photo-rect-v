@@ -3,6 +3,7 @@ import React, {useState, useEffect} from 'react'
 import './mess.css'
 import { useMessage } from './contexts/messageContext'
 import { useUsers } from "./contexts/userContext";
+import { useAuth } from '../contexts/AuthContext';
 
 
 function ChatInput() {
@@ -10,7 +11,8 @@ function ChatInput() {
 
   const mContextData = useMessage()
   const { socket, start, setStart, getRelMessages, room } = mContextData
-  const { user } = useUsers();
+  const data = useAuth();
+  const user = data.user.needed;
 
   const handleInputChange = (e)=>{
     setInputMessage(e.target.value);

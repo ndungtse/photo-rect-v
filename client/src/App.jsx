@@ -14,8 +14,9 @@ import { useAuth } from './contexts/AuthContext';
 function App() {
   const [dark, setDark] = useState("")
   const [toggleIco, setToggleIco] = useState("bx bx-toggle-left");
-  const { isLoggeIn } = useUsers()
   const { user } = useAuth()
+
+  console.log(user);
 
    useEffect(() => {
     const localTheme = window.localStorage.getItem('mode');
@@ -50,7 +51,7 @@ function App() {
        <div className={dark}>
          <Routes >
          <Route path="/" element={user !== null?<Home />: <Navigate replace to="/login" />} />
-         <Route path="/home" element={<Home />} />
+         <Route path="/home" element={user !== null?<Home />: <Navigate replace to="/login" />} />
          <Route path="/messages" element={<Messages />} />
          <Route path="/signup" element={<Signup />} />
          <Route path="/login" element={<Login />} />

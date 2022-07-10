@@ -11,11 +11,9 @@ import {
 	BiSmile,
 	BiSend,
 } from "react-icons/bi";
-import checks from "../checker";
 import Side from "./side";
 
 function Mainconts() {
-	checks.verification();
 	const [formClass, setFormClass] = useState("form1");
 	const [areaClass, setAreaClass] = useState("b-area");
 	const [inputClass, setInputClass] = useState("");
@@ -75,8 +73,6 @@ function Mainconts() {
 			}
 		);
 		const posts = await res.json();
-		checks.check(res);
-
 		console.log(res);
 		setPosts(posts.posts.reverse());
 		console.log(posts);
@@ -121,7 +117,6 @@ function Mainconts() {
 			}
 		);
 		const data = await api.json();
-		checks.check(data);
 		console.log(data);
 		setPreviewSource("");
 		getPosts();
@@ -140,7 +135,6 @@ function Mainconts() {
 		);
 
 		const res = await api.json();
-		checks.check(res);
 
 		console.log(await api.json());
 		if (res.message === `Post with ID ${itemID} was liked succesfully`) {
@@ -162,7 +156,6 @@ function Mainconts() {
 			}
 		);
 		const res = await api.json();
-		checks.check(res);
 
 		console.log(res);
 		if (res.message === `Post with ID ${itemID} was shared succesfully`) {
@@ -186,7 +179,6 @@ function Mainconts() {
 			}
 		);
 		const res = await api.json();
-		checks.check(res);
 		console.log(res);
 		if (res.message === `Post with ID ${itemID} was shared succesfully`) {
 			document
@@ -286,7 +278,7 @@ function Mainconts() {
 										<div className="flex py-1 px-2 items-center rounded-3xl border-[2px]">
 											<BiSmile className="text-2xl cursor-pointer" />
 											<input
-												className="bg-transparent outline-none px-2 w-full"
+												className="bg-transparent h-[35px] outline-none px-2 w-full"
 												type="text"
 												placeholder="Add a comment"
 											/>
