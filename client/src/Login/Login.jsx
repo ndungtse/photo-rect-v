@@ -9,11 +9,13 @@ import Checkbox from '@mui/material/Checkbox';
 import { Link } from 'react-router-dom';
 import { useUsers } from '../Messages/contexts/userContext'
 import { setCookie } from '../contexts/RequireAuth';
+import { CircularProgress } from '@mui/material';
 
 const Login = () => {
   const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
   const [data, setData] = useState({email: '', password: ''});
-  // const { setIsLoggedIn } = useUsers() 
+  const [status, setStatus] = useState('');
+  const [progress, setProgress] = useState(false);
 
   const [values, setValues] = useState({
     password: "",
@@ -34,6 +36,7 @@ const Login = () => {
   };
 
   const onloginsubmit = e => {
+    setProgress(true);
     e.preventDefault()
     fetch("https://photocorner33.herokuapp.com/user/login", {
         method: "POST",
@@ -45,6 +48,7 @@ const Login = () => {
     }).then(res => res.json())
         .then(data => {
             console.log(data)
+            setStatus(data.message)
             if(data.message === "Can continue"){
                 // localStorage.setItem('token',JSON.stringify(data.token))
                 setCookie('token', data.token, 3)
@@ -58,7 +62,7 @@ const Login = () => {
             }
             
         })
-
+   return setProgress(false);
 }
 
   return (
@@ -70,7 +74,7 @@ const Login = () => {
             <h1 className='text-black'>Log into Photo Corner</h1>
             <div className="w-full flex items-center justify-center">
               <TextField
-                sx={{marginTop: 2, width: '100%', maxWidth: 300}}
+                sx={{marginTop: 2, width: '100%', maxWidth: 350}}
                 size="small"
                 className="" label="Email"
                 id="standard-input" variant="outlined"
@@ -78,8 +82,8 @@ const Login = () => {
                  type="email" placeholder="Enter your email" autoComplete="off" required/>
             </div>
             <div className="w-full flex items-center justify-center">
-              <TextField className="mt-4"
-              size="small" sx={{marginTop: 2, width: '100%', maxWidth: 300}}
+              <TextField className="mt-4 "
+              size="small" sx={{marginTop: 2, width: '100%', maxWidth: 350}}
                name='email' placeholder="Enter your passoward"
               id="standard-password-input" variant="outlined"
                label="Password" type={values.showPassword ? "text" : "password"}
@@ -91,14 +95,16 @@ const Login = () => {
                 onMouseDown={handleMouseDownPassword} type="checkbox" />
               <label className='text-black'>Show password</label>
             </div>
-            <div className="bg-blue-600 p-2 px-5 cursor-pointer">
+            <p className="text-center mt-2 text-red-600">{status}</p>
+            <div className={`${progress?"bg-blue-200":"bg-blue-600"} mt-2 p-2 px-5 flex cursor-pointer`}>
+              {progress? <CircularProgress /> :(
               <input className="cursor-pointer" type='submit' value='Login' />
+              )}
             </div>
-
-            <div className="text-black ">
+            <div className="text-black mt-2">
               <a href="./">Forgot your password?</a>
             </div>
-            <div className="flex w-full text-black items-center justify-center">
+            <div className="flex mt-2 w-full text-black items-center justify-center">
               <p>Don't have an account?</p>
               <Link to='/signup' className='text-blue-600 ml-2'>Sign Up</Link>
             </div>
