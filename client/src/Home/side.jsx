@@ -1,6 +1,11 @@
 import React from 'react'
+import { useAuth } from '../contexts/AuthContext';
+import { useUsers } from '../Messages/contexts/userContext';
 
 const Side = () => {
+  const { users } = useUsers();
+  const { user } = useAuth()
+
   return (
     <div className='min-w-[200px] sticky top-0 px-3 xtab:flex flex-col hidden w-1/2'>
       <div className="flex mt-6 w-full items-center justify-between">
@@ -10,20 +15,22 @@ const Side = () => {
              src="https://resources.premierleague.com/premierleague/photos/players/250x250/p219847.png" alt="" />
           </div>
           <div className="flex flex-col ml-3">
-            <p className="font-semibold">Jessica Rire Ikutann</p>
-            <p className="opacity-80 font-light">@riraikutann</p>
+            <p className="font-semibold">{user.needed.fullname}</p>
+            <p className="opacity-80 font-light">@r{user.needed.username}</p>
           </div>
         </div>
-        <p className="text-blue-500">Switch</p>
+        <p className="text-blue-500 cursor-pointer">Switch</p>
       </div>
       <div className="flex flex-col w-full mt-6">
         <div className="flex items-center justify-between w-full">
           <p className="text-md font-semibold text-slate-600">Suggested For You</p>
           <p className="font-semibold text-sm cursor-pointer">See All</p>
         </div>
-        <Suggested />
-        <Suggested />
-        <Suggested />
+        {users.map((user, index) => {
+          return (
+            <Suggested key={index} user={user} />
+          )})
+    }
       </div>
       <div className="flex mt-4 w-full">
         <p className='text-slate-500'>&copy; Photo Corner 2022</p>
@@ -35,7 +42,7 @@ const Side = () => {
 export default Side
 
 
-const Suggested = ()=>{
+const Suggested = ({user})=>{
 
   return(
     <div className="w-full mt-3 text-sm flex justify-between items-center">
@@ -45,11 +52,11 @@ const Suggested = ()=>{
            src="https://resources.premierleague.com/premierleague/photos/players/250x250/p219847.png" alt="" />
         </div>
         <div className="flex flex-col ml-3">
-          <p className="font-semibold">Jessica Rire Ikutann</p>
-          <p className="opacity-80 font-light">@riraikutann</p>
+          <p className="font-semibold">{user.fullname}</p>
+          <p className="opacity-80 font-light">@{user.username}</p>
         </div>  
       </div>
-      <p className="text-blue-500">Follow</p>
+      <p className="text-blue-500 cursor-pointer">Follow</p>
     </div>
   )
 }

@@ -4,7 +4,7 @@ import './Home.css';
 import './side.css';
 import '../App.css'
 import 'boxicons';
-import { BiMessageRoundedDots,BiUser, BiHome, BiGroup, BiCog, } from 'react-icons/bi'
+import { BiMessageRoundedDots,BiUser, BiHome, BiGroup, BiCog, BiDoorOpen, BiLogOut, } from 'react-icons/bi'
 
 function Nav({active}) {
   const [mobile, setMobile] = useState(false)
@@ -40,9 +40,14 @@ function Nav({active}) {
       </div>
       <div className="flex flex-col w-full items-center px-3 text-black">
         <Link to={`/settings`} className={`${active==='settings' && 'bg-blue-500'}
-        flex cursor-pointer mt-6 mx-auto items-center w-full rounded-lg p-2 hover:bg-blue-500`}>
+          flex cursor-pointer mt-6 mx-auto items-center w-full rounded-lg p-2 hover:bg-blue-500`}>
           <BiCog className='text-xl' />
           <p className="ml-6">Settings</p>
+        </Link>
+        <Link to={`/login`} className={`
+          flex cursor-pointer mt-6 mx-auto items-center w-full rounded-lg p-2 hover:bg-blue-500`}>
+          <BiLogOut className='text-xl' />
+          <p className="ml-6">Logout</p>
         </Link>
       </div>
     </div>

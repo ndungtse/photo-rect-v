@@ -5,41 +5,12 @@ import Sleft from './settings/sleft';
 import deleteUtils from './settings/deleteAccount';
 
 const Settings = ({toggleDark,toggleIco}) => {
-  const [showDel, setShowDel] = useState("delete");
-
-  const showDeletion = () => {
-    setShowDel("del");
-  }
-  const hideDeletion = () => {
-    setShowDel("delete");
-  }
+  const [showDel, setShowDel] = useState(false);
  
   return (
     <div className='settings w-full flex'>
       <Nav active={`settings`} />
-      <div className={`${showDel} bg-black/70 flex 
-      items-center w-full absolute h-screen justify-center`}>
-          <form className="delform py-5 " onLoad={deleteUtils.onload} onSubmit={deleteUtils.onsubmit}>
-          <h1 className="text-center">Confirm deletion of your account</h1>
-          <p className="text-center">This action cannot be undone.</p>
-          <p className="text-center">Type <strong>YOUR PASSWORD</strong> in the password field.</p>
-            <div className="labels">
-              <label>username</label>
-              <input className='bg-white' id='username' type="text" />
-            </div>
-            <div className="labels">
-              <label>Password</label>
-              <input className='px-2' id='password' type={'password'} placeholder="Enter your password" required />
-            </div>
-            <div className="labels">
-            <input className="bg-red-300 hover:bg-red-400 dele duration-300 cursor-pointer" type="submit"  value="Delete" />
-            </div>
-            <div className="labels">
-            <input onClick={hideDeletion}
-             type="button" className='cursor-pointer bg-slate-100 hover:bg-slate-400 duration-300 '  value="Cancel" />
-            </div>
-          </form>
-      </div>
+      {showDel ? <Delete setShowDel={setShowDel} /> : null}
       <div className='w-[95%]'>
         <h1 className='text-center'>Settings</h1>
         <div className='flex set-cont'>
@@ -59,7 +30,7 @@ const Settings = ({toggleDark,toggleIco}) => {
               <li>Account Settings: </li>
                 <div className='p-cont pt-2 flex items-center px-4 set-view'>
                   <p className=''>Account delete:</p>
-                  <button onClick={showDeletion}
+                  <button onClick={()=> setShowDel(true)}
                    className='flex items-center px-1 rounded-[5px] ml-7 bg-red-400'>Delete Account
                   </button>
                 </div>
@@ -76,3 +47,32 @@ const Settings = ({toggleDark,toggleIco}) => {
 
 export default Settings
 
+const Delete = ({setShowDel}) => {
+  return(
+    <div className={`bg-black/70 flex 
+          items-center w-full absolute h-screen justify-center`}>
+          <form className="delform py-5 px-5 " onLoad={deleteUtils.onload} onSubmit={deleteUtils.onsubmit}>
+          <h1 className="text-center text-xl">Confirm deletion of your account</h1>
+          <p className="text-center mt-4">This action cannot be undone.</p>
+          <p className="text-center">Type <strong>YOUR PASSWORD</strong> in the password field.</p>
+            <div className="labels mt-5">
+              <label>username</label>
+              <input className='bg-white border-[1.5px] rounded-m ml-3 p-1
+               border-black' id='username' type="text" />
+            </div>
+            <div className="labels mt-5">
+              <label>Password</label>
+              <input className='bg-white border-[1.5px] rounded-m ml-3 p-1
+               border-black' id='password' type={'password'} placeholder="Enter your password" required />
+            </div>
+            <div className="labels w-full mt-3">
+              <input className="bg-red-300 w-full p-2 hover:bg-red-400 dele duration-300 cursor-pointer" type="submit"  value="Delete" />
+            </div>
+            <div className="labels mt-3 w-full">
+            <input onClick={()=> setShowDel(false)}
+             type="button" className='cursor-pointer w-full p-2 bg-slate-300 hover:bg-slate-400 duration-300 '  value="Cancel" />
+            </div>
+          </form>
+      </div>
+  )
+}

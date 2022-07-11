@@ -5,37 +5,64 @@ import styled from 'styled-components';
 // import { Link } from 'react-router-dom';
 import { BiGridAlt } from 'react-icons/bi';
 import { useAuth } from '../contexts/AuthContext';
+import { getCookie } from '../contexts/RequireAuth';
+import Post from '../Home/Post';
 
 
 function Profile() {
     const { user: { needed } } = useAuth()
+    const [posts, setPosts] = useState([]);
+
+    const getPosts = async () => {
+		const res = await fetch(
+			"https://photocorner33.herokuapp.com/post/allPosts",
+			{
+				method: "GET",
+
+				headers: {
+					"Content-Type": "application/json",
+					token: "Bearer " + getCookie("token"),
+				},
+			}
+		);
+		const posts = await res.json();
+		console.log(res);
+		setPosts(posts.posts.reverse());
+		console.log(posts);
+		setLoader(false);
+		return posts;
+	};
    
+    useEffect(() => {
+        getPosts();
+    }, []);
+
     return (
-        <Prof className='Profile  w-[100%] flex h-screen'>
+        <Prof className='Profile overflow-hidden w-[100%] flex h-screen'>
             <Nav className='' active={`profile`} />
-            <Main className='w-full flex p-4'>
+            <Main className='w-full flex p-4 overflow-auto'>
                 <div className='w-full flex flex-col mx-auto items-center max-w-[900px]'>
                     <div className="w-full h-[30vh] overflow-hidden">
                         <img className="object-cover min-w-full min-h-full"
                          src="src/Home/Images/man.jpg" alt="" srcSet="" />
                     </div>
-                    <div className="flex flex-col w-full p-3 h-[40vh] translate-y-[-5vh]
+                    <div className="flex sticky top-0 flex-col w-full p-3 h-[40vh] translate-y-[-5vh]
                      bg-white rounded-t-3xl" style={{backgroundColor: 'var(--primary-color)'}}>
                         <div className="flex w-full items-center">
-                            <div className="w-[100px] h-[100px] border-2 border-blue-500 rounded-full overflow-hidden ">
+                            <div className="w-[100px]  h-[100px] border-2 border-blue-500 rounded-full overflow-hidden ">
                                 <img className="object-cover min-w-full min-h-full"
                                 src='src/Home/Images/Bitmap-3.png' />
                             </div>
                             <div className="flex flex-col items-center px-3 py-1 ml-4 bg-slate-200 rounded-xl shadow-md">
-                                <p>128</p>
+                                <p>1</p>
                                 <p>Posts</p>
                             </div>
                             <div className="flex flex-col items-center px-3 py-1 ml-4 bg-slate-200 rounded-xl shadow-md">
-                                <p>128k</p>
+                                <p>{needed.followers.count}</p>
                                 <p>Followers</p>
                             </div>
                             <div className="flex flex-col items-center px-3 py-1 ml-4 bg-slate-200 rounded-xl shadow-md">
-                                <p>128</p>
+                                <p>{needed.following.count}</p>
                                 <p>Following</p>
                             </div>
                         </div>
@@ -57,6 +84,11 @@ function Profile() {
                             </div>
                             <BiGridAlt className="text-2xl" />
                         </div>
+                        <div className="flex flex-col w-full items-center justify-center">
+                            {posts.map((post) => (
+                                <Post key={Math.random*99222} item={post}/>
+                            ))}  
+                        </div>                      
                      </div>
                 </div>    
             </Main>
