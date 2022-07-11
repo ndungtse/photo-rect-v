@@ -52,15 +52,15 @@ function App() {
          <Routes >
          <Route path="/" element={user !== null?<Home />: <Navigate replace to="/login" />} />
          <Route path="/home" element={user !== null?<Home />: <Navigate replace to="/login" />} />
-         <Route path="/messages" element={<Messages />} />
+         <Route path="/messages" element={user !== null ?<Messages /> : <Navigate replace to="/login" />} />
          <Route path="/signup" element={<Signup />} />
          <Route path="/login" element={<Login />} />
-         <Route path='/profile' element={<Profile/>}/>
-         <Route path='/profile/updateaccount' element={<UpdateAccount />}/>
-         <Route path='/settings' element={<Settings
+         <Route path='/profile' element={user !== null ?<Profile/>: <Navigate replace to="/login" />}/>
+         <Route path='/profile/updateaccount' element={user !== null ?<UpdateAccount />: <Navigate replace to="/login" />}/>
+         <Route path='/settings' element={user !== null ?<Settings
              toggleDark={toggleDark}
              toggleIco={toggleIco}
-             dark={dark} setDark={setDark}/>}/>
+             dark={dark} setDark={setDark}/>: <Navigate replace to="/login" />}/>
          </Routes>
        </div>
     </BrowserRouter>

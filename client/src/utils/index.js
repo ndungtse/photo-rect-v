@@ -1,4 +1,3 @@
-import checks from './../checker'
 
 let fullName, email, password, username
 
@@ -36,7 +35,6 @@ const onsubmit = e => {
                 window.alert("User with that email already exists. If you already have an account then login")
             }
             else if (data.message === "Account created") {
-                checks.check(data)
                 window.location.replace('/login')
             }
             else {
