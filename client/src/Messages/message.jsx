@@ -7,14 +7,12 @@ import Nav from "../Home/Nav";
 
 function Messages() {
   return (
-    <MessageProvider>
       <div className="w-full flex h-screen bg-white overflow-hidden">
         <Nav active={`messages`} />
         <div className="flex w-full">
           <Unified />
         </div>
       </div>
-    </MessageProvider>
   );
 }
 

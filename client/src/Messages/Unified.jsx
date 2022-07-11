@@ -10,7 +10,7 @@ import { useAuth } from '../contexts/AuthContext';
 
 function Unified() {
     const [start, setStart]= useState(false)
-    const [before, setAfter] = useState(false)
+    const [after, setAfter] = useState(false)
 
     const data = useAuth();
     const user = data.user.needed;
@@ -32,7 +32,7 @@ function Unified() {
   return (
     <>
       <Recent startChat={startChat} />
-      <Chat user={user} setStart={setStart} />
+      <Chat user={user} setStart={setStart} after={after} />
     </>
   );
 }

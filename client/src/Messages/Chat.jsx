@@ -4,8 +4,9 @@ import './style.css'
 import ScrollToBottom from "react-scroll-to-bottom";
 import ChatInput from "./ChatInput";
 import { useMessage } from "./contexts/messageContext";
+import { BiMessageDots } from 'react-icons/bi'
 
-function Chat({user}) {
+function Chat({user, after}) {
     const mContextData = useMessage();
     const { socket, start, room1, relMessages, getRelMessages  } = mContextData;
 
@@ -17,11 +18,12 @@ function Chat({user}) {
 
   return (
     <div className="mt-2 mx-3 chat px-4 py-2 shadow-md shadow-sky-200 w-full h-screen overflow-auto">
+      {!after?<PreMessage />:(
+        <>
       <div className="mes-prev-title">
             <div className="mes-titl-left">
               <div>
               <div id="left-title-img">
-                {/* <img src={require("./../Home/Images/Bitmap-2.png")} alt="" /> */}
               </div>
               </div>
               <div id="left-title-img-desc">
@@ -61,8 +63,20 @@ function Chat({user}) {
         ))}
       </ScrollToBottom>
       <ChatInput/>
+      </>
+     )}
     </div>
   );
 }
 
 export default Chat;
+
+function PreMessage(){
+  return(
+    <div className="mt-2 chat mx-auto px-4 py-2 w-[50%] 
+    h-[85vh] flex flex-col items-center justify-center">
+      <BiMessageDots className='text-[670%] text-zinc-700' />
+      <p className="text-xl">Your Chat Messages will appear Here</p>
+    </div>
+  )
+}

@@ -10,6 +10,8 @@ import Login from './Login/Login';
 import UpdateAccount from './account-page/updateAccountForm';
 import { useUsers } from './Messages/contexts/userContext';
 import { useAuth } from './contexts/AuthContext';
+import Search from './others/Search';
+import { PostProvider } from './contexts/PostContext';
 
 function App() {
   const [dark, setDark] = useState("")
@@ -47,23 +49,26 @@ function App() {
     }
     }
   return (
-    <BrowserRouter>
-       <div className={dark}>
-         <Routes >
-         <Route path="/" element={user !== null?<Home />: <Navigate replace to="/login" />} />
-         <Route path="/home" element={user !== null?<Home />: <Navigate replace to="/login" />} />
-         <Route path="/messages" element={user !== null ?<Messages /> : <Navigate replace to="/login" />} />
-         <Route path="/signup" element={<Signup />} />
-         <Route path="/login" element={<Login />} />
-         <Route path='/profile' element={user !== null ?<Profile/>: <Navigate replace to="/login" />}/>
-         <Route path='/profile/updateaccount' element={user !== null ?<UpdateAccount />: <Navigate replace to="/login" />}/>
-         <Route path='/settings' element={user !== null ?<Settings
-             toggleDark={toggleDark}
-             toggleIco={toggleIco}
-             dark={dark} setDark={setDark}/>: <Navigate replace to="/login" />}/>
-         </Routes>
-       </div>
-    </BrowserRouter>
+    <PostProvider>
+      <BrowserRouter>
+         <div className={dark}>
+           <Routes >
+           <Route path="/" element={user !== null?<Home />: <Navigate replace to="/login" />} />
+           <Route path="/home" element={user !== null?<Home />: <Navigate replace to="/login" />} />
+           <Route path="/messages" element={user !== null ?<Messages /> : <Navigate replace to="/login" />} />
+           <Route path="/signup" element={<Signup />} />
+           <Route path="/login" element={<Login />} />
+           <Route path="/search/:query" element={user !== null ?<Search />: <Navigate replace to="/login" />} />
+           <Route path='/profile' element={user !== null ?<Profile/>: <Navigate replace to="/login" />}/>
+           <Route path='/profile/updateaccount' element={user !== null ?<UpdateAccount />: <Navigate replace to="/login" />}/>
+           <Route path='/settings' element={user !== null ?<Settings
+               toggleDark={toggleDark}
+               toggleIco={toggleIco}
+               dark={dark} setDark={setDark}/>: <Navigate replace to="/login" />}/>
+           </Routes>
+         </div>
+      </BrowserRouter>
+    </PostProvider>
   );
 }
 

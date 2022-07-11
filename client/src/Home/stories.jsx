@@ -1,9 +1,19 @@
 import './Home.css';
 import users from '../utility';
-import React from 'react';
+import React, { useState } from 'react';
 import { BiSearch } from 'react-icons/bi';
 
 function Stories() {
+  const [ reverse, setReverse ] = useState(false);
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (e.target.value.trim() !== '') {
+      setReverse(true);
+    }else{
+      setReverse(false);
+    }
+  }
   return (
     <div className='stories sticky top-0'>
       <div className="flex">
@@ -17,17 +27,12 @@ function Stories() {
         </div>
         ))}
       </div>
-      <div className="flex items-center p-2 mr-6 rounded-3xl h-9 my-auto bg-slate-200">
+      <div className={`flex items-center p-2 mr-6 rounded-3xl h-9 my-auto ${reverse?"flex-row-reverse":"flex-row"} bg-slate-200`}>
         <BiSearch className="text-xl cursor-pointer" />
-        <input className='outline-none bg-transparent focus:ring-1 focus:shadow-md px-2'
-          type="text" placeholder='Search...' />
+        <input className='outline-none bg-transparent px-2'
+         onChange={handleSearch} type="text" placeholder='Search...' />
       </div>
     </div>
   );
 }
 export default Stories;
-/* 
-const Storysources=['https://resources.premierleague.com/premierleague/photos/players/250x250/p219847.png','require("./Images/Bitmap-2.png")','require("./Images/other/Bitmap-2.png")'
-            ,'require("./Images/Bitmap-1.png")','require("./Images/other/Bitmap-1.png")','require("./Images/Bitmap-3.png")'
-            ,'require("./Images/Bitmap.png")','require("./Images/other/Group 18 Copy.png")', 'require("./Images/other/Bitmap.png")'
-          ] */

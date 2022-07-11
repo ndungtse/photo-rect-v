@@ -92,7 +92,7 @@ const Login = () => {
               <label className='text-black'>Show password</label>
             </div>
             <div className="bg-blue-600 p-2 px-5 cursor-pointer">
-              <input type='submit' value='Login' />
+              <input className="cursor-pointer" type='submit' value='Login' />
             </div>
 
             <div className="text-black ">

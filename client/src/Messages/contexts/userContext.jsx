@@ -1,5 +1,4 @@
 import React, { useContext, useState, useEffect } from "react";
-import jwt_decode from "jwt-decode";
 import { getCookie } from "../../contexts/RequireAuth";
 
 const UsersContext = React.createContext();
@@ -27,7 +26,6 @@ export function UserProvider({ children }) {
     });
     const data = await res.json();
     console.log(data);
-    // console.log(data.data);
     setUsers(data.data);
   };
 
@@ -37,25 +35,8 @@ export function UserProvider({ children }) {
   }, []);
 
  
-
-  const fetchUsers = async () => {
-    let arr=[]
-    const res = await fetch("https://zamuka.herokuapp.com/api/users");
-    const users = await res.json();
-    
-    for(let i=0; i<users.length; i++){
-      const final = {
-        id: users[i]._id,
-        firstname: users[i].firstname,
-        lastname: users[i].lastname,
-      };
-      arr = [...arr, final]
-    }
-    setUsers(arr);
-  };
-   
   useEffect(() => {
-    fetchUsers();
+    getUsers();
   }, []);
 
   return (
