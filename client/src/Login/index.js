@@ -1,26 +1,14 @@
-let email, password
-const getemail = e => {
-    email = e.target.value
-}
-const getpswd = e => {
-    password = e.target.value
-}
+import { setCookie } from "../contexts/RequireAuth";
 
-const onloginsubmit = e => {
-    e.preventDefault()
-        // console.log(email,password)
+export const login = (data) => {
     fetch("https://photocorner33.herokuapp.com/user/login", {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            email:(email),
-             password:(password) 
-        })
+        body: JSON.stringify(data)
     }).then(res => res.json())
         .then(data => {
-            console.log(data)
             if(data.message === "Can continue"){
-                localStorage.setItem('token',JSON.stringify(data.token))
+                setCookie('token', data.token, 3)
                 window.location.replace('http://localhost:3030/home')
             }
             else if(data.message === "No token generated try logging in again"){
@@ -31,9 +19,8 @@ const onloginsubmit = e => {
             }
             
         })
-
+        .catch(err => {
+            console.log(err)
+        }
+        )   
 }
-const loginUtils = {
-    getemail, getpswd, onloginsubmit
-}
-export default loginUtils;

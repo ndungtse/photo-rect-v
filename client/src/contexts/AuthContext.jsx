@@ -11,21 +11,20 @@ export const useAuth = () => {
 export default function AuthProvider({ children }) {
   let [user, setUser] = React.useState(undefined);
 
-  const decodeToken = ()=> {
-    // deleteAllCookies();
-    const token = getCookie('token');
-    // console.log(typeof(token));
+  const decodeToken = async()=> {
+    const token =  getCookie('token');
     if (token) {
       try{
-        const userDetails = jwtdecode(token);
-       return  setUser(userDetails);
+        const userDetails = await jwtdecode(token);
+        const userd = await getUserById(userDetails.userid);
+        console.log(userd);
+        setUser(userd);
       }
       catch(err){
         console.log(err);
         setUser(null);
       }
     }
-    setUser(null)
   }
   React.useEffect(() => {
     decodeToken();
@@ -41,4 +40,17 @@ export default function AuthProvider({ children }) {
     </AuthContext.Provider>
      )}</>
   );
+}
+
+export const getUserById = async (id) => {
+  const res = await fetch(`https://photocorner33.herokuapp.com/user/getUserByID/${id}`,{
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      authorization: "Bearer " + getCookie("token"),
+    }
+  });
+  const data = await res.json();
+  console.log(data);
+  return data.user;
 }

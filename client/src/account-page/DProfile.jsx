@@ -5,15 +5,17 @@ import { BiGridAlt } from 'react-icons/bi';
 import { useAuth } from '../contexts/AuthContext';
 import { getCookie } from '../contexts/RequireAuth';
 import Post from '../Home/Post';
-
+import { useParams } from 'react-router-dom';
 
 function DProfile() {
     const { user: { needed } } = useAuth()
     const [posts, setPosts] = useState([]);
 
+    const { id } = useParams();
+
     const getPosts = async () => {
 		const res = await fetch(
-			"https://photocorner33.herokuapp.com/post/allPosts",
+			`https://photocorner33.herokuapp.com/post/getPostByPosterID/${id}`,
 			{
 				method: "GET",
 

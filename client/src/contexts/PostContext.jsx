@@ -18,7 +18,7 @@ export const PostProvider = ({ children }) => {
 
 				headers: {
 					"Content-Type": "application/json",
-					token: "Bearer " + getCookie("token"),
+					authorization: "Bearer " + getCookie("token"),
 				},
 			}
 		);
@@ -33,10 +33,6 @@ export const PostProvider = ({ children }) => {
 	useEffect(() => {
 		getPosts();
 	}, []);
-
-	useEffect(() => {
-		getPosts();
-	}, [posts.filter((x) => (x._id = itemID))]);
 
 	return (
 		<PostContext.Provider value={{ posts, setPosts, getPosts }}>

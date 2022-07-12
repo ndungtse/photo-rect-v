@@ -15,8 +15,8 @@ const Side = () => {
              src="https://resources.premierleague.com/premierleague/photos/players/250x250/p219847.png" alt="" />
           </div>
           <div className="flex flex-col ml-3">
-            <p className="font-semibold">{user.needed.fullname}</p>
-            <p className="opacity-80 font-light">@r{user.needed.username}</p>
+            <p className="font-semibold">{user.fullname}</p>
+            <p className="opacity-80 font-light">@{user.username}</p>
           </div>
         </div>
         <p className="text-blue-500 cursor-pointer">Switch</p>

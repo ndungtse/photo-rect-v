@@ -10,18 +10,18 @@ import Post from '../Home/Post';
 
 
 function Profile() {
-    const { user: { needed } } = useAuth()
+    const { user } = useAuth()
     const [posts, setPosts] = useState([]);
 
     const getPosts = async () => {
 		const res = await fetch(
-			"https://photocorner33.herokuapp.com/post/allPosts",
+			"https://photocorner33.herokuapp.com/post/getPostByPosterID/" + user._id,
 			{
 				method: "GET",
 
 				headers: {
 					"Content-Type": "application/json",
-					token: "Bearer " + getCookie("token"),
+					authorization: "Bearer " + getCookie("token"),
 				},
 			}
 		);
@@ -58,18 +58,18 @@ function Profile() {
                                 <p>Posts</p>
                             </div>
                             <div className="flex flex-col items-center px-3 py-1 ml-4 bg-slate-200 rounded-xl shadow-md">
-                                <p>{needed.followers.count}</p>
+                                <p>{user.followers.count}</p>
                                 <p>Followers</p>
                             </div>
                             <div className="flex flex-col items-center px-3 py-1 ml-4 bg-slate-200 rounded-xl shadow-md">
-                                <p>{needed.following.count}</p>
+                                <p>{user.following.count}</p>
                                 <p>Following</p>
                             </div>
                         </div>
                         <div className="flex items-center">
                           <div className="flex w-1/3 flex-col">
-                              <p className="font-semibold">{needed.fullname}</p>
-                              <p className="opacity-80">{needed.username}</p>
+                              <p className="font-semibold">{user.fullname}</p>
+                              <p className="opacity-80">{user.username}</p>
                           </div>
                           <div className="flex flex-col w-full items-center">
                             <p>Programming is all about thinking, solving problems and making people lazy 😂</p>
@@ -85,9 +85,10 @@ function Profile() {
                             <BiGridAlt className="text-2xl" />
                         </div>
                         <div className="flex flex-col w-full items-center justify-center">
-                            {posts.map((post) => (
+                            {posts.length === 0 ? <p className='text-center text-2xl h-[20vh] flex items-center justify-center'>No posts yet</p> :(
+                            posts.map((post) => (
                                 <Post key={Math.random*99222} item={post}/>
-                            ))}  
+                            )))}  
                         </div>                      
                      </div>
                 </div>    
@@ -97,7 +98,6 @@ function Profile() {
 }
 
 export default Profile;
-//styles
 const Prof = styled.div`
 background-color: var(--primary-color);
 `

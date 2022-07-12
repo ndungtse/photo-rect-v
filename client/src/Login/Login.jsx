@@ -4,10 +4,8 @@ import React, { useState } from 'react';
 import { Form, Body, Main, Logo } from './../SignUp/signupcss'
 import './../SignUp/signup.css'
 import Utils from '../utils';
-import loginUtils from './index';
 import Checkbox from '@mui/material/Checkbox';
 import { Link } from 'react-router-dom';
-import { useUsers } from '../Messages/contexts/userContext'
 import { setCookie } from '../contexts/RequireAuth';
 import { CircularProgress } from '@mui/material';
 

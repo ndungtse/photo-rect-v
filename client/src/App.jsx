@@ -63,6 +63,7 @@ function App() {
            <Route path='/profile' element={user !== null ?<Profile/>: <Navigate replace to="/login" />}/>
            <Route path='/profile/:id' element={user !== null ?<DProfile/>: <Navigate replace to="/login" />}/>
            <Route path='/profile/updateaccount' element={user !== null ?<UpdateAccount />: <Navigate replace to="/login" />}/>
+           <Route path='*' element={<Navigate replace to="/home" />}/>
            <Route path='/settings' element={user !== null ?<Settings
                toggleDark={toggleDark}
                toggleIco={toggleIco}
