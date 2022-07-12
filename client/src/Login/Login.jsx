@@ -54,20 +54,23 @@ const Login = () => {
             }
             else if(data.message === "No token generated try logging in again"){
                 window.alert("No token generated try logging in again")
+                setProgress(false);
             }
             else if(data.message === "Wrong login info"){
                 window.alert("Login info incorrect")
+                setProgress(false);
+            }else{
+              setProgress(false);
             }
             
         })
-   return setProgress(false);
 }
 
   return (
     <>
       <Body className='loback text-black'>
         <Main>
-          <Form className=' bg-slate-200 text-black' onLoad={Utils.onload} onSubmit={onloginsubmit}>
+          <Form className=' bg-slate-200 text-black' onSubmit={onloginsubmit}>
             <Logo><img src="./src/Home/Images/logo.png" alt="logo" /></Logo>
             <h1 className='text-black'>Log into Photo Corner</h1>
             <div className="w-full flex items-center justify-center">
@@ -94,10 +97,10 @@ const Login = () => {
               <label className='text-black'>Show password</label>
             </div>
             <p className="text-center mt-2 text-red-600">{status}</p>
-            <div className={`${progress?"bg-blue-200":"bg-blue-600"} mt-2 p-2 px-5 flex cursor-pointer`}>
-              {progress? <CircularProgress /> :(
+            <div className={`${progress?"bg-blue-200 cursor-not-allowed":"bg-blue-600"} mt-2 p-2 px-5 flex cursor-pointer`}>
+              {/* {progress? <CircularProgress /> :( */}
               <input className="cursor-pointer" type='submit' value='Login' />
-              )}
+              {/* )} */}
             </div>
             <div className="text-black mt-2">
               <a href="./">Forgot your password?</a>

@@ -2,17 +2,15 @@ import React, {useState, useEffect} from 'react';
 import './App.css';
 import Home from './Home';
 import Messages from './Messages/message';
-import Profile from './account-page/Profile';
 import Settings from './settings';
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Signup from './SignUp/signup';
 import Login from './Login/Login';
 import UpdateAccount from './account-page/updateAccountForm';
-import { useUsers } from './Messages/contexts/userContext';
 import { useAuth } from './contexts/AuthContext';
 import Search from './others/Search';
-import { PostProvider } from './contexts/PostContext';
 import DProfile from './account-page/DProfile';
+import Prof from './account-page/Prof';
 
 function App() {
   const [dark, setDark] = useState("")
@@ -50,7 +48,6 @@ function App() {
     }
     }
   return (
-    <PostProvider>
       <BrowserRouter>
          <div className={dark}>
            <Routes >
@@ -60,7 +57,7 @@ function App() {
            <Route path="/signup" element={<Signup />} />
            <Route path="/login" element={<Login />} />
            <Route path="/search/:query" element={user !== null ?<Search />: <Navigate replace to="/login" />} />
-           <Route path='/profile' element={user !== null ?<Profile/>: <Navigate replace to="/login" />}/>
+           <Route path='/profile' element={user !== null ?<Prof/>: <Navigate replace to="/login" />}/>
            <Route path='/profile/:id' element={user !== null ?<DProfile/>: <Navigate replace to="/login" />}/>
            <Route path='/profile/updateaccount' element={user !== null ?<UpdateAccount />: <Navigate replace to="/login" />}/>
            <Route path='*' element={<Navigate replace to="/home" />}/>
@@ -71,7 +68,6 @@ function App() {
            </Routes>
          </div>
       </BrowserRouter>
-    </PostProvider>
   );
 }
 

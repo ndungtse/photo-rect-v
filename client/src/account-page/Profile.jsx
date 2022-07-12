@@ -1,8 +1,6 @@
 import React, { useState, useEffect  } from 'react';
 import Nav from '../Home/Nav';
 import styled from 'styled-components';
-// import users, { posts } from '../utility';
-// import { Link } from 'react-router-dom';
 import { BiGridAlt } from 'react-icons/bi';
 import { useAuth } from '../contexts/AuthContext';
 import { getCookie } from '../contexts/RequireAuth';

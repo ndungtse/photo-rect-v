@@ -18,13 +18,14 @@ export default function AuthProvider({ children }) {
         const userDetails = await jwtdecode(token);
         const userd = await getUserById(userDetails.userid);
         console.log(userd);
-        setUser(userd);
+       return setUser(userd);
       }
       catch(err){
         console.log(err);
-        setUser(null);
+       return setUser(null);
       }
     }
+    return setUser(null);
   }
   React.useEffect(() => {
     decodeToken();
