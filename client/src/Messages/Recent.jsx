@@ -7,9 +7,8 @@ import { useAuth } from "../contexts/AuthContext";
 
 function Recent({ startChat }) {
   const { users, setUsers } = useUsers();
-  const data = useAuth();
-  const user = data.user.needed;
-  console.log(user);
+  const user = useAuth();
+
 
   const recentChats = users.filter((u) => u._id !== user._id);
 

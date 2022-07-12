@@ -1,10 +1,12 @@
 import React from 'react'
 import { useAuth } from '../contexts/AuthContext';
+import { follow, unfollow } from '../Login';
 import { useUsers } from '../Messages/contexts/userContext';
 
 const Side = () => {
   const { suggested } = useUsers();
-  const { user } = useAuth()
+  const { user } = useAuth();
+
 
   return (
     <div className='min-w-[200px] sticky top-0 px-3 xtab:flex flex-col hidden w-1/2'>
@@ -43,6 +45,16 @@ export default Side
 
 
 const Suggested = ({user})=>{
+  const [foll, setFoll] = React.useState(false)
+
+  const handleFollow = () => {
+    if (foll) {
+      unfollow(user)
+    }else{
+      follow(user)
+    }
+    setFoll(!foll)
+  }
 
   return(
     <div className="w-full mt-3 text-sm flex justify-between items-center">
@@ -56,7 +68,8 @@ const Suggested = ({user})=>{
           <p className="opacity-80 font-light">@{user.username}</p>
         </div>  
       </div>
-      <p className="text-blue-500 cursor-pointer">Follow</p>
+      <p onClick={handleFollow}
+      className="text-blue-500 cursor-pointer">{foll?"Following": "Follow"}</p>
     </div>
   )
 }

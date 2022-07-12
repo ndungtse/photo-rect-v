@@ -38,14 +38,14 @@ function Profile() {
     return (
         <Prof className='Profile overflow-hidden w-[100%] flex h-screen'>
             <Nav className='' active={`profile`} />
-            <Main className='w-full flex p-4 overflow-auto'>
-                <div className='w-full flex flex-col mx-auto items-center max-w-[900px]'>
+            <Main className='w-full flex p-4 bg-slate-100 overflow-auto'>
+                <div className='w-full flex flex-col  mx-auto items-center  max-w-[900px]'>
                     <div className="w-full h-[30vh] overflow-hidden">
                         <img className="object-cover min-w-full min-h-full"
                          src="src/Home/Images/man.jpg" alt="" srcSet="" />
                     </div>
-                    <div className="flex sticky top-0 flex-col w-full p-3 h-[40vh] translate-y-[-5vh]
-                     bg-white rounded-t-3xl" style={{backgroundColor: 'var(--primary-color)'}}>
+                    <div className="flex sticky top-0 flex-col w-full  p-3 h-[40vh] translate-y-[-5vh]
+                     bg-slate-100 rounded-t-3xl" style={{}}>
                         <div className="flex w-full items-center">
                             <div className="w-[100px]  h-[100px] border-2 border-blue-500 rounded-full overflow-hidden ">
                                 <img className="object-cover min-w-full min-h-full"
@@ -56,11 +56,11 @@ function Profile() {
                                 <p>Posts</p>
                             </div>
                             <div className="flex flex-col items-center px-3 py-1 ml-4 bg-slate-200 rounded-xl shadow-md">
-                                <p>{user.followers.count}</p>
+                                <p>{user.followers}</p>
                                 <p>Followers</p>
                             </div>
                             <div className="flex flex-col items-center px-3 py-1 ml-4 bg-slate-200 rounded-xl shadow-md">
-                                <p>{user.following.count}</p>
+                                <p>{user.following}</p>
                                 <p>Following</p>
                             </div>
                         </div>
@@ -97,10 +97,9 @@ function Profile() {
 
 export default Profile;
 const Prof = styled.div`
-background-color: var(--primary-color);
+
 `
 const Main = styled.div`
-background-color: var(--primary-color);
 `
 const Me = styled.div`
 background-color: var(--ligth-color);

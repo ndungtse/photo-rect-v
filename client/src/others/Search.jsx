@@ -1,20 +1,53 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { BiSearch } from 'react-icons/bi';
 import { FaFacebookMessenger } from 'react-icons/fa';
+import { useParams } from 'react-router-dom';
 import Nav from '../Home/Nav';
 import Stories from '../Home/stories';
+import { useUsers } from '../Messages/contexts/userContext';
 
 const Search = () => {
+  const { query } = useParams();
+  const { users } = useUsers();
+  const [results, setResults] = React.useState([]);
+  const [ reverse, setReverse ] = useState(false);
+  const [input, setInput] = useState("");
+
+  useEffect(() => {
+    setResults(users.filter(user => user.username.includes(query)))
+  }, [users]);
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    setResults(users.filter(user => user.username.includes(input)))
+  }
+
+  // const handleSearchChange = (e) => {
+  //   e.preventDefault();
+  // }
+
   return (
     <div className='main-container w-full fixed h-screen overflow-hidden'>
         <Nav active={`home`} />
         <div className="main w-full h-screen">
-            <Stories />
+          <div className='w-full h-[13vh] flex justify-between' style={{ backgroundColor: 'var(--ligth-color)', borderBottom: '1px solid hsla(0, 0%, 77%, 0.781)'}}>
+            <Stories fade={true} />
+            <div className='h-full flex' style={{ backgroundColor: 'var(--ligth-color)', borderBottom: '1px solid hsla(0, 0%, 77%, 0.781)'}}>
+              <form onSubmit={handleSearch} className={`flex w-1/3 min-w-[250px] text-xl h-[45px] items-center p-2 mr-6 rounded-3xl my-auto ${reverse?"flex-row-reverse":"flex-row"} bg-slate-200`}>
+              <label htmlFor="sub"><BiSearch className="text-2xl cursor-pointer" /></label>
+              <input className='outline-none w-full bg-transparent px-2'
+               onChange={(e)=> setInput(e.target.value)} type="text" placeholder='Search...' />
+               <input className='hidden' type="submit" value="" />
+              </form>
+            </div>
+          </div>
             <div className='flex flex-col w-full p-4 items-center'>
                 <div className='max-w-[800px] w-full p-2 border-[1px] border-slate-300'>
-                    <h2 className='text-center font-semibold text-xl'>Results For "Erica"</h2>
+                    <h2 className='text-center font-semibold text-xl'>Results For "{query}"</h2>
                     <div>
-                        {searchResults({fullname: 'Erica', username: 'ericas'})}
-                        {searchResults({fullname: 'Erica', username: 'ericas'})}
+                        {results.map((user, index) => (
+                          <SearchResults user={user} key={index} />
+                        ))}
                     </div>
                 </div>
             </div>
@@ -25,7 +58,8 @@ const Search = () => {
 
 export default Search
 
-const searchResults = ({fullname, username}) => {
+const SearchResults = ({user}) => {
+
     return (
         <div className="w-full mt-3 text-sm flex justify-between items-center">
       <div className="flex items-center">
@@ -34,8 +68,8 @@ const searchResults = ({fullname, username}) => {
            src="https://resources.premierleague.com/premierleague/photos/players/250x250/p219847.png" alt="" />
         </div>
         <div className="flex flex-col ml-3">
-          <p className="font-semibold">{fullname}</p>
-          <p className="opacity-80 font-light">@{username}</p>
+          <p className="font-semibold">{user.fullname}</p>
+          <p className="opacity-80 font-light">@{user.username}</p>
         </div>  
       </div>
       <div className='flex items-center'>
