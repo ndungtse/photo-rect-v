@@ -7,18 +7,35 @@ import {
 	BiSmile,
 	BiSend,
 } from "react-icons/bi";
+import { getUserById } from "../contexts/AuthContext";
 
 const Post = ({item}) => {
+	const [user, setUser] = React.useState(undefined);
+
+	const posterImage =async(userID) => {
+		console.log(userID);
+		const user = await getUserById(userID)
+		setUser(user);
+	}
+
+	React.useEffect(() => {
+		posterImage(item.user);
+		console.log(item.user);
+	}, []);
+
 	return (
+		<>{user !== undefined && (
 		<div key={item._id} className="  w-[60%]  items-center mt-6">
 			<div className="postcard px-4 flex flex-col justify-between rounded-sm shadow-sm py-[1%] border-[1px] aspect-[9/10]">
 				<div className="flex items-center justify-between">
 					<div className="flex items-center">
-						<img src="" alt="" />
+						<div className="w-[50px] rounded-full h-[50px] overflow-hidden">
+							<img className="min-h-full min-w-full object-cover" src={user.profile} alt="" />
+						</div>
 						<div className="flex flex-col my-auto">
-							<p>{item.username} </p>
+							<p>{user.username} </p>
 							<span className="text-sm opacity-[0.7] w-full flex whitespace-nowrap">
-								{item.created}
+								{user.created}
 							</span>
 						</div>
 					</div>
@@ -26,7 +43,7 @@ const Post = ({item}) => {
 				</div>
 				<div className="flex flex-col w-full aspect-square">
 					<p className="m-auto">{item.caption}</p>
-					<img src={item.secureUrl} alt="" />
+					<img src={item.image_url} alt="" />
 				</div>
 				<div className=" flex items-center text-2xl py-2">
 					<BiHeart className="ml-4 cursor-pointer" />
@@ -44,6 +61,8 @@ const Post = ({item}) => {
 				</div>
 			</div>
 		</div>
+		)}
+		</>
 	);
 };
 

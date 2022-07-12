@@ -15,13 +15,14 @@ export function useUser() {
 export function UserProvider({ children }) {
   const [users, setUsers] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [suggested, setSuggested] = useState([]);
 
   const getUsers = async() => {
-    const res = await fetch("https://photocorner33.herokuapp.com/user/allUsers",{
+    const res = await fetch("https://photocorner33.herokuapp.com/user/all",{
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        token: "Bearer " + getCookie("token"),
+        authorization: "Bearer " + getCookie("token"),
       }
     });
     const data = await res.json();
@@ -29,18 +30,33 @@ export function UserProvider({ children }) {
     setUsers(data.data);
   };
 
+  const getSuggestedUsers = async() => {
+    const res = await fetch("https://photocorner33.herokuapp.com/user/suggestedUsers",{
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: "Bearer " + getCookie("token"),
+      }
+    });
+    const data = await res.json();
+    console.log(data);
+    setSuggested(data.users);
+  }
 
   useEffect(() => {
     getUsers();
   }, []);
 
- 
+ useEffect(() => {
+    getSuggestedUsers();
+  }, []);
+
   useEffect(() => {
     getUsers();
   }, []);
 
   return (
-    <UsersContext.Provider value={{ users, setUsers, isLoggedIn, setIsLoggedIn}}>
+    <UsersContext.Provider value={{ users, setUsers, isLoggedIn, setIsLoggedIn, suggested}}>
         {children}
     </UsersContext.Provider>
   );

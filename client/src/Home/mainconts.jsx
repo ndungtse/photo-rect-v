@@ -24,7 +24,7 @@ function Mainconts() {
 					<>
 						<div className="w-full flex flex-col items-center">
 							{posts.map((item) => (
-								<Post item={item} key={Math.random*10000}/>
+								<Post item={item} key={item._id}/>
 							))}
 						</div>
 					</>
@@ -37,19 +37,29 @@ function Mainconts() {
 export default Mainconts;
 
 const PostForm = ({setShowPostForm}) =>{
-
+	const { newPost, getPosts } = usePosts();
 	const [imageString, setImageStr] = useState('');
+	const [caption, setCaption] = useState('');
+	const [preview, setPreview]= useState({state: false, url: ''});
 
 	const previewFile = (e) => {
 		const file = e.target.files[0];
 		console.log(file);
+		setPreview({state: true, url: URL.createObjectURL(e.target.files[0])})
 		const reader = new FileReader();
 		reader.addEventListener('loadend',() => {
 			setImageStr(reader.result);
 		});
 		reader.readAsDataURL(file);
-		console.log(reader.result);
+		console.log(imageString);
 	}
+
+	const submitPost = async(e) => {
+		e.preventDefault();
+	   await newPost(caption, imageString);
+	   setShowPostForm(false);
+	}
+
 	return(
 		<div className="w-full top-0 left-0 z-[10] absolute bg-black/70 
 		flex flex-col items-center justify-center h-screen">
@@ -60,17 +70,24 @@ const PostForm = ({setShowPostForm}) =>{
 					<BiX onClick={()=> setShowPostForm(false)} 
 					 className="text-4xl absolute top-1 hover:text-red-600 cursor-pointer right-3" />
 				<h2 className="text-center text-xl">Post Something</h2>
-				<textarea className="border-2 h-[20vh] outline-none border-blue-500/70
+				<textarea onChange={(e)=> setCaption(e.target.value)}
+				 className="border-2 h-[20vh] outline-none border-blue-500/70
 				  p-2 w-full " placeholder="What's on your mind?" maxLength={700}>
 
 				</textarea>
+				{preview.state &&(
+					<div className="w-[150px] mx-auto mt-3 h-[150px] overflow-hidden">
+          				<img src={imageString} className="object-cover min-h-full min-w-full" alt="" />
+          			</div>
+				)}
 				<div className="w-full mt-4 flex items-center justify-between">
 					<label htmlFor="post" className="flex cursor-pointer text-blue-700 items-center">
 						<BiImageAdd className="text-3xl" />
 						<p>Add A Photo</p>
 					</label>
 					<input onChange={previewFile}  className="hidden" type="file" id="post" accept="image/*" />
-					<button className="px-4 py-2 bg-blue-600 text-white">Post</button>
+					<button onClick={submitPost}
+					 className="px-4 py-2 bg-blue-600 text-white">Post</button>
 				</div>
 			</div>
 		</div>

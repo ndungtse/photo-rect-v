@@ -32,7 +32,7 @@ export const PostProvider = ({ children }) => {
 
 	const newPost = async (caption, imageStr) => {
 		const res = await fetch(
-			"https://photocorner33.herokuapp.com/post/new",
+			"https://photocorner33.herokuapp.com/post/newPost",
 			{
 				method: "POST",
 				headers: {
@@ -271,7 +271,8 @@ export const PostProvider = ({ children }) => {
 	}, []);
 
 	return (
-		<PostContext.Provider value={{ posts, setPosts, getPosts }}>
+		<PostContext.Provider value={{ posts, setPosts, getPosts, newPost, deletePost, deleteComment, commentOnPost, likePost, getAllPostDataById, getCommentsByPost,
+		 getLikesDataByPost,  getLikesCountByPost, unlikePost, updateCommentOnPost, updatePost, getPostsByFollowing}}>
 			{children}
 		</PostContext.Provider>
 	);

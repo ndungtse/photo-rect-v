@@ -3,7 +3,7 @@ import { useAuth } from '../contexts/AuthContext';
 import { useUsers } from '../Messages/contexts/userContext';
 
 const Side = () => {
-  const { users } = useUsers();
+  const { suggested } = useUsers();
   const { user } = useAuth()
 
   return (
@@ -21,16 +21,16 @@ const Side = () => {
         </div>
         <p className="text-blue-500 cursor-pointer">Switch</p>
       </div>
-      <div className="flex flex-col w-full mt-6">
+      <div className="flex flex-col w-full mt-6 h-[70vh] overflow-auto">
         <div className="flex items-center justify-between w-full">
           <p className="text-md font-semibold text-slate-600">Suggested For You</p>
           <p className="font-semibold text-sm cursor-pointer">See All</p>
         </div>
-        {users.map((user, index) => {
+        {suggested.map((user, index) => {
           return (
             <Suggested key={index} user={user} />
           )})
-    }
+          }
       </div>
       <div className="flex mt-4 w-full">
         <p className='text-slate-500'>&copy; Photo Corner 2022</p>
