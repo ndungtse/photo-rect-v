@@ -27,8 +27,8 @@ function Stories() {
         </div>
         ))}
       </div>
-      <div className={`flex items-center p-2 mr-6 rounded-3xl h-9 my-auto ${reverse?"flex-row-reverse":"flex-row"} bg-slate-200`}>
-        <BiSearch className="text-xl cursor-pointer" />
+      <div className={`flex w-1/3 min-w-[200px] text-xl h-[45px] items-center p-2 mr-6 rounded-3xl my-auto ${reverse?"flex-row-reverse":"flex-row"} bg-slate-200`}>
+        <BiSearch className="text-2xl cursor-pointer" />
         <input className='outline-none bg-transparent px-2'
          onChange={handleSearch} type="text" placeholder='Search...' />
       </div>

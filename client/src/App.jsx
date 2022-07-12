@@ -12,6 +12,7 @@ import { useUsers } from './Messages/contexts/userContext';
 import { useAuth } from './contexts/AuthContext';
 import Search from './others/Search';
 import { PostProvider } from './contexts/PostContext';
+import DProfile from './account-page/DProfile';
 
 function App() {
   const [dark, setDark] = useState("")
@@ -60,6 +61,7 @@ function App() {
            <Route path="/login" element={<Login />} />
            <Route path="/search/:query" element={user !== null ?<Search />: <Navigate replace to="/login" />} />
            <Route path='/profile' element={user !== null ?<Profile/>: <Navigate replace to="/login" />}/>
+           <Route path='/profile/:id' element={user !== null ?<DProfile/>: <Navigate replace to="/login" />}/>
            <Route path='/profile/updateaccount' element={user !== null ?<UpdateAccount />: <Navigate replace to="/login" />}/>
            <Route path='/settings' element={user !== null ?<Settings
                toggleDark={toggleDark}
