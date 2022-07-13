@@ -11,7 +11,7 @@ function Chat({user, mate, after}) {
     const mContextData = useMessage();
     const [muser, setMuser] = useState({profile: ''});
     const [ready, setReady] = useState(false);
-    const [messages, setMessages] = useState([]);
+    const [messages, setMessages] = useState(null);
     const { socket, start, room1, relMessages, getRelMessages  } = mContextData;
 
     useEffect(() => {
@@ -37,7 +37,7 @@ function Chat({user, mate, after}) {
     <div className="mt-2 mx-3 chat px-4 py-2 shadow-md shadow-sky-200 w-full h-screen overflow-auto">
       {!after?<PreMessage />:(
         <>
-      {relMessages.length > 0 &&(
+      {relMessages !== null &&(
         <>
       <div className="mes-prev-title">
             <div className="mes-titl-left">

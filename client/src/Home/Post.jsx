@@ -10,6 +10,7 @@ import {
 import { FaHeart } from "react-icons/fa";
 import { getUserById, useAuth } from "../contexts/AuthContext";
 import { usePosts } from "../contexts/PostContext";
+import CommentsBox from "../others/CommentsBox";
 
 const Post = ({item}) => {
 	const data = useAuth();
@@ -17,12 +18,20 @@ const Post = ({item}) => {
 	const [user, setUser] = React.useState(undefined);
 	const [liked, setLiked] = React.useState(false);
 	const [likesData, setLikesData] = React.useState(0);
-	const { likePost, unlikePost, posts, setPosts, getAllPostDataById ,commentOnPost, getLikesDataByPost } = usePosts();
+	const { likePost, unlikePost, posts, setPosts, getCommentsByPost,
+		 getAllPostDataById ,commentOnPost, getLikesDataByPost } = usePosts();
+	const [comments, setComments] = React.useState([]);
+	const [showComments, setShowComments] = React.useState(false);
 	const [comment, setComment] = React.useState("");
 
 	const posterImage =async(userID) => {
 		const user = await getUserById(userID)
 		setUser(user);
+	}
+
+	const getComments = async() => {
+		const comments = await getCommentsByPost(item.id)
+		setComments(comments.comments)
 	}
 
 	const handleLike = () => {
@@ -54,8 +63,8 @@ const Post = ({item}) => {
 		setLiked(!liked);
 	}
 
-	const handleComment = () => {
-		commentOnPost(item._id, comment);
+	const handleComment = async() => {
+		await commentOnPost(item._id, comment);
 		setComment("");
 	}
 
@@ -81,12 +90,17 @@ const Post = ({item}) => {
 	}, []);
 
 	useEffect(() => {
+		getComments();
+	}, []);
+
+	useEffect(() => {
 		knowIfLiked();
 	} , [likesData]);
 
 	return (
 		<>{user !== undefined && (
 		<div key={item._id} className="  w-[60%]  items-center mt-6">
+			{showComments && (<CommentsBox setShowComments={setShowComments} comments={comments} />)}
 			<div className="postcard px-4 flex flex-col justify-between rounded-sm shadow-sm py-[1%] border-[1px] aspect-[9/10]">
 				<div className="flex items-center justify-between">
 					<div className="flex items-center">
@@ -124,7 +138,8 @@ const Post = ({item}) => {
 					 </div>
 					 )}
 					 <div className="flex items-center">
-						<BiCommentDots className="ml-4 cursor-pointer" />
+						<BiCommentDots onClick={()=>setShowComments(true)}
+						 className="ml-4 cursor-pointer" />
 						<p className="text-sm ml-2">{item.comments}</p>
 					 </div>
 					{/* <BiShare className="ml-4 cursor-pointer" /> */}
@@ -133,7 +148,7 @@ const Post = ({item}) => {
 					<BiSmile className="text-2xl cursor-pointer" />
 					<textarea onChange={(e) => setComment(e.target.value)}
 						className="bg-transparent h-[35px] outline-none px-2 w-full"
-						type="text"
+						type="text" value={comment} 
 						placeholder="Add a comment"
 					/>
 					<BiSend onClick={handleComment}

@@ -98,13 +98,12 @@ body{
 }
 
 .stories{
-    width:100%;
     background-color: var(--ligth-color);
     background-size: 100%;
     display: flex;
     flex-direction: row;
     /* justify-content: space-between; */
-    width: 100%;
+    /* width: 100%; */
     z-index: 2;
     border-bottom: 1px solid hsla(0, 0%, 77%, 0.781);
 }

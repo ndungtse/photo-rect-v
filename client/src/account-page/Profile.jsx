@@ -13,9 +13,9 @@ import { usePosts } from '../contexts/PostContext';
 
 function Profile() {
     const { user } = useAuth()
-    const [posts, setPosts] = useState([]);
-    // const { getPosts } = usePosts()
+    const [posts, setPosts] = useState(null);
     const [showUpForm, setShowUpForm] = useState(false);
+    const [loading , setLoading] = useState(true);
 
     const getPosts = async () => {
 		const res = await fetch(
@@ -33,6 +33,7 @@ function Profile() {
 		console.log(res);
 		setPosts(posts.posts.reverse());
 		console.log(posts);
+        setLoading(false);
 		return posts;
 	};
    
@@ -43,7 +44,7 @@ function Profile() {
     return (
         <Prof className='Profile overflow-hidden w-[100%] flex h-screen'>
             <Nav className='' active={`profile`} />
-            <Main className='w-full flex p-4 bg-slate-100 overflow-auto'>
+            <Main className='w-full flex p-4 h-screen bg-slate-100 overflow-auto'>
                 <div className='w-full flex flex-col  mx-auto items-center  max-w-[900px]'>
                     <div className="w-full relative h-[30vh] overflow-hidden">
                         <img className="object-cover min-w-full min-h-full"
@@ -52,7 +53,7 @@ function Profile() {
                                  top-2 right-4 text-[2em] p-1 bg-blue-600 rounded-full  z-[999] text-white' />
                     </div>
                     {showUpForm && <UpdateProfile setShowUpForm={setShowUpForm} user={user} />}
-                    <div className="flex sticky top-0 flex-col w-full  p-3 h-[40vh] translate-y-[-5vh]
+                    <div className="flex sticky  top-0 flex-col w-full  p-3 h-[40vh] translate-y-[-5vh]
                      bg-slate-100 rounded-t-3xl" style={{}}>
                         <div className="flex w-full items-center">
                             <div className="w-[100px] relative  h-[100px] border-2 border-blue-500 rounded-full overflow-hidden ">
@@ -63,7 +64,7 @@ function Profile() {
                                  bottom-2 right-4 text-[1.4em] p-1 bg-blue-600 rounded-full  z-[999] text-white' />
                             </div>
                             <div className="flex flex-col items-center px-3 py-1 ml-4 bg-slate-200 rounded-xl shadow-md">
-                                <p>{posts.length}</p>
+                               {posts !== null &&(<p>{posts.length}</p>)} 
                                 <p>Posts</p>
                             </div>
                             <div className="flex flex-col items-center px-3 py-1 ml-4 bg-slate-200 rounded-xl shadow-md">
@@ -97,10 +98,12 @@ function Profile() {
                             <BiGridAlt className="text-2xl" />
                         </div>
                         <div className="flex flex-col w-full items-center justify-center">
-                            {posts.length === 0 ? <p className='text-center text-2xl h-[20vh] flex items-center justify-center'>No posts yet</p> :(
+                            {loading && <p className='text-center text-2xl h-[20vh] flex items-center justify-center'>Loading....</p>}
+                            { posts !== null &&(
+                            posts.length === 0 ? <p className='text-center text-2xl h-[20vh] flex items-center justify-center'>No posts yet</p> :(
                             posts.map((post) => (
                                 <Post key={Math.random()*99222} item={post}/>
-                            )))}  
+                            ))))}  
                         </div>                      
                      </div>
                 </div>    

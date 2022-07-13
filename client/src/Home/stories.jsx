@@ -23,7 +23,7 @@ function Stories({fade}) {
     }
   }
   return (
-    <div className='stories py-2 sticky flex items-center justify-center w-full top-0'>
+    <div className='stories py-2 sticky flex items-center justify-start w-full top-0'>
       {/* <div className="flex">
         {users.map(user =>(
         <div key={user.id} className="storyview flex flex-col items-center ">
@@ -35,14 +35,17 @@ function Stories({fade}) {
         </div>
         ))}
       </div> */}
-      {fade===true ?null:(
-      <form onSubmit={handleSearch} className={`flex w-1/3 min-w-[200px] text-xl h-[45px] items-center p-2 mr-6 rounded-3xl
+      <div className='w-2/3 flex  items-center justify-center'>
+      {/* {fade===true ?null:( */}
+      <form onSubmit={handleSearch} className={`flex w-1/3 min-w-[300px] text-xl h-[45px] items-center p-2 mr-6 rounded-3xl
        border-2 border-blue-700 my-auto ${reverse?"flex-row-reverse":"flex-row"} bg-slate-200`}>
         <label htmlFor="sub"><BiSearch className="text-2xl cursor-pointer" /></label>
         <input className='outline-none w-full bg-transparent px-2'
          onChange={handleSearchChange} type="text" placeholder='Search...' />
          <input className='hidden' type="submit" value="" />
-      </form>)}
+      </form>
+      {/* )} */}
+      </div>
     </div>
   );
 }
