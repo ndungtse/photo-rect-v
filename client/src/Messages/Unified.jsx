@@ -11,9 +11,9 @@ import { useAuth } from '../contexts/AuthContext';
 function Unified() {
     const [start, setStart]= useState(false)
     const [after, setAfter] = useState(false)
+    const [mate, setMate] = useState('')
 
-    const data = useAuth();
-    const user = data.user.needed;
+    const { user } = useAuth();
 
     const mContextData = useMessage();
     const { socket, getRelMessages } = mContextData;
@@ -21,6 +21,7 @@ function Unified() {
     const { setRoom1, setRoom, joinRoom, room } = useMessage();
 
     const startChat = async (e) => {
+      setMate(e)
       await setRoom(e + user._id);
       await setRoom1(user._id + e);
       console.log(room);
@@ -32,7 +33,7 @@ function Unified() {
   return (
     <>
       <Recent startChat={startChat} />
-      <Chat user={user} setStart={setStart} after={after} />
+      <Chat user={user} setStart={setStart} mate={mate} after={after} />
     </>
   );
 }

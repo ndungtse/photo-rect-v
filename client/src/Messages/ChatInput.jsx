@@ -11,8 +11,7 @@ function ChatInput() {
 
   const mContextData = useMessage()
   const { socket, start, setStart, getRelMessages, room } = mContextData
-  const data = useAuth();
-  const user = data.user.needed;
+  const { user } = useAuth();
 
   const handleInputChange = (e)=>{
     setInputMessage(e.target.value);
