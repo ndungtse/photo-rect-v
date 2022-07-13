@@ -1,4 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
+import { getUserById } from "../../contexts/AuthContext";
 import { getCookie } from "../../contexts/RequireAuth";
 
 const UsersContext = React.createContext();
@@ -26,7 +27,6 @@ export function UserProvider({ children }) {
       }
     });
     const data = await res.json();
-    console.log(data);
     setUsers(data.data);
   };
 
@@ -39,8 +39,24 @@ export function UserProvider({ children }) {
       }
     });
     const data = await res.json();
-    console.log(data);
     setSuggested(data.users);
+  }
+
+  const updatePhoto = async(datas) => {
+    console.log(datas);
+    const res = await fetch("https://photocorner33.herokuapp.com/user/updateProfilePicture",{
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: "Bearer " + getCookie("token"),
+      },
+      body: JSON.stringify(
+        {imageStr: datas.imageStr}
+      ) 
+    });
+    const data = await res.json();
+    const user = await getUserById(datas.user);
+    return {done: true, user: user}
   }
 
   useEffect(() => {
@@ -56,7 +72,8 @@ export function UserProvider({ children }) {
   }, []);
 
   return (
-    <UsersContext.Provider value={{ users, setUsers, isLoggedIn, setIsLoggedIn, suggested}}>
+    <UsersContext.Provider value={{ users, setUsers, 
+    isLoggedIn, setIsLoggedIn, suggested, updatePhoto}}>
         {children}
     </UsersContext.Provider>
   );

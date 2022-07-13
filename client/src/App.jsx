@@ -17,7 +17,6 @@ function App() {
   const [toggleIco, setToggleIco] = useState("bx bx-toggle-left");
   const { user } = useAuth()
 
-  console.log(user);
 
    useEffect(() => {
     const localTheme = window.localStorage.getItem('mode');

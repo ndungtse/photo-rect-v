@@ -8,10 +8,12 @@ import {
 	BiSend,
 } from "react-icons/bi";
 import { FaHeart } from "react-icons/fa";
-import { getUserById } from "../contexts/AuthContext";
+import { getUserById, useAuth } from "../contexts/AuthContext";
 import { usePosts } from "../contexts/PostContext";
 
 const Post = ({item}) => {
+	const data = useAuth();
+	const userd = data.user
 	const [user, setUser] = React.useState(undefined);
 	const [liked, setLiked] = React.useState(false);
 	const [likesData, setLikesData] = React.useState(0);
@@ -59,11 +61,28 @@ const Post = ({item}) => {
 
 	React.useEffect(() => {
 		posterImage(item.user);
-		setLikesData(getAllPostDataById(item._id));
 	}, []);
 
-	// useEffect(() => {
-	// 	for(let i = 0; i < post.likes)
+	const getLikesData = async () => {
+		const likesData = await getLikesDataByPost(item._id);
+		setLikesData(likesData.likedata);
+	}
+
+	const knowIfLiked = async () => {
+		for (let i = 0; i < likesData.length; i++) {
+			if (likesData[i].user === userd._id) {
+				setLiked(true);
+				// console.log(likesData[i].user, user._id);
+			}
+		}
+	}
+	useEffect(() => {
+		getLikesData();
+	}, []);
+
+	useEffect(() => {
+		knowIfLiked();
+	} , [likesData]);
 
 	return (
 		<>{user !== undefined && (
@@ -83,9 +102,14 @@ const Post = ({item}) => {
 					</div>
 					<BiDotsHorizontalRounded className="cursor-pointer text-3xl" />
 				</div>
-				<div className="flex flex-col w-full aspect-square">
-					<p className="m-auto">{item.caption}</p>
-					<img src={item.image_url} alt="" />
+				<div className="flex flex-col w-full">
+					<div className="w-full flex flex-wrap items-start">
+					  <p className="my-1">{item.caption}</p>
+					</div>
+					<div className=" aspect-square flex items-center justify-center bg-slate-100 border-[1px]">
+						<img className="w-full"  src={item.image_url} alt="" />
+
+					</div>
 				</div>
 				<div className=" flex items-center text-2xl py-2">
 					{liked?(<div className="flex items-center">

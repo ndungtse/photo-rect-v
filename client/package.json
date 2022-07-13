@@ -7,10 +7,11 @@
     "build": "vite build",
     "preview": "vite preview"
   },
-  "dependencies": { 
+  "dependencies": {
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
     "@mui/icons-material": "^5.8.2",
+    "@mui/lab": "^5.0.0-alpha.90",
     "@mui/material": "^5.8.2",
     "axios": "^0.27.2",
     "boxicons": "^2.1.1",

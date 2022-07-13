@@ -1,5 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
+import LoadingButton from '@mui/lab/LoadingButton';
+import SaveIcon from '@mui/icons-material/Save';
 import React, { useState, useEffect } from "react";
 import "./Home.css";
 import "./side.css";
@@ -41,6 +43,7 @@ const PostForm = ({setShowPostForm}) =>{
 	const [imageString, setImageStr] = useState('');
 	const [caption, setCaption] = useState('');
 	const [preview, setPreview]= useState({state: false, url: ''});
+	const [loading, setLoading] = React.useState(false);
 
 	const previewFile = (e) => {
 		const file = e.target.files[0];
@@ -55,9 +58,13 @@ const PostForm = ({setShowPostForm}) =>{
 	}
 
 	const submitPost = async(e) => {
-		e.preventDefault();
-	   await newPost(caption, imageString);
-	   setShowPostForm(false);
+		// e.preventDefault();
+		setLoading(true);
+	  const isdone = await newPost(caption, imageString);
+	  if(isdone){
+		console.log('done');
+	    setShowPostForm(false);
+	  }
 	}
 
 	return(
@@ -85,11 +92,32 @@ const PostForm = ({setShowPostForm}) =>{
 						<BiImageAdd className="text-3xl" />
 						<p>Add A Photo</p>
 					</label>
+					<ButtonSend submitPost={submitPost} setLoading={setLoading} loading={loading} />
 					<input onChange={previewFile}  className="hidden" type="file" id="post" accept="image/*" />
-					<button onClick={submitPost}
-					 className="px-4 py-2 bg-blue-600 text-white">Post</button>
+					{/* <button onClick={submitPost}
+					 className="px-4 py-2 bg-blue-600 text-white">Post</button> */}
 				</div>
 			</div>
 		</div>
+	)
+}
+
+const ButtonSend = ({loading, setLoading, submitPost}) => {
+	function handleClick() {
+	  setLoading(true);
+	  submitPost();
+	}
+
+	return(
+		<LoadingButton
+          color="primary"
+          onClick={handleClick}
+          loading={loading}
+          loadingPosition="start"
+        //   startIcon={<SaveIcon />}
+          variant="contained"
+        >
+          Post
+        </LoadingButton>
 	)
 }
