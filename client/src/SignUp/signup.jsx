@@ -5,6 +5,7 @@ import Checkbox from '@mui/material/Checkbox';
 import TextField from '@mui/material/TextField';
 import { Link } from 'react-router-dom';
 import { login } from '../Login';
+import logo from "../Home/Images/logo.png"
 
 const Signup = () => {
   const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
@@ -54,7 +55,7 @@ const Signup = () => {
       <Body className='loback'>
         <Main>
             <Form onSubmit={regUser}  className='shadow-lg bg-slate-200'>
-                <Logo ><img src="./src/Home/Images/logo.png" alt="logo" /></Logo>
+                <Logo ><img src={logo} alt="logo" /></Logo>
                 <h1 className='text-black'>Sign Up to Photo Corner</h1>
                 <div className="w-full flex items-center justify-center">
                     <TextField 

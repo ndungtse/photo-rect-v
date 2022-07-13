@@ -1,4 +1,4 @@
-
+import logo from "../Home/Images/logo.png"
 import TextField from '@mui/material/TextField';
 import React, { useState } from 'react';
 import { Form, Body, Main, Logo } from './../SignUp/signupcss'
@@ -71,7 +71,7 @@ const Login = () => {
       <Body className='loback text-black'>
         <Main>
           <Form className=' bg-slate-200 text-black' onSubmit={onloginsubmit}>
-            <Logo><img src="./src/Home/Images/logo.png" alt="logo" /></Logo>
+            <Logo><img src={logo} alt="logo" /></Logo>
             <h1 className='text-black'>Log into Photo Corner</h1>
             <div className="w-full flex items-center justify-center">
               <TextField

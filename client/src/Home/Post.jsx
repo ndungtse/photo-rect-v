@@ -14,11 +14,11 @@ import { usePosts } from "../contexts/PostContext";
 const Post = ({item}) => {
 	const [user, setUser] = React.useState(undefined);
 	const [liked, setLiked] = React.useState(false);
-	const { likePost, unlikePost, posts, setPosts, commentOnPost } = usePosts();
+	const [likesData, setLikesData] = React.useState(0);
+	const { likePost, unlikePost, posts, setPosts, getAllPostDataById ,commentOnPost, getLikesDataByPost } = usePosts();
 	const [comment, setComment] = React.useState("");
 
 	const posterImage =async(userID) => {
-		console.log(userID);
 		const user = await getUserById(userID)
 		setUser(user);
 	}
@@ -59,7 +59,7 @@ const Post = ({item}) => {
 
 	React.useEffect(() => {
 		posterImage(item.user);
-		console.log(item.date.split("T")[0].toLocaleString());
+		setLikesData(getAllPostDataById(item._id));
 	}, []);
 
 	// useEffect(() => {
