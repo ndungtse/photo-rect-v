@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { BiSearch } from 'react-icons/bi';
 import { FaFacebookMessenger } from 'react-icons/fa';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import Nav from '../Home/Nav';
 import Stories from '../Home/stories';
 import { useUsers } from '../Messages/contexts/userContext';
@@ -62,16 +62,16 @@ const SearchResults = ({user}) => {
 
     return (
         <div className="w-full mt-3 text-sm flex justify-between items-center">
-      <div className="flex items-center">
+      <Link to={`/profile/${user._id}`} className="flex items-center">
         <div className="flex overflow-hidden w-[40px] h-[40px] rounded-full">
           <img className="min-w-full min-h-full object-cover"
-           src="https://resources.premierleague.com/premierleague/photos/players/250x250/p219847.png" alt="" />
+           src={user.profile} alt="" />
         </div>
         <div className="flex flex-col ml-3">
           <p className="font-semibold">{user.fullname}</p>
           <p className="opacity-80 font-light">@{user.username}</p>
         </div>  
-      </div>
+      </Link>
       <div className='flex items-center'>
         <div className='flex cursor-pointer text-blue-500 items-center'>
             <FaFacebookMessenger />

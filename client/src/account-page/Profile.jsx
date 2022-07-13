@@ -63,7 +63,7 @@ function Profile() {
                                  bottom-2 right-4 text-[1.4em] p-1 bg-blue-600 rounded-full  z-[999] text-white' />
                             </div>
                             <div className="flex flex-col items-center px-3 py-1 ml-4 bg-slate-200 rounded-xl shadow-md">
-                                <p>1</p>
+                                <p>{posts.length}</p>
                                 <p>Posts</p>
                             </div>
                             <div className="flex flex-col items-center px-3 py-1 ml-4 bg-slate-200 rounded-xl shadow-md">
@@ -81,7 +81,7 @@ function Profile() {
                               <p className="opacity-80">{user.username}</p>
                           </div>
                           <div className="flex flex-col w-full items-center">
-                            <p>Programming is all about thinking, solving problems and making people lazy 😂</p>
+                            {/* <p>Programming is all about thinking, solving problems and making people lazy 😂</p> */}
                             <div className='flex items-center'>
                                 <p className='text-blue-500 cursor-pointer'>Edit Profile</p>
                                 <p className='text-blue-500 hover:underline ml-3 cursor-pointer'>Edit Profile Photo</p>
