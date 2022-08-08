@@ -17,6 +17,7 @@ export function UserProvider({ children }) {
   const [users, setUsers] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [suggested, setSuggested] = useState([]);
+  const [mobile, setMobile] = useState(false);
 
   const getUsers = async() => {
     const res = await fetch("https://photocorner33.herokuapp.com/user/all",{
@@ -72,7 +73,7 @@ export function UserProvider({ children }) {
   }, []);
 
   return (
-    <UsersContext.Provider value={{ users, setUsers, 
+    <UsersContext.Provider value={{ users, setUsers, mobile, setMobile, 
     isLoggedIn, setIsLoggedIn, suggested, updatePhoto}}>
         {children}
     </UsersContext.Provider>

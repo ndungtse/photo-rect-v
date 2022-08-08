@@ -1,6 +1,6 @@
 import { getCookie, setCookie } from "../contexts/RequireAuth";
 
-export const login = (data) => {
+export const login = async(data) => {
     fetch("https://photocorner33.herokuapp.com/user/login", {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },

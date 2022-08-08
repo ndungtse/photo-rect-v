@@ -6,6 +6,7 @@ import TextField from '@mui/material/TextField';
 import { Link } from 'react-router-dom';
 import { login } from '../Login';
 import logo from "../Home/Images/logo.png"
+import LoadingButton from '@mui/lab/LoadingButton';
 
 const Signup = () => {
   const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
@@ -15,6 +16,7 @@ const Signup = () => {
       });
    const [data, setData] = useState({fullname: '', username: '', email: '', password: ''}); 
    const [status, setStatus] = useState('');
+   const [loading , setLoading] = useState(true);
 
       const handleClickShowPassword = () => {
         setValues({ ...values, showPassword: !values.showPassword });
@@ -32,6 +34,7 @@ const Signup = () => {
 
       const regUser = async(e) => {
         e.preventDefault()
+        setLoading(false)
        const res = await fetch("https://photocorner33.herokuapp.com/user/new", {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
@@ -45,8 +48,9 @@ const Signup = () => {
         const data1 = await res.json()
         setStatus(data1.message)
           if(data1.message.toLowerCase() === "account created"){
-            login(data);
+           await login({email: data.email, password: data.password});
           }
+          setLoading(true)
       }
 
 
@@ -99,9 +103,13 @@ const Signup = () => {
                     <label>I agree with terms and conditions</label>
                 </div>
                 <p className="text-center text-yellow-500 mb-3">{status}</p>
+                {loading?(
                 <div className="bg-blue-600 p-2 px-5 cursor-pointer">
                   <input className='cursor-pointer' type='submit' value='Submit' onSubmit={regUser} />
-                </div>
+                </div>):(
+                <LoadingButton loading variant="outlined">
+                    Submit
+                </LoadingButton>)}
                 <div className="flex w-full text-black items-center justify-center">
                     <p>Already have an account?</p>
                     <Link to='/login' className='text-blue-600 ml-6'>  Log in</Link>

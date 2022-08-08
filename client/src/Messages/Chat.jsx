@@ -45,9 +45,9 @@ function Chat({user, mate, after}) {
               <div id="left-title-img">
               </div>
               </div>
-              <div id="left-title-img-desc">
-                <div><p>Ishimwe&nbsp;Christian</p></div>
-                <div><p id="hour-left">Active&nbsp;11h&nbsp;ago</p></div>
+              <div>
+                <p className="flex">{muser.fullname}</p>
+                <p id="hour-left">Active&nbsp;11h&nbsp;ago</p>
               </div>
             </div>
             <div className="mes-title-left-ico">

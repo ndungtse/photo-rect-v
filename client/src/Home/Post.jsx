@@ -99,7 +99,7 @@ const Post = ({item}) => {
 
 	return (
 		<>{user !== undefined && (
-		<div key={item._id} className="  w-[60%]  items-center mt-6">
+		<div key={item._id} className="w-[90%] mobile:w-[70%] xtab:w-[60%]  items-center mt-6">
 			{showComments && (<CommentsBox setShowComments={setShowComments} comments={comments} />)}
 			<div className="postcard px-4 flex flex-col justify-between rounded-sm shadow-sm py-[1%] border-[1px] aspect-[9/10]">
 				<div className="flex items-center justify-between">
@@ -120,9 +120,8 @@ const Post = ({item}) => {
 					<div className="w-full flex flex-wrap items-start">
 					  <p className="my-1">{item.caption}</p>
 					</div>
-					<div className=" aspect-square flex items-center justify-center bg-slate-100 border-[1px]">
-						<img className="w-full"  src={item.image_url} alt="" />
-
+					<div className=" aspect-square h-full max-h-[40vh] flex items-center justify-center bg-slate-100 border-[1px]">
+						<img className="max-w-full h-full"  src={item.image_url} alt="" />
 					</div>
 				</div>
 				<div className=" flex items-center text-2xl py-2">
