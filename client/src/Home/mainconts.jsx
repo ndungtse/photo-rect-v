@@ -6,7 +6,7 @@ import React, { useState, useEffect } from "react";
 import "./Home.css";
 import "./side.css";
 import Side from "./side";
-import { getCookie } from "../contexts/RequireAuth";
+import { useDropzone } from 'react-dropzone';
 import Post from "./Post";
 import { usePosts } from "../contexts/PostContext";
 import { BiImageAdd, BiPhotoAlbum, BiX } from "react-icons/bi";
@@ -44,6 +44,14 @@ const PostForm = ({setShowPostForm}) =>{
 	const [caption, setCaption] = useState('');
 	const [preview, setPreview]= useState({state: false, url: ''});
 	const [loading, setLoading] = React.useState(false);
+	// const {getRootProps, getInputProps} = useDropzone({
+	// 	accept: 'image/*',
+	// 	onDrop: acceptedFiles => {
+	// 	  setPreview(acceptedFiles.map(file => Object.assign(file, {
+	// 		state: true, preview: URL.createObjectURL(file)
+	// 	  })));
+	// 	}
+	//   })
 
 	const previewFile = (e) => {
 		const file = e.target.files[0];

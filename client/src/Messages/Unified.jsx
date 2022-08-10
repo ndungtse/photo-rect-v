@@ -8,7 +8,7 @@ import { useUsers } from "./contexts/userContext";
 import { BiMessageDots } from 'react-icons/bi'
 import { useAuth } from '../contexts/AuthContext';
 
-function Unified() {
+function Unified({roomId}) {
     const [start, setStart]= useState(false)
     const [after, setAfter] = useState(false)
     const [mate, setMate] = useState('')
@@ -33,7 +33,8 @@ function Unified() {
   return (
     <>
       <Recent startChat={startChat} />
-      <Chat user={user} setStart={setStart} mate={mate} after={after} />
+      <Chat user={user} roomId={roomId} setAfter={setAfter}
+      setStart={setStart} mate={mate} after={after} />
     </>
   );
 }

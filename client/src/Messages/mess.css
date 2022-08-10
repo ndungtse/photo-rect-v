@@ -160,14 +160,6 @@
     justify-content: space-between;
     margin: 10px 25px 10px 10px;
   }
-  
-  .mes-titl-left,
-  .mes-titl-left img {
-    width: 50px;
-    border-radius: 50px;
-    display: flex;
-    align-items: center;
-  }
   #left-title-img-desc {
     display: flex;
     align-items: center;
@@ -203,7 +195,9 @@
     flex-direction: column;
     margin: 0 20px;
   }
-  
+  .mess1, .mess{
+    line-height: normal;
+  }
   .speaker1 {
     display: flex;
     align-items: center;

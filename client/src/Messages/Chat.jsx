@@ -7,12 +7,12 @@ import { useMessage } from "./contexts/messageContext";
 import { BiMessageDots } from 'react-icons/bi'
 import { getUserById } from "../contexts/AuthContext";
 
-function Chat({user, mate, after}) {
+function Chat({user, mate, after, roomId, setAfter}) {
     const mContextData = useMessage();
     const [muser, setMuser] = useState({profile: ''});
     const [ready, setReady] = useState(false);
     const [messages, setMessages] = useState(null);
-    const { socket, start, room1, relMessages, getRelMessages  } = mContextData;
+    const { socket,setRoom, setRoom1, start, room1, relMessages, getRelMessages  } = mContextData;
 
     useEffect(() => {
       socket.on("receive_message", (data) => {
@@ -31,23 +31,30 @@ function Chat({user, mate, after}) {
      const mes = relMessages.reverse();
      console.log(mes, relMessages);
      setMessages(mes);
-    }, [after, relMessages]);
+    }, [relMessages]);
+
+    useEffect(() => {
+      if (roomId !== undefined) {
+        setRoom(roomId);
+        getRelMessages(roomId);
+        setAfter(true);
+      }
+    }, []);
 
   return (
-    <div className="mt-2 mx-3 chat px-4 py-2 shadow-md shadow-sky-200 w-full h-screen overflow-auto">
+    <div className="mt-2 hidden tablet:flex flex-col mx-3 chat px-4 py-2 shadow-md shadow-sky-200 w-full h-screen overflow-auto">
       {!after?<PreMessage />:(
         <>
       {relMessages !== null &&(
         <>
-      <div className="mes-prev-title">
-            <div className="mes-titl-left">
-              <div>
-              <div id="left-title-img">
+      <div className="w-full flex items-center justify-between">
+            <div className="mes-titl-left flex items-center w-1/2">
+              <div className="w-[60px] h-[50px] rounded-full overflow-hidden">
+                <img className="min-h-full min-w-full object-cover" src={muser.profile} alt="" />
               </div>
-              </div>
-              <div>
-                <p className="flex">{muser.fullname}</p>
-                <p id="hour-left">Active&nbsp;11h&nbsp;ago</p>
+              <div className="flex ml-3 w-full flex-col">
+                <p className="flex w-full whitespace-nowrap">{muser.fullname}</p>
+                <p id="hour-left w-full">Active&nbsp;11h&nbsp;ago</p>
               </div>
             </div>
             <div className="mes-title-left-ico">
@@ -77,8 +84,8 @@ function Chat({user, mate, after}) {
               <div
                 className={
                   rel.author === user.username
-                    ? "p-3 mr-2 flex relative min-w-[50px] mess1 break-word "
-                    : "p-3 ml-2 flex relative min-w-[50px] bg-[#00000086] mess  break-word "
+                    ? "p-2 mr-2 flex relative min-w-[50px] mess1 break-word "
+                    : "p-2 ml-2 flex relative min-w-[50px] bg-[#00000086] mess  break-word "
                 }
               >
                 <p className="w-[90%]">{rel.text}</p>

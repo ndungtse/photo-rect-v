@@ -16,7 +16,7 @@ const Settings = ({toggleDark,toggleIco}) => {
         <div className='flex set-cont'>
           <div className='s-left flex flex-col w-[50%]'>
             <div className='pl-1'>
-              <li>Prefferences: </li>
+              {/* <li>Prefferences: </li>
               <div className='p-cont flex items-center set-view px-4'>
                 <p>Dark mode:</p>
                 <div className='flex items-center pl-7'>
@@ -24,7 +24,7 @@ const Settings = ({toggleDark,toggleIco}) => {
                   <label>Off</label><i onClick={toggleDark} className={toggleIco}></i><label>On</label>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
             <div className='pl-1 set-view'>
               <li>Account Settings: </li>

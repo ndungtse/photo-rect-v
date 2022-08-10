@@ -29,6 +29,7 @@ function ChatInput() {
           ":" +
           new Date(Date.now()).getMinutes(),
       };
+      console.log(messageData);
       await socket.emit("send_message", messageData);
       console.log(messageData);
       const res = await fetch("https://zamuka.herokuapp.com/hidden/messages/newMessage", {

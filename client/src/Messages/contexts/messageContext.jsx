@@ -14,6 +14,7 @@ export function MessageProvider({ children }) {
   const [room1, setRoom1] = useState("");
   const [start, setStart] = useState(false);
   const [relMessages, setRelMessages] = useState([]);
+  const [mate, setMate] = useState('')
 
   const joinRoom = (username, room) => {
     if (username !== "" && room !== "") {
@@ -47,7 +48,9 @@ export function MessageProvider({ children }) {
         joinRoom,
         start,
         setStart,
-        getRelMessages
+        getRelMessages,
+        mate,
+        setMate,
       }}
     >
       {children}
