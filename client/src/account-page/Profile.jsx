@@ -8,12 +8,14 @@ import Post from '../Home/Post';
 import { FaCamera } from 'react-icons/fa';
 import UpdateProfile from './UpdateProForm';
 import Drop from './Drop';
+import { useUsers } from '../Messages/contexts/userContext';
 
 function Profile() {
     const { user } = useAuth()
     const [posts, setPosts] = useState(null);
     const [showUpForm, setShowUpForm] = useState(false);
     const [loading , setLoading] = useState(true);
+    const { setMobile } = useUsers();
 
     const getPosts = async () => {
 		const res = await fetch(
@@ -40,7 +42,8 @@ function Profile() {
     }, []);
 
     return (
-        <Prof className='Profile overflow-hidden w-[100%] flex h-screen'>
+        <Prof onClick={()=> setMobile(false)}
+        className='Profile overflow-hidden w-[100%] flex h-screen'>
             <Nav className='' active={`profile`} />
             <Main className='w-full flex p-4 h-screen bg-slate-100 overflow-auto'>
                 <div className='w-full flex flex-col  mx-auto items-center  max-w-[900px]'>
