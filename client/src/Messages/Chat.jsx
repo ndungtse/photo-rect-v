@@ -4,8 +4,9 @@ import './style.css'
 import ScrollToBottom from "react-scroll-to-bottom";
 import ChatInput from "./ChatInput";
 import { useMessage } from "./contexts/messageContext";
-import { BiMessageDots } from 'react-icons/bi'
+import { BiArrowBack, BiMessageDots } from 'react-icons/bi'
 import { getUserById } from "../contexts/AuthContext";
+import { Link } from "react-router-dom";
 
 function Chat({user, mate, after, roomId, setAfter}) {
     const mContextData = useMessage();
@@ -29,11 +30,11 @@ function Chat({user, mate, after, roomId, setAfter}) {
     useEffect(() => {
      getMate();
      const mes = relMessages.reverse();
-     console.log(mes, relMessages);
      setMessages(mes);
     }, [relMessages]);
 
     useEffect(() => {
+      console.log(roomId);
       if (roomId !== undefined) {
         setRoom(roomId);
         getRelMessages(roomId);
@@ -42,11 +43,16 @@ function Chat({user, mate, after, roomId, setAfter}) {
     }, []);
 
   return (
-    <div className="mt-2 hidden tablet:flex flex-col mx-3 chat px-4 py-2 shadow-md shadow-sky-200 w-full h-screen overflow-auto">
+    <div className={`mt-2 hidden tablet:flex px-1 flex-col tablet:mx-3 ${roomId!==undefined && 'flexed'}
+     chat tablet:px-4 py-2 shadow-md shadow-sky-200 pt-5 tablet:pt-2 w-full h-screen overflow-auto`}>
       {!after?<PreMessage />:(
         <>
       {relMessages !== null &&(
         <>
+        <Link to={`/messages`}>
+        <BiArrowBack
+         className="m-1 text-xl cursor-pointer tablet:hidden" />
+         </Link>
       <div className="w-full flex items-center justify-between">
             <div className="mes-titl-left flex items-center w-1/2">
               <div className="w-[60px] h-[50px] rounded-full overflow-hidden">

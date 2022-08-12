@@ -62,3 +62,6 @@ body {
 .leftzero{
   left: 0!important;
 }
+.flexed{
+  display: flex !important;
+}
