@@ -31,6 +31,7 @@ const Post = ({item}) => {
 
 	const getComments = async() => {
 		const comments = await getCommentsByPost(item.id)
+		console.log(comments);
 		setComments(comments.comments)
 	}
 
@@ -90,17 +91,13 @@ const Post = ({item}) => {
 	}, []);
 
 	useEffect(() => {
-		getComments();
-	}, []);
-
-	useEffect(() => {
 		knowIfLiked();
 	} , [likesData]);
 
 	return (
 		<>{user !== undefined && (
 		<div key={item._id} className="w-[90%] mobile:w-[70%] xtab:w-[60%]  items-center mt-6">
-			{showComments && (<CommentsBox setShowComments={setShowComments} comments={comments} />)}
+			{showComments && (<CommentsBox setShowComments={setShowComments} comments={comments} getComments={getComments} />)}
 			<div className="postcard px-4 flex flex-col justify-between rounded-sm shadow-sm py-[1%] border-[1px] aspect-[9/10]">
 				<div className="flex items-center justify-between">
 					<div className="flex items-center">

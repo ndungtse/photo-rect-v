@@ -29,6 +29,7 @@ function ChatInput() {
           ":" +
           new Date(Date.now()).getMinutes(),
       };
+      setInputMessage("");
       console.log(messageData);
       await socket.emit("send_message", messageData);
       console.log(messageData);
@@ -44,7 +45,6 @@ function ChatInput() {
       setStart(!start)
       console.log('sent');
       getRelMessages(room);
-      setInputMessage("");
     } else {
       return;
     }

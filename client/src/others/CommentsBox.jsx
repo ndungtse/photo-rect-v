@@ -1,7 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { BiX } from 'react-icons/bi';
 
-const CommentsBox = ({setShowComments, comments}) => {
+const CommentsBox = ({setShowComments, comments, getComments}) => {
+
+	
+	useEffect(() => {
+		getComments();
+	}, []);
+
   return (
     <div className="w-full top-0 left-0 z-[22] absolute bg-black/70 
 		flex flex-col items-center justify-center h-screen">

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { BiSearch } from 'react-icons/bi';
 import { FaFacebookMessenger } from 'react-icons/fa';
 import { useParams, Link } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
 import Nav from '../Home/Nav';
 import Stories from '../Home/stories';
 import { useUsers } from '../Messages/contexts/userContext';
@@ -59,6 +60,8 @@ const Search = () => {
 export default Search
 
 const SearchResults = ({user}) => {
+  const auth = useAuth();
+  const duser = auth.user;
 
     return (
         <div className="w-full mt-3 text-sm flex justify-between items-center">
@@ -75,7 +78,7 @@ const SearchResults = ({user}) => {
       <div className='flex items-center'>
         <div className='flex cursor-pointer text-blue-500 items-center'>
             <FaFacebookMessenger />
-            <Link to="/messages"><p className='ml-2'>Message</p></Link>
+            <Link to={`/messages/${user._id+duser._id}`}><p className='ml-2'>Message</p></Link>
         </div>
         <p className="text-blue-500 cursor-pointer ml-4">Follow</p>
       </div>
