@@ -3,14 +3,9 @@ import { getUserById } from "../../contexts/AuthContext";
 import { getCookie } from "../../contexts/RequireAuth";
 
 const UsersContext = React.createContext();
-const UserContext = React.createContext();
 
 export function useUsers() {
   return useContext(UsersContext);
-}
-
-export function useUser() {
-  return useContext(UserContext);
 }
 
 export function UserProvider({ children }) {
@@ -18,6 +13,11 @@ export function UserProvider({ children }) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [suggested, setSuggested] = useState([]);
   const [mobile, setMobile] = useState(false);
+
+  const mobileHandler = () => {
+    console.log(mobile, setMobile);
+    setMobile(true);
+  }
 
   const getUsers = async() => {
     const res = await fetch("https://photocorner33.herokuapp.com/user/all",{
@@ -74,7 +74,7 @@ export function UserProvider({ children }) {
 
   return (
     <UsersContext.Provider value={{ users, setUsers, mobile, setMobile, 
-    isLoggedIn, setIsLoggedIn, suggested, updatePhoto}}>
+    isLoggedIn, setIsLoggedIn, suggested, updatePhoto, mobileHandler}}>
         {children}
     </UsersContext.Provider>
   );

@@ -121,7 +121,7 @@ const Post = ({item}) => {
 					  <p className="my-1">{item.caption}</p>
 					</div>
 					<div className=" aspect-square h-full max-h-[40vh] flex items-center justify-center bg-slate-100 border-[1px]">
-						<img className="max-w-full h-full"  src={item.image_url} alt="" />
+						<img className="max-w-full pointer-events-none h-full"  src={item.image_url} alt="" />
 					</div>
 				</div>
 				<div className=" flex items-center text-2xl py-2">

@@ -54,8 +54,8 @@ function App() {
            <Route path="/home" element={user !== null?<Home />: <Navigate replace to="/login" />} />
            <Route path="/messages" element={user !== null ?<Messages /> : <Navigate replace to="/login" />} />
            <Route path="/messages/:roomId" element={user !== null ?<Messages /> : <Navigate replace to="/login" />} />
-           <Route path="/signup" element={<Signup />} />
-           <Route path="/login" element={<Login />} />
+           <Route path="/signup" element={user === null ?<Signup />: <Navigate replace to="/" />} />
+           <Route path="/login" element={user === null ?<Login />: <Navigate replace to="/" />} />
            <Route path="/search/:query" element={user !== null ?<Search />: <Navigate replace to="/login" />} />
            <Route path='/profile' element={user !== null ?<Prof/>: <Navigate replace to="/login" />}/>
            <Route path='/profile/:id' element={user !== null ?<DProfile/>: <Navigate replace to="/login" />}/>

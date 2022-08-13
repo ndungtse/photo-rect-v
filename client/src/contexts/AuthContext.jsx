@@ -16,6 +16,7 @@ export default function AuthProvider({ children }) {
     if (token) {
       try{
         const userDetails = await jwtdecode(token);
+        console.log(userDetails);
         const userd = await getUserById(userDetails.userid);
        return setUser(userd);
       }

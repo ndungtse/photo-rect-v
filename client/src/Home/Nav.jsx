@@ -8,15 +8,16 @@ import { BiMessageRoundedDots,BiUser, BiHome, BiGroup, BiCog, BiDoorOpen, BiLogO
 import { useUsers } from '../Messages/contexts/userContext';
 
 function Nav({active}) {
-  const {mobile, setMobile} = useUsers()
+  // const {mobile, setMobile, mobileHandler} = useUsers()
+  const [mobile, setMobile] = useState(false);
 
   // console.log(mobile, setMobile);
 
   return (
     <>
-     <BiMenu onClick={() => setMobile(!mobile)} 
+     <BiMenu onClick={()=> setMobile(!mobile)} 
      className='absolute tab:hidden z-30 text-xl top-1 left-1 cursor-pointer' />
-    <div className={` left-[-500px] z-20 absolute tab:static tab:left-0 ${mobile && 'leftzero'}
+    <div className={` left-[-500px] z-[19] absolute tab:static tab:left-0 ${mobile && 'leftzero'}
       duration-500 sidebar h-screen py-8 bg-slate-300  flex flex-col justify-between`}>
       <h1 className="text-2xl flex justify-center w-full font-bold text-black">
         <p>Photo</p> <span className="text-[#3a73ed]">Corner</span>
