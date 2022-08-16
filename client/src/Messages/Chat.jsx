@@ -90,11 +90,11 @@ function Chat({user, mate, after, roomId, setAfter}) {
               <div
                 className={
                   rel.author === user.username
-                    ? "p-2 mr-2 flex relative min-w-[50px] mess1 break-word "
-                    : "p-2 ml-2 flex relative min-w-[50px] bg-[#00000086] mess  break-word "
+                    ? "p-2 items-center justify-center mr-2 flex relative min-w-[50px] mess1 break-word "
+                    : "p-2 items-center justify-center ml-2 flex relative min-w-[50px] bg-[#00000086] mess  break-word "
                 }
               >
-                <p className="w-[90%]">{rel.text}</p>
+                <p className="">{rel.text}</p>
             </div>
             </div>
           </div>

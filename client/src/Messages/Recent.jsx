@@ -65,7 +65,7 @@ const RecentChatLists = ({ use, handleStart }) => {
     >
       {/* <img className="w-[40px] rounded-full" src={images.user} alt="" /> */}
       <div className="flex flex-col my-auto">
-        <p className="font-bold">{use.username}</p>
+        <p className="font-semibold">{use.username}</p>
         <p className="text-sm">Hi, how are you</p>
       </div>
     </div>

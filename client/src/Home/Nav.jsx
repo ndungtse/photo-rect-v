@@ -25,34 +25,34 @@ function Nav({active}) {
       <div className="flex flex-col w-full items-center px-3 text-black">
         <Link onClick={()=> setMobile(false)} to='/'
          className={`${active==='home' && 'bg-blue-500'}
-         flex cursor-pointer mt-6 mx-auto items-center w-full rounded-lg p-2 hover:bg-blue-500`}>
+         flex cursor-pointer mt-3 mx-auto items-center w-full rounded-lg p-2 hover:bg-blue-500`}>
           <BiHome className='text-xl' />
           <p className="ml-6">Home</p>
         </Link>
         <Link onClick={()=> setMobile(false)} to='/messages' className={`${active==='messages' && 'bg-blue-500'}
-        flex cursor-pointer mt-6 mx-auto items-center w-full rounded-lg p-2 hover:bg-blue-500`}>
+        flex cursor-pointer mt-3 mx-auto items-center w-full rounded-lg p-2 hover:bg-blue-500`}>
           <BiMessageRoundedDots className='text-xl' />
           <p className="ml-6">Messages</p>
         </Link>
         <Link onClick={()=> setMobile(false)} to='/profile' className={`${active==='profile' && 'bg-blue-500'}
-        flex cursor-pointer mt-6 mx-auto items-center w-full rounded-lg p-2 hover:bg-blue-500`}>
+        flex cursor-pointer mt-3 mx-auto items-center w-full rounded-lg p-2 hover:bg-blue-500`}>
           <BiUser className='text-xl' />
           <p className="ml-6">Profile</p>
         </Link>
           <Link onClick={()=> setMobile(false)} to='' className={`${active==='groups' && 'bg-blue-500'}
-          flex cursor-pointer mt-6 mx-auto items-center w-full rounded-lg p-2 hover:bg-blue-500`}>
+          flex cursor-pointer mt-3 mx-auto items-center w-full rounded-lg p-2 hover:bg-blue-500`}>
             <BiGroup className='text-xl' />
             <p className="ml-6">Groups</p>
           </Link>
       </div>
       <div className="flex flex-col w-full items-center px-3 text-black">
         <Link onClick={()=> setMobile(false)} to={`/settings`} className={`${active==='settings' && 'bg-blue-500'}
-          flex cursor-pointer mt-6 mx-auto items-center w-full rounded-lg p-2 hover:bg-blue-500`}>
+          flex cursor-pointer mt-3 mx-auto items-center w-full rounded-lg p-2 hover:bg-blue-500`}>
           <BiCog className='text-xl' />
           <p className="ml-6">Settings</p>
         </Link>
         <Link onClick={()=> setMobile(false)} to={`/login`} className={`
-          flex cursor-pointer mt-6 mx-auto items-center w-full rounded-lg p-2 hover:bg-blue-500`}>
+          flex cursor-pointer mt-3 mx-auto items-center w-full rounded-lg p-2 hover:bg-blue-500`}>
           <BiLogOut className='text-xl' />
           <p className="ml-6">Logout</p>
         </Link>
