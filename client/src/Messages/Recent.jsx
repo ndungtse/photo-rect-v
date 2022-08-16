@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React from "react";
+import React, { useState } from "react";
 import "./style.css";
 import { useUsers } from "./contexts/userContext";
 import { BiSearch } from 'react-icons/bi'
@@ -7,7 +7,7 @@ import { useAuth } from "../contexts/AuthContext";
 import { useMessage } from "./contexts/messageContext";
 import { useNavigate } from "react-router-dom";
 
-function Recent({roomId}) {
+function Recent({roomId, setAfter, setLinear}) {
   const { users, setUsers } = useUsers();
   const { user } = useAuth();
   const { startChat, room } = useMessage()
@@ -16,7 +16,9 @@ function Recent({roomId}) {
   const recentChats = users.filter((u) => u._id !== user._id);
 
   const handleStart = async(id)=> {
+    setLinear(true)
     await startChat(id);
+    setAfter(true)
     navigate(`/messages/${room}`, { replace: true })
   }
 

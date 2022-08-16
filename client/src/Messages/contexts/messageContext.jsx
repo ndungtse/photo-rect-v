@@ -27,11 +27,9 @@ export function MessageProvider({ children }) {
 	};
 
 	const getRelMessages = async (room) => {
-		const res = await fetch("https://zamuka.herokuapp.com/hidden/messages");
+		const res = await fetch(`https://zamuka.herokuapp.com/hidden/messages/room/${room}`);
 		const messages = await res.json();
-		const relMess = messages.filter((m) => m.room === room || m.room1 === room);
-		console.log(room, relMess);
-		setRelMessages(relMess);
+		setRelMessages(messages);
 	};
 
 	const startChat = async (e) => {

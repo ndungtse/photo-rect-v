@@ -5,7 +5,7 @@ import Recent from './Recent'
 import { useMessage } from "./contexts/messageContext";
 import { useAuth } from '../contexts/AuthContext';
 
-function Unified({roomId}) {
+function Unified({roomId, setLinear}) {
     const [start, setStart]= useState(false)
     const [after, setAfter] = useState(false)
     const { mate } = useMessage()
@@ -14,7 +14,7 @@ function Unified({roomId}) {
 
   return (
     <>
-      <Recent roomId={roomId} />
+      <Recent roomId={roomId} setAfter={setAfter} setLinear={setLinear} />
       <Chat user={user} roomId={roomId} setAfter={setAfter}
       setStart={setStart} mate={mate} after={after} />
     </>

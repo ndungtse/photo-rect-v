@@ -105,7 +105,7 @@ function Profile() {
                             posts.map((post) => (
                                 <Post key={Math.random()*99222} item={post}/>
                             ))))}  
-                            <Drop />
+                            {/* <Drop /> */}
                         </div>                      
                      </div>
                 </div>    
