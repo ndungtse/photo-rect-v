@@ -44,7 +44,7 @@ function Chat({user, mate, after, roomId, setAfter}) {
 
   return (
     <div className={`mt-2 hidden tablet:flex px-1 flex-col tablet:mx-3 ${roomId!==undefined && 'flexed'}
-     chat tablet:px-4 py-2 shadow-md shadow-sky-200 pt-5 tablet:pt-2 w-full h-screen overflow-auto`}>
+       tablet:px-4 py-2 shadow-md shadow-sky-200 pt-5 tablet:pt-2 w-full h-screen overflow-auto`}>
       {!after?<PreMessage />:(
         <>
       {relMessages !== null &&(
@@ -113,7 +113,7 @@ export default Chat;
 
 function PreMessage(){
   return(
-    <div className="mt-2 chat mx-auto px-4 py-2 w-[50%] 
+    <div className="mt-2 w-full  mx-auto px-4 py-2 
     h-[85vh] flex flex-col items-center justify-center">
       <BiMessageDots className='text-[670%] text-zinc-700' />
       <p className="text-xl">Your Chat Messages will appear Here</p>

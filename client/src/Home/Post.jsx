@@ -8,6 +8,7 @@ import {
 	BiSend,
 } from "react-icons/bi";
 import { FaHeart } from "react-icons/fa";
+import { useApp } from "../contexts/AppContext";
 import { getUserById, useAuth } from "../contexts/AuthContext";
 import { usePosts } from "../contexts/PostContext";
 import CommentsBox from "../others/CommentsBox";
@@ -23,6 +24,7 @@ const Post = ({item}) => {
 	const [comments, setComments] = React.useState([]);
 	const [showComments, setShowComments] = React.useState(false);
 	const [comment, setComment] = React.useState("");
+	const { isDark } = useApp()
 
 	const posterImage =async(userID) => {
 		const user = await getUserById(userID)
@@ -96,7 +98,7 @@ const Post = ({item}) => {
 
 	return (
 		<>{user !== undefined && (
-		<div key={item._id} className="w-[90%] mobile:w-[70%] xtab:w-[60%]  items-center mt-6">
+		<div key={item._id} className={`w-[90%] mobile:w-[70%] xtab:w-[60%]  items-center mt-6 ${isDark && 'text-white'}`}>
 			{showComments && (<CommentsBox setShowComments={setShowComments} comments={comments} getComments={getComments} />)}
 			<div className="postcard px-4 flex flex-col justify-between rounded-sm shadow-sm py-[1%] border-[1px] aspect-[9/10]">
 				<div className="flex items-center justify-between">

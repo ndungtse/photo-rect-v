@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import { useAuth } from "./AuthContext";
 import { getCookie } from "./RequireAuth";
 
 const PostContext = React.createContext();
@@ -9,6 +10,7 @@ export const usePosts = () => {
 
 export const PostProvider = ({ children }) => {
 	const [posts, setPosts] = useState([]);
+	const { user } = useAuth()
 
 	const getPosts = async () => {
 		const res = await fetch(
@@ -258,10 +260,6 @@ export const PostProvider = ({ children }) => {
 		
 		return data;
 	}
-
-	useEffect(() => {
-		getPosts();
-	}, []);
 
 	return (
 		<PostContext.Provider value={{ posts, setPosts, getPosts, newPost, deletePost, deleteComment, commentOnPost, likePost, getAllPostDataById, getCommentsByPost,

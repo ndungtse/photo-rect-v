@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom';
+import { useApp } from '../contexts/AppContext';
 import { useAuth } from '../contexts/AuthContext';
 import { follow, unfollow } from '../Login';
 import { useUsers } from '../Messages/contexts/userContext';
@@ -8,6 +9,7 @@ const Side = () => {
   const { suggested } = useUsers();
   const { user } = useAuth();
   const [users, setUsers] = React.useState([]);
+  const {  isDark } = useApp()
   
 
   useEffect(() => {
@@ -16,7 +18,7 @@ const Side = () => {
   }, [suggested, user]);
 
   return (
-    <div className='min-w-[200px] sticky top-0 px-3 xtab:flex flex-col hidden w-1/2'>
+    <div className={`min-w-[200px] sticky top-0 px-3 xtab:flex flex-col hidden w-1/2 ${isDark && 'text-white'}`}>
       <div className="flex mt-6 w-full items-center justify-between">
         <Link to={`/profile`} className="flex items-center">
           <div className="flex overflow-hidden w-[60px] h-[60px] rounded-full">

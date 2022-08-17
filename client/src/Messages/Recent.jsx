@@ -6,6 +6,7 @@ import { BiSearch } from 'react-icons/bi'
 import { useAuth } from "../contexts/AuthContext";
 import { useMessage } from "./contexts/messageContext";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 function Recent({roomId, setAfter, setLinear}) {
   const { users, setUsers } = useUsers();
@@ -39,7 +40,7 @@ function Recent({roomId, setAfter, setLinear}) {
         <label htmlFor="" className="flex w-full items-center">
           <BiSearch className="text-2xl"/>
           <input
-            className="outline-none border-none w-full px-2 ml-3 focus:border-b-2 focus:border-b-blue-300"
+            className="outline-none bg-transparent border-none w-full px-2 ml-3 focus:border-b-2 focus:border-b-blue-300"
             type="text"
             placeholder="Search"
           />
@@ -47,7 +48,7 @@ function Recent({roomId, setAfter, setLinear}) {
       </div>
       <div className="w-full flex flex-col overflow-auto">
       {recentChats.map((use, index) => (
-        <RecentChatLists use={use} key={index} handleStart={handleStart} />
+        <RecentChatLists use={use} key={use._id} handleStart={handleStart} />
       ))}
       </div>
     </div>
@@ -57,16 +58,23 @@ function Recent({roomId, setAfter, setLinear}) {
 export default Recent;
 
 const RecentChatLists = ({ use, handleStart }) => {
+  const { mate } = useMessage()
+
+  useEffect(() => {
+    if (mate === use._id) {
+      console.log(mate, use._id);
+    } 
+  } ,[mate])
   return (
     <div
       onClick={()=>handleStart(use._id)}
-      className="flex w-full border-2 mt-4 cursor-pointer rounded-xl
-        items-center p-2"
+      className={`flex w-full border-2 mt-4 border-blue-600/50 cursor-pointer rounded-xl
+        items-center p-2 ${mate === use._id && 'bg-blue-500'}`}
     >
       {/* <img className="w-[40px] rounded-full" src={images.user} alt="" /> */}
       <div className="flex flex-col my-auto">
         <p className="font-semibold">{use.username}</p>
-        <p className="text-sm">Hi, how are you</p>
+        <p className="text-sm">Active 5h ago</p>
       </div>
     </div>
   );

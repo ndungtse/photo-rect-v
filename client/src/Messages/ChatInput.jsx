@@ -10,7 +10,7 @@ function ChatInput() {
   const [inputMessage, setInputMessage] = useState("")
 
   const mContextData = useMessage()
-  const { socket, start, setStart, getRelMessages, room, mate } = mContextData
+  const { socket, start, setStart, getRelMessages, relMessages, room, mate, setRelMessages } = mContextData
   const { user } = useAuth();
 
   const handleInputChange = (e)=>{
@@ -29,6 +29,7 @@ function ChatInput() {
           ":" +
           new Date(Date.now()).getMinutes(),
       };
+      setRelMessages([...relMessages, messageData]);
       setInputMessage("");
       console.log(messageData);
       await socket.emit("send_message", messageData);
@@ -61,7 +62,7 @@ function ChatInput() {
         <div><i title="send a sticker" className="bx hidden tablet:flex bxs-sticker bl"></i></div>
         <div><i title="add a gif" className="bx hidden tablet:flex bxs-file-gif bl"></i></div>
       </div>
-      <div className="input-m container ">
+      <div className="input-m container border-2 ml-1 ">
         <input value={inputMessage} onChange={handleInputChange} id= "text" type="text" placeholder="Aa" autoComplete="off"
           />
         <div><i className="bx bxs-smile pt-1"></i></div>

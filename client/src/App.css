@@ -37,6 +37,10 @@ body {
   background: var(--primary-color);
 }
 
+.text-slate-100{
+  color: #fff!important;
+}
+
 .main-container {
   display: flex;
   background-color: var(--primary-color);

@@ -4,7 +4,7 @@
   
   ::-webkit-scrollbar-track {
     border: none;
-    background: var(--dim-light);
+    background: transparent;
   }
   
   ::-webkit-scrollbar-thumb {

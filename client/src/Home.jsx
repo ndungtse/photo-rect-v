@@ -8,13 +8,11 @@ import { useUsers } from './Messages/contexts/userContext';
 function Home() {
   const { setMobile } = useUsers();
   return (
-    <PostProvider>
       <div onClick={()=> setMobile(false)}
        className='main-container w-full fixed h-screen overflow-hidden'>
         <Nav active={`home`} />
         <Main />
       </div>
-    </PostProvider>
   );
 }
 

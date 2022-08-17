@@ -4,7 +4,6 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import SaveIcon from '@mui/icons-material/Save';
 import React, { useState, useEffect } from "react";
 import "./Home.css";
-import "./side.css";
 import Side from "./side";
 import { useDropzone } from 'react-dropzone';
 import Post from "./Post";
@@ -12,8 +11,12 @@ import { usePosts } from "../contexts/PostContext";
 import { BiImageAdd, BiPhotoAlbum, BiX } from "react-icons/bi";
 
 function Mainconts() {
-	const { posts } = usePosts();
+	const { posts, getPosts } = usePosts();
 	const [showPostForm, setShowPostForm] = useState(false);
+
+	useEffect(() => {
+		getPosts();
+	}, []);
 
 	return (
 		<div className="flex">
