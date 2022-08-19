@@ -9,6 +9,7 @@ import { useDropzone } from 'react-dropzone';
 import Post from "./Post";
 import { usePosts } from "../contexts/PostContext";
 import { BiImageAdd, BiPhotoAlbum, BiX } from "react-icons/bi";
+import { useApp } from '../contexts/AppContext';
 
 function Mainconts() {
 	const { posts, getPosts } = usePosts();
@@ -47,14 +48,7 @@ const PostForm = ({setShowPostForm}) =>{
 	const [caption, setCaption] = useState('');
 	const [preview, setPreview]= useState({state: false, url: ''});
 	const [loading, setLoading] = React.useState(false);
-	// const {getRootProps, getInputProps} = useDropzone({
-	// 	accept: 'image/*',
-	// 	onDrop: acceptedFiles => {
-	// 	  setPreview(acceptedFiles.map(file => Object.assign(file, {
-	// 		state: true, preview: URL.createObjectURL(file)
-	// 	  })));
-	// 	}
-	//   })
+	const { isDark } = useApp()
 
 	const previewFile = (e) => {
 		const file = e.target.files[0];
@@ -83,14 +77,14 @@ const PostForm = ({setShowPostForm}) =>{
 		flex flex-col items-center justify-center h-screen">
 			<div onClick={()=> setShowPostForm(false)}
 			 className="w-full h-screen absolute top-0 left-0 z-[15]"></div>
-			<div className="flex z-20 flex-col relative w-1/3 rounded-xl p-4 min-w-[300px] bg-white">
+			<div className={`flex z-20 flex-col relative w-1/3 rounded-xl p-4 min-w-[300px] bg-white ${isDark && 'text-white bg-[#0a0520]'}`}>
 				
 					<BiX onClick={()=> setShowPostForm(false)} 
 					 className="text-4xl absolute top-1 hover:text-red-600 cursor-pointer right-3" />
 				<h2 className="text-center text-xl">Post Something</h2>
 				<textarea onChange={(e)=> setCaption(e.target.value)}
 				 className="border-2 h-[20vh] outline-none border-blue-500/70
-				  p-2 w-full " placeholder="What's on your mind?" maxLength={700}>
+				  p-2 w-full bg-transparent " placeholder="What's on your mind?" maxLength={700}>
 
 				</textarea>
 				{preview.state &&(

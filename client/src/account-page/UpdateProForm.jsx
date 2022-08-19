@@ -10,6 +10,7 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import { useUsers } from '../Messages/contexts/userContext';
 import { usePosts } from '../contexts/PostContext';
 import { useDropzone } from 'react-dropzone';
+import { useApp } from '../contexts/AppContext';
 
 const UpdateProfile = ({setShowUpForm, user}) => {
     const [imageString, setImageStr] = useState('');
@@ -18,6 +19,7 @@ const UpdateProfile = ({setShowUpForm, user}) => {
 	const [loading, setLoading] = React.useState(false);
     const { updatePhoto } = useUsers()
     const { setUser } = useAuth()
+	const { isDark } = useApp()
 
     const previewFile = (e) => {
 		const file = e.target.files[0];
@@ -46,7 +48,7 @@ const UpdateProfile = ({setShowUpForm, user}) => {
 		flex flex-col items-center justify-center h-screen">
 			<div onClick={()=> setShowUpForm(false)}
 			 className="w-full h-screen absolute top-0 left-0 z-[15]"></div>
-			<div className="flex z-20 flex-col relative items-center w-1/3 rounded-xl p-4 min-w-[300px] bg-white">
+			<div className={`flex z-20 flex-col relative items-center w-1/3 rounded-xl p-4 min-w-[300px] bg-white ${isDark && 'text-white bg-[#0a0520]'}`}>
 
 					<BiX onClick={()=> setShowUpForm(false)} 
 					 className="text-4xl absolute top-1 hover:text-red-600 cursor-pointer right-3" />

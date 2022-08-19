@@ -11,13 +11,15 @@ import { useAuth } from './contexts/AuthContext';
 import Search from './others/Search';
 import DProfile from './account-page/DProfile';
 import Profile from './account-page/Profile';
+import { useApp } from './contexts/AppContext';
 
 function App() {
   const { user } = useAuth()
+  const { isDark } = useApp()
 
   return (
       <BrowserRouter>
-         <div>
+         <div className={isDark && 'dark-theme'}>
            <Routes >
            <Route path="/" element={user !== null?<Home />: <Navigate replace to="/login" />} />
            <Route path="/home" element={user !== null?<Home />: <Navigate replace to="/login" />} />

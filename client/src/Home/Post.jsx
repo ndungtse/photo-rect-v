@@ -8,6 +8,7 @@ import {
 	BiSend,
 } from "react-icons/bi";
 import { FaHeart } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import { useApp } from "../contexts/AppContext";
 import { getUserById, useAuth } from "../contexts/AuthContext";
 import { usePosts } from "../contexts/PostContext";
@@ -102,7 +103,7 @@ const Post = ({item}) => {
 			{showComments && (<CommentsBox setShowComments={setShowComments} comments={comments} getComments={getComments} />)}
 			<div className="postcard px-4 flex flex-col justify-between rounded-sm shadow-sm py-[1%] border-[1px] aspect-[9/10]">
 				<div className="flex items-center justify-between">
-					<div className="flex items-center">
+					<Link to={`/profile/${user._id}`} className="flex items-center">
 						<div className="w-[50px] rounded-full h-[50px] overflow-hidden">
 							<img className="min-h-full min-w-full object-cover" src={user.profile} alt="" />
 						</div>
@@ -112,14 +113,14 @@ const Post = ({item}) => {
 								{item.date.split("T")[0]}
 							</span>
 						</div>
-					</div>
+					</Link>
 					<BiDotsHorizontalRounded className="cursor-pointer text-3xl" />
 				</div>
 				<div className="flex flex-col w-full">
 					<div className="w-full flex flex-wrap items-start">
 					  <p className="my-1">{item.caption}</p>
 					</div>
-					<div className=" aspect-square h-full max-h-[40vh] flex items-center justify-center bg-slate-100 border-[1px]">
+					<div className={` aspect-square h-full max-h-[40vh] flex items-center justify-center bg-transparent border-[1px] ${isDark && 'border-[#0a061c]'}`}>
 						<img className="max-w-full pointer-events-none h-full"  src={item.image_url} alt="" />
 					</div>
 				</div>
@@ -145,9 +146,9 @@ const Post = ({item}) => {
 				<div className="flex py-1 px-2 items-center rounded-3xl border-[2px]">
 					<BiSmile className="text-2xl cursor-pointer" />
 					<textarea onChange={(e) => setComment(e.target.value)}
-						className="bg-transparent h-[35px] outline-none px-2 w-full"
-						type="text" value={comment} 
-						placeholder="Add a comment"
+						className="bg-transparent h-[30px] outline-none px-2 w-full"
+						type="text" value={comment} maxLength={255}
+						placeholder="Add a comment (max: 255)"
 					/>
 					<BiSend onClick={handleComment}
 					 className="text-2xl cursor-pointer" />
