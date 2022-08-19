@@ -5,11 +5,11 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import { useUsers } from '../Messages/contexts/userContext';
 import { useApp } from '../contexts/AppContext';
 
-const UpdateProfile = ({setShowUpForm, user}) => {
+const UpdateCover = ({setShowCoverForm, user}) => {
     const [imageString, setImageStr] = useState('');
 	const [preview, setPreview]= useState({state: false, url: ''});
 	const [loading, setLoading] = React.useState(false);
-    const { updatePhoto } = useUsers()
+    const { updateCoverPhoto } = useUsers()
     const { setUser } = useAuth()
 	const { isDark } = useApp()
 
@@ -27,11 +27,11 @@ const UpdateProfile = ({setShowUpForm, user}) => {
 
     const submitPhoto = async(e) => {
 		setLoading(true);
-	  const isdone = await updatePhoto({ imageStr: imageString, user: user._id });
+	  const isdone = await updateCoverPhoto({ imageStr: imageString, user: user._id });
 	  if(isdone.done){
 		console.log('done');
         setUser(isdone.user)
-	    setShowUpForm(false);
+	    setShowCoverForm(false);
 	  }
 	}
 
@@ -44,7 +44,7 @@ const UpdateProfile = ({setShowUpForm, user}) => {
 
 					<BiX onClick={()=> setShowUpForm(false)} 
 					 className="text-4xl absolute top-1 hover:text-red-600 cursor-pointer right-3" />
-				<h2 className="text-center text-xl">Add a profile photo</h2>
+				<h2 className="text-center text-xl">Add a cover photo</h2>
 				<label htmlFor="post" className="flex flex-col mt-2 cursor-pointer text-blue-700 items-center">
 						<BiImageAdd className={`${preview.state?'text-3xl':'text-[8em]'}`} />
 						<p>Add A Photo</p>
@@ -85,4 +85,4 @@ const ButtonSend = ({loading, setLoading, submitPhoto}) => {
 	)
 }
 
-export default UpdateProfile;
+export default UpdateCover;

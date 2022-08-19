@@ -96,7 +96,7 @@ const Login = () => {
                 onMouseDown={handleMouseDownPassword} type="checkbox" />
               <label className='text-black'>Show password</label>
             </div>
-            <p className="text-center mt-2 text-red-600">{status}</p>
+            <p className="text-center mt-2 text-yellow-600">{status}</p>
             <div className={`${progress?"bg-blue-200 cursor-not-allowed":"bg-blue-600"} mt-2 p-2 px-5 flex cursor-pointer`}>
               {/* {progress? <CircularProgress /> :( */}
               <input className="cursor-pointer" type='submit' value='Login' />

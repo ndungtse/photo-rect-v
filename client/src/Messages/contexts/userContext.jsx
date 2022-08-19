@@ -59,6 +59,23 @@ export function UserProvider({ children }) {
     const user = await getUserById(datas.user);
     return {done: true, user: user}
   }
+  const updateCoverPhoto = async(datas) => {
+    console.log(datas);
+    const res = await fetch("https://photocorner33.herokuapp.com/user/updateCover",{
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: "Bearer " + getCookie("token"),
+      },
+      body: JSON.stringify(
+        {imageStr: datas.imageStr}
+      ) 
+    });
+    const data = await res.json();
+    console.log(data);
+    const user = await getUserById(datas.user);
+    return {done: true, user: user}
+  }
 
   useEffect(() => {
     getUsers();
@@ -74,7 +91,7 @@ export function UserProvider({ children }) {
 
   return (
     <UsersContext.Provider value={{ users, setUsers, mobile, setMobile, 
-    isLoggedIn, setIsLoggedIn, suggested, updatePhoto, mobileHandler}}>
+    isLoggedIn, setIsLoggedIn, suggested, updatePhoto, mobileHandler, updateCoverPhoto}}>
         {children}
     </UsersContext.Provider>
   );

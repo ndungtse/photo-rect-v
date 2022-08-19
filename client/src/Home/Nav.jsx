@@ -1,16 +1,25 @@
 import React, {useState} from 'react';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import './Home.css';
 import '../App.css'
 import 'boxicons';
 import { BiMessageRoundedDots,BiUser, BiHome, BiGroup, BiCog, BiDoorOpen, BiLogOut, BiMenu, } from 'react-icons/bi'
-import { useUsers } from '../Messages/contexts/userContext';
+import { deleteAllCookies } from '../contexts/RequireAuth';
+import { useAuth } from '../contexts/AuthContext';
 import { useApp } from '../contexts/AppContext';
 
 function Nav({active}) {
   // const {mobile, setMobile, mobileHandler} = useUsers()
   const [mobile, setMobile] = useState(false);
   const { isDark } = useApp()
+  const navigate = useNavigate();
+  const { setUser } = useAuth()
+
+  const handleLogout = () => {
+    setUser(null)
+    deleteAllCookies();
+    navigate('/login', { replace: true });
+  }
 
   return (
     <>
@@ -50,11 +59,11 @@ function Nav({active}) {
           <BiCog className='text-xl' />
           <p className="ml-6">Settings</p>
         </Link>
-        <Link onClick={()=> setMobile(false)} to={`/login`} className={`
+        <div onClick={handleLogout} className={`
           flex cursor-pointer mt-3 mx-auto items-center w-full rounded-lg p-2 hover:bg-blue-500`}>
           <BiLogOut className='text-xl' />
           <p className="ml-6">Logout</p>
-        </Link>
+        </div>
       </div>
     </div>
     </>

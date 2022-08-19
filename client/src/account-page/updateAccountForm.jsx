@@ -3,18 +3,8 @@ import React, { useEffect } from "react";
 import Nav from "../Home/Nav";
 import { Link } from 'react-router-dom';
 import TextField from "@mui/material/TextField";
-import updateUtils from "./updateAccount";
 
 const UpdateAccount = () => {
-  let data = null
-  useEffect(() => {
-    data = updateUtils.onload()
-    document.querySelector('#email').value = data.email
-    document.querySelector('#fullname').value = data.fullName
-    document.querySelector('#username').value = data.username
-    document.querySelector('#password ').value = data.password
-    // console.log(data)
-  }, [])
 
   return (
     <div className="flex update-account w-full absolute h-full">

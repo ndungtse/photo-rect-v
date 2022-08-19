@@ -18,9 +18,9 @@ function Recent({roomId, setAfter, setLinear}) {
 
   const handleStart = async(id)=> {
     setLinear(true)
+    navigate(`/messages/${id+user._id}`, { replace: true })
     await startChat(id);
     setAfter(true)
-    navigate(`/messages/${room}`, { replace: true })
   }
 
   return (

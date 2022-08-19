@@ -10,11 +10,13 @@ import UpdateProfile from './UpdateProForm';
 import Drop from './Drop';
 import { useUsers } from '../Messages/contexts/userContext';
 import { useApp } from '../contexts/AppContext';
+import UpdateCover from './updateCover';
 
 function Profile() {
     const { user } = useAuth()
     const [posts, setPosts] = useState(null);
     const [showUpForm, setShowUpForm] = useState(false);
+    const [showCoverForm, setShowCoverForm] = useState(false);
     const [loading , setLoading] = useState(true);
     const { setMobile } = useUsers();
     const { isDark } = useApp()
@@ -52,10 +54,12 @@ function Profile() {
                     <div className="w-full relative h-[30vh] overflow-hidden">
                         <img className="object-cover min-w-full min-h-full"
                          src={user.cover} alt="" srcSet="" />
-                         <BiEdit  className='absolute cursor-pointer
+                         <BiEdit onClick={()=> setShowCoverForm(true)}
+                           className='absolute cursor-pointer
                                  top-2 right-4 text-[2em] p-1 bg-blue-600 rounded-full  z-[999] text-white' />
                     </div>
                     {showUpForm && <UpdateProfile setShowUpForm={setShowUpForm} user={user} />}
+                    {showCoverForm && <UpdateCover setShowCoverForm={setShowCoverForm} user={user} />}
                     <div className={`flex  flex-col w-full  p-3 h-[40vh] translate-y-[-5vh]
                      bg-slate rounded-t-3xl ${isDark?'text-white bg-[#0a0520]':'bg-slate-100'}`} style={{}}>
                         <div className="flex w-full items-center">

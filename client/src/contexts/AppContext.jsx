@@ -6,13 +6,13 @@ const AppContext = React.createContext();
 export const useApp = () => useContext(AppContext);
 
 const AppProvider = ({ children }) => {
-	const [isDark, setIsDark] = React.useState(false);
+	const [isDark, setIsDark] = React.useState(null);
 
 	const toggleDark = () => setIsDark(!isDark);
 
 	const getSavedTheme = () => {
 		const savedTheme = localStorage.getItem("theme");
-		if (!savedTheme) return;
+		if (!savedTheme) setIsDark(false);
 		if (savedTheme === "dark") {
 			console.log("dark set");
 			setIsDark(true);
@@ -27,13 +27,14 @@ const AppProvider = ({ children }) => {
 		localStorage.setItem("theme", isDark ? "dark" : "light");
 	};
 
-	// React.useEffect(() => {
-		
-	// }, []);
+	React.useEffect(() => {
+		getSavedTheme();
+	}, []);
 
 	React.useEffect(() => {
-		saveTheme();
-		console.log(isDark);
+		if(isDark !== null){
+			saveTheme();
+		}
 	}, [isDark]);
 
 	return (
