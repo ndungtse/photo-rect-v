@@ -10,9 +10,8 @@ function ChatInput() {
   const [inputMessage, setInputMessage] = useState("")
 
   const mContextData = useMessage()
-  const { socket, start, setStart, getRelMessages, room } = mContextData
-  const data = useAuth();
-  const user = data.user.needed;
+  const { socket, start, setStart, getRelMessages, relMessages, room, mate, setRelMessages } = mContextData
+  const { user } = useAuth();
 
   const handleInputChange = (e)=>{
     setInputMessage(e.target.value);
@@ -22,14 +21,17 @@ function ChatInput() {
     e.preventDefault();
     if (inputMessage !== "") {
       const messageData = {
-        room: mContextData.room,
-        room1: mContextData.room1,
+        room: user._id+mate,
+        room1: mate+user._id,
         author: user.username,
         text: inputMessage,
         time:  new Date(Date.now()).getHours() +
           ":" +
           new Date(Date.now()).getMinutes(),
       };
+      setRelMessages([...relMessages, messageData]);
+      setInputMessage("");
+      console.log(messageData);
       await socket.emit("send_message", messageData);
       console.log(messageData);
       const res = await fetch("https://zamuka.herokuapp.com/hidden/messages/newMessage", {
@@ -44,7 +46,6 @@ function ChatInput() {
       setStart(!start)
       console.log('sent');
       getRelMessages(room);
-      setInputMessage("");
     } else {
       return;
     }
@@ -58,10 +59,10 @@ function ChatInput() {
         
         <label htmlFor="file-input"><i title="attach file" className="bx bxs-file-plus bl"></i></label>
         <input type="file" id="file-input" accept="image/png, image/jpg" />
-        <div><i title="send a sticker" className="bx bxs-sticker bl"></i></div>
-        <div><i title="add a gif" className="bx bxs-file-gif bl"></i></div>
+        <div><i title="send a sticker" className="bx hidden tablet:flex bxs-sticker bl"></i></div>
+        <div><i title="add a gif" className="bx hidden tablet:flex bxs-file-gif bl"></i></div>
       </div>
-      <div className="input-m container ">
+      <div className="input-m container border-2 ml-1 ">
         <input value={inputMessage} onChange={handleInputChange} id= "text" type="text" placeholder="Aa" autoComplete="off"
           />
         <div><i className="bx bxs-smile pt-1"></i></div>
@@ -70,8 +71,8 @@ function ChatInput() {
         <div><i className="fas fa-thumbs-up"></i></div>
         <button onClick={sendMessage}
          id="send" href="index.html"
-         type=''>send
-            <i title="send" className='bx bxs-send'></i></button>
+         type=''><p className='tablet:flex hidden'>send</p>
+            <i title="send" className='bx text-xl tablet:text-base bxs-send'></i></button>
       </div>
       </form>
   </div>

@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import { useAuth } from "./AuthContext";
 import { getCookie } from "./RequireAuth";
 
 const PostContext = React.createContext();
@@ -9,6 +10,7 @@ export const usePosts = () => {
 
 export const PostProvider = ({ children }) => {
 	const [posts, setPosts] = useState([]);
+	const { user } = useAuth()
 
 	const getPosts = async () => {
 		const res = await fetch(
@@ -23,10 +25,8 @@ export const PostProvider = ({ children }) => {
 			}
 		);
 		const posts = await res.json();
-		console.log(res);
 		setPosts(posts.posts.reverse());
-		console.log(posts);
-		setLoader(false);
+		// setLoader(false);
 		return posts;
 	};
 
@@ -45,12 +45,9 @@ export const PostProvider = ({ children }) => {
 				}),
 			}
 		);
-		const data = await res.json();
-		console.log(res);
-		setPosts(data.posts.reverse());
-		console.log(posts);
-		setLoader(false);
-		return posts;
+		await res.json();
+		await getPosts();
+		return true;
 	}
 
 	const deletePost = async (id) => {
@@ -65,9 +62,7 @@ export const PostProvider = ({ children }) => {
 			}
 		);
 		const data = await res.json();
-		console.log(res);
 		setPosts(data.posts.reverse());
-		console.log(posts);
 		setLoader(false);
 		return posts;
 	}
@@ -88,7 +83,7 @@ export const PostProvider = ({ children }) => {
 			}
 		);
 		const data = await res.json();
-		console.log(data);
+		
 		return posts;
 	}
 
@@ -104,7 +99,7 @@ export const PostProvider = ({ children }) => {
 			}
 		);
 		const data = await res.json();
-		console.log(data);
+		
 		return posts;
 	}
 
@@ -138,7 +133,7 @@ export const PostProvider = ({ children }) => {
 			}
 		);
 		const data = await res.json();
-		console.log(data);
+		
 		return data;
 	}
 
@@ -155,7 +150,7 @@ export const PostProvider = ({ children }) => {
 			}
 		);
 		const data = await res.json();
-		console.log(data);
+		
 		return data;
 	}
 
@@ -171,7 +166,7 @@ export const PostProvider = ({ children }) => {
 			}
 		);
 		const data = await res.json();
-		console.log(data);
+		
 		return data;
 	}
 
@@ -191,7 +186,7 @@ export const PostProvider = ({ children }) => {
 			}
 		);
 		const data = await res.json();
-		console.log(data);
+		
 		return data;
 	}
 
@@ -211,7 +206,7 @@ export const PostProvider = ({ children }) => {
 			}
 		);
 		const data = await res.json();
-		console.log(data);
+		
 		setPosts(data.posts.reverse());
 		return data;
 	}
@@ -228,7 +223,7 @@ export const PostProvider = ({ children }) => {
 			}
 		);
 		const data = await res.json();
-		console.log(data);
+		
 		setPosts(data.posts.reverse());
 		return data;
 	}
@@ -243,7 +238,7 @@ export const PostProvider = ({ children }) => {
 			}
 		});
 		const data = await res.json();
-		console.log(data);
+		
 		return data;
 	}
 
@@ -262,13 +257,9 @@ export const PostProvider = ({ children }) => {
 			}
 		);
 		const data = await res.json();
-		console.log(data);
+		
 		return data;
 	}
-
-	useEffect(() => {
-		getPosts();
-	}, []);
 
 	return (
 		<PostContext.Provider value={{ posts, setPosts, getPosts, newPost, deletePost, deleteComment, commentOnPost, likePost, getAllPostDataById, getCommentsByPost,

@@ -16,8 +16,8 @@ export default function AuthProvider({ children }) {
     if (token) {
       try{
         const userDetails = await jwtdecode(token);
+        console.log(userDetails);
         const userd = await getUserById(userDetails.userid);
-        console.log(userd);
        return setUser(userd);
       }
       catch(err){
@@ -32,7 +32,7 @@ export default function AuthProvider({ children }) {
   }, [])
 
 
-  let value = { user };
+  let value = { user , setUser};
 
   return (
     <>{user!==undefined&&(
@@ -52,6 +52,5 @@ export const getUserById = async (id) => {
     }
   });
   const data = await res.json();
-  console.log(data);
   return data.user;
 }

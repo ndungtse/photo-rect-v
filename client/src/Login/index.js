@@ -1,6 +1,6 @@
-import { setCookie } from "../contexts/RequireAuth";
+import { getCookie, setCookie } from "../contexts/RequireAuth";
 
-export const login = (data) => {
+export const login = async(data) => {
     fetch("https://photocorner33.herokuapp.com/user/login", {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
@@ -23,4 +23,32 @@ export const login = (data) => {
             console.log(err)
         }
         )   
+}
+
+export const follow = async (data) => {
+    delete data._v;
+    data.biography="";
+    const res = await fetch("http://photocorner33.herokuapp.com/user/followUser", {
+        method: "POST",
+        headers: {
+             'Content-Type': 'application/json',
+             'authorization': `Bearer ${getCookie("token")}` },
+        body: JSON.stringify(data)
+})
+    const data1 = await res.json()
+    console.log(data1);
+}
+
+export const unfollow = async (data) => {
+    delete data._v;
+    data.biography="";
+    const res = await fetch("http://photocorner33.herokuapp.com/user/unfollow", {
+        method: "POST",
+        headers: {
+             'Content-Type': 'application/json',
+             'authorization': `Bearer ${getCookie("token")}` },
+        body: JSON.stringify(data)
+})
+    const data1 = await res.json()
+    console.log(data1);
 }
