@@ -61,13 +61,13 @@ const PostForm = ({setShowPostForm}) =>{
 	}
 
 	return(
-		<div className="w-full top-0 left-0 z-[10] absolute bg-black/70 
+		<div className="w-full top-0 left-0 z-[10] absolute bg-black/70
 		flex flex-col items-center justify-center h-screen">
 			<div onClick={()=> setShowPostForm(false)}
 			 className="w-full h-screen absolute top-0 left-0 z-[15]"></div>
 			<div className="flex z-20 flex-col relative w-1/3 rounded-xl p-4 min-w-[300px] bg-white">
-				
-					<BiX onClick={()=> setShowPostForm(false)} 
+
+					<BiX onClick={()=> setShowPostForm(false)}
 					 className="text-4xl absolute top-1 hover:text-red-600 cursor-pointer right-3" />
 				<h2 className="text-center text-xl">Post Something</h2>
 				<textarea onChange={(e)=> setCaption(e.target.value)}
