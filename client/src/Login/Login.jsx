@@ -50,7 +50,7 @@ const Login = () => {
             if(data.message === "Can continue"){
                 // localStorage.setItem('token',JSON.stringify(data.token))
                 setCookie('token', data.token, 3)
-                window.location.replace('https://photo-rect-v.vercel.app/home')
+                window.location.href="/"
             }
             else if(data.message === "No token generated try logging in again"){
                 window.alert("No token generated try logging in again")

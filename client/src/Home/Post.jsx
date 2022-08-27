@@ -26,6 +26,7 @@ const Post = ({item}) => {
 	const [showComments, setShowComments] = React.useState(false);
 	const [comment, setComment] = React.useState("");
 	const { isDark } = useApp()
+	const [postData, setPostData] = React.useState(item);
 
 	const posterImage =async(userID) => {
 		const user = await getUserById(userID)
@@ -33,16 +34,16 @@ const Post = ({item}) => {
 	}
 
 	const getComments = async() => {
-		const comments = await getCommentsByPost(item.id)
+		const comments = await getCommentsByPost(postData._id)
 		console.log(comments);
 		setComments(comments.comments)
 	}
 
 	const handleLike = () => {
 		if (liked) {
-			unlikePost(item._id);
+			unlikePost(postData._id);
 			setPosts(posts.map((post) => {
-				if (post._id === item._id) {
+				if (post._id === postData._id) {
 					return {
 						...post,
 						likes: post.likes - 1,
@@ -52,9 +53,9 @@ const Post = ({item}) => {
 				return post;
 			}));
 		}else{
-			likePost(item._id);
+			likePost(postData._id);
 			setPosts(posts.map((post) => {
-				if (post._id === item._id) {
+				if (post._id === postData._id) {
 					return {
 						...post,
 						likes: post.likes + 1,
@@ -68,16 +69,18 @@ const Post = ({item}) => {
 	}
 
 	const handleComment = async() => {
-		await commentOnPost(item._id, comment);
+		if(comment.trim() === "") return
+		await commentOnPost(postData._id, comment);
+		setPostData({...postData, comments: postData.comments + 1});
 		setComment("");
 	}
 
 	React.useEffect(() => {
-		posterImage(item.user);
+		posterImage(postData.user);
 	}, []);
 
 	const getLikesData = async () => {
-		const likesData = await getLikesDataByPost(item._id);
+		const likesData = await getLikesDataByPost(postData._id);
 		setLikesData(likesData.likedata);
 	}
 
@@ -99,8 +102,8 @@ const Post = ({item}) => {
 
 	return (
 		<>{user !== undefined && (
-		<div key={item._id} className={`w-[90%] mobile:w-[70%] xtab:w-[60%]  items-center mt-6 ${isDark && 'text-white'}`}>
-			{showComments && (<CommentsBox setShowComments={setShowComments} comments={comments} getComments={getComments} />)}
+		<div key={postData._id} className={`w-[90%] mobile:w-[70%] xtab:w-[60%]  items-center mt-6 ${isDark && 'text-white'}`}>
+			{showComments && (<CommentsBox setShowComments={setShowComments} comments={comments} getComments={getComments} user={user} />)}
 			<div className="postcard px-4 flex flex-col justify-between rounded-sm shadow-sm py-[1%] border-[1px] aspect-[9/10]">
 				<div className="flex items-center justify-between">
 					<Link to={`/profile/${user._id}`} className="flex items-center">
@@ -110,36 +113,37 @@ const Post = ({item}) => {
 						<div className="flex ml-2 flex-col my-auto">
 							<p>{user.username} </p>
 							<span className="text-sm opacity-[0.7] w-full flex whitespace-nowrap">
-								{item.date.split("T")[0]}
+								{postData.date.split("T")[0]}
 							</span>
 						</div>
+
 					</Link>
 					<BiDotsHorizontalRounded className="cursor-pointer text-3xl" />
 				</div>
 				<div className="flex flex-col w-full">
 					<div className="w-full flex flex-wrap items-start">
-					  <p className="my-1">{item.caption}</p>
+					  <p className="my-1">{postData.caption}</p>
 					</div>
 					<div className={` aspect-square h-full max-h-[40vh] flex items-center justify-center bg-transparent border-[1px] ${isDark && 'border-[#0a061c]'}`}>
-						<img className="max-w-full pointer-events-none h-full"  src={item.image_url} alt="" />
+						<img className="max-w-full pointer-events-none h-full"  src={postData.image_url} alt="" />
 					</div>
 				</div>
 				<div className=" flex items-center text-2xl py-2">
 					{liked?(<div className="flex items-center">
 					<FaHeart onClick={handleLike}
 					className="ml-4 cursor-pointer text-red-600" />
-						<p className="text-sm ml-2">{item.likes}</p>
+						<p className="text-sm ml-2">{postData.likes}</p>
 					 </div>
 					):(<div className="flex items-center">
 					<BiHeart  onClick={handleLike}
 					 className="ml-4 cursor-pointer" />
-					 	<p className="text-sm ml-2">{item.likes}</p>
+					 	<p className="text-sm ml-2">{postData.likes}</p>
 					 </div>
 					 )}
 					 <div className="flex items-center">
 						<BiCommentDots onClick={()=>setShowComments(true)}
 						 className="ml-4 cursor-pointer" />
-						<p className="text-sm ml-2">{item.comments}</p>
+						<p className="text-sm ml-2">{postData.comments}</p>
 					 </div>
 					{/* <BiShare className="ml-4 cursor-pointer" /> */}
 				</div>

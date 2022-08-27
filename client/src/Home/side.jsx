@@ -39,7 +39,7 @@ const Side = () => {
         </div>
         {users.map((user, index) => {
           return (
-            <Suggested key={index} user={user} />
+            <Suggested key={index} use={user} />
           )})
           }
       </div>
@@ -53,28 +53,33 @@ const Side = () => {
 export default Side
 
 
-const Suggested = ({user})=>{
-  const [foll, setFoll] = React.useState(false)
+const Suggested = ({use})=>{
+  const [foll, setFoll] = React.useState(false);
+  const { user, setUser } = useAuth();
 
   const handleFollow = () => {
     if (foll) {
-      unfollow(user)
+      unfollow(use)
+      setUser({...user, following: user.following +-1})
+      setFoll(false)
+    
     }else{
-      follow(user)
+      follow(use)
+      setUser({...user, following: user.following +1});
     }
     setFoll(!foll)
   }
 
   return(
     <div className="w-full mt-3 text-sm flex justify-between items-center">
-      <Link to={`/profile/${user._id}`} className="flex items-center">
+      <Link to={`/profile/${use._id}`} className="flex items-center">
         <div className="flex overflow-hidden w-[40px] h-[40px] rounded-full">
           <img className="min-w-full min-h-full object-cover"
-           src={user.profile} alt="" />
+           src={use.profile} alt="" />
         </div>
         <div className="flex flex-col ml-3">
-          <p className="font-semibold">{user.fullname}</p>
-          <p className="opacity-80 font-light">@{user.username}</p>
+          <p className="font-semibold">{use.fullname}</p>
+          <p className="opacity-80 font-light">@{use.username}</p>
         </div>  
       </Link>
       <p onClick={handleFollow}

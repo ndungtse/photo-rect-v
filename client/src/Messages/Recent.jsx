@@ -22,6 +22,7 @@ function Recent({roomId, setAfter, setLinear}) {
     await startChat(id);
     setAfter(true)
   }
+  
 
   return (
     <div className={` flex ${roomId!==undefined && 'hidden tablet:flex'} flex-col w-full items-center p-4 tablet:w-[30%] `}>

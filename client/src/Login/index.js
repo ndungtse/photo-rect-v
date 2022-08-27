@@ -9,7 +9,7 @@ export const login = async(data) => {
         .then(data => {
             if(data.message === "Can continue"){
                 setCookie('token', data.token, 3)
-                window.location.replace('http://localhost:3030/home')
+                window.location.href="/";
             }
             else if(data.message === "No token generated try logging in again"){
                 window.alert("No token generated try logging in again")
@@ -26,9 +26,7 @@ export const login = async(data) => {
 }
 
 export const follow = async (data) => {
-    delete data._v;
-    data.biography="";
-    const res = await fetch("http://photocorner33.herokuapp.com/user/followUser", {
+    const res = await fetch(`http://photocorner33.herokuapp.com/user/followUser/${data._id}`, {
         method: "POST",
         headers: {
              'Content-Type': 'application/json',
@@ -40,9 +38,7 @@ export const follow = async (data) => {
 }
 
 export const unfollow = async (data) => {
-    delete data._v;
-    data.biography="";
-    const res = await fetch("http://photocorner33.herokuapp.com/user/unfollow", {
+    const res = await fetch(`http://photocorner33.herokuapp.com/user/unfollow/${data._id}`, {
         method: "POST",
         headers: {
              'Content-Type': 'application/json',

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import Home from './Home';
 import Messages from './Messages/message';
@@ -16,6 +16,10 @@ import { useApp } from './contexts/AppContext';
 function App() {
   const { user } = useAuth()
   const { isDark } = useApp()
+
+  useEffect(() => {
+		console.log("%cWelcome to Photo Corner Console", "color: white; font-size: 34px; font-weight: bold; padding: 1em; text-align: center; background-color: blue");
+  }, [])
 
   return (
       <BrowserRouter>
