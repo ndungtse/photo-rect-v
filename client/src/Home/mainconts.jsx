@@ -22,7 +22,7 @@ function Mainconts() {
 	return (
 		<div className="flex">
 			{showPostForm ? <PostForm  setShowPostForm={setShowPostForm} /> : null}
-			<div className="w-full h-[86vh] overflow-auto flex flex-col items-center">
+			<div className="w-full h-[91vh] overflow-auto flex flex-col items-center">
 					<div className="">
 						<button onClick={()=> setShowPostForm(true)} className="text-white bg-blue-700 px-4 py-2
 						cursor-pointer mt-4">Add New Post</button>

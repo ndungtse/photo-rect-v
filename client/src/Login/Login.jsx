@@ -53,11 +53,9 @@ const Login = () => {
                 window.location.href="/"
             }
             else if(data.message === "No token generated try logging in again"){
-                window.alert("No token generated try logging in again")
                 setProgress(false);
             }
             else if(data.message === "Wrong login info"){
-                window.alert("Login info incorrect")
                 setProgress(false);
             }else{
               setProgress(false);

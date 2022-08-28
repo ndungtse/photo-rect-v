@@ -13,6 +13,7 @@ import { useApp } from "../contexts/AppContext";
 import { getUserById, useAuth } from "../contexts/AuthContext";
 import { usePosts } from "../contexts/PostContext";
 import CommentsBox from "../others/CommentsBox";
+import moment from "moment";
 
 const Post = ({item}) => {
 	const data = useAuth();
@@ -27,6 +28,8 @@ const Post = ({item}) => {
 	const [comment, setComment] = React.useState("");
 	const { isDark } = useApp()
 	const [postData, setPostData] = React.useState(item);
+
+	const timeFromNow = moment(postData?.date).fromNow();
 
 	const posterImage =async(userID) => {
 		const user = await getUserById(userID)
@@ -113,8 +116,9 @@ const Post = ({item}) => {
 						<div className="flex ml-2 flex-col my-auto">
 							<p>{user.username} </p>
 							<span className="text-sm opacity-[0.7] w-full flex whitespace-nowrap">
-								{postData.date.split("T")[0]}
+								{timeFromNow}
 							</span>
+							{/* <Moment fromNow ago>{postData.date}</Moment> */}
 						</div>
 
 					</Link>

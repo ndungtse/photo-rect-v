@@ -9,7 +9,7 @@ function Home() {
   const { setMobile } = useUsers();
   return (
       <div onClick={()=> setMobile(false)}
-       className='main-container w-full fixed h-screen overflow-hidden'>
+       className='main-container w-full h-screen overflow-hidden'>
         <Nav active={`home`} />
         <Main />
       </div>

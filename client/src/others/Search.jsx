@@ -33,14 +33,14 @@ const Search = () => {
         <div className="main w-full h-screen">
           <div className='w-full h-[13vh] flex justify-between' style={{ backgroundColor: 'var(--ligth-color)', borderBottom: '1px solid hsla(0, 0%, 77%, 0.781)'}}>
             <Stories fade={true} />
-            {/* <div className='h-full flex' style={{ backgroundColor: 'var(--ligth-color)', borderBottom: '1px solid hsla(0, 0%, 77%, 0.781)'}}>
+            <div className='h-full flex' style={{ backgroundColor: 'var(--ligth-color)', borderBottom: '1px solid hsla(0, 0%, 77%, 0.781)'}}>
               <form onSubmit={handleSearch} className={`flex w-1/3 min-w-[250px] text-xl h-[45px] items-center p-2 mr-6 rounded-3xl my-auto ${reverse?"flex-row-reverse":"flex-row"} bg-slate-200`}>
               <label htmlFor="sub"><BiSearch className="text-2xl cursor-pointer" /></label>
               <input className='outline-none w-full bg-transparent px-2'
                onChange={(e)=> setInput(e.target.value)} type="text" placeholder='Search...' />
                <input className='hidden' type="submit" value="" />
               </form>
-            </div> */}
+            </div>
           </div>
             <div className='flex flex-col w-full p-4 items-center'>
                 <div className='max-w-[800px] w-full p-2 border-[1px] border-slate-300'>

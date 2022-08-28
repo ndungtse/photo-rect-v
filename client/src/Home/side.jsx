@@ -19,9 +19,9 @@ const Side = () => {
 
   return (
     <div className={`min-w-[200px] sticky top-0 px-3 xtab:flex flex-col hidden w-1/2 ${isDark && 'text-white'}`}>
-      <div className="flex mt-6 w-full items-center justify-between">
+      <div className="flex text-sm mt-6 w-full items-center justify-between">
         <Link to={`/profile`} className="flex items-center">
-          <div className="flex overflow-hidden w-[60px] h-[60px] rounded-full">
+          <div className="flex overflow-hidden w-[50px] h-[50px] rounded-full">
             <img className="min-w-full min-h-full object-cover"
              src={user.profile} alt="" />
           </div>
@@ -30,7 +30,7 @@ const Side = () => {
             <p className="opacity-80 font-light">@{user.username}</p>
           </div>
         </Link>
-        <p className="text-blue-500 cursor-pointer">Switch</p>
+        <Link to={`/profile`} className="text-blue-500 cursor-pointer">View Profile</Link>
       </div>
       <div className="flex flex-col w-full mt-6 h-[70vh] overflow-auto">
         <div className="flex items-center justify-between w-full">

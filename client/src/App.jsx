@@ -23,7 +23,7 @@ function App() {
 
   return (
       <BrowserRouter>
-         <div className={isDark && 'dark-theme'}>
+         <div className={isDark?'dark-theme w-full':'w-full flex'}>
            <Routes >
            <Route path="/" element={user !== null?<Home />: <Navigate replace to="/login" />} />
            <Route path="/home" element={user !== null?<Home />: <Navigate replace to="/login" />} />

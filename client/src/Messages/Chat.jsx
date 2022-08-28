@@ -74,7 +74,23 @@ function Chat({user, mate, after, roomId, setAfter}) {
       </div>
       <ScrollToBottom className="mt-6 flex text-white flex-col items-center justify-end h-[74vh] ref overflow-auto">
         {messages.map((rel) => (
-          <div
+          <OneMessage key={rel._id} rel={rel} ready={ready} user={user} />
+        ))}
+      </ScrollToBottom>
+      <ChatInput/>
+      </>
+      )}
+      </>
+     )}
+    </div>
+  );
+}
+
+export default Chat;
+
+const OneMessage = ({ rel, user, ready }) => {
+  return (
+    <div
             key={rel._id}
             className={
               rel.author === user.username
@@ -98,18 +114,8 @@ function Chat({user, mate, after, roomId, setAfter}) {
             </div>
             </div>
           </div>
-        ))}
-      </ScrollToBottom>
-      <ChatInput/>
-      </>
-      )}
-      </>
-     )}
-    </div>
-  );
+  )
 }
-
-export default Chat;
 
 function PreMessage(){
   return(
