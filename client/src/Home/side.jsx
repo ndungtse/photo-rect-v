@@ -9,13 +9,23 @@ const Side = () => {
   const { suggested } = useUsers();
   const { user } = useAuth();
   const [users, setUsers] = React.useState([]);
-  const {  isDark } = useApp()
-  
+  const {  isDark, following } = useApp()
+
+  const handleSuggested = async () => {
+    const users = suggested.filter(use => use._id !== user._id)
+    const newusers = users.map(use => {
+      return {
+        ...use,
+        isFollowing: following.find(f => f.user === use._id)
+      }
+    }).filter(use => use.isFollowing === undefined)
+    console.log(newusers);
+    setUsers(newusers)
+  }
 
   useEffect(() => {
-    const users = suggested.filter(use => use._id !== user._id)
-    setUsers(users)
-  }, [suggested, user]);
+    handleSuggested()
+  }, [suggested, user, following]);
 
   return (
     <div className={`min-w-[200px] sticky top-0 px-3 xtab:flex flex-col hidden w-1/2 ${isDark && 'text-white'}`}>

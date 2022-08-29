@@ -7,14 +7,25 @@ import { getCookie } from '../contexts/RequireAuth';
 import Post from '../Home/Post';
 import { useParams } from 'react-router-dom';
 import { useApp } from '../contexts/AppContext';
+import { follow, unfollow } from '../Login';
 
 function DProfile() {
-    // const { user } = useAuth()
+    const auth = useAuth()
     const [user, setUser] = useState(null);
     const [posts, setPosts] = useState([]);
-    const { isDark } = useApp()
+    const { isDark, following, getFollowingData } = useApp()
+    const [followable, setFollowable] = useState(true);
 
     const { id } = useParams();
+
+    const handleFollowings = async () => {
+        let pfoll = following
+        for (let i = 0; i < pfoll.length; i++) {
+            if (following[i].user === id) {
+                setFollowable(false);
+            }
+        }
+    }
 
     const getPosts = async () => {
 		const res = await fetch(
@@ -38,6 +49,9 @@ function DProfile() {
     useEffect(() => {
         getPosts();
     }, []);
+    useEffect(() => {
+        handleFollowings();
+    }, [following]);
 
     const getUser = async()=> {
        const res = await getUserById(id);
@@ -47,6 +61,22 @@ function DProfile() {
     useEffect(()=> {
         getUser();
     },[])
+
+    const handleFollow = () => {
+        // const { user, setUser } = auth;
+        if (!followable) {
+          unfollow(user)
+          setUser({...user, followers: user.followers - 1})
+          auth.setUser({...auth.user, following: auth.user.following -1})
+          setFollowable(true);
+        
+        }else{
+          follow(user)
+          setUser({...user, followers: user.followers + 1})
+          auth.setUser({...auth.user, following: auth.user.following +1});
+        }
+        setFollowable(!followable)
+      }
 
     return (
         <>{user !== null &&(
@@ -83,10 +113,14 @@ function DProfile() {
                               <p className="font-semibold">{user.fullname}</p>
                               <p className="opacity-80">{user.username}</p>
                           </div>
+                          {auth.user._id === id?null:(
                           <div className="flex flex-col w-full items-center">
-                            {/* <p>Programming is all about thinking, solving problems and making people lazy 😂</p> */}
-                            {/* <p className='text-blue-500 cursor-pointer'>Edit Profile</p> */}
-                          </div>
+                            {followable ? (
+                            <p onClick={handleFollow} className='bg-blue-500 text-white rounded-md px-4 py-1 cursor-pointer'>follow</p>
+                            ) : (
+                            <p onClick={handleFollow} className='bg-slate-500 text-white rounded-md px-4 py-1 cursor-pointer'>unfollow</p>
+                            )}
+                          </div>)}
                         </div>
                         <div className="flex items-center justify-between mt-3 w-full">
                             <div className="flex items-center">
@@ -99,7 +133,7 @@ function DProfile() {
                         <div className={`flex pb-[10vh] flex-col w-full items-center ${isDark && 'bg-[#0a0520]'} justify-center`}>
                         {posts.length === 0 ? <p className='text-center text-2xl h-[20vh] flex items-center justify-center'>No posts yet</p> :(
                             posts.map((post) => (
-                                <Post key={Math.random*99222} item={post}/>
+                                <Post key={post._id} item={post}/>
                             )) 
                             )}
                         </div>                      

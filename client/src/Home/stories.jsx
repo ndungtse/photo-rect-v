@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { BiSearch } from 'react-icons/bi';
 import { useNavigate } from 'react-router-dom';
 
-function Stories({fade}) {
+function Stories() {
   const [ reverse, setReverse ] = useState(false);
   const [query, setQuery] = useState("");
   const navigate = useNavigate();

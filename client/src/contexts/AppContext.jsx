@@ -1,5 +1,6 @@
 import React from "react";
 import { useContext } from "react";
+import { getCookie } from "./RequireAuth";
 
 const AppContext = React.createContext();
 
@@ -7,6 +8,7 @@ export const useApp = () => useContext(AppContext);
 
 const AppProvider = ({ children }) => {
 	const [isDark, setIsDark] = React.useState(null);
+	const [following, setFollowing] = React.useState([]);
 
 	const toggleDark = () => setIsDark(!isDark);
 
@@ -23,12 +25,27 @@ const AppProvider = ({ children }) => {
 		console.log(savedTheme);
 	};
 
+	const getFollowingData = async () => {
+		const res = await fetch(`https://photocorner33.herokuapp.com/user/getFollowingData`, {
+			method: "GET",
+			headers: {
+				"Content-Type": "application/json",
+				authorization: "Bearer " + getCookie("token"),
+			},
+		});
+		const data = await res.json();
+		setFollowing(data.following);
+		return data.following;
+	}
+
+
 	const saveTheme = () => {
 		localStorage.setItem("theme", isDark ? "dark" : "light");
 	};
 
 	React.useEffect(() => {
 		getSavedTheme();
+		getFollowingData();
 	}, []);
 
 	React.useEffect(() => {
@@ -38,7 +55,7 @@ const AppProvider = ({ children }) => {
 	}, [isDark]);
 
 	return (
-		<AppContext.Provider value={{ isDark, toggleDark }}>
+		<AppContext.Provider value={{ isDark, toggleDark, following, getFollowingData }}>
 			{children}
 		</AppContext.Provider>
 	);
