@@ -71,39 +71,35 @@ const Login = () => {
           <Form className=' bg-slate-200 text-black' onSubmit={onloginsubmit}>
             <Logo><img src={logo} alt="logo" /></Logo>
             <h1 className='text-black'>Log into Photo Corner</h1>
-            <div className="w-full flex items-center justify-center">
-              <TextField
-                sx={{marginTop: 2, width: '100%', maxWidth: 350}}
-                size="small"
-                className="" label="Email"
-                id="standard-input" variant="outlined"
-                onChange={(e)=> setData({...data, email: e.target.value})}
-                 type="email" placeholder="Enter your email" autoComplete="off" required/>
+            <div className="min-w-[200px] w-4/5 flex flex-col justify-center">
+              <label className="text-black ml-2" htmlFor="">Email</label>
+              <input className="w-full border border-white bg-white/30 focus:border-blue-700 focus:ring-1 focus:ring-sky-500 mt-1 h-[40px] px-2 rounded-md outline-none text-black
+                 bg-transparen " type="email" placeholder="Enter your email"
+                onChange={(e)=> setData({...data, email: e.target.value})} required/>
             </div>
-            <div className="w-full flex items-center justify-center">
-              <TextField className="mt-4 "
-              size="small" sx={{marginTop: 2, width: '100%', maxWidth: 350}}
-               name='email' placeholder="Enter your passoward"
-              id="standard-password-input" variant="outlined"
-               label="Password" type={values.showPassword ? "text" : "password"}
-                onChange={handlePasswordChange("password")}
-                value={values.password} required />
+            <div className="min-w-[200px] w-4/5 flex mt-4 flex-col justify-center">
+              <label className="text-black ml-2" htmlFor="">Password</label>
+              <input className="w-full border border-white bg-white/30 focus:border-blue-700 focus:ring-1 focus:ring-sky-500 mt-1 h-[40px] px-2 rounded-md outline-none text-black
+                 bg-transparen "  placeholder="Enter your passoward"
+                 type={values.showPassword ? "text" : "password"}
+                 onChange={handlePasswordChange("password")}
+                 value={values.password} required/>
             </div>
-            <div className="label">
-            <Checkbox {...label} onClick={handleShowPassword}
+            <div className="min-w-[200px] w-4/5 flex mt-2 items-center">
+              <Checkbox {...label} onClick={handleShowPassword}
                 onMouseDown={handleMouseDownPassword} type="checkbox" />
               <label className='text-black'>Show password</label>
             </div>
             <p className="text-center mt-2 text-yellow-600">{status}</p>
-            <div className={`${progress?"bg-blue-200 cursor-not-allowed":"bg-blue-600"} mt-2 p-2 px-5 flex cursor-pointer`}>
+            <div className={`${progress?"bg-blue-200 cursor-not-allowed":"bg-blue-600"} rounded-md mt-2 p-2 px-5 flex w-4/5 cursor-pointer`}>
               {/* {progress? <CircularProgress /> :( */}
-              <input className="cursor-pointer" type='submit' value='Login' />
+              <input className="cursor-pointer w-full" type='submit' value='Login' />
               {/* )} */}
             </div>
             <div className="text-black mt-2">
               <a href="./">Forgot your password?</a>
             </div>
-            <div className="flex mt-2 w-full text-black items-center justify-center">
+            <div className="flex my-2 w-full text-black items-center justify-center">
               <p>Don't have an account?</p>
               <Link to='/signup' className='text-blue-600 ml-2'>Sign Up</Link>
             </div>

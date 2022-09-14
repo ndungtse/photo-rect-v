@@ -18,7 +18,7 @@ function Messages() {
   
   return (
       <div onClick={()=> setMobile(false)} 
-      className={`w-full flex h-screen ${isDark?'bg-[#0a0520] dark-theme text-white':'bg-white'} overflow-hidden`}>
+      className={`w-full flex h-screen ${isDark?'bg-[#0a0520] dark-theme text-white':'bg-[#edf1f8]'} overflow-hidden`}>
         <Nav active={`messages`} />
         <div className="flex w-full">
           <Unified roomId={roomId} setLinear={setLinear} />
