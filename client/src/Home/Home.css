@@ -71,7 +71,7 @@ body{
 }
 .main-side{
     top: 0;
-    width: 95%;
+    width: 100%;
     z-index: 10;
     display:flex;
     background-color: var(--ligth-color);

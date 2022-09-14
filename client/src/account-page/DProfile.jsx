@@ -8,6 +8,7 @@ import Post from '../Home/Post';
 import { useParams } from 'react-router-dom';
 import { useApp } from '../contexts/AppContext';
 import { follow, unfollow } from '../Login';
+import TopBar from '../Home/TopBar';
 
 function DProfile() {
     const auth = useAuth()
@@ -80,7 +81,9 @@ function DProfile() {
 
     return (
         <>{user !== null &&(
-        <Prof className={`Profile overflow-hidden ${isDark && 'text-white bg-[#0a0520]'} w-[100%] flex h-screen`}>
+        <Prof className={`Profile overflow-hidden ${isDark && 'text-white bg-[#0a0520]'} w-[100%] flex flex-col h-screen`}>
+             <TopBar />
+           <div className="flex w-full">
             <Nav className='' active={`profile`} />
             <Main className={`w-full bg-slate-100 flex ${isDark && 'text-white bg-[#0a0520]'} p-4 overflow-auto`}>
                 <div className='w-full flex flex-col mx-auto items-center max-w-[900px]'>
@@ -140,6 +143,7 @@ function DProfile() {
                      </div>
                 </div>    
             </Main>
+            </div>
         </Prof>
             )}
         </>

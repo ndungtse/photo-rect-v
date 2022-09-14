@@ -24,12 +24,12 @@ function Nav({active}) {
   return (
     <>
      <BiMenu onClick={()=> setMobile(!mobile)} 
-     className='absolute tab:hidden z-30 text-xl top-1 left-1 cursor-pointer' />
+     className='absolute tab:hidden z-30 text-xl top-5 left-1 cursor-pointer' />
     <div className={` left-[-500px] z-[19] absolute tab:static tab:left-0 ${mobile && 'leftzero'}
-      duration-500 sidebar h-screen py-8 shadow-inner flex flex-col justify-between ${isDark?'bg-[#08021d]':'bg-slate-100/50 border-r-2'}`}>
-      <h1 className={`text-xl flex justify-center w-full font-bold ${isDark?'text-slate-100':'text-black'}`}>
+      duration-500 h-[95vh] py-8 shadow-inner flex flex-col justify-between ${isDark?'bg-[#08021d]':'bg-[#eff3f9] border-r-2'}`}>
+      {/* <h1 className={`text-xl flex justify-center w-full font-bold ${isDark?'text-slate-100':'text-black'}`}>
         <p>Photo</p> <span className="text-[#3a73ed]">Corner</span>
-      </h1>
+      </h1> */}
       <div className={`flex flex-col w-full items-center px-0 ${isDark?'text-slate-100':'text-black'}`}>
         <Link onClick={()=> setMobile(false)} to='/'
          className={`${active==='home' && 'text-blue-500 border-l-[3px] border-blue-700'}

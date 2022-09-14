@@ -4,7 +4,7 @@ import { FaFacebookMessenger } from 'react-icons/fa';
 import { useParams, Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import Nav from '../Home/Nav';
-import Stories from '../Home/stories';
+import Stories from '../Home/TopBar';
 import { useUsers } from '../Messages/contexts/userContext';
 
 const Search = () => {

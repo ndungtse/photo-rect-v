@@ -72,7 +72,7 @@ function Chat({user, mate, after, roomId, setAfter}) {
       <div className="w-full flex justify-center text-sm items-center mt-6">
         <p>Today 12:05 am</p>
       </div>
-      <ScrollToBottom className="mt-6 flex text-white flex-col items-center justify-end h-[74vh] ref overflow-auto">
+      <ScrollToBottom className="mt-6 flex text-white flex-col items-center justify-end h-[60vh] ref overflow-auto">
         {messages.map((rel) => (
           <OneMessage key={rel._id} rel={rel} ready={ready} user={user} />
         ))}

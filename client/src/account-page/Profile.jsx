@@ -11,6 +11,7 @@ import Drop from './Drop';
 import { useUsers } from '../Messages/contexts/userContext';
 import { useApp } from '../contexts/AppContext';
 import UpdateCover from './updateCover';
+import TopBar from '../Home/TopBar';
 
 function Profile() {
     const { user } = useAuth()
@@ -47,7 +48,9 @@ function Profile() {
 
     return (
         <Prof onClick={()=> setMobile(false)}
-        className={`Profile ${isDark && 'text-white bg-[#0a0520]'} overflow-hidden w-[100%] flex h-screen`}>
+        className={`Profile ${isDark && 'text-white bg-[#0a0520]'} overflow-hidden w-[100%] flex flex-col h-screen`}>
+            <TopBar />
+           <div className="flex w-full">
             <Nav className='' active={`profile`} />
             <Main className={`w-full flex p-4 pb-1 h-screen ${isDark?'text-white bg-[#0a0520]':'bg-slate-100'}  overflow-auto`}>
                 <div className='w-full flex h-full flex-col  mx-auto items-center  max-w-[900px]'>
@@ -117,6 +120,7 @@ function Profile() {
                      </div>
                 </div>    
             </Main>
+            </div> 
         </Prof>
     );
 }
