@@ -5,13 +5,16 @@ import Sleft from './settings/sleft';
 import deleteUtils from './settings/deleteAccount';
 import { BiToggleLeft, BiToggleRight } from 'react-icons/bi';
 import { useApp } from './contexts/AppContext';
+import TopBar from './Home/TopBar';
 
 const Settings = () => {
   const [showDel, setShowDel] = useState(false);
   const { isDark, toggleDark } = useApp();
  
   return (
-    <div className={`settings w-full flex ${isDark&&'dark-theme'}`}>
+    <div className={`settings w-full flex flex-col ${isDark&&'dark-theme'}`}>
+      <TopBar />
+			<div className="flex w-full">
       <Nav active={`settings`} />
       {showDel ? <Delete setShowDel={setShowDel} /> : null}
       <div className='w-[95%]'>
@@ -22,6 +25,7 @@ const Settings = () => {
               <li>Prefferences: </li>
               <div className='p-cont flex items-center set-view px-4'>
                 <p>Dark mode:</p>
+                
                 <div className='flex items-center pl-7'>
                   <div className='flex items-center pl-7'>
                   <label>Off</label>
@@ -49,6 +53,7 @@ const Settings = () => {
         </div>
         <p className='text-center pt-2'>©️ 2022 Photo Corner. All rights reserved</p>
         
+      </div>
       </div>
     </div>
   )

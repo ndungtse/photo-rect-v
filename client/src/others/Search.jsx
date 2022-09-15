@@ -4,6 +4,7 @@ import { FaFacebookMessenger } from 'react-icons/fa';
 import { useParams, Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import Nav from '../Home/Nav';
+import TopBar from '../Home/TopBar';
 import Stories from '../Home/TopBar';
 import { useUsers } from '../Messages/contexts/userContext';
 
@@ -28,7 +29,9 @@ const Search = () => {
   // }
 
   return (
-    <div className='main-container w-full fixed h-screen overflow-hidden'>
+    <div className='main-container flex flex-col w-full fixed h-screen overflow-hidden'>
+      <TopBar />
+			<div className="flex w-full">
         <Nav active={`home`} />
         <div className="main w-full h-screen">
           {/* <div className='w-full h-[13vh] flex justify-between' style={{ backgroundColor: 'var(--ligth-color)', borderBottom: '1px solid hsla(0, 0%, 77%, 0.781)'}}> */}
@@ -52,6 +55,7 @@ const Search = () => {
                     </div>
                 </div>
             </div>
+        </div>
         </div>
       </div>
   )

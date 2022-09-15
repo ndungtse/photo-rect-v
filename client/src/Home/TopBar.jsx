@@ -26,14 +26,14 @@ function TopBar() {
   }
   return (
     <div className='stories py-2 sticky flex items-center justify-between w-full top-0'>
-      <div className='w-2/3 flex  items-center pl-5'>
+      <div className='tablet:w-2/3 w-full flex  items-center justify-between pl-8'>
         <div className="flex items-center">
         <img className='w-[40px]' src={logo} alt="" />
-        <h1 className={`text-xl ml-2 flex justify-center w-full font-bold ${isDark?'text-slate-100':'text-black'}`}>
+        <h1 className={`text-xl ml-2 hidden five:flex justify-center w-full font-bold ${isDark?'text-slate-100':'text-black'}`}>
           <p>Photo</p> <span className="text-[#3a73ed]">Corner</span>
         </h1>
         </div>
-      <form onSubmit={handleSearch} className={`flex scale-75 w-1/3 min-w-[300px] text-xl h-[45px] items-center p-2 mr-6 rounded-lg
+      <form onSubmit={handleSearch} className={`flex scale-75 five:w-[1/3] w-4/5 min-w-[200px] text-xl h-[45px] items-center p-2 rounded-lg
        border-2 border-blue-700 my-auto ${reverse?"flex-row-reverse":"flex-row"} bg-slate-200`}>
         <label htmlFor="sub"><BiSearch className="text-2xl cursor-pointer" /></label>
         <input className='outline-none w-full bg-transparent px-2'
