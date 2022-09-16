@@ -12,12 +12,12 @@ const Settings = () => {
   const { isDark, toggleDark } = useApp();
  
   return (
-    <div className={`settings w-full flex flex-col ${isDark&&'dark-theme'}`}>
+    <div className={`settings w-full overflow-hidden h-screen flex flex-col ${isDark&&'dark-theme'}`}>
       <TopBar />
 			<div className="flex w-full">
       <Nav active={`settings`} />
       {showDel ? <Delete setShowDel={setShowDel} /> : null}
-      <div className='w-[95%]'>
+      <div className='w-full overflow-hidden'>
         <h1 className='text-center'>Settings</h1>
         <div className='flex set-cont'>
           <div className='s-left flex flex-col w-[50%]'>

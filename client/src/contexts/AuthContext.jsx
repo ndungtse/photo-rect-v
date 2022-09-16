@@ -1,56 +1,63 @@
-import React from 'react'
-import jwtdecode from 'jwt-decode'
-import { deleteAllCookies, getCookie } from './RequireAuth';
+import React from "react";
+import jwtdecode from "jwt-decode";
+import { deleteAllCookies, getCookie } from "./RequireAuth";
 
 let AuthContext = React.createContext();
 
 export const useAuth = () => {
-    return React.useContext(AuthContext);
-  }
+	return React.useContext(AuthContext);
+};
 
 export default function AuthProvider({ children }) {
-  let [user, setUser] = React.useState(undefined);
+	let [user, setUser] = React.useState(undefined);
 
-  const decodeToken = async()=> {
-    const token =  getCookie('token');
-    if (token) {
-      try{
-        const userDetails = await jwtdecode(token);
-        console.log(userDetails);
-        const userd = await getUserById(userDetails.userid);
-       return setUser(userd);
-      }
-      catch(err){
-        console.log(err);
-       return setUser(null);
-      }
-    }
-    return setUser(null);
-  }
-  React.useEffect(() => {
-    decodeToken();
-  }, [])
+	const decodeToken = async () => {
+		const token = getCookie("token");
+		if (token) {
+			try {
+				const userDetails = await jwtdecode(token);
+				console.log(userDetails);
+				const userd = await getUserById(userDetails.userid);
+				return setUser(userd);
+			} catch (err) {
+				console.log(err);
+				return setUser(null);
+			}
+		}
+		return setUser(null);
+	};
+	React.useEffect(() => {
+		decodeToken();
+	}, []);
 
+	let value = { user, setUser };
 
-  let value = { user , setUser};
-
-  return (
-    <>{user!==undefined&&(
-    <AuthContext.Provider value={value}>
-      {children}
-    </AuthContext.Provider>
-     )}</>
-  );
+	return (
+		<>
+			{user !== undefined && (
+				<AuthContext.Provider value={value}>{children}</AuthContext.Provider>
+			)}
+		</>
+	);
 }
 
 export const getUserById = async (id) => {
-  const res = await fetch(`https://photocorner33.herokuapp.com/user/getUserByID/${id}`,{
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      authorization: "Bearer " + getCookie("token"),
-    }
-  });
-  const data = await res.json();
-  return data.user;
-}
+	try {
+		const res = await fetch(
+			`https://photocorner33.herokuapp.com/user/getUserByID/${id}`,
+			{
+				method: "GET",
+				headers: {
+					"Content-Type": "application/json",
+					authorization: "Bearer " + getCookie("token"),
+				},
+			}
+		);
+    if(res.status !== 200) return null;
+		const data = await res.json();
+		return data.user;
+	} catch (error) {
+    console.log(error);
+    return null
+  }
+};
