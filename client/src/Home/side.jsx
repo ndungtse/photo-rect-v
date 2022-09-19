@@ -6,7 +6,7 @@ import { follow, unfollow } from '../Login';
 import { useUsers } from '../Messages/contexts/userContext';
 
 const Side = () => {
-  const { suggested } = useUsers();
+  const { suggested, getSuggestedUsers } = useUsers();
   const { user } = useAuth();
   const [users, setUsers] = React.useState([]);
   const {  isDark, following } = useApp()
@@ -22,6 +22,10 @@ const Side = () => {
     console.log(newusers);
     setUsers(newusers)
   }
+
+  useEffect(() => {
+    getSuggestedUsers();
+   }, []);
 
   useEffect(() => {
     handleSuggested()

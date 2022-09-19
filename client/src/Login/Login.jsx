@@ -1,13 +1,10 @@
 import logo from "../Home/Images/logo.png"
-import TextField from '@mui/material/TextField';
 import React, { useState } from 'react';
 import { Form, Body, Main, Logo } from './../SignUp/signupcss'
 import './../SignUp/signup.css'
-import Utils from '../utils';
 import Checkbox from '@mui/material/Checkbox';
 import { Link } from 'react-router-dom';
 import { setCookie } from '../contexts/RequireAuth';
-import { CircularProgress } from '@mui/material';
 
 const Login = () => {
   const label = { inputProps: { 'aria-label': 'Checkbox demo' } };

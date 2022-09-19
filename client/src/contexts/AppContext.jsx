@@ -1,5 +1,6 @@
 import React from "react";
 import { useContext } from "react";
+import { useAuth } from "./AuthContext";
 import { getCookie } from "./RequireAuth";
 
 const AppContext = React.createContext();
@@ -9,6 +10,7 @@ export const useApp = () => useContext(AppContext);
 const AppProvider = ({ children }) => {
 	const [isDark, setIsDark] = React.useState(null);
 	const [following, setFollowing] = React.useState([]);
+	const { user } = useAuth()
 
 	const toggleDark = () => setIsDark(!isDark);
 
@@ -45,7 +47,7 @@ const AppProvider = ({ children }) => {
 
 	React.useEffect(() => {
 		getSavedTheme();
-		getFollowingData();
+		if(user) getFollowingData();
 	}, []);
 
 	React.useEffect(() => {

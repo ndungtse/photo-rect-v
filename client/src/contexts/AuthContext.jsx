@@ -1,6 +1,7 @@
 import React from "react";
 import jwtdecode from "jwt-decode";
 import { deleteAllCookies, getCookie } from "./RequireAuth";
+import AnimatedLogo from "../others/AnimatedLogo";
 
 let AuthContext = React.createContext();
 
@@ -34,7 +35,7 @@ export default function AuthProvider({ children }) {
 
 	return (
 		<>
-			{user !== undefined && (
+			{user === undefined ? <AnimatedLogo /> : (
 				<AuthContext.Provider value={value}>{children}</AuthContext.Provider>
 			)}
 		</>

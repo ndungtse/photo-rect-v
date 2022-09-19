@@ -27,7 +27,9 @@ export function MessageProvider({ children }) {
 	};
 
 	const getRelMessages = async (room) => {
-		const res = await fetch(`https://zamuka.herokuapp.com/hidden/messages/room/${room}`);
+		const res = await fetch(
+			`https://zamuka.herokuapp.com/hidden/messages/room/${room}`
+		);
 		const messages = await res.json();
 		setRelMessages(messages);
 	};
@@ -43,19 +45,19 @@ export function MessageProvider({ children }) {
 	};
 
 	useEffect(() => {
-    console.log(mate);
+		console.log(mate);
 		if (room !== "") {
-      console.log("hello");
+			console.log("hello");
 			const muser = room.replace(user._id, "");
-      console.log(muser);
-      setMate(muser)
+			console.log(muser);
+			setMate(muser);
 		}
 	}, [room]);
 
 	useEffect(() => {
-    if(mate !==''){
-		getRelMessages(room);
-  }
+		if (mate !== "") {
+			getRelMessages(room);
+		}
 	}, [mate, room]);
 
 	return (

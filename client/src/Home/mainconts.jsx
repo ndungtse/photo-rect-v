@@ -16,7 +16,7 @@ function Mainconts() {
 	const [showPostForm, setShowPostForm] = useState(false);
 
 	useEffect(() => {
-		getPosts();
+		if(posts.length === 0) getPosts();
 	}, []);
 
 	return (

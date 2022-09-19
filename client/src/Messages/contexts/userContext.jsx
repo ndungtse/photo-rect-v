@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import { getUserById } from "../../contexts/AuthContext";
+import { getUserById, useAuth } from "../../contexts/AuthContext";
 import { getCookie } from "../../contexts/RequireAuth";
 
 const UsersContext = React.createContext();
@@ -15,7 +15,6 @@ export function UserProvider({ children }) {
   const [mobile, setMobile] = useState(false);
 
   const mobileHandler = () => {
-    console.log(mobile, setMobile);
     setMobile(true);
   }
 
@@ -78,19 +77,15 @@ export function UserProvider({ children }) {
   }
 
   useEffect(() => {
-    getUsers();
-  }, []);
-
- useEffect(() => {
-    getSuggestedUsers();
+     getUsers();
   }, []);
 
   useEffect(() => {
-    getUsers();
+     getUsers();
   }, []);
 
   return (
-    <UsersContext.Provider value={{ users, setUsers, mobile, setMobile, 
+    <UsersContext.Provider value={{ users, setUsers, mobile, setMobile, getSuggestedUsers,
     isLoggedIn, setIsLoggedIn, suggested, updatePhoto, mobileHandler, updateCoverPhoto}}>
         {children}
     </UsersContext.Provider>

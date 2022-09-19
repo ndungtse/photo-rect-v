@@ -22,13 +22,14 @@ function Chat({user, mate, after, roomId, setAfter}) {
     }, [socket, start]);
 
     const getMate = async () => {
+      console.log(mate);
       const mat = await getUserById(mate);
       setMuser(mat);
       setReady(true);
     }
 
     useEffect(() => {
-     getMate();
+     if(mate !== "") getMate();
      const mes = relMessages.reverse();
      setMessages(mes);
     }, [relMessages]);
@@ -47,7 +48,7 @@ function Chat({user, mate, after, roomId, setAfter}) {
        tablet:px-4 py-2 shadow-md shadow-sky-200 pt-5 tablet:pt-2 w-full h-screen overflow-auto`}>
       {!after?<PreMessage />:(
         <>
-      {relMessages !== null &&(
+      {relMessages !== null && mate !== "" &&(
         <>
         <Link to={`/messages`}>
         <BiArrowBack
