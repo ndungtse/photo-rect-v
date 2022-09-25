@@ -24,7 +24,7 @@ function Mainconts() {
 		<div className="flex">
 			{showPostForm ? <PostForm  setShowPostForm={setShowPostForm} /> : null}
 			<div className="w-full h-[91vh] overflow-auto flex flex-col items-center">
-					<div className="flex items-center w-2/3 max-w[400px] mt-4 min-w-[200px]">
+					<div className="flex items-center w-2/3 max-w[300px] mt-4 min-w-[200px]">
 						<Link to={`/profile`} className="flex items-center">
         					<div className="flex overflow-hidden w-[40px] h-[40px] rounded-full">
         					  <img className="min-w-full min-h-full object-cover"
