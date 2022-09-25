@@ -128,7 +128,7 @@ const Post = ({item}) => {
 					<div className="w-full flex flex-wrap items-start">
 					  <p className="my-1">{postData.caption}</p>
 					</div>
-					<div className={` aspect-square h-full max-h-[40vh] flex items-center justify-center bg-transparent border-[1px] ${isDark && 'border-[#0a061c]'}`}>
+					<div className={` aspect-square h-full max-h-[60vh] flex items-center justify-center bg-transparent border-[1px] ${isDark && 'border-[#0a061c]'}`}>
 						<img className="max-w-full pointer-events-none h-full"  src={postData.image_url} alt="" />
 					</div>
 				</div>

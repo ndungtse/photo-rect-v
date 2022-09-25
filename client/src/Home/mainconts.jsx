@@ -1,19 +1,20 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
 import LoadingButton from '@mui/lab/LoadingButton';
-import SaveIcon from '@mui/icons-material/Save';
 import React, { useState, useEffect } from "react";
 import "./Home.css";
 import Side from "./side";
-import { useDropzone } from 'react-dropzone';
 import Post from "./Post";
 import { usePosts } from "../contexts/PostContext";
 import { BiImageAdd, BiPhotoAlbum, BiX } from "react-icons/bi";
 import { useApp } from '../contexts/AppContext';
+import { useAuth } from '../contexts/AuthContext';
+import { Link } from 'react-router-dom';
 
 function Mainconts() {
 	const { posts, getPosts } = usePosts();
-	const [showPostForm, setShowPostForm] = useState(false);
+	const [showPostForm, setShowPostForm] = useState(false)
+	const { user } = useAuth();
 
 	useEffect(() => {
 		if(posts.length === 0) getPosts();
@@ -23,9 +24,15 @@ function Mainconts() {
 		<div className="flex">
 			{showPostForm ? <PostForm  setShowPostForm={setShowPostForm} /> : null}
 			<div className="w-full h-[91vh] overflow-auto flex flex-col items-center">
-					<div className="">
-						<button onClick={()=> setShowPostForm(true)} className="text-white bg-blue-700 px-4 py-2
-						cursor-pointer mt-4">Add New Post</button>
+					<div className="flex items-center w-2/3 max-w[400px] mt-4 min-w-[200px]">
+						<Link to={`/profile`} className="flex items-center">
+        					<div className="flex overflow-hidden w-[40px] h-[40px] rounded-full">
+        					  <img className="min-w-full min-h-full object-cover"
+        					   src={user.profile} alt="" />
+        					</div>  
+      					</Link>
+						<button onClick={()=> setShowPostForm(true)} className="text-whi ml-1 border-2 border-gray-500/50 w-full text-start rounded-3xl bg-slate-300 hover:bg-slate-400 px-4 py-2
+						cursor-pointer">{user.username}, Click to Add New Post</button>
 					</div>
 					<>
 						<div className="w-full flex flex-col items-center">

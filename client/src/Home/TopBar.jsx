@@ -35,7 +35,7 @@ function TopBar() {
         </div>
       <form onSubmit={handleSearch} className={`flex scale-75 five:w-[1/3] w-4/5 min-w-[200px] text-xl h-[45px] items-center p-2 rounded-lg
        border-2 border-blue-700 my-auto ${reverse?"flex-row-reverse":"flex-row"} bg-slate-200`}>
-        <label htmlFor="sub"><BiSearch className="text-2xl cursor-pointer" /></label>
+        <label htmlFor="sub"><BiSearch className="text-2xl text-black cursor-pointer" /></label>
         <input className='outline-none w-full bg-transparent px-2'
          onChange={handleSearchChange} type="text" placeholder='Search...' />
          <input className='hidden' type="submit" value="" />

@@ -12,10 +12,18 @@ import TopBar from "../Home/TopBar";
 
 function Messages() {
 	const { roomId } = useParams();
-	const { mate } = useMessage();
+	const { mate, setMate, setRoom, setRoom1 } = useMessage();
 	const { setMobile } = useUsers();
 	const [linear, setLinear] = useState(false);
 	const { isDark } = useApp();
+	
+	useEffect(() => {
+		return () => {
+			setMate("");
+			setRoom("");
+			setRoom1("");
+		};
+	}, []);
 
 	return (
 		<div
