@@ -52,7 +52,7 @@ function Profile() {
             <TopBar />
            <div className="flex w-full">
             <Nav className='' active={`profile`} />
-            <Main className={`w-full flex p-4 pb-1 h-screen ${isDark?'text-white bg-[#0a0520]':'bg-slate-100'}  overflow-auto`}>
+            <Main className={`w-full flex py-4 tab:px-4 mobile:px-1 pb-1 h-screen ${isDark?'text-white bg-[#0a0520]':'bg-slate-100'}  overflow-auto`}>
                 <div className='w-full flex h-full flex-col  mx-auto items-center  max-w-[900px]'>
                     <div className="w-full relative h-[30vh] overflow-hidden">
                         <img className="object-cover min-w-full min-h-full"

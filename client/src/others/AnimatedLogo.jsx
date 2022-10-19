@@ -13,8 +13,6 @@ const AnimatedLogo = () => {
 				<img onLoad={() => {
                         const img = imgRef.current
                         const text = textRef.current
-                        console.log(img.style, text.style);
-                        
                         img.style.translate = "0px"
                         text.style.translate = "0px"
                         text.style.opacity = 1

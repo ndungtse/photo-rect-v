@@ -47,7 +47,7 @@ function Recent({roomId, setAfter, setLinear}) {
           />
         </label>
       </div>
-      <div className="w-full flex flex-col overflow-auto">
+      <div className="w-full flex flex-col overflow-auto h-[78vh]">
       {recentChats.map((use, index) => (
         <RecentChatLists use={use} key={use._id} handleStart={handleStart} />
       ))}

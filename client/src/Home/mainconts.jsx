@@ -23,16 +23,16 @@ function Mainconts() {
 	return (
 		<div className="flex">
 			{showPostForm ? <PostForm  setShowPostForm={setShowPostForm} /> : null}
-			<div className="w-full h-[91vh] overflow-auto flex flex-col items-center">
-					<div className="flex items-center w-2/3 max-w[400px] mt-4 min-w-[200px]">
+			<div className="w-full h-[91vh] overflow-auto flex flex-col items-center ">
+					<div className="flex items-center mobile:w-2/3 w-4/5  max-w-[600px] mx-auto justify-center mt-4 min-w-[150px]">
 						<Link to={`/profile`} className="flex items-center">
         					<div className="flex overflow-hidden w-[40px] h-[40px] rounded-full">
         					  <img className="min-w-full min-h-full object-cover"
         					   src={user.profile} alt="" />
         					</div>  
       					</Link>
-						<button onClick={()=> setShowPostForm(true)} className="text-whi ml-1 border-2 border-gray-500/50 w-full text-start rounded-3xl bg-slate-300 hover:bg-slate-400 px-4 py-2
-						cursor-pointer">{user.username}, Click to Add New Post</button>
+						<button onClick={()=> setShowPostForm(true)} className="text-whi ml-1 border-2 truncate border-gray-500/50 w-10/12 text-start rounded-3xl bg-slate-300 hover:bg-slate-400 px-4 py-2
+						cursor-pointer">{user.username}, Create a New Post</button>
 					</div>
 					<>
 						<div className="w-full flex flex-col items-center">
@@ -80,11 +80,11 @@ const PostForm = ({setShowPostForm}) =>{
 	}
 
 	return(
-		<div className="w-full top-0 left-0 z-[10] absolute bg-black/70 
+		<div className="w-full top-0 left-0 z-[20] absolute bg-black/70 
 		flex flex-col items-center justify-center h-screen">
 			<div onClick={()=> setShowPostForm(false)}
-			 className="w-full h-screen absolute top-0 left-0 z-[15]"></div>
-			<div className={`flex z-20 flex-col relative w-1/3 rounded-xl p-4 min-w-[300px] bg-white ${isDark && 'text-white bg-[#0a0520]'}`}>
+			 className="w-full h-screen absolute top-0 left-0 z-[25]"></div>
+			<div className={`flex z-30 flex-col relative w-1/3 rounded-xl p-4 min-w-[300px] bg-white ${isDark && 'text-white bg-[#0a0520]'}`}>
 				
 					<BiX onClick={()=> setShowPostForm(false)} 
 					 className="text-4xl absolute top-1 hover:text-red-600 cursor-pointer right-3" />

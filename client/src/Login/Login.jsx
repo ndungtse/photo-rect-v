@@ -43,20 +43,21 @@ const Login = () => {
     }).then(res => res.json())
         .then(data => {
             console.log(data)
-            setStatus(data.message)
             if(data.message === "Can continue"){
-                // localStorage.setItem('token',JSON.stringify(data.token))
-                setCookie('token', data.token, 3)
-                window.location.href="/"
+              // localStorage.setItem('token',JSON.stringify(data.token))
+              setCookie('token', data.token, 3)
+              window.location.href="/"
             }
             else if(data.message === "No token generated try logging in again"){
+                setStatus(data.message)
                 setProgress(false);
             }
             else if(data.message === "Wrong login info"){
+                setStatus(data.message);
                 setProgress(false);
-            }else{
-              setProgress(false);
-            }
+              }else{
+                setProgress(false);
+              }
             
         })
 }

@@ -105,7 +105,7 @@ const Post = ({item}) => {
 
 	return (
 		<>{user !== undefined && (
-		<div key={postData._id} className={`w-[90%] mobile:w-[70%] xtab:w-[60%]  items-center mt-6 ${isDark && 'text-white'}`}>
+		<div key={postData._id} className={`w-[98%] mobile:w-[70%] xtab:w-[60%]  items-center mt-6 ${isDark && 'text-white'}`}>
 			{showComments && (<CommentsBox setShowComments={setShowComments} comments={comments} getComments={getComments} user={user} />)}
 			<div className="postcard px-4 flex flex-col justify-between rounded-sm shadow-sm py-[1%] border-[1px] aspect-[9/10]">
 				<div className="flex items-center justify-between">

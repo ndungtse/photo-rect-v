@@ -20,7 +20,7 @@ const Side = () => {
       }
     }).filter(use => use.isFollowing === undefined)
     console.log(newusers);
-    setUsers(newusers)
+    setUsers(newusers.slice(0, 5))
   }
 
   useEffect(() => {
