@@ -1,128 +1,145 @@
-import React, {useState} from 'react';
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import './Home.css';
-import '../App.css'
-import 'boxicons';
-import { BiMessageRoundedDots,BiUser, BiHome, BiGroup, BiCog, BiDoorOpen, BiLogOut, BiMenu, } from 'react-icons/bi'
-import { deleteAllCookies } from '../contexts/RequireAuth';
-import { useAuth } from '../contexts/AuthContext';
-import { useApp } from '../contexts/AppContext';
+import "./Home.css";
+import "../App.css";
+import "boxicons";
+import {
+	BiMessageRoundedDots,
+	BiUser,
+	BiHome,
+	BiGroup,
+	BiCog,
+	BiDoorOpen,
+	BiLogOut,
+	BiMenu,
+} from "react-icons/bi";
+import { deleteAllCookies } from "../contexts/RequireAuth";
+import { useAuth } from "../contexts/AuthContext";
+import { useApp } from "../contexts/AppContext";
+import { debounce } from "../utils";
 
-function Nav({active}) {
-  // const {mobile, setMobile, mobileHandler} = useUsers()
-  const [mobile, setMobile] = useState(false);
-  const { isDark } = useApp()
-  const navigate = useNavigate();
-  const { setUser } = useAuth()
+function Nav({ active }) {
+	const [width, setWidth] = useState(0);
+	const { isDark } = useApp();
+	const navigate = useNavigate();
+	const { setUser } = useAuth();
+	const [mobile, setMobile] = useState(false);
 
-  const handleLogout = () => {
-    setUser(null)
-    deleteAllCookies();
-    navigate('/login', { replace: true });
-  }
+	const handleLogout = () => {
+		setUser(null);
+		deleteAllCookies();
+		navigate("/login", { replace: true });
+	};
 
-  return (
+	const handleMobile = () => {
+		if (window.innerWidth < 640) {
+			setMobile(true);
+		} else {
+			setMobile(false);
+		}
+	};
+
+	useEffect(() => {
+		if (typeof window !== undefined) {
+			setWidth(window.innerWidth);
+			window.addEventListener("resize", () => {
+				setWidth(window.innerWidth);
+				console.log(width);
+				handleMobile()
+			});
+			handleMobile();
+		}
+	}, []);
+
+	return (
 		<>
-			<BiMenu
-				onClick={() => setMobile(!mobile)}
-				className={`absolute ${
-					isDark && "text-white"
-				} tab:hidden z-30 text-2xl top-5 left-1 cursor-pointer`}
-			/>
 			<div
-				onClick={() => setMobile(false)}
-				className={`absolute z-10 tab:hidden left-0 right-0 bottom-0 top-[8vh] flex ${
-					!mobile && "hidden"
-				}`}
-			></div>
-			<div
-				className={` left-[-500px] z-[19] absolute tab:static tab:left-0 ${
-					mobile && "leftzero"
-				}
-      duration-500 h-[92vh] py-4 shadow-inner flex flex-col justify-between ${
+				className={`z-[19] 
+      duration-500 tab:h-[92vh] tab:py-4 shadow-inner tab:w-fit w-full flex tab:flex-col justify-between ${
 				isDark
 					? "bg-[#08021d] border-r-2 border-r-slate-200/20"
 					: "bg-[#eff3f9] border-r-2 "
 			}`}
 			>
 				<div
-					className={`flex flex-col w-full items-center px-0 ${
+					className={`flex tab:flex-col w-full items-center px-0 ${
 						isDark ? "text-slate-100" : "text-black"
 					}`}
 				>
 					<Link
-						onClick={() => setMobile(false)}
+						style={{ width: mobile ? width / 5 : "100%" }}
 						to="/"
 						className={`${
 							active === "home" &&
-							"text-blue-500 border-l-[3px] border-blue-700"
+							"text-blue-500 tab:border-l-[3px] border-b-[3px border-blue-700"
 						}
-         flex cursor-pointer mt-3 mx-auto items-center w-full p-2 hover:text-blue-500`}
+         flex cursor-pointer tab:mt-3 mx-auto items-center tab:flex-row flex-col tab:flex-row flex-col tab:w-full p-2 hover:text-blue-500`}
 					>
 						<BiHome className="text-xl" />
-						<p className="ml-3">Home</p>
+						<p className="tab:ml-3 text-[0.7em] tab:text-base">Home</p>
 					</Link>
 					<Link
-						onClick={() => setMobile(false)}
+						style={{ width: mobile ? width / 5 : "100%" }}
 						to="/messages"
 						className={`${
 							active === "messages" &&
-							"text-blue-500 border-l-[3px] border-blue-700"
+							"text-blue-500 tab:border-l-[3px] border-b-[3px border-blue-700"
 						}
-        flex cursor-pointer mt-3 mx-auto items-center w-full p-2 hover:text-blue-500`}
+        flex cursor-pointer tab:mt-3 mx-auto items-center tab:flex-row flex-col tab:w-full p-2 hover:text-blue-500`}
 					>
 						<BiMessageRoundedDots className="text-xl" />
-						<p className="ml-3">Messages</p>
+						<p className="tab:ml-3 text-[0.7em] tab:text-base">Messages</p>
 					</Link>
 					<Link
-						onClick={() => setMobile(false)}
+						style={{ width: mobile ? width / 5 : "100%" }}
 						to="/profile"
 						className={`${
 							active === "profile" &&
-							"text-blue-500 border-l-[3px] border-blue-700"
+							"text-blue-500 tab:border-l-[3px] border-b-[3px border-blue-700"
 						}
-        flex cursor-pointer mt-3 mx-auto items-center w-full p-2 hover:text-blue-500`}
+        flex cursor-pointer tab:mt-3 mx-auto items-center tab:flex-row flex-col tab:w-full p-2 hover:text-blue-500`}
 					>
 						<BiUser className="text-xl" />
-						<p className="ml-3">Profile</p>
+						<p className="tab:ml-3 text-[0.7em] tab:text-base">Profile</p>
 					</Link>
 					<Link
-						onClick={() => setMobile(false)}
+						style={{ width: mobile ? width / 5 : "100%" }}
 						to=""
 						className={`${
 							active === "groups" &&
-							"text-blue-500 border-l-[3px] border-blue-700"
+							"text-blue-500 tab:border-l-[3px] border-b-[3px border-blue-700"
 						}
-          flex cursor-pointer mt-3 mx-auto items-center w-full p-2 hover:text-blue-500`}
+          flex cursor-pointer tab:mt-3 mx-auto items-center tab:flex hidden tab:flex-row flex-col tab:w-full p-2 hover:text-blue-500`}
 					>
 						<BiGroup className="text-xl" />
-						<p className="ml-3">Groups</p>
+						<p className="tab:ml-3 text-[0.7em] tab:text-base">Groups</p>
 					</Link>
 				</div>
 				<div
-					className={`flex flex-col w-full items-center px-3 ${
+					className={`flex tab:flex-col w-full items-center tab:px-3 ${
 						isDark ? "text-slate-100" : "text-black"
 					}`}
 				>
 					<Link
-						onClick={() => setMobile(false)}
+						style={{ width: mobile ? width / 5 : "100%" }}
 						to={`/settings`}
 						className={`${
 							active === "settings" &&
-							"text-blue-500 border-l-[3px] border-blue-700"
+							"text-blue-500 tab:border-l-[3px] border-b-[3px border-blue-700"
 						}
-          flex cursor-pointer mt-3 mx-auto items-center w-full p-2 hover:text-blue-500`}
+          flex cursor-pointer tab:mt-3 mx-auto items-center tab:flex-row flex-col tab:w-full p-2 hover:text-blue-500`}
 					>
 						<BiCog className="text-xl" />
-						<p className="ml-3">Settings</p>
+						<p className="tab:ml-3 text-[0.7em] tab:text-base">Settings</p>
 					</Link>
 					<div
+						style={{ width: mobile ? width / 5 : "100%" }}
 						onClick={handleLogout}
 						className={`
-          flex cursor-pointer mt-3 mx-auto items-center w-full p-2 hover:text-blue-500`}
+          flex cursor-pointer tab:mt-3 mx-auto items-center tab:flex-row flex-col tab:w-full p-2 hover:text-blue-500`}
 					>
 						<BiLogOut className="text-xl" />
-						<p className="ml-3">Logout</p>
+						<p className="tab:ml-3 text-[0.7em] tab:text-base">Logout</p>
 					</div>
 				</div>
 			</div>

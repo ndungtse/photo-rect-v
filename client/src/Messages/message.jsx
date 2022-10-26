@@ -33,9 +33,9 @@ function Messages() {
 			} overflow-hidden`}
 		>
 			<TopBar />
-			<div className="flex w-full">
+			<div className="flex w-full tab:flex-row flex-col-reverse">
 				<Nav active={`messages`} />
-				<div className="flex w-full">
+				<div className="flex w-full h-[86vh] tab:h-fit">
 					<Unified roomId={roomId} setLinear={setLinear} />
 				</div>
 			</div>

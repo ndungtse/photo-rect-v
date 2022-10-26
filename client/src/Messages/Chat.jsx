@@ -73,7 +73,7 @@ function Chat({user, mate, after, roomId, setAfter}) {
       <div className="w-full flex justify-center text-sm items-center mt-6">
         <p>Today 12:05 am</p>
       </div>
-      <ScrollToBottom className="mt-6 flex text-white flex-col items-center justify-end h-[65vh] ref overflow-auto">
+      <ScrollToBottom className="mt-6 flex text-white flex-col items-center justify-end tab:h-[61vh] tablet:h-[65vh] h-[56vh] ref overflow-auto">
         {messages.map((rel) => (
           <OneMessage key={rel._id} rel={rel} ready={ready} user={user} />
         ))}
@@ -123,7 +123,7 @@ function PreMessage(){
     <div className="mt-2 w-full  mx-auto px-4 py-2 
     h-[85vh] flex flex-col items-center justify-center">
       <BiMessageDots className='text-[670%] text-zinc-700' />
-      <p className="text-xl">Your Chat Messages will appear Here</p>
+      <p className="tab:text-xl text-center">Your Chat Messages will appear Here</p>
     </div>
   )
 }
