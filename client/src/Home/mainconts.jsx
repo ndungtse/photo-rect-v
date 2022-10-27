@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
 import LoadingButton from "@mui/lab/LoadingButton";
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
 import "./Home.css";
 import Side from "./side";
 import Post from "./Post";
@@ -18,9 +18,13 @@ function Mainconts() {
 
 	useMemo(() => {
 		if (posts.length === 0) {
-			console.log("fetching posts");
 			getPosts();
 		}
+	}, []);
+
+	useCallback(() => {
+		console.log("fetching posts");
+		getPosts()
 	}, []);
 
 	return (
@@ -100,19 +104,19 @@ const PostForm = ({ setShowPostForm }) => {
 				className="w-full h-screen absolute top-0 left-0 z-[25]"
 			></div>
 			<div
-				className={`flex z-30 flex-col relative w-1/3 rounded-xl p-4 min-w-[300px] bg-white ${
+				className={`flex z-30 flex-col relative mobile:w-2/3 w-11/12 max-w-[600px] rounded-xl p-4 bg-white ${
 					isDark && "text-white bg-[#0a0520]"
 				}`}
 			>
 				<BiX
 					onClick={() => setShowPostForm(false)}
-					className="text-4xl absolute top-1 hover:text-red-600 cursor-pointer right-3"
+					className="mobile:text-4xl text-2xl absolute top-1 hover:text-red-600 cursor-pointer right-3"
 				/>
-				<h2 className="text-center text-xl">Post Something</h2>
+				<h2 className="text-center mobile:text-xl">Post Something</h2>
 				<textarea
 					onChange={(e) => setCaption(e.target.value)}
 					className="border-2 h-[20vh] outline-none border-blue-500/70
-				  p-2 w-full bg-transparent "
+				  p-2 w-full bg-transparent"
 					placeholder="What's on your mind?"
 					maxLength={700}
 				></textarea>

@@ -10,6 +10,7 @@ export const usePosts = () => {
 
 export const PostProvider = ({ children }) => {
 	const [posts, setPosts] = useState([]);
+    const [userPosts, setUserPosts] = useState(null);
 	const { user } = useAuth()
 
 	const getPosts = async () => {
@@ -263,7 +264,7 @@ export const PostProvider = ({ children }) => {
 
 	return (
 		<PostContext.Provider value={{ posts, setPosts, getPosts, newPost, deletePost, deleteComment, commentOnPost, likePost, getAllPostDataById, getCommentsByPost,
-		 getLikesDataByPost,  getLikesCountByPost, unlikePost, updateCommentOnPost, updatePost, getPostsByFollowing}}>
+		 getLikesDataByPost,  getLikesCountByPost, unlikePost, updateCommentOnPost, updatePost, getPostsByFollowing, userPosts, setUserPosts}}>
 			{children}
 		</PostContext.Provider>
 	);

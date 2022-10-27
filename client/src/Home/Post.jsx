@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect, useMemo } from "react";
 import {
 	BiDotsHorizontalRounded,
 	BiCommentDots,
@@ -14,6 +14,7 @@ import { getUserById, useAuth } from "../contexts/AuthContext";
 import { usePosts } from "../contexts/PostContext";
 import CommentsBox from "../others/CommentsBox";
 import moment from "moment";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const Post = ({item}) => {
 	const data = useAuth();
@@ -78,7 +79,7 @@ const Post = ({item}) => {
 		setComment("");
 	}
 
-	React.useEffect(() => {
+	useMemo(() => {
 		posterImage(postData.user);
 	}, []);
 
@@ -101,7 +102,7 @@ const Post = ({item}) => {
 
 	useEffect(() => {
 		knowIfLiked();
-	} , [likesData]);
+	}, [likesData]);
 
 	return (
 		<>
@@ -123,7 +124,7 @@ const Post = ({item}) => {
 						<div className="flex items-center justify-between">
 							<Link to={`/profile/${user?._id}`} className="flex items-center">
 								<div className="w-[50px] rounded-full h-[50px] overflow-hidden">
-									<img
+									<LazyLoadImage
 										className="min-h-full min-w-full object-cover"
 										src={user?.profile}
 										alt=""
@@ -148,7 +149,7 @@ const Post = ({item}) => {
 									isDark && "border-[#0a061c]"
 								}`}
 							>
-								<img
+								<LazyLoadImage
 									className="max-w-full pointer-events-none h-full"
 									src={postData.image_url}
 									alt=""
@@ -186,11 +187,11 @@ const Post = ({item}) => {
 							<BiSmile className="text-2xl cursor-pointer" />
 							<textarea
 								onChange={(e) => setComment(e.target.value)}
-								className="bg-transparent h-[30px] outline-none px-2 w-full"
+								className="bg-transparent h-[30px] outline-none px-2 w-full max-h-[20vh] min-h-[4vh]"
 								type="text"
 								value={comment}
 								maxLength={255}
-								placeholder="Add a comment (max: 255)"
+								placeholder="Add a comment"
 							/>
 							<BiSend
 								onClick={handleComment}

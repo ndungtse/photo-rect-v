@@ -11,8 +11,8 @@ const CommentsBox = ({setShowComments, comments, getComments, user}) => {
 	}, []);
 
   return (
-    <div className="w-full top-0 left-0 z-[22] absolute bg-black/70 
-		flex flex-col items-center justify-center h-screen">
+    <div className="top-0 left-0 right-0 z-[22] fixed bg-black/70 
+		flex flex-col items-center justify-center bottom-0">
 			<div onClick={()=> setShowComments(false)}
 			 className="w-full h-screen absolute top-0 left-0 z-[25]"></div>
 			<div className="flex z-30 flex-col relative items-center w-2/3 max-w-[700px] rounded-xl p-4 min-w-[300px] bg-white">
