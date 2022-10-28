@@ -7,6 +7,7 @@ import Nav from "../Home/Nav";
 import TopBar from "../Home/TopBar";
 import Stories from "../Home/TopBar";
 import { useUsers } from "../Messages/contexts/userContext";
+import Layout from "./Layout";
 
 const Search = () => {
 	const { query } = useParams();
@@ -35,26 +36,20 @@ const Search = () => {
 	// }
 
 	return (
-		<div className="main-container flex flex-col w-full fixed h-screen overflow-hidden">
-			<TopBar />
-			<div className="flex w-full tab:flex-row flex-col-reverse">
-				<Nav active={`home`} />
-				<div className="main w-full tab:h-screen h-[86vh] ">
-					<div className="flex flex-col w-full p-4 items-center">
-						<div className="max-w-[800px] w-full p-2 border-[1px] border-slate-300">
-							<h2 className="text-center font-semibold text-xl">
-								Results For "{query}"
-							</h2>
-							<div>
-								{results.map((user, index) => (
-									<SearchResults user={user} key={index} />
-								))}
-							</div>
-						</div>
+		<Layout active={'home'}>
+			<div className="flex flex-col w-full p-4 items-center">
+				<div className="max-w-[800px] w-full p-2 border-[1px] border-slate-300">
+					<h2 className="text-center font-semibold text-xl">
+						Results For "{query}"
+					</h2>
+					<div>
+						{results.map((user, index) => (
+							<SearchResults user={user} key={index} />
+						))}
 					</div>
 				</div>
 			</div>
-		</div>
+		</Layout>
 	);
 };
 

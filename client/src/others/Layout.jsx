@@ -15,7 +15,7 @@ const Layout = ({ children, active }) => {
 			<TopBar />
 			<div
 				className={`main-side w-full tab:flex-row flex flex-col-reverse ${
-					isDark && "dark-theme"
+					isDark && "dark-theme text-white"
 				}`}
 			>
 				<Nav active={active} />

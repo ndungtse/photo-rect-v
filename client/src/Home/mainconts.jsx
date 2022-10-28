@@ -15,6 +15,7 @@ function Mainconts() {
 	const { posts, getPosts } = usePosts();
 	const [showPostForm, setShowPostForm] = useState(false);
 	const { user } = useAuth();
+	const { isDark } = useApp();
 
 	useMemo(() => {
 		if (posts.length === 0) {
@@ -43,8 +44,10 @@ function Mainconts() {
 					</Link>
 					<button
 						onClick={() => setShowPostForm(true)}
-						className="text-whi ml-1 border-2 truncate border-gray-500/50 w-10/12 text-start rounded-3xl bg-slate-300 hover:bg-slate-400 px-4 py-2
-						cursor-pointer"
+						className={`text-whi ml-1 border-2 truncate border-gray-500/50 w-10/12 text-start rounded-3xl ${
+							isDark ? "bg-[#08021d] hover:bg-slate-800" : "bg-slate-300 hover:bg-slate-400"
+						} px-4 py-2
+						cursor-pointer`}
 					>
 						{user.username}, Create a New Post
 					</button>
