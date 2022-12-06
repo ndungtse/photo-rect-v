@@ -28,7 +28,7 @@ export function MessageProvider({ children }) {
 
 	const getRelMessages = async (room) => {
 		const res = await fetch(
-			`https://zamuka.herokuapp.com/hidden/messages/room/${room}`
+			`https://zamuka.onrender.com/hidden/messages/room/${room}`
 		);
 		const messages = await res.json();
 		setRelMessages(messages);

@@ -28,6 +28,7 @@ export default function AuthProvider({ children }) {
 		return setUser(null);
 	};
 	React.useEffect(() => {
+		console.log('decoding');
 		decodeToken();
 	}, []);
 
@@ -35,7 +36,9 @@ export default function AuthProvider({ children }) {
 
 	return (
 		<>
-			{user === undefined ? <AnimatedLogo /> : (
+			{user === undefined ? (
+				<AnimatedLogo />
+			) : (
 				<AuthContext.Provider value={value}>{children}</AuthContext.Provider>
 			)}
 		</>
@@ -45,7 +48,7 @@ export default function AuthProvider({ children }) {
 export const getUserById = async (id) => {
 	try {
 		const res = await fetch(
-			`https://photocorner33.herokuapp.com/user/getUserByID/${id}`,
+			`https://photocorner33.onrender.com/user/getUserByID/${id}`,
 			{
 				method: "GET",
 				headers: {
@@ -54,11 +57,11 @@ export const getUserById = async (id) => {
 				},
 			}
 		);
-    if(res.status !== 200) return null;
+		if (res.status !== 200) return null;
 		const data = await res.json();
 		return data.user;
 	} catch (error) {
-    console.log(error);
-    return null
-  }
+		console.log(error);
+		return null;
+	}
 };

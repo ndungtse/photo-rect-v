@@ -33,33 +33,31 @@ const Login = () => {
   const onloginsubmit = e => {
     setProgress(true);
     e.preventDefault()
-    fetch("https://photocorner33.herokuapp.com/user/login", {
-        method: "POST",
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            email: data.email,
-            password: data.password
-        })
-    }).then(res => res.json())
-        .then(data => {
-            console.log(data)
-            if(data.message === "Can continue"){
-              // localStorage.setItem('token',JSON.stringify(data.token))
-              setCookie('token', data.token, 3)
-              window.location.href="/"
-            }
-            else if(data.message === "No token generated try logging in again"){
-                setStatus(data.message)
-                setProgress(false);
-            }
-            else if(data.message === "Wrong login info"){
-                setStatus(data.message);
-                setProgress(false);
-              }else{
-                setProgress(false);
-              }
-            
-        })
+    fetch("https://photocorner33.onrender.com/user/login", {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify({
+				email: data.email,
+				password: data.password,
+			}),
+		})
+			.then((res) => res.json())
+			.then((data) => {
+				console.log(data);
+				if (data.message === "Can continue") {
+					// localStorage.setItem('token',JSON.stringify(data.token))
+					setCookie("token", data.token, 3);
+					window.location.href = "/";
+				} else if (data.message === "No token generated try logging in again") {
+					setStatus(data.message);
+					setProgress(false);
+				} else if (data.message === "Wrong login info") {
+					setStatus(data.message);
+					setProgress(false);
+				} else {
+					setProgress(false);
+				}
+			});
 }
 
   return (

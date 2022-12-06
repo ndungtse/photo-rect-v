@@ -21,7 +21,7 @@ function Profile() {
 
     const getPosts = async () => {
 		const res = await fetch(
-			"https://photocorner33.herokuapp.com/post/getPostByPosterID/" + user._id,
+			"https://photocorner33.onrender.com/post/getPostByPosterID/" + user._id,
 			{
 				method: "GET",
 

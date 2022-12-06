@@ -31,7 +31,7 @@ function DProfile() {
 
 	const getPosts = async () => {
 		const res = await fetch(
-			`https://photocorner33.herokuapp.com/post/getPostByPosterID/${id}`,
+			`https://photocorner33.onrender.com/post/getPostByPosterID/${id}`,
 			{
 				method: "GET",
 

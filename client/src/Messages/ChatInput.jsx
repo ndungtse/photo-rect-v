@@ -2,7 +2,6 @@
 import React, {useState, useEffect} from 'react'
 import './mess.css'
 import { useMessage } from './contexts/messageContext'
-import { useUsers } from "./contexts/userContext";
 import { useAuth } from '../contexts/AuthContext';
 
 
@@ -34,13 +33,16 @@ function ChatInput() {
       console.log(messageData);
       await socket.emit("send_message", messageData);
       console.log(messageData);
-      const res = await fetch("https://zamuka.herokuapp.com/hidden/messages/newMessage", {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify(messageData),
-      });
+      const res = await fetch(
+				"https://zamuka.onrender.com/hidden/messages/newMessage",
+				{
+					method: "POST",
+					headers: {
+						"Content-type": "application/json",
+					},
+					body: JSON.stringify(messageData),
+				}
+			);
       const data =await res.json();
       console.log(data);
       setStart(!start)
