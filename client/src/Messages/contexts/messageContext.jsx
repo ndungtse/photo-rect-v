@@ -4,7 +4,7 @@ import { useAuth } from "../../contexts/AuthContext";
 
 const MessageContext = React.createContext();
 
-const socket = io.connect("https://zamuka-chat.herokuapp.com");
+const socket = io.connect("https://zamuka-chat.onrender.com");
 
 export function useMessage() {
 	return useContext(MessageContext);
